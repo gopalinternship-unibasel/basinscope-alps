@@ -1,8 +1,8 @@
 {
  "meta": {
-  "api_version": "1.0.0",
+  "api_version": "1.1.0",
   "generated": "2026-10-03",
-  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
   "count": 15
  },
@@ -57,6 +57,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 0,
+    "shallow_landslide": 6,
+    "rockfall": 12,
+    "permafrost": 0
+   },
    "confidence_note": "The terrain model edge cuts through the lake.",
    "notes": [
     "On the federal hydropower round-table list (2021) as the Grimsel enlargement. The analysis found it independently.",
@@ -107,6 +113,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 0,
+    "shallow_landslide": 1,
+    "rockfall": 3,
+    "permafrost": 4
+   },
    "confidence_note": null,
    "notes": [
     "Best new site in the terrain analysis: a large volume behind a short dam. Its whole catchment is 25.7 km², 54% glaciated."
@@ -149,6 +161,12 @@
       "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 0,
+    "shallow_landslide": 5,
+    "rockfall": 6,
+    "permafrost": 4
    },
    "confidence_note": null,
    "notes": [
@@ -199,6 +217,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 1,
+    "shallow_landslide": 0,
+    "rockfall": 1,
+    "permafrost": 0
+   },
    "confidence_note": null,
    "notes": []
   },
@@ -245,6 +269,12 @@
       "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 1,
+    "shallow_landslide": 2,
+    "rockfall": 8,
+    "permafrost": 0
    },
    "confidence_note": null,
    "notes": [
@@ -301,6 +331,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 8,
+    "shallow_landslide": 3,
+    "rockfall": 1,
+    "permafrost": 0
+   },
    "confidence_note": null,
    "notes": [
     "A great deal of glacier upstream but little space."
@@ -349,6 +385,12 @@
       "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 2,
+    "shallow_landslide": 1,
+    "rockfall": 10,
+    "permafrost": 4
    },
    "confidence_note": null,
    "notes": []
@@ -402,6 +444,12 @@
       "name": "Bietschhorn, partial protection"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 7,
+    "shallow_landslide": 9,
+    "rockfall": 3,
+    "permafrost": 0
    },
    "confidence_note": "The terrain model may show the valley before or after the 2025 collapse.",
    "notes": [
@@ -458,6 +506,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 11,
+    "shallow_landslide": 8,
+    "rockfall": 22,
+    "permafrost": 0
+   },
    "confidence_note": null,
    "notes": [
     "Small basin in a forefield step."
@@ -506,6 +560,12 @@
       "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 1,
+    "shallow_landslide": 4,
+    "rockfall": 10,
+    "permafrost": 8
    },
    "confidence_note": null,
    "notes": [
@@ -562,6 +622,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 2,
+    "shallow_landslide": 8,
+    "rockfall": 17,
+    "permafrost": 0
+   },
    "confidence_note": null,
    "notes": [
     "Small basin in a forefield step."
@@ -610,6 +676,12 @@
       "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 6,
+    "shallow_landslide": 11,
+    "rockfall": 17,
+    "permafrost": 0
    },
    "confidence_note": null,
    "notes": [
@@ -672,6 +744,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 8,
+    "shallow_landslide": 12,
+    "rockfall": 20,
+    "permafrost": 5
+   },
    "confidence_note": null,
    "notes": [
     "Small basin in a forefield step."
@@ -727,6 +805,12 @@
      }
     ]
    },
+   "hazard_index_percent": {
+    "debris_flow": 1,
+    "shallow_landslide": 7,
+    "rockfall": 13,
+    "permafrost": 2
+   },
    "confidence_note": null,
    "notes": [
     "Small basin in a forefield step."
@@ -775,6 +859,12 @@
       "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
      }
     ]
+   },
+   "hazard_index_percent": {
+    "debris_flow": 3,
+    "shallow_landslide": 2,
+    "rockfall": 10,
+    "permafrost": 3
    },
    "confidence_note": null,
    "notes": [

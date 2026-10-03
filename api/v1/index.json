@@ -1,8 +1,8 @@
 {
  "meta": {
-  "api_version": "1.0.0",
+  "api_version": "1.1.0",
   "generated": "2026-10-03",
-  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
  },
  "data": {
@@ -56,6 +56,21 @@
     "description": "Land and glacier area by 500 m elevation band."
    },
    {
+    "path": "/hydropower-plants.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/hydropower-plants.json",
+    "description": "The 127 hydropower plants of 300 kW or more in the map extent: type, status, turbine power, expected yearly production (SFOE)."
+   },
+   {
+    "path": "/dams.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/dams.json",
+    "description": "The 33 dams under federal supervision in the map extent: type, height, crest length, reservoir volume (SFOE)."
+   },
+   {
+    "path": "/reservoir-storage.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/reservoir-storage.json",
+    "description": "Energy held in Swiss reservoirs, latest week and the past year, with the capacity (SFOE)."
+   },
+   {
     "path": "/openapi.json",
     "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/openapi.json",
     "description": "OpenAPI 3.0 description of this API."
@@ -75,6 +90,15 @@
     "what": "Protected areas",
     "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point",
     "as_of": "2026-10-03"
+   },
+   {
+    "what": "Hazard process areas",
+    "source": "SilvaProtect-CH (debris flow, rockfall, shallow landslide) and the map of potential permafrost distribution, FOEN, read from wms.geo.admin.ch for a 250 m square around each site. Index maps, valid to 1:50,000",
+    "as_of": "2026-10-03"
+   },
+   {
+    "what": "Hydropower plants, dams, reservoir storage",
+    "source": "Hydropower statistics (WASTA), dams under federal supervision and filling level of the storage lakes, Swiss Federal Office of Energy (SFOE)"
    }
   ]
  }

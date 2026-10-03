@@ -1,0 +1,228 @@
+{
+ "meta": {
+  "api_version": "1.1.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "date": "2026-09-28",
+  "energy_gwh": 6588.0,
+  "capacity_gwh": 8895.0,
+  "area": "Switzerland",
+  "past_year": [
+   {
+    "date": "2025-09-29",
+    "energy_gwh": 7600.0
+   },
+   {
+    "date": "2025-10-06",
+    "energy_gwh": 7551.0
+   },
+   {
+    "date": "2025-10-13",
+    "energy_gwh": 7375.0
+   },
+   {
+    "date": "2025-10-20",
+    "energy_gwh": 7093.0
+   },
+   {
+    "date": "2025-10-27",
+    "energy_gwh": 6957.0
+   },
+   {
+    "date": "2025-11-03",
+    "energy_gwh": 6928.0
+   },
+   {
+    "date": "2025-11-10",
+    "energy_gwh": 6809.0
+   },
+   {
+    "date": "2025-11-17",
+    "energy_gwh": 6573.0
+   },
+   {
+    "date": "2025-11-24",
+    "energy_gwh": 6223.0
+   },
+   {
+    "date": "2025-12-01",
+    "energy_gwh": 5882.0
+   },
+   {
+    "date": "2025-12-08",
+    "energy_gwh": 5465.0
+   },
+   {
+    "date": "2025-12-15",
+    "energy_gwh": 5202.0
+   },
+   {
+    "date": "2025-12-22",
+    "energy_gwh": 4909.0
+   },
+   {
+    "date": "2025-12-29",
+    "energy_gwh": 4816.0
+   },
+   {
+    "date": "2026-01-05",
+    "energy_gwh": 4685.0
+   },
+   {
+    "date": "2026-01-12",
+    "energy_gwh": 4195.0
+   },
+   {
+    "date": "2026-01-19",
+    "energy_gwh": 3774.0
+   },
+   {
+    "date": "2026-01-26",
+    "energy_gwh": 3356.0
+   },
+   {
+    "date": "2026-02-02",
+    "energy_gwh": 3067.0
+   },
+   {
+    "date": "2026-02-09",
+    "energy_gwh": 2805.0
+   },
+   {
+    "date": "2026-02-16",
+    "energy_gwh": 2592.0
+   },
+   {
+    "date": "2026-02-23",
+    "energy_gwh": 2329.0
+   },
+   {
+    "date": "2026-03-02",
+    "energy_gwh": 2086.0
+   },
+   {
+    "date": "2026-03-09",
+    "energy_gwh": 1803.0
+   },
+   {
+    "date": "2026-03-16",
+    "energy_gwh": 1599.0
+   },
+   {
+    "date": "2026-03-23",
+    "energy_gwh": 1394.0
+   },
+   {
+    "date": "2026-03-30",
+    "energy_gwh": 1166.0
+   },
+   {
+    "date": "2026-04-06",
+    "energy_gwh": 1055.0
+   },
+   {
+    "date": "2026-04-13",
+    "energy_gwh": 1100.0
+   },
+   {
+    "date": "2026-04-20",
+    "energy_gwh": 1051.0
+   },
+   {
+    "date": "2026-04-27",
+    "energy_gwh": 1077.0
+   },
+   {
+    "date": "2026-05-04",
+    "energy_gwh": 1226.0
+   },
+   {
+    "date": "2026-05-11",
+    "energy_gwh": 1138.0
+   },
+   {
+    "date": "2026-05-18",
+    "energy_gwh": 1135.0
+   },
+   {
+    "date": "2026-05-25",
+    "energy_gwh": 1224.0
+   },
+   {
+    "date": "2026-06-01",
+    "energy_gwh": 1770.0
+   },
+   {
+    "date": "2026-06-08",
+    "energy_gwh": 2229.0
+   },
+   {
+    "date": "2026-06-15",
+    "energy_gwh": 2583.0
+   },
+   {
+    "date": "2026-06-22",
+    "energy_gwh": 2983.0
+   },
+   {
+    "date": "2026-06-29",
+    "energy_gwh": 3385.0
+   },
+   {
+    "date": "2026-07-06",
+    "energy_gwh": 3799.0
+   },
+   {
+    "date": "2026-07-13",
+    "energy_gwh": 4092.0
+   },
+   {
+    "date": "2026-07-20",
+    "energy_gwh": 4533.0
+   },
+   {
+    "date": "2026-07-27",
+    "energy_gwh": 4834.0
+   },
+   {
+    "date": "2026-08-03",
+    "energy_gwh": 5213.0
+   },
+   {
+    "date": "2026-08-10",
+    "energy_gwh": 5590.0
+   },
+   {
+    "date": "2026-08-17",
+    "energy_gwh": 5892.0
+   },
+   {
+    "date": "2026-08-24",
+    "energy_gwh": 6083.0
+   },
+   {
+    "date": "2026-08-31",
+    "energy_gwh": 6388.0
+   },
+   {
+    "date": "2026-09-07",
+    "energy_gwh": 6498.0
+   },
+   {
+    "date": "2026-09-14",
+    "energy_gwh": 6610.0
+   },
+   {
+    "date": "2026-09-21",
+    "energy_gwh": 6639.0
+   },
+   {
+    "date": "2026-09-28",
+    "energy_gwh": 6588.0
+   }
+  ]
+ }
+}

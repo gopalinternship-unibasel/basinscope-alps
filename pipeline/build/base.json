@@ -1,0 +1,415 @@
+{
+ "sites": [
+  {
+   "id": 1,
+   "name": "Grimselsee, western part",
+   "type": "reservoir",
+   "E": 2664285,
+   "N": 1157195,
+   "z": 1908,
+   "gl": 30.1,
+   "v10": 6.27,
+   "v20": 14.96,
+   "lake": 99,
+   "dam": 670,
+   "hc": 4128,
+   "valley": "Grimsel area (Aare)",
+   "notes": [
+    "On the federal hydropower round-table list (2021) as the Grimsel enlargement. The analysis found it independently.",
+    "The terrain model's eastern edge runs through the middle of the lake, so this volume is uncertain."
+   ],
+   "low": "The terrain model edge cuts through the lake."
+  },
+  {
+   "id": 2,
+   "name": "Gauligletscher forefield",
+   "type": "new",
+   "E": 2659955,
+   "N": 1162765,
+   "z": 2139,
+   "gl": 13.8,
+   "v10": 4.98,
+   "v20": 12.49,
+   "lake": 83,
+   "dam": 210,
+   "hc": 4022,
+   "valley": "Gauli / Urbachtal",
+   "notes": [
+    "Best new site in the terrain analysis: a large volume behind a short dam. Its whole catchment is 25.7 km², 54% glaciated."
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Oberaarsee",
+   "type": "reservoir",
+   "E": 2662995,
+   "N": 1154885,
+   "z": 2302,
+   "gl": 4.48,
+   "v10": 9.55,
+   "v20": 20.38,
+   "lake": 114,
+   "dam": 1060,
+   "hc": 4128,
+   "valley": "Grimsel area (Aare)",
+   "notes": [
+    "On the federal hydropower round-table list (2021). The analysis found it independently."
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Oeschinensee",
+   "type": "lake",
+   "E": 2621445,
+   "N": 1149575,
+   "z": 1575,
+   "gl": 4.4,
+   "v10": 10.64,
+   "v20": 22.61,
+   "lake": 124,
+   "dam": 780,
+   "hc": 4134,
+   "valley": "Kandersteg (Öschibach)",
+   "notes": []
+  },
+  {
+   "id": 5,
+   "name": "Fieschergletscher forefield",
+   "type": "new",
+   "E": 2653415,
+   "N": 1144985,
+   "z": 1675,
+   "gl": 33.2,
+   "v10": 0.73,
+   "v20": 2.1,
+   "lake": 16,
+   "dam": 190,
+   "hc": 3143,
+   "valley": "Below the Fieschergletscher",
+   "notes": [
+    "A great deal of glacier upstream but little space."
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Fafleralp, Lötschental",
+   "type": "new",
+   "E": 2632445,
+   "N": 1142545,
+   "z": 1761,
+   "gl": 17.1,
+   "v10": 0.26,
+   "v20": 1.88,
+   "lake": 23,
+   "dam": 300,
+   "hc": 3003,
+   "valley": "Lötschental",
+   "notes": [
+    "A great deal of glacier upstream but little space."
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Lake near the Gruebengletscher",
+   "type": "lake",
+   "E": 2663435,
+   "N": 1161755,
+   "z": 2332,
+   "gl": 1.29,
+   "v10": 0.61,
+   "v20": 1.85,
+   "lake": 16,
+   "dam": 320,
+   "hc": 4128,
+   "valley": "Grimsel area (Aare)",
+   "notes": []
+  },
+  {
+   "id": 8,
+   "name": "Blatten, Lötschental",
+   "type": "settlement",
+   "E": 2629245,
+   "N": 1141005,
+   "z": 1524,
+   "gl": 21.9,
+   "v10": 0.13,
+   "v20": 0.85,
+   "lake": 11,
+   "dam": 460,
+   "hc": 3003,
+   "valley": "Lötschental",
+   "notes": [
+    "The village was buried in May 2025 by the collapse of the Birch Glacier. The terrain has changed fundamentally and the site is unsuitable in any case."
+   ],
+   "low": "The terrain model may show the valley before or after the 2025 collapse."
+  },
+  {
+   "id": 9,
+   "name": "Kanderfirn forefield, upper Gasterntal",
+   "type": "new",
+   "E": 2623945,
+   "N": 1144525,
+   "z": 1724,
+   "gl": 13.2,
+   "v10": 0.11,
+   "v20": 0.71,
+   "lake": 9,
+   "dam": 460,
+   "hc": 4006,
+   "valley": "Gasterntal (Kanderfirn)",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Blüemlisalpgletscher forefield",
+   "type": "new",
+   "E": 2623635,
+   "N": 1150555,
+   "z": 2174,
+   "gl": 2.2,
+   "v10": 0.12,
+   "v20": 0.68,
+   "lake": 7,
+   "dam": 360,
+   "hc": 4134,
+   "valley": "Kandersteg (Öschibach)",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Bächlital, Grimsel",
+   "type": "new",
+   "E": 2665225,
+   "N": 1159815,
+   "z": 2173,
+   "gl": 1.2,
+   "v10": 0.21,
+   "v20": 0.68,
+   "lake": 5,
+   "dam": 360,
+   "hc": 4128,
+   "valley": "Grimsel area (Aare)",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Breitlouwenengletscher forefield",
+   "type": "new",
+   "E": 2636945,
+   "N": 1151685,
+   "z": 2211,
+   "gl": 0.6,
+   "v10": 0.22,
+   "v20": 0.59,
+   "lake": 4,
+   "dam": 290,
+   "hc": 4020,
+   "valley": "Hinteres Lauterbrunnental",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Baltschiedergletscher forefield",
+   "type": "new",
+   "E": 2634775,
+   "N": 1137275,
+   "z": 2281,
+   "gl": 5.5,
+   "v10": 0.11,
+   "v20": 0.56,
+   "lake": 6,
+   "dam": 290,
+   "hc": 3124,
+   "valley": "Baltschiedertal",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Jegigletscher forefield",
+   "type": "new",
+   "E": 2635325,
+   "N": 1145305,
+   "z": 2203,
+   "gl": 2.1,
+   "v10": 0.1,
+   "v20": 0.54,
+   "lake": 6,
+   "dam": 360,
+   "hc": 3003,
+   "valley": "Lötschental",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 15,
+   "name": "Tschingelfirn forefield",
+   "type": "new",
+   "E": 2632305,
+   "N": 1149925,
+   "z": 2267,
+   "gl": 5.2,
+   "v10": 0.19,
+   "v20": 0.51,
+   "lake": 4,
+   "dam": 230,
+   "hc": 4020,
+   "valley": "Hinteres Lauterbrunnental",
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  }
+ ],
+ "exits": [
+  {
+   "n": "Massa (Aletsch) → Rhone",
+   "g": 107,
+   "d": "exit at 909 m, southern edge",
+   "warn": "No site found on this path."
+  },
+  {
+   "n": "Lütschine (Grindelwald, Lauterbrunnen)",
+   "g": 51,
+   "d": "exit at 578 m, northern edge. Sites only in the Lauterbrunnen arm."
+  },
+  {
+   "n": "Rhone, incl. Fieschergletscher",
+   "g": 38,
+   "d": "exit at 697 m, southern edge"
+  },
+  {
+   "n": "Lonza (Lötschental) → Rhone",
+   "g": 31,
+   "d": "exit at 498 m, southern edge"
+  },
+  {
+   "n": "Aare at the Grimsel",
+   "g": 30,
+   "d": "exit at 1,908 m, eastern edge, through the Grimselsee"
+  },
+  {
+   "n": "Kander",
+   "g": 21,
+   "d": "exit at 1,241 m, northern edge"
+  }
+ ],
+ "glaciers": [
+  {
+   "n": "Grosser Aletschgletscher",
+   "a": 78.5,
+   "l": 23.5,
+   "lo": 1605,
+   "hi": 4120
+  },
+  {
+   "n": "Fieschergletscher E",
+   "a": 29.8,
+   "l": 15,
+   "lo": 1678,
+   "hi": 4159
+  },
+  {
+   "n": "Unteraargletscher",
+   "a": 22.7,
+   "l": 12.3,
+   "lo": 1931,
+   "hi": 4017
+  },
+  {
+   "n": "Oberaletschgletscher",
+   "a": 17.1,
+   "l": 9.5,
+   "lo": 2140,
+   "hi": 3826
+  },
+  {
+   "n": "Kanderfirn N",
+   "a": 12,
+   "l": 6.9,
+   "lo": 2314,
+   "hi": 3227
+  },
+  {
+   "n": "Gauligletscher",
+   "a": 10.8,
+   "l": 5.7,
+   "lo": 2244,
+   "hi": 3621
+  },
+  {
+   "n": "Unterer Grindelwaldgletscher",
+   "a": 9.2,
+   "l": 5.7,
+   "lo": 1357,
+   "hi": 4105
+  },
+  {
+   "n": "Oberer Grindelwaldgletscher",
+   "a": 8.3,
+   "l": 4.5,
+   "lo": 1448,
+   "hi": 3737
+  },
+  {
+   "n": "Langgletscher",
+   "a": 8,
+   "l": 4.8,
+   "lo": 2103,
+   "hi": 3894
+  },
+  {
+   "n": "Obers Ischmeer E",
+   "a": 7.3,
+   "l": 6.2,
+   "lo": 1663,
+   "hi": 3889
+  }
+ ],
+ "bands": [
+  {
+   "z": 1000,
+   "ar": 2.8,
+   "gl": 0.2
+  },
+  {
+   "z": 1500,
+   "ar": 52,
+   "gl": 4.4
+  },
+  {
+   "z": 2000,
+   "ar": 173.9,
+   "gl": 38.5
+  },
+  {
+   "z": 2500,
+   "ar": 301.4,
+   "gl": 109.2
+  },
+  {
+   "z": 3000,
+   "ar": 205,
+   "gl": 123.8
+  },
+  {
+   "z": 3500,
+   "ar": 44.9,
+   "gl": 26.3
+  },
+  {
+   "z": 4000,
+   "ar": 0.7,
+   "gl": 0.3
+  }
+ ]
+}

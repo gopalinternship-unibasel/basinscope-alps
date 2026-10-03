@@ -2,8 +2,8 @@
  "openapi": "3.0.3",
  "info": {
   "title": "BasinScope Alps data API",
-  "version": "1.0.0",
-  "description": "Read-only data on glacier-meltwater retention basin sites in the Jungfrau-Aletsch area. Static JSON, no key, open to browser calls from any origin. Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study."
+  "version": "1.1.0",
+  "description": "Read-only data on glacier-meltwater retention basin sites in the Jungfrau-Aletsch area. Static JSON, no key, open to browser calls from any origin. Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study."
  },
  "servers": [
   {
@@ -301,6 +301,96 @@
      }
     }
    }
+  },
+  "/hydropower-plants.json": {
+   "get": {
+    "tags": [
+     "Energy"
+    ],
+    "summary": "The 127 hydropower plants of 300 kW or more in the map extent: type, status, turbine power, expected yearly production (SFOE).",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Plant"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/dams.json": {
+   "get": {
+    "tags": [
+     "Energy"
+    ],
+    "summary": "The 33 dams under federal supervision in the map extent: type, height, crest length, reservoir volume (SFOE).",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Dam"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/reservoir-storage.json": {
+   "get": {
+    "tags": [
+     "Energy"
+    ],
+    "summary": "Energy held in Swiss reservoirs, latest week and the past year, with the capacity (SFOE).",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "$ref": "#/components/schemas/ReservoirStorage"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
   }
  },
  "components": {
@@ -457,6 +547,25 @@
      "protection": {
       "$ref": "#/components/schemas/Protection"
      },
+     "hazard_index_percent": {
+      "type": "object",
+      "nullable": true,
+      "description": "Share of the 250 m square around the site that the federal index maps mark, in per cent. An indication for the hazard assessment, not a hazard map.",
+      "properties": {
+       "debris_flow": {
+        "type": "number"
+       },
+       "shallow_landslide": {
+        "type": "number"
+       },
+       "rockfall": {
+        "type": "number"
+       },
+       "permafrost": {
+        "type": "number"
+       }
+      }
+     },
      "confidence_note": {
       "type": "string",
       "nullable": true
@@ -594,6 +703,134 @@
      },
      "glacier_area_km2": {
       "type": "number"
+     }
+    }
+   },
+   "Plant": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "place": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "status": {
+      "type": "string"
+     },
+     "turbine_power_mw": {
+      "type": "number"
+     },
+     "expected_production_gwh_per_year": {
+      "type": "number"
+     },
+     "in_operation_since": {
+      "type": "integer"
+     },
+     "location": {
+      "type": "object",
+      "properties": {
+       "easting_lv95": {
+        "type": "integer"
+       },
+       "northing_lv95": {
+        "type": "integer"
+       },
+       "longitude": {
+        "type": "number"
+       },
+       "latitude": {
+        "type": "number"
+       },
+       "elevation_m": {
+        "type": "integer"
+       }
+      }
+     }
+    }
+   },
+   "Dam": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "reservoir": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "height_m": {
+      "type": "number"
+     },
+     "crest_length_m": {
+      "type": "number"
+     },
+     "reservoir_volume_mio_m3": {
+      "type": "number"
+     },
+     "built": {
+      "type": "integer"
+     },
+     "purpose": {
+      "type": "string"
+     },
+     "location": {
+      "type": "object",
+      "properties": {
+       "easting_lv95": {
+        "type": "integer"
+       },
+       "northing_lv95": {
+        "type": "integer"
+       },
+       "longitude": {
+        "type": "number"
+       },
+       "latitude": {
+        "type": "number"
+       },
+       "elevation_m": {
+        "type": "integer"
+       }
+      }
+     }
+    }
+   },
+   "ReservoirStorage": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "string",
+      "format": "date"
+     },
+     "energy_gwh": {
+      "type": "number"
+     },
+     "capacity_gwh": {
+      "type": "number"
+     },
+     "area": {
+      "type": "string"
+     },
+     "past_year": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "date": {
+         "type": "string",
+         "format": "date"
+        },
+        "energy_gwh": {
+         "type": "number"
+        }
+       }
+      }
      }
     }
    }

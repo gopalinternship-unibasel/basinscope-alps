@@ -1,0 +1,539 @@
+{
+ "meta": {
+  "api_version": "1.1.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 33
+ },
+ "data": [
+  {
+   "name": "Göscheneralp",
+   "reservoir": "Göscheneralp",
+   "type": "rockfill dam",
+   "height_m": 155.0,
+   "crest_length_m": 540.0,
+   "reservoir_volume_mio_m3": 76.0,
+   "built": 1960,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2681110,
+    "northing_lv95": 1166580,
+    "longitude": 8.498112,
+    "latitude": 46.64553
+   }
+  },
+  {
+   "name": "Gebidem",
+   "reservoir": "Gebidem",
+   "type": "arch dam",
+   "height_m": 122.0,
+   "crest_length_m": 327.0,
+   "reservoir_volume_mio_m3": 9.2,
+   "built": 1967,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2643390,
+    "northing_lv95": 1135690,
+    "longitude": 8.002531,
+    "latitude": 46.371179
+   }
+  },
+  {
+   "name": "Spitallamm",
+   "reservoir": "Grimsel",
+   "type": "arch-gravity dam",
+   "height_m": 114.0,
+   "crest_length_m": 258.0,
+   "reservoir_volume_mio_m3": 100.49,
+   "built": 1932,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2668300,
+    "northing_lv95": 1158270,
+    "longitude": 8.329568,
+    "latitude": 46.572215
+   }
+  },
+  {
+   "name": "Cavagnoli",
+   "reservoir": "Cavagnoli",
+   "type": "arch dam",
+   "height_m": 111.0,
+   "crest_length_m": 317.0,
+   "reservoir_volume_mio_m3": 29.11,
+   "built": 1968,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2682120,
+    "northing_lv95": 1145300,
+    "longitude": 8.507517,
+    "latitude": 46.453999
+   }
+  },
+  {
+   "name": "Oberaar",
+   "reservoir": "Oberaar",
+   "type": "gravity dam",
+   "height_m": 104.0,
+   "crest_length_m": 526.0,
+   "reservoir_volume_mio_m3": 63.65,
+   "built": 1953,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2663960,
+    "northing_lv95": 1155520,
+    "longitude": 8.272579,
+    "latitude": 46.547907
+   }
+  },
+  {
+   "name": "Räterichsboden",
+   "reservoir": "Räterichsboden",
+   "type": "gravity dam",
+   "height_m": 92.0,
+   "crest_length_m": 456.0,
+   "reservoir_volume_mio_m3": 26.3,
+   "built": 1950,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2667900,
+    "northing_lv95": 1160190,
+    "longitude": 8.324634,
+    "latitude": 46.589526
+   }
+  },
+  {
+   "name": "Lucendro",
+   "reservoir": "Lucendro",
+   "type": "buttress dam",
+   "height_m": 73.0,
+   "crest_length_m": 269.0,
+   "reservoir_volume_mio_m3": 25.0,
+   "built": 1947,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2685190,
+    "northing_lv95": 1157510,
+    "longitude": 8.549721,
+    "latitude": 46.563441
+   }
+  },
+  {
+   "name": "Robiei",
+   "reservoir": "Robiei",
+   "type": "gravity dam",
+   "height_m": 68.0,
+   "crest_length_m": 355.0,
+   "reservoir_volume_mio_m3": 6.9,
+   "built": 1967,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2682740,
+    "northing_lv95": 1144180,
+    "longitude": 8.515386,
+    "latitude": 46.443848
+   }
+  },
+  {
+   "name": "Ferden",
+   "reservoir": "Ferden",
+   "type": "arch dam",
+   "height_m": 67.0,
+   "crest_length_m": 126.1,
+   "reservoir_volume_mio_m3": 1.89,
+   "built": 1975,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2624460,
+    "northing_lv95": 1137110,
+    "longitude": 7.756597,
+    "latitude": 46.384909
+   }
+  },
+  {
+   "name": "Gries",
+   "reservoir": "Gries",
+   "type": "gravity dam",
+   "height_m": 60.0,
+   "crest_length_m": 400.0,
+   "reservoir_volume_mio_m3": 18.7,
+   "built": 1965,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2671560,
+    "northing_lv95": 1145970,
+    "longitude": 8.370185,
+    "latitude": 46.461236
+   }
+  },
+  {
+   "name": "Illgraben",
+   "reservoir": "Illgraben",
+   "type": "gravity dam",
+   "height_m": 49.5,
+   "crest_length_m": 64.5,
+   "reservoir_volume_mio_m3": 0.3,
+   "built": 1969,
+   "purpose": "flood control",
+   "location": {
+    "easting_lv95": 2613940,
+    "northing_lv95": 1125800,
+    "longitude": 7.619507,
+    "latitude": 46.28347
+   }
+  },
+  {
+   "name": "Seeuferegg",
+   "reservoir": "Grimsel",
+   "type": "gravity dam",
+   "height_m": 42.0,
+   "crest_length_m": 336.0,
+   "reservoir_volume_mio_m3": 100.49,
+   "built": 1932,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2668950,
+    "northing_lv95": 1158390,
+    "longitude": 8.338065,
+    "latitude": 46.573228
+   }
+  },
+  {
+   "name": "Zöt",
+   "reservoir": "Zöt",
+   "type": "arch dam",
+   "height_m": 36.0,
+   "crest_length_m": 145.0,
+   "reservoir_volume_mio_m3": 1.65,
+   "built": 1967,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2681980,
+    "northing_lv95": 1143220,
+    "longitude": 8.505327,
+    "latitude": 46.435307
+   }
+  },
+  {
+   "name": "Gelmer",
+   "reservoir": "Gelmer",
+   "type": "gravity dam",
+   "height_m": 35.0,
+   "crest_length_m": 370.0,
+   "reservoir_volume_mio_m3": 13.0,
+   "built": 1929,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2667640,
+    "northing_lv95": 1162670,
+    "longitude": 8.321606,
+    "latitude": 46.61186
+   }
+  },
+  {
+   "name": "Sera",
+   "reservoir": "Sera",
+   "type": "arch dam",
+   "height_m": 25.7,
+   "crest_length_m": 81.5,
+   "reservoir_volume_mio_m3": 0.18,
+   "built": 2010,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2652760,
+    "northing_lv95": 1113340,
+    "longitude": 8.12177,
+    "latitude": 46.169464
+   }
+  },
+  {
+   "name": "Illsee",
+   "reservoir": "Illsee",
+   "type": "gravity dam",
+   "height_m": 25.0,
+   "crest_length_m": 270.0,
+   "reservoir_volume_mio_m3": 6.5,
+   "built": 1927,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2614970,
+    "northing_lv95": 1123090,
+    "longitude": 7.632784,
+    "latitude": 46.25907
+   }
+  },
+  {
+   "name": "Mattenalp",
+   "reservoir": "Mattenalp",
+   "type": "gravity dam",
+   "height_m": 25.0,
+   "crest_length_m": 141.0,
+   "reservoir_volume_mio_m3": 1.85,
+   "built": 1950,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2661030,
+    "northing_lv95": 1164960,
+    "longitude": 8.235629,
+    "latitude": 46.633095
+   }
+  },
+  {
+   "name": "Tannensee",
+   "reservoir": "Tannensee",
+   "type": "earthfill dam",
+   "height_m": 25.0,
+   "crest_length_m": 600.0,
+   "reservoir_volume_mio_m3": 3.8,
+   "built": 1958,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2665880,
+    "northing_lv95": 1180620,
+    "longitude": 8.301208,
+    "latitude": 46.773495
+   }
+  },
+  {
+   "name": "Vordersee",
+   "reservoir": "Vordersee",
+   "type": "earthfill dam",
+   "height_m": 22.0,
+   "crest_length_m": 145.0,
+   "reservoir_volume_mio_m3": 0.56,
+   "built": 1986,
+   "purpose": "water supply",
+   "location": {
+    "easting_lv95": 2651070,
+    "northing_lv95": 1143400,
+    "longitude": 8.103184,
+    "latitude": 46.439992
+   }
+  },
+  {
+   "name": "Zen Binnen",
+   "reservoir": "Zen Binnen",
+   "type": "arch dam",
+   "height_m": 21.5,
+   "crest_length_m": 46.0,
+   "reservoir_volume_mio_m3": 0.17,
+   "built": 1953,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2656450,
+    "northing_lv95": 1134620,
+    "longitude": 8.172119,
+    "latitude": 46.360583
+   }
+  },
+  {
+   "name": "Secada",
+   "reservoir": "Secada",
+   "type": "arch dam",
+   "height_m": 21.0,
+   "crest_length_m": 35.0,
+   "reservoir_volume_mio_m3": 0.1,
+   "built": 1982,
+   "purpose": "flood control",
+   "location": {
+    "easting_lv95": 2682510,
+    "northing_lv95": 1126559,
+    "longitude": 8.509265,
+    "latitude": 46.28538
+   }
+  },
+  {
+   "name": "Bortelsee",
+   "reservoir": "Bortelsee",
+   "type": "rockfill dam",
+   "height_m": 20.0,
+   "crest_length_m": 310.0,
+   "reservoir_volume_mio_m3": 1.66,
+   "built": 1989,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2651350,
+    "northing_lv95": 1126550,
+    "longitude": 8.104966,
+    "latitude": 46.2884
+   }
+  },
+  {
+   "name": "Totensee",
+   "reservoir": "Totensee",
+   "type": "gravity dam",
+   "height_m": 20.0,
+   "crest_length_m": 74.0,
+   "reservoir_volume_mio_m3": 2.6,
+   "built": 1950,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2669410,
+    "northing_lv95": 1156960,
+    "longitude": 8.343849,
+    "latitude": 46.560317
+   }
+  },
+  {
+   "name": "Gruben",
+   "reservoir": "Gruben",
+   "type": "earthfill dam",
+   "height_m": 17.0,
+   "crest_length_m": 0.0,
+   "reservoir_volume_mio_m3": 0.159,
+   "built": 1995,
+   "purpose": "others",
+   "location": {
+    "easting_lv95": 2621628,
+    "northing_lv95": 1117229,
+    "longitude": 7.718861,
+    "latitude": 46.206166
+   }
+  },
+  {
+   "name": "Handeck",
+   "reservoir": "Handeck",
+   "type": "earthfill dam",
+   "height_m": 16.0,
+   "crest_length_m": 145.0,
+   "reservoir_volume_mio_m3": 0.082,
+   "built": 1942,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2666480,
+    "northing_lv95": 1163320,
+    "longitude": 8.306558,
+    "latitude": 46.617823
+   }
+  },
+  {
+   "name": "Melchsee",
+   "reservoir": "Melchsee",
+   "type": "earthfill dam",
+   "height_m": 16.0,
+   "crest_length_m": 295.0,
+   "reservoir_volume_mio_m3": 2.73,
+   "built": 1958,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2663200,
+    "northing_lv95": 1180470,
+    "longitude": 8.266101,
+    "latitude": 46.772406
+   }
+  },
+  {
+   "name": "Oberems",
+   "reservoir": "Oberems",
+   "type": "multiple arch dam",
+   "height_m": 11.0,
+   "crest_length_m": 176.0,
+   "reservoir_volume_mio_m3": 0.025,
+   "built": 1927,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2619360,
+    "northing_lv95": 1125720,
+    "longitude": 7.689828,
+    "latitude": 46.282616
+   }
+  },
+  {
+   "name": "Eggen",
+   "reservoir": "Eggen",
+   "type": "earthfill dam",
+   "height_m": 10.0,
+   "crest_length_m": 250.0,
+   "reservoir_volume_mio_m3": 0.05,
+   "built": 1958,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2646640,
+    "northing_lv95": 1117360,
+    "longitude": 8.042932,
+    "latitude": 46.206077
+   }
+  },
+  {
+   "name": "Trübtensee",
+   "reservoir": "Trübtensee",
+   "type": "gravity dam",
+   "height_m": 9.5,
+   "crest_length_m": 46.0,
+   "reservoir_volume_mio_m3": 1.13,
+   "built": 1950,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2665950,
+    "northing_lv95": 1156250,
+    "longitude": 8.298628,
+    "latitude": 46.554281
+   }
+  },
+  {
+   "name": "Bettmersee",
+   "reservoir": "Bettmersee",
+   "type": "earthfill dam",
+   "height_m": 9.15,
+   "crest_length_m": 135.0,
+   "reservoir_volume_mio_m3": 0.56,
+   "built": 1949,
+   "purpose": "recreation",
+   "location": {
+    "easting_lv95": 2647940,
+    "northing_lv95": 1138130,
+    "longitude": 8.061912,
+    "latitude": 46.392818
+   }
+  },
+  {
+   "name": "Vissoie",
+   "reservoir": "Vissoie",
+   "type": "earthfill dam",
+   "height_m": 7.5,
+   "crest_length_m": 617.0,
+   "reservoir_volume_mio_m3": 0.05,
+   "built": 1959,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2611280,
+    "northing_lv95": 1117820,
+    "longitude": 7.584801,
+    "latitude": 46.211735
+   }
+  },
+  {
+   "name": "Meretschisee, Unterer",
+   "reservoir": "Meretschisee Unterer",
+   "type": "earthfill dam",
+   "height_m": 5.45,
+   "crest_length_m": 80.0,
+   "reservoir_volume_mio_m3": 0.2,
+   "built": 1927,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2616770,
+    "northing_lv95": 1123080,
+    "longitude": 7.656128,
+    "latitude": 46.258937
+   }
+  },
+  {
+   "name": "Meretschisee, Oberer",
+   "reservoir": "Meretschisee Oberer",
+   "type": "earthfill dam",
+   "height_m": 4.0,
+   "crest_length_m": 70.0,
+   "reservoir_volume_mio_m3": 0.2,
+   "built": 1927,
+   "purpose": "hydroelectricity",
+   "location": {
+    "easting_lv95": 2616420,
+    "northing_lv95": 1122780,
+    "longitude": 7.651579,
+    "latitude": 46.256247
+   }
+  }
+ ]
+}

@@ -1,0 +1,1916 @@
+{
+ "meta": {
+  "api_version": "1.1.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 127
+ },
+ "data": [
+  {
+   "name": "Innertkirchen 1 und 1a",
+   "place": "Innertkirchen",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 394.0,
+   "expected_production_gwh_per_year": 767.8,
+   "in_operation_since": 1943,
+   "location": {
+    "easting_lv95": 2661200,
+    "northing_lv95": 1172520,
+    "longitude": 8.238856,
+    "latitude": 46.701082
+   }
+  },
+  {
+   "name": "Grimsel 2",
+   "place": "Grimsel Chessituren",
+   "type": "pure pumped-storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 388.0,
+   "expected_production_gwh_per_year": 0.0,
+   "in_operation_since": 1981,
+   "location": {
+    "easting_lv95": 2667520,
+    "northing_lv95": 1157800,
+    "longitude": 8.319326,
+    "latitude": 46.568066
+   }
+  },
+  {
+   "name": "Bitsch",
+   "place": "Bitsch Biel",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 340.0,
+   "expected_production_gwh_per_year": 770.3,
+   "in_operation_since": 1969,
+   "location": {
+    "easting_lv95": 2643810,
+    "northing_lv95": 1131520,
+    "longitude": 8.007596,
+    "latitude": 46.333641
+   }
+  },
+  {
+   "name": "Handeck 2 und 2a",
+   "place": "Handegg",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 218.0,
+   "expected_production_gwh_per_year": 328.5,
+   "in_operation_since": 1950,
+   "location": {
+    "easting_lv95": 2666340,
+    "northing_lv95": 1162960,
+    "longitude": 8.304679,
+    "latitude": 46.614599
+   }
+  },
+  {
+   "name": "Robiei",
+   "place": "Robiei",
+   "type": "pumped-storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 192.0,
+   "expected_production_gwh_per_year": 39.19,
+   "in_operation_since": 1968,
+   "location": {
+    "easting_lv95": 2682370,
+    "northing_lv95": 1144380,
+    "longitude": 8.510607,
+    "latitude": 46.445693
+   }
+  },
+  {
+   "name": "Stalden KWM",
+   "place": "Stalden",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 185.0,
+   "expected_production_gwh_per_year": 527.4,
+   "in_operation_since": 1965,
+   "location": {
+    "easting_lv95": 2633200,
+    "northing_lv95": 1119950,
+    "longitude": 7.868984,
+    "latitude": 46.230172
+   }
+  },
+  {
+   "name": "Bavona",
+   "place": "San Carlo Bavona",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 162.0,
+   "expected_production_gwh_per_year": 316.5,
+   "in_operation_since": 1966,
+   "location": {
+    "easting_lv95": 2684500,
+    "northing_lv95": 1140480,
+    "longitude": 8.537612,
+    "latitude": 46.410348
+   }
+  },
+  {
+   "name": "Loetschen",
+   "place": "Steg Hohtenn",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 122.0,
+   "expected_production_gwh_per_year": 339.3,
+   "in_operation_since": 1976,
+   "location": {
+    "easting_lv95": 2623540,
+    "northing_lv95": 1129860,
+    "longitude": 7.74427,
+    "latitude": 46.319724
+   }
+  },
+  {
+   "name": "Hopflauenen Trift",
+   "place": "Hopflauenen",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 82.0,
+   "expected_production_gwh_per_year": 222.3,
+   "in_operation_since": 1967,
+   "location": {
+    "easting_lv95": 2664140,
+    "northing_lv95": 1174110,
+    "longitude": 8.277517,
+    "latitude": 46.715108
+   }
+  },
+  {
+   "name": "Navizence",
+   "place": "Chippis",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 71.1,
+   "expected_production_gwh_per_year": 298.7,
+   "in_operation_since": 1908,
+   "location": {
+    "easting_lv95": 2608330,
+    "northing_lv95": 1125580,
+    "longitude": 7.546714,
+    "latitude": 46.281584
+   }
+  },
+  {
+   "name": "Fieschertal",
+   "place": "Fieschertal",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 64.0,
+   "expected_production_gwh_per_year": 169.6,
+   "in_operation_since": 1975,
+   "location": {
+    "easting_lv95": 2654000,
+    "northing_lv95": 1141880,
+    "longitude": 8.141131,
+    "latitude": 46.42609
+   }
+  },
+  {
+   "name": "Ackersand 2",
+   "place": "Stalden Ackersand",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 63.0,
+   "expected_production_gwh_per_year": 150.2,
+   "in_operation_since": 1959,
+   "location": {
+    "easting_lv95": 2633600,
+    "northing_lv95": 1121070,
+    "longitude": 7.87425,
+    "latitude": 46.240227
+   }
+  },
+  {
+   "name": "Vissoie",
+   "place": "Ayer Vissoie",
+   "type": "storage plant",
+   "status": "being rebuilt",
+   "turbine_power_mw": 57.0,
+   "expected_production_gwh_per_year": 213.0,
+   "in_operation_since": 1958,
+   "location": {
+    "easting_lv95": 2611370,
+    "northing_lv95": 1117620,
+    "longitude": 7.585963,
+    "latitude": 46.209935
+   }
+  },
+  {
+   "name": "Gondo",
+   "place": "Gondo San Marco",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 57.0,
+   "expected_production_gwh_per_year": 226.8,
+   "in_operation_since": 1952,
+   "location": {
+    "easting_lv95": 2654960,
+    "northing_lv95": 1116310,
+    "longitude": 8.150602,
+    "latitude": 46.196004
+   }
+  },
+  {
+   "name": "Handeck 3",
+   "place": "Handegg",
+   "type": "pumped-storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 55.0,
+   "expected_production_gwh_per_year": 24.0,
+   "in_operation_since": 1976,
+   "location": {
+    "easting_lv95": 2666260,
+    "northing_lv95": 1162970,
+    "longitude": 8.303636,
+    "latitude": 46.614697
+   }
+  },
+  {
+   "name": "Moerel Rhone Binna",
+   "place": "Moerel",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 54.7,
+   "expected_production_gwh_per_year": 267.9,
+   "in_operation_since": 1943,
+   "location": {
+    "easting_lv95": 2646430,
+    "northing_lv95": 1133600,
+    "longitude": 8.041829,
+    "latitude": 46.352175
+   }
+  },
+  {
+   "name": "Unteraa Lungerersee",
+   "place": "Giswil",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 54.5,
+   "expected_production_gwh_per_year": 72.0,
+   "in_operation_since": 1921,
+   "location": {
+    "easting_lv95": 2656110,
+    "northing_lv95": 1185950,
+    "longitude": 8.173951,
+    "latitude": 46.822333
+   }
+  },
+  {
+   "name": "Innertkirchen 2",
+   "place": "Innertkirchen",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 54.0,
+   "expected_production_gwh_per_year": 149.3,
+   "in_operation_since": 1967,
+   "location": {
+    "easting_lv95": 2660210,
+    "northing_lv95": 1173340,
+    "longitude": 8.226019,
+    "latitude": 46.708548
+   }
+  },
+  {
+   "name": "Chippis-Rhone",
+   "place": "Chippis",
+   "type": "run-of-river plant",
+   "status": "out of service or reduced",
+   "turbine_power_mw": 47.84,
+   "expected_production_gwh_per_year": 0.0,
+   "in_operation_since": 1911,
+   "location": {
+    "easting_lv95": 2608400,
+    "northing_lv95": 1125620,
+    "longitude": 7.547623,
+    "latitude": 46.281943
+   }
+  },
+  {
+   "name": "Handeck 1",
+   "place": "Handegg",
+   "type": "storage plant",
+   "status": "out of service or reduced",
+   "turbine_power_mw": 44.0,
+   "expected_production_gwh_per_year": 116.62,
+   "in_operation_since": 1932,
+   "location": {
+    "easting_lv95": 2666560,
+    "northing_lv95": 1163210,
+    "longitude": 8.307587,
+    "latitude": 46.616826
+   }
+  },
+  {
+   "name": "Moerel Aletsch",
+   "place": "Moerel",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 43.2,
+   "expected_production_gwh_per_year": 74.6,
+   "in_operation_since": 1951,
+   "location": {
+    "easting_lv95": 2646510,
+    "northing_lv95": 1133760,
+    "longitude": 8.042884,
+    "latitude": 46.353609
+   }
+  },
+  {
+   "name": "Heiligkreuz",
+   "place": "Heiligkreuz Langtal",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 41.0,
+   "expected_production_gwh_per_year": 56.4,
+   "in_operation_since": 1971,
+   "location": {
+    "easting_lv95": 2656700,
+    "northing_lv95": 1133180,
+    "longitude": 8.175192,
+    "latitude": 46.347609
+   }
+  },
+  {
+   "name": "Grimsel 1 Oberaar",
+   "place": "Grimsel Sommerloch",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 34.0,
+   "expected_production_gwh_per_year": 72.0,
+   "in_operation_since": 1954,
+   "location": {
+    "easting_lv95": 2668600,
+    "northing_lv95": 1158620,
+    "longitude": 8.333534,
+    "latitude": 46.575332
+   }
+  },
+  {
+   "name": "Ernen",
+   "place": "Niederernen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 33.0,
+   "expected_production_gwh_per_year": 172.4,
+   "in_operation_since": 1954,
+   "location": {
+    "easting_lv95": 2653190,
+    "northing_lv95": 1137990,
+    "longitude": 8.130149,
+    "latitude": 46.391163
+   }
+  },
+  {
+   "name": "Grimsel 1 Nachschubmaschine",
+   "place": "Grimsel Sommerloch",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 32.0,
+   "expected_production_gwh_per_year": 47.0,
+   "in_operation_since": 1974,
+   "location": {
+    "easting_lv95": 2668600,
+    "northing_lv95": 1158620,
+    "longitude": 8.333534,
+    "latitude": 46.575332
+   }
+  },
+  {
+   "name": "Obermatt",
+   "place": "Grafenort",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 32.0,
+   "expected_production_gwh_per_year": 135.1,
+   "in_operation_since": 1905,
+   "location": {
+    "easting_lv95": 2671370,
+    "northing_lv95": 1188340,
+    "longitude": 8.374288,
+    "latitude": 46.842369
+   }
+  },
+  {
+   "name": "Ackersand 1",
+   "place": "Stalden Ackersand",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 32.0,
+   "expected_production_gwh_per_year": 97.4,
+   "in_operation_since": 1909,
+   "location": {
+    "easting_lv95": 2633640,
+    "northing_lv95": 1121050,
+    "longitude": 7.874767,
+    "latitude": 46.240045
+   }
+  },
+  {
+   "name": "Mubisa",
+   "place": "Neubrigg Ernen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 26.0,
+   "expected_production_gwh_per_year": 90.0,
+   "in_operation_since": 1965,
+   "location": {
+    "easting_lv95": 2653500,
+    "northing_lv95": 1138550,
+    "longitude": 8.134243,
+    "latitude": 46.396176
+   }
+  },
+  {
+   "name": "Turtmann",
+   "place": "Turtmann Muellacheren",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 23.9,
+   "expected_production_gwh_per_year": 80.1,
+   "in_operation_since": 1925,
+   "location": {
+    "easting_lv95": 2619060,
+    "northing_lv95": 1127140,
+    "longitude": 7.685993,
+    "latitude": 46.295398
+   }
+  },
+  {
+   "name": "Kandergrund",
+   "place": "Inner-Kandergrund",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 19.0,
+   "expected_production_gwh_per_year": 101.8,
+   "in_operation_since": 1911,
+   "location": {
+    "easting_lv95": 2616930,
+    "northing_lv95": 1154650,
+    "longitude": 7.659355,
+    "latitude": 46.542924
+   }
+  },
+  {
+   "name": "Spiez",
+   "place": "Laengmad am Thunersee",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 18.66,
+   "expected_production_gwh_per_year": 104.5,
+   "in_operation_since": 1899,
+   "location": {
+    "easting_lv95": 2617310,
+    "northing_lv95": 1171740,
+    "longitude": 7.664951,
+    "latitude": 46.696648
+   }
+  },
+  {
+   "name": "Gabi",
+   "place": "Gabi Simplon",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 18.61,
+   "expected_production_gwh_per_year": 44.0,
+   "in_operation_since": 1957,
+   "location": {
+    "easting_lv95": 2648750,
+    "northing_lv95": 1115390,
+    "longitude": 8.070064,
+    "latitude": 46.188207
+   }
+  },
+  {
+   "name": "Erlenbach",
+   "place": "Erlenbach",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 18.0,
+   "expected_production_gwh_per_year": 54.4,
+   "in_operation_since": 1959,
+   "location": {
+    "easting_lv95": 2608380,
+    "northing_lv95": 1167300,
+    "longitude": 7.548118,
+    "latitude": 46.656879
+   }
+  },
+  {
+   "name": "Gletsch-Oberwald",
+   "place": "Oberwald St. Niklaus",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 15.11,
+   "expected_production_gwh_per_year": 42.0,
+   "in_operation_since": 2018,
+   "location": {
+    "easting_lv95": 2670700,
+    "northing_lv95": 1155400,
+    "longitude": 8.360432,
+    "latitude": 46.54615
+   }
+  },
+  {
+   "name": "Hugschwendi",
+   "place": "Kerns Stoeckalp",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 14.0,
+   "expected_production_gwh_per_year": 37.7,
+   "in_operation_since": 1960,
+   "location": {
+    "easting_lv95": 2664340,
+    "northing_lv95": 1183510,
+    "longitude": 8.281453,
+    "latitude": 46.799641
+   }
+  },
+  {
+   "name": "Dala",
+   "place": "Dalaschlucht Leuk Stadt",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 12.8,
+   "expected_production_gwh_per_year": 50.7,
+   "in_operation_since": 1909,
+   "location": {
+    "easting_lv95": 2614260,
+    "northing_lv95": 1129720,
+    "longitude": 7.623779,
+    "latitude": 46.318726
+   }
+  },
+  {
+   "name": "Unteraa Melchaa",
+   "place": "Giswil",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 12.0,
+   "expected_production_gwh_per_year": 30.0,
+   "in_operation_since": 2013,
+   "location": {
+    "easting_lv95": 2656130,
+    "northing_lv95": 1185870,
+    "longitude": 8.174203,
+    "latitude": 46.821612
+   }
+  },
+  {
+   "name": "Luetschental",
+   "place": "Luetschental",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 11.9,
+   "expected_production_gwh_per_year": 62.4,
+   "in_operation_since": 1908,
+   "location": {
+    "easting_lv95": 2639500,
+    "northing_lv95": 1165250,
+    "longitude": 7.954504,
+    "latitude": 46.637323
+   }
+  },
+  {
+   "name": "Sandweidli Sousbach",
+   "place": "Lauterbrunnen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 11.3,
+   "expected_production_gwh_per_year": 30.5,
+   "in_operation_since": 2025,
+   "location": {
+    "easting_lv95": 2635480,
+    "northing_lv95": 1162670,
+    "longitude": 7.901805,
+    "latitude": 46.614341
+   }
+  },
+  {
+   "name": "Schattenhalb 3",
+   "place": "Schattenhalb",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 11.0,
+   "expected_production_gwh_per_year": 52.4,
+   "in_operation_since": 2010,
+   "location": {
+    "easting_lv95": 2656990,
+    "northing_lv95": 1174530,
+    "longitude": 8.184061,
+    "latitude": 46.719535
+   }
+  },
+  {
+   "name": "Meiental",
+   "place": "Wassen Fuerlauwi",
+   "type": "run-of-river plant",
+   "status": "under construction",
+   "turbine_power_mw": 10.0,
+   "expected_production_gwh_per_year": 34.0,
+   "in_operation_since": 2028,
+   "location": {
+    "easting_lv95": 2683920,
+    "northing_lv95": 1176120,
+    "longitude": 8.536555,
+    "latitude": 46.730992
+   }
+  },
+  {
+   "name": "Altstafel",
+   "place": "Ulrichen Nufenenpass",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 9.7,
+   "expected_production_gwh_per_year": 21.45,
+   "in_operation_since": 1967,
+   "location": {
+    "easting_lv95": 2671500,
+    "northing_lv95": 1146740,
+    "longitude": 8.369523,
+    "latitude": 46.468168
+   }
+  },
+  {
+   "name": "Fuhren Gental",
+   "place": "Untere Fuhren Innertkirchen",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 9.6,
+   "expected_production_gwh_per_year": 16.7,
+   "in_operation_since": 1961,
+   "location": {
+    "easting_lv95": 2668420,
+    "northing_lv95": 1175500,
+    "longitude": 8.333697,
+    "latitude": 46.727186
+   }
+  },
+  {
+   "name": "Simmenfluh",
+   "place": "Simmenfluh Wimmis",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 9.1,
+   "expected_production_gwh_per_year": 48.4,
+   "in_operation_since": 1962,
+   "location": {
+    "easting_lv95": 2614110,
+    "northing_lv95": 1169070,
+    "longitude": 7.623032,
+    "latitude": 46.672705
+   }
+  },
+  {
+   "name": "Engelberg Truebsee",
+   "place": "Engelberg",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 8.5,
+   "expected_production_gwh_per_year": 18.8,
+   "in_operation_since": 1967,
+   "location": {
+    "easting_lv95": 2672750,
+    "northing_lv95": 1185480,
+    "longitude": 8.391922,
+    "latitude": 46.816495
+   }
+  },
+  {
+   "name": "Augand",
+   "place": "Spiez",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 8.3,
+   "expected_production_gwh_per_year": 35.1,
+   "in_operation_since": 2023,
+   "location": {
+    "easting_lv95": 2617470,
+    "northing_lv95": 1169320,
+    "longitude": 7.666951,
+    "latitude": 46.674874
+   }
+  },
+  {
+   "name": "Oberems Argessa",
+   "place": "Oberems",
+   "type": "pumped-storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 8.2,
+   "expected_production_gwh_per_year": 15.4,
+   "in_operation_since": 1926,
+   "location": {
+    "easting_lv95": 2619280,
+    "northing_lv95": 1125790,
+    "longitude": 7.688792,
+    "latitude": 46.283248
+   }
+  },
+  {
+   "name": "Massaboden",
+   "place": "Bitsch",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 7.2,
+   "expected_production_gwh_per_year": 41.65,
+   "in_operation_since": 1899,
+   "location": {
+    "easting_lv95": 2644140,
+    "northing_lv95": 1131400,
+    "longitude": 8.011871,
+    "latitude": 46.33254
+   }
+  },
+  {
+   "name": "Aarewerk62",
+   "place": "Thun",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 6.94,
+   "expected_production_gwh_per_year": 32.04,
+   "in_operation_since": 1962,
+   "location": {
+    "easting_lv95": 2613960,
+    "northing_lv95": 1178960,
+    "longitude": 7.621373,
+    "latitude": 46.761673
+   }
+  },
+  {
+   "name": "Gere",
+   "place": "Oberwald",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 6.45,
+   "expected_production_gwh_per_year": 22.0,
+   "in_operation_since": 2020,
+   "location": {
+    "easting_lv95": 2670550,
+    "northing_lv95": 1153850,
+    "longitude": 8.35824,
+    "latitude": 46.532224
+   }
+  },
+  {
+   "name": "Silliboden",
+   "place": "Brig-Glis",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 6.1,
+   "expected_production_gwh_per_year": 36.0,
+   "in_operation_since": 1942,
+   "location": {
+    "easting_lv95": 2643570,
+    "northing_lv95": 1128270,
+    "longitude": 8.004176,
+    "latitude": 46.304422
+   }
+  },
+  {
+   "name": "Hopflauenen Leimboden",
+   "place": "Hopflauenen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 5.4,
+   "expected_production_gwh_per_year": 22.5,
+   "in_operation_since": 1967,
+   "location": {
+    "easting_lv95": 2664140,
+    "northing_lv95": 1174110,
+    "longitude": 8.277517,
+    "latitude": 46.715108
+   }
+  },
+  {
+   "name": "Wiler Kippel",
+   "place": "Kippel",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 5.2,
+   "expected_production_gwh_per_year": 13.9,
+   "in_operation_since": 2021,
+   "location": {
+    "easting_lv95": 2625460,
+    "northing_lv95": 1138420,
+    "longitude": 7.769667,
+    "latitude": 46.396656
+   }
+  },
+  {
+   "name": "Ganterbruecke",
+   "place": "Ried-Brig",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 5.01,
+   "expected_production_gwh_per_year": 22.2,
+   "in_operation_since": 1990,
+   "location": {
+    "easting_lv95": 2647940,
+    "northing_lv95": 1127550,
+    "longitude": 8.060822,
+    "latitude": 46.297648
+   }
+  },
+  {
+   "name": "Jungbach",
+   "place": "St. Niklaus",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 4.8,
+   "expected_production_gwh_per_year": 14.0,
+   "in_operation_since": 2015,
+   "location": {
+    "easting_lv95": 2628190,
+    "northing_lv95": 1115190,
+    "longitude": 7.803757,
+    "latitude": 46.187582
+   }
+  },
+  {
+   "name": "Stechelberg",
+   "place": "Lauterbrunnen Stechelberg",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 4.6,
+   "expected_production_gwh_per_year": 22.6,
+   "in_operation_since": 1905,
+   "location": {
+    "easting_lv95": 2635370,
+    "northing_lv95": 1154910,
+    "longitude": 7.899774,
+    "latitude": 46.544542
+   }
+  },
+  {
+   "name": "Walibach",
+   "place": "Selkingen Grafschaft",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 3.64,
+   "expected_production_gwh_per_year": 12.4,
+   "in_operation_since": 2013,
+   "location": {
+    "easting_lv95": 2659680,
+    "northing_lv95": 1144850,
+    "longitude": 8.215401,
+    "latitude": 46.452324
+   }
+  },
+  {
+   "name": "Wysswasser",
+   "place": "Fiesch",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 3.1,
+   "expected_production_gwh_per_year": 9.5,
+   "in_operation_since": 2012,
+   "location": {
+    "easting_lv95": 2653490,
+    "northing_lv95": 1138610,
+    "longitude": 8.13412,
+    "latitude": 46.396716
+   }
+  },
+  {
+   "name": "Arni Engelberg",
+   "place": "Engelberg",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 3.07,
+   "expected_production_gwh_per_year": 6.0,
+   "in_operation_since": 1966,
+   "location": {
+    "easting_lv95": 2672330,
+    "northing_lv95": 1185790,
+    "longitude": 8.386468,
+    "latitude": 46.819329
+   }
+  },
+  {
+   "name": "Innertkirchen 3",
+   "place": "Innertkirchen Urbach",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 3.0,
+   "expected_production_gwh_per_year": 13.1,
+   "in_operation_since": 2016,
+   "location": {
+    "easting_lv95": 2660620,
+    "northing_lv95": 1172030,
+    "longitude": 8.231208,
+    "latitude": 46.696727
+   }
+  },
+  {
+   "name": "Chrizji",
+   "place": "Visperterminen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 3.0,
+   "expected_production_gwh_per_year": 12.6,
+   "in_operation_since": 2018,
+   "location": {
+    "easting_lv95": 2635310,
+    "northing_lv95": 1124130,
+    "longitude": 7.89665,
+    "latitude": 46.267665
+   }
+  },
+  {
+   "name": "Spiggebach",
+   "place": "Reichenbach Losplatte",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.9,
+   "expected_production_gwh_per_year": 10.0,
+   "in_operation_since": 2017,
+   "location": {
+    "easting_lv95": 2622700,
+    "northing_lv95": 1158450,
+    "longitude": 7.734765,
+    "latitude": 46.576936
+   }
+  },
+  {
+   "name": "Aarewerk94",
+   "place": "Thun",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.83,
+   "expected_production_gwh_per_year": 8.4,
+   "in_operation_since": 1917,
+   "location": {
+    "easting_lv95": 2613880,
+    "northing_lv95": 1178960,
+    "longitude": 7.620326,
+    "latitude": 46.761675
+   }
+  },
+  {
+   "name": "Realp 2",
+   "place": "Geren Realp",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.81,
+   "expected_production_gwh_per_year": 9.5,
+   "in_operation_since": 2017,
+   "location": {
+    "easting_lv95": 2681010,
+    "northing_lv95": 1160190,
+    "longitude": 8.495681,
+    "latitude": 46.588066
+   }
+  },
+  {
+   "name": "Campo Vallemaggia",
+   "place": "Campo Vallemaggia",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.54,
+   "expected_production_gwh_per_year": 8.8,
+   "in_operation_since": 2002,
+   "location": {
+    "easting_lv95": 2682490,
+    "northing_lv95": 1126530,
+    "longitude": 8.509,
+    "latitude": 46.285121
+   }
+  },
+  {
+   "name": "Bortelalp",
+   "place": "Ried-Brig",
+   "type": "pumped-storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.38,
+   "expected_production_gwh_per_year": 5.16,
+   "in_operation_since": 1990,
+   "location": {
+    "easting_lv95": 2650050,
+    "northing_lv95": 1127100,
+    "longitude": 8.088157,
+    "latitude": 46.293446
+   }
+  },
+  {
+   "name": "Ulrichen",
+   "place": "Ulrichen zum Loch",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.35,
+   "expected_production_gwh_per_year": 9.7,
+   "in_operation_since": 2014,
+   "location": {
+    "easting_lv95": 2667540,
+    "northing_lv95": 1150580,
+    "longitude": 8.318531,
+    "latitude": 46.50312
+   }
+  },
+  {
+   "name": "Stundhues",
+   "place": "Vispenterminen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.32,
+   "expected_production_gwh_per_year": 10.4,
+   "in_operation_since": 2018,
+   "location": {
+    "easting_lv95": 2634070,
+    "northing_lv95": 1124060,
+    "longitude": 7.880561,
+    "latitude": 46.267099
+   }
+  },
+  {
+   "name": "Schattenhalb 1plus",
+   "place": "Schattenhalb",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.3,
+   "expected_production_gwh_per_year": 6.7,
+   "in_operation_since": 1907,
+   "location": {
+    "easting_lv95": 2657070,
+    "northing_lv95": 1174500,
+    "longitude": 8.185104,
+    "latitude": 46.719258
+   }
+  },
+  {
+   "name": "Kandersteg Alpbach",
+   "place": "Kandersteg Eggeschwand",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.2,
+   "expected_production_gwh_per_year": 11.3,
+   "in_operation_since": 2009,
+   "location": {
+    "easting_lv95": 2617080,
+    "northing_lv95": 1147230,
+    "longitude": 7.661036,
+    "latitude": 46.476173
+   }
+  },
+  {
+   "name": "Cerentino",
+   "place": "Cerentino Collinasca",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.2,
+   "expected_production_gwh_per_year": 10.6,
+   "in_operation_since": 2004,
+   "location": {
+    "easting_lv95": 2685740,
+    "northing_lv95": 1128960,
+    "longitude": 8.551612,
+    "latitude": 46.306572
+   }
+  },
+  {
+   "name": "Wannebode",
+   "place": "Reckingen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.13,
+   "expected_production_gwh_per_year": 9.1,
+   "in_operation_since": 1990,
+   "location": {
+    "easting_lv95": 2662570,
+    "northing_lv95": 1146320,
+    "longitude": 8.253212,
+    "latitude": 46.465284
+   }
+  },
+  {
+   "name": "Blatten 2 Fuxloch",
+   "place": "Blatten",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 2.05,
+   "expected_production_gwh_per_year": 6.8,
+   "in_operation_since": 2022,
+   "location": {
+    "easting_lv95": 2629660,
+    "northing_lv95": 1141350,
+    "longitude": 7.824462,
+    "latitude": 46.422841
+   }
+  },
+  {
+   "name": "Obermatt Nebenzentrale",
+   "place": "Grafenort",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.97,
+   "expected_production_gwh_per_year": 5.0,
+   "in_operation_since": 1963,
+   "location": {
+    "easting_lv95": 2671150,
+    "northing_lv95": 1188400,
+    "longitude": 8.371413,
+    "latitude": 46.842933
+   }
+  },
+  {
+   "name": "Merezenbach",
+   "place": "Muenster Moos",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.96,
+   "expected_production_gwh_per_year": 9.3,
+   "in_operation_since": 1959,
+   "location": {
+    "easting_lv95": 2664400,
+    "northing_lv95": 1148610,
+    "longitude": 8.277353,
+    "latitude": 46.485709
+   }
+  },
+  {
+   "name": "Schattenhalb 2",
+   "place": "Schattenhalb Reichenbachfall",
+   "type": "run-of-river plant",
+   "status": "being rebuilt",
+   "turbine_power_mw": 1.9,
+   "expected_production_gwh_per_year": 3.0,
+   "in_operation_since": 1927,
+   "location": {
+    "easting_lv95": 2656960,
+    "northing_lv95": 1174040,
+    "longitude": 8.183608,
+    "latitude": 46.71513
+   }
+  },
+  {
+   "name": "Breithorn Fafleralp",
+   "place": "Blatten Fafleralp",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.85,
+   "expected_production_gwh_per_year": 5.37,
+   "in_operation_since": 2019,
+   "location": {
+    "easting_lv95": 2632540,
+    "northing_lv95": 1143040,
+    "longitude": 7.862044,
+    "latitude": 46.437909
+   }
+  },
+  {
+   "name": "Kandersteg Zilfuri",
+   "place": "Kandersteg Zilfuri",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.8,
+   "expected_production_gwh_per_year": 8.68,
+   "in_operation_since": 1903,
+   "location": {
+    "easting_lv95": 2619420,
+    "northing_lv95": 1149400,
+    "longitude": 7.691596,
+    "latitude": 46.49563
+   }
+  },
+  {
+   "name": "Meiringen 2",
+   "place": "Meiringen Haselholz",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.65,
+   "expected_production_gwh_per_year": 10.3,
+   "in_operation_since": 1950,
+   "location": {
+    "easting_lv95": 2657940,
+    "northing_lv95": 1175900,
+    "longitude": 8.196659,
+    "latitude": 46.731776
+   }
+  },
+  {
+   "name": "Wiler Milibach",
+   "place": "Wiler Loetschen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.53,
+   "expected_production_gwh_per_year": 4.66,
+   "in_operation_since": 2010,
+   "location": {
+    "easting_lv95": 2626980,
+    "northing_lv95": 1139570,
+    "longitude": 7.789497,
+    "latitude": 46.406942
+   }
+  },
+  {
+   "name": "Grimsel Nollen",
+   "place": "Grimsel Spitelnollen",
+   "type": "run-of-river plant",
+   "status": "out of service or reduced",
+   "turbine_power_mw": 1.5,
+   "expected_production_gwh_per_year": 5.0,
+   "in_operation_since": 2017,
+   "location": {
+    "easting_lv95": 2668440,
+    "northing_lv95": 1158220,
+    "longitude": 8.331387,
+    "latitude": 46.571751
+   }
+  },
+  {
+   "name": "Lochmedli Hostetbach",
+   "place": "Guttannen Blatti",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.44,
+   "expected_production_gwh_per_year": 4.2,
+   "in_operation_since": 2016,
+   "location": {
+    "easting_lv95": 2665290,
+    "northing_lv95": 1168610,
+    "longitude": 8.291774,
+    "latitude": 46.665524
+   }
+  },
+  {
+   "name": "Zer Niwu Schiir",
+   "place": "Mund",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.44,
+   "expected_production_gwh_per_year": 7.2,
+   "in_operation_since": 2015,
+   "location": {
+    "easting_lv95": 2639070,
+    "northing_lv95": 1129320,
+    "longitude": 7.945855,
+    "latitude": 46.314143
+   }
+  },
+  {
+   "name": "Badhalte",
+   "place": "Brigerbad",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.44,
+   "expected_production_gwh_per_year": 6.9,
+   "in_operation_since": 2015,
+   "location": {
+    "easting_lv95": 2638570,
+    "northing_lv95": 1128290,
+    "longitude": 7.939279,
+    "latitude": 46.304907
+   }
+  },
+  {
+   "name": "Isch",
+   "place": "Grindelwald",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.4,
+   "expected_production_gwh_per_year": 6.1,
+   "in_operation_since": 1960,
+   "location": {
+    "easting_lv95": 2646840,
+    "northing_lv95": 1164090,
+    "longitude": 8.050242,
+    "latitude": 46.626415
+   }
+  },
+  {
+   "name": "Breite Staeg",
+   "place": "Unterbaech",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.34,
+   "expected_production_gwh_per_year": 5.06,
+   "in_operation_since": 2010,
+   "location": {
+    "easting_lv95": 2626440,
+    "northing_lv95": 1123890,
+    "longitude": 7.781584,
+    "latitude": 46.265913
+   }
+  },
+  {
+   "name": "Klusi",
+   "place": "Erlenbach",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.3,
+   "expected_production_gwh_per_year": 3.8,
+   "in_operation_since": 1946,
+   "location": {
+    "easting_lv95": 2608390,
+    "northing_lv95": 1168080,
+    "longitude": 7.548263,
+    "latitude": 46.663896
+   }
+  },
+  {
+   "name": "Rappental",
+   "place": "Rappental Ernen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.3,
+   "expected_production_gwh_per_year": 3.0,
+   "in_operation_since": 1965,
+   "location": {
+    "easting_lv95": 2656880,
+    "northing_lv95": 1138400,
+    "longitude": 8.178169,
+    "latitude": 46.394549
+   }
+  },
+  {
+   "name": "Stalden Kloster",
+   "place": "Engelberg Stalden",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.27,
+   "expected_production_gwh_per_year": 4.7,
+   "in_operation_since": 1941,
+   "location": {
+    "easting_lv95": 2676910,
+    "northing_lv95": 1184300,
+    "longitude": 8.446229,
+    "latitude": 46.805414
+   }
+  },
+  {
+   "name": "Ossasco",
+   "place": "Bedretto",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.27,
+   "expected_production_gwh_per_year": 4.7,
+   "in_operation_since": 2012,
+   "location": {
+    "easting_lv95": 2684390,
+    "northing_lv95": 1151800,
+    "longitude": 8.538245,
+    "latitude": 46.512183
+   }
+  },
+  {
+   "name": "Saflisch",
+   "place": "Heiligkreuz Laengtal",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.25,
+   "expected_production_gwh_per_year": 6.3,
+   "in_operation_since": 1969,
+   "location": {
+    "easting_lv95": 2656580,
+    "northing_lv95": 1132650,
+    "longitude": 8.173569,
+    "latitude": 46.342852
+   }
+  },
+  {
+   "name": "Fafleralp",
+   "place": "Blatten Chiematt",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.25,
+   "expected_production_gwh_per_year": 3.9,
+   "in_operation_since": 2012,
+   "location": {
+    "easting_lv95": 2631320,
+    "northing_lv95": 1142130,
+    "longitude": 7.846108,
+    "latitude": 46.429782
+   }
+  },
+  {
+   "name": "Hackeren",
+   "place": "Lungern",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.2,
+   "expected_production_gwh_per_year": 3.2,
+   "in_operation_since": 2003,
+   "location": {
+    "easting_lv95": 2654760,
+    "northing_lv95": 1181210,
+    "longitude": 8.155693,
+    "latitude": 46.779809
+   }
+  },
+  {
+   "name": "Turtig",
+   "place": "Raron",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.19,
+   "expected_production_gwh_per_year": 6.89,
+   "in_operation_since": 2007,
+   "location": {
+    "easting_lv95": 2627370,
+    "northing_lv95": 1127820,
+    "longitude": 7.793877,
+    "latitude": 46.301228
+   }
+  },
+  {
+   "name": "Interlaken Kanal",
+   "place": "Interlaken",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.09,
+   "expected_production_gwh_per_year": 7.0,
+   "in_operation_since": 1894,
+   "location": {
+    "easting_lv95": 2631480,
+    "northing_lv95": 1170240,
+    "longitude": 7.850107,
+    "latitude": 46.682636
+   }
+  },
+  {
+   "name": "Meiringen 1",
+   "place": "Meiringen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.08,
+   "expected_production_gwh_per_year": 6.3,
+   "in_operation_since": 1889,
+   "location": {
+    "easting_lv95": 2657590,
+    "northing_lv95": 1175560,
+    "longitude": 8.192038,
+    "latitude": 46.728748
+   }
+  },
+  {
+   "name": "Kandersteg Dorf",
+   "place": "Kandersteg Dorf",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.03,
+   "expected_production_gwh_per_year": 5.06,
+   "in_operation_since": 1996,
+   "location": {
+    "easting_lv95": 2618180,
+    "northing_lv95": 1149430,
+    "longitude": 7.675446,
+    "latitude": 46.495934
+   }
+  },
+  {
+   "name": "Siwibach",
+   "place": "Eisten",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 1.0,
+   "expected_production_gwh_per_year": 4.6,
+   "in_operation_since": 2014,
+   "location": {
+    "easting_lv95": 2636490,
+    "northing_lv95": 1114370,
+    "longitude": 7.911194,
+    "latitude": 46.179807
+   }
+  },
+  {
+   "name": "Dornbach Ferden",
+   "place": "Ferden",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.99,
+   "expected_production_gwh_per_year": 2.2,
+   "in_operation_since": 2013,
+   "location": {
+    "easting_lv95": 2624490,
+    "northing_lv95": 1137820,
+    "longitude": 7.757024,
+    "latitude": 46.391295
+   }
+  },
+  {
+   "name": "Bachtoly",
+   "place": "Eischoll",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.98,
+   "expected_production_gwh_per_year": 1.9,
+   "in_operation_since": 2014,
+   "location": {
+    "easting_lv95": 2626230,
+    "northing_lv95": 1126860,
+    "longitude": 7.779027,
+    "latitude": 46.292638
+   }
+  },
+  {
+   "name": "Giessbach",
+   "place": "Brienz",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.93,
+   "expected_production_gwh_per_year": 7.1,
+   "in_operation_since": 1949,
+   "location": {
+    "easting_lv95": 2644430,
+    "northing_lv95": 1176140,
+    "longitude": 8.01994,
+    "latitude": 46.734972
+   }
+  },
+  {
+   "name": "Realp 1",
+   "place": "Lochberg Realp",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.9,
+   "expected_production_gwh_per_year": 4.0,
+   "in_operation_since": 1914,
+   "location": {
+    "easting_lv95": 2681460,
+    "northing_lv95": 1161460,
+    "longitude": 8.501777,
+    "latitude": 46.599435
+   }
+  },
+  {
+   "name": "Engstlige",
+   "place": "Adelboden",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.85,
+   "expected_production_gwh_per_year": 5.0,
+   "in_operation_since": 1996,
+   "location": {
+    "easting_lv95": 2611060,
+    "northing_lv95": 1150630,
+    "longitude": 7.582731,
+    "latitude": 46.506884
+   }
+  },
+  {
+   "name": "Unterbaech",
+   "place": "Unterbaech",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.85,
+   "expected_production_gwh_per_year": 5.0,
+   "in_operation_since": 1966,
+   "location": {
+    "easting_lv95": 2627650,
+    "northing_lv95": 1126100,
+    "longitude": 7.797409,
+    "latitude": 46.285745
+   }
+  },
+  {
+   "name": "Vissoie groupe auxiliaire",
+   "place": "Ayer Vissoie",
+   "type": "run-of-river plant",
+   "status": "being rebuilt",
+   "turbine_power_mw": 0.81,
+   "expected_production_gwh_per_year": 3.1,
+   "in_operation_since": 1958,
+   "location": {
+    "easting_lv95": 2611360,
+    "northing_lv95": 1117600,
+    "longitude": 7.585833,
+    "latitude": 46.209755
+   }
+  },
+  {
+   "name": "Kammri",
+   "place": "Wilderswil",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.8,
+   "expected_production_gwh_per_year": 4.0,
+   "in_operation_since": 1998,
+   "location": {
+    "easting_lv95": 2631750,
+    "northing_lv95": 1167460,
+    "longitude": 7.853444,
+    "latitude": 46.657616
+   }
+  },
+  {
+   "name": "Niderbach",
+   "place": "Wiler Geschinen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.8,
+   "expected_production_gwh_per_year": 3.08,
+   "in_operation_since": 2016,
+   "location": {
+    "easting_lv95": 2665430,
+    "northing_lv95": 1150520,
+    "longitude": 8.291036,
+    "latitude": 46.50279
+   }
+  },
+  {
+   "name": "Borterbach",
+   "place": "Oberems",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.75,
+   "expected_production_gwh_per_year": 2.5,
+   "in_operation_since": 2009,
+   "location": {
+    "easting_lv95": 2620880,
+    "northing_lv95": 1121880,
+    "longitude": 7.709377,
+    "latitude": 46.248028
+   }
+  },
+  {
+   "name": "Blumenstein",
+   "place": "Blumenstein",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.65,
+   "expected_production_gwh_per_year": 3.4,
+   "in_operation_since": 1918,
+   "location": {
+    "easting_lv95": 2605630,
+    "northing_lv95": 1175110,
+    "longitude": 7.512286,
+    "latitude": 46.727163
+   }
+  },
+  {
+   "name": "Engstligenalp",
+   "place": "Adelboden Engstligenalp",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.6,
+   "expected_production_gwh_per_year": 2.1,
+   "in_operation_since": 1937,
+   "location": {
+    "easting_lv95": 2609460,
+    "northing_lv95": 1144210,
+    "longitude": 7.561755,
+    "latitude": 46.449157
+   }
+  },
+  {
+   "name": "Niedergesteln",
+   "place": "Niedergesteln",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.58,
+   "expected_production_gwh_per_year": 2.52,
+   "in_operation_since": 2008,
+   "location": {
+    "easting_lv95": 2626770,
+    "northing_lv95": 1129260,
+    "longitude": 7.786172,
+    "latitude": 46.314206
+   }
+  },
+  {
+   "name": "Gantergrund Nessel-Mittubaech",
+   "place": "Ried-Brig",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.55,
+   "expected_production_gwh_per_year": 2.23,
+   "in_operation_since": 2013,
+   "location": {
+    "easting_lv95": 2645180,
+    "northing_lv95": 1126600,
+    "longitude": 8.024911,
+    "latitude": 46.289293
+   }
+  },
+  {
+   "name": "Chriz",
+   "place": "Niedergesteln Lauili",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.55,
+   "expected_production_gwh_per_year": 3.5,
+   "in_operation_since": 2009,
+   "location": {
+    "easting_lv95": 2627130,
+    "northing_lv95": 1127880,
+    "longitude": 7.790766,
+    "latitude": 46.301778
+   }
+  },
+  {
+   "name": "Varen Ost",
+   "place": "Dalaloch Varen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.51,
+   "expected_production_gwh_per_year": 1.7,
+   "in_operation_since": 2020,
+   "location": {
+    "easting_lv95": 2614220,
+    "northing_lv95": 1129740,
+    "longitude": 7.623261,
+    "latitude": 46.318907
+   }
+  },
+  {
+   "name": "Kalter Brunnen",
+   "place": "Tscherggen St. German",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.5,
+   "expected_production_gwh_per_year": 2.8,
+   "in_operation_since": 2000,
+   "location": {
+    "easting_lv95": 2629070,
+    "northing_lv95": 1129070,
+    "longitude": 7.816019,
+    "latitude": 46.312401
+   }
+  },
+  {
+   "name": "Blatten 1 Runeja",
+   "place": "Blatten",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.5,
+   "expected_production_gwh_per_year": 3.0,
+   "in_operation_since": 1915,
+   "location": {
+    "easting_lv95": 2629450,
+    "northing_lv95": 1141340,
+    "longitude": 7.82173,
+    "latitude": 46.42276
+   }
+  },
+  {
+   "name": "Gappli Toerbel",
+   "place": "Toerbel",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.49,
+   "expected_production_gwh_per_year": 1.27,
+   "in_operation_since": 2010,
+   "location": {
+    "easting_lv95": 2631630,
+    "northing_lv95": 1120450,
+    "longitude": 7.848668,
+    "latitude": 46.234745
+   }
+  },
+  {
+   "name": "Reutiberg 2",
+   "place": "Meiringen",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.48,
+   "expected_production_gwh_per_year": 1.2,
+   "in_operation_since": 2021,
+   "location": {
+    "easting_lv95": 2657610,
+    "northing_lv95": 1175580,
+    "longitude": 8.192302,
+    "latitude": 46.728927
+   }
+  },
+  {
+   "name": "Geissbrunnen",
+   "place": "Saxeten",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.47,
+   "expected_production_gwh_per_year": 2.0,
+   "in_operation_since": 1999,
+   "location": {
+    "easting_lv95": 2629970,
+    "northing_lv95": 1164200,
+    "longitude": 7.829977,
+    "latitude": 46.628374
+   }
+  },
+  {
+   "name": "Rosswald Gaersterna",
+   "place": "Ried-Brig",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.45,
+   "expected_production_gwh_per_year": 2.1,
+   "in_operation_since": 1995,
+   "location": {
+    "easting_lv95": 2645890,
+    "northing_lv95": 1129670,
+    "longitude": 8.034426,
+    "latitude": 46.316861
+   }
+  },
+  {
+   "name": "Thun Eidg",
+   "place": "Thun Uttigenstrasse",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.44,
+   "expected_production_gwh_per_year": 2.0,
+   "in_operation_since": 1901,
+   "location": {
+    "easting_lv95": 2613460,
+    "northing_lv95": 1178940,
+    "longitude": 7.614827,
+    "latitude": 46.761504
+   }
+  },
+  {
+   "name": "Moosweid",
+   "place": "Adelboden",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.42,
+   "expected_production_gwh_per_year": 1.9,
+   "in_operation_since": 1903,
+   "location": {
+    "easting_lv95": 2610610,
+    "northing_lv95": 1149430,
+    "longitude": 7.576841,
+    "latitude": 46.496097
+   }
+  },
+  {
+   "name": "Tatz",
+   "place": "Niedergesteln",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.35,
+   "expected_production_gwh_per_year": 1.48,
+   "in_operation_since": 2008,
+   "location": {
+    "easting_lv95": 2626860,
+    "northing_lv95": 1130800,
+    "longitude": 7.78743,
+    "latitude": 46.328056
+   }
+  },
+  {
+   "name": "Loye La Vierge",
+   "place": "Grone",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.35,
+   "expected_production_gwh_per_year": 1.7,
+   "in_operation_since": 2019,
+   "location": {
+    "easting_lv95": 2603720,
+    "northing_lv95": 1121450,
+    "longitude": 7.486869,
+    "latitude": 46.244473
+   }
+  },
+  {
+   "name": "Baltschieder",
+   "place": "Baltschieder",
+   "type": "run-of-river plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.33,
+   "expected_production_gwh_per_year": 1.38,
+   "in_operation_since": 1994,
+   "location": {
+    "easting_lv95": 2633360,
+    "northing_lv95": 1128550,
+    "longitude": 7.871673,
+    "latitude": 46.307525
+   }
+  },
+  {
+   "name": "Fuhren Pumpzentrale",
+   "place": "Untere Fuhren Innertkirchen",
+   "type": "storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.0,
+   "expected_production_gwh_per_year": 0.0,
+   "in_operation_since": 1961,
+   "location": {
+    "easting_lv95": 2668440,
+    "northing_lv95": 1175510,
+    "longitude": 8.33396,
+    "latitude": 46.727274
+   }
+  },
+  {
+   "name": "Meretschi Pumpzentrale",
+   "place": "Oberems Meretschialp",
+   "type": "pumped-storage plant",
+   "status": "in operation",
+   "turbine_power_mw": 0.0,
+   "expected_production_gwh_per_year": 0.0,
+   "in_operation_since": 1926,
+   "location": {
+    "easting_lv95": 2616750,
+    "northing_lv95": 1123310,
+    "longitude": 7.655877,
+    "latitude": 46.261007
+   }
+  }
+ ]
+}
