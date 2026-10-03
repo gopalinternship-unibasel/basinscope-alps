@@ -1140,7 +1140,7 @@ function cleanCatch(o){
 function drawStatus(){
   const c = $("src-chip");
   if (MODE==="site"){ const on = !!(NOW.rivers || NOW.wx); c.classList.toggle("live", on); $("tab-live").classList.toggle("on", on);
-    c.textContent = on ? `Live federal data · checked ${hhmm(NOW.checked)}` : (NOW.checked ? "Federal services unreachable · analysis of 2 Oct 2026" : "Connecting to live data"); return; }
+    c.textContent = !NOW.checked ? "Connecting to live data" : (on ? `Live federal data · checked ${hhmm(NOW.checked)}` : "Federal services unreachable · analysis of 2 Oct 2026"); return; }
   c.classList.toggle("live", LIVE.sites);
   c.textContent = LIVE.sites ? `Shared database · ${SITES.length} sites · synced ${LIVE.at}` : "Dataset snapshot of 2 Oct 2026";
 }
