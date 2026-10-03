@@ -25,7 +25,7 @@ footer{margin-top:40px;color:var(--ink-2);font-size:.88rem}
 </head>
 <body>
 <main>
-<div class="logo"><img src="../assets/logo.webp" alt=""><a href="../">BasinScope Alps</a></div>
+<div class="logo"><img src="../assets/logo.webp?v=cf78ba21" alt=""><a href="../">BasinScope Alps</a></div>
 <h1>Data API</h1>
 <p class="lead">The figures behind the dashboard as plain JSON: the ranked basin sites of the Jungfrau–Aletsch area, the runoff scenarios of their catchments and the protected-area checks. Read-only, no key, callable from a browser on any origin.</p>
 <div class="base"><code>https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1</code></div>
@@ -88,7 +88,7 @@ big = [s for s in sites if s["basin"]["volume_20m_dam_mio_m3"] &gt;= 5]</code></
 
 <h2>Sources</h2>
 <div class="scroll"><table><tbody><tr><td>Sites, volumes, dam lengths, glacier areas</td><td>Team terrain analysis on swissALTI3D (swisstopo) and the Swiss Glacier Inventory SGI 2016 (GLAMOS), as of 2026-10-02</td></tr><tr><td>Monthly runoff scenarios</td><td>Hydro-CH2018, data set L03, Federal Office for the Environment (FOEN)</td></tr><tr><td>Protected areas</td><td>Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point, as of 2026-10-03</td></tr></tbody></table></div>
-<footer>API version 1.0.0, generated 2026-10-03. Team SwissStainability, Swiss Hackathon 2026, Track 06. Please credit the sources above when you reuse the data.</footer>
+<footer>API version 1.0.0, generated 2026-10-03. Team Swisstainability, Swiss Hackathon 2026, Track 06. Please credit the sources above when you reuse the data.</footer>
 </main>
 </body>
 </html>

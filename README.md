@@ -1,7 +1,7 @@
 # BasinScope Alps: self-hosted dashboard
 
 Screening of glacier-meltwater retention basin sites in the Jungfrau–Aletsch area.
-Team SwissStainability, Swiss Hackathon 2026, Track 06.
+Team Swisstainability, Swiss Hackathon 2026, Track 06.
 
 This folder is a complete static site. It needs no build step and no backend.
 

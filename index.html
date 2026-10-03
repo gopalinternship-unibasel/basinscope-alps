@@ -58,7 +58,7 @@ a{color:var(--accent)}
 /* top bar */
 .top{background:var(--bar);color:var(--bar-ink);padding:8px 20px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;border-bottom:3px solid var(--brand)}
 .brand{display:flex;align-items:center;gap:14px;min-width:0}
-.teamlogo{background:url("assets/logo.webp") center/contain no-repeat;aspect-ratio:560/368;flex:none}
+.teamlogo{background:url("assets/logo.webp?v=cf78ba21") center/contain no-repeat;aspect-ratio:560/368;flex:none}
 .brand .teamlogo{height:62px}
 .brand h1{font:700 22px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase}
 .brand p{font-size:13px;color:var(--bar-ink-2);margin-top:3px}
@@ -349,7 +349,7 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
     <div class="teamlogo" role="img" aria-label="Swisstainability team logo"></div>
     <div>
       <h1>BasinScope Alps</h1>
-      <p>Putting glacier meltwater to best use · Team SwissStainability</p>
+      <p>Putting glacier meltwater to best use · Team Swisstainability</p>
     </div>
   </div>
   <div class="top-meta">
@@ -447,8 +447,8 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
           <div class="body">
             <div class="map" id="map">
               <svg id="mapsvg" role="group" aria-label="Map of the study area with candidate basin sites">
-                <image id="base-relief" x="0" y="0" width="1061" height="965" href="assets/base_relief.webp" preserveAspectRatio="none"/>
-                <image id="base-dem" x="0" y="0" width="1061" height="965" href="assets/base_dem.webp" preserveAspectRatio="none" visibility="hidden"/>
+                <image id="base-relief" x="0" y="0" width="1061" height="965" href="assets/base_relief.webp?v=0db4d6b5" preserveAspectRatio="none"/>
+                <image id="base-dem" x="0" y="0" width="1061" height="965" href="assets/base_dem.webp?v=ca42ae3b" preserveAspectRatio="none" visibility="hidden"/>
                 <g id="g-cands"></g>
                 <g id="g-sites"></g>
               </svg>
@@ -619,7 +619,7 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
 
   <footer>
     <div class="teamlogo" role="img" aria-label="Swisstainability team logo"></div>
-    <div><strong>Built by team SwissStainability at the Swiss Hackathon 2026, Lucerne.</strong><span>BasinScope Alps is the upstream triage layer between public Earth-observation data and professional Alpine water-resilience studies. Site names are derived from coordinates and neighbouring glaciers and should be checked on the map. Each site is matched to its Hydro-CH2018 catchment by location; that match is this dashboard's assumption, not part of the terrain analysis.</span></div>
+    <div><strong>Built by team Swisstainability at the Swiss Hackathon 2026, Lucerne.</strong><span>BasinScope Alps is the upstream triage layer between public Earth-observation data and professional Alpine water-resilience studies. Site names are derived from coordinates and neighbouring glaciers and should be checked on the map. Each site is matched to its Hydro-CH2018 catchment by location; that match is this dashboard's assumption, not part of the terrain analysis.</span></div>
   </footer>
 </div>
 
@@ -927,7 +927,7 @@ function noteFor(r){
    `## Protected areas within 250 m (federal inventories, checked ${PROT_AT})`, ...((r.prot||[]).filter(h=>PROT[h.k]).length ? r.prot.filter(h=>PROT[h.k]).map(h=>`- ${PROT[h.k][0]}: ${h.name}`) : [`- None of the checked inventories`]),``,
    ...(REVIEWS[r.id] ? [`## Expert review`,`- ${VERD[REVIEWS[r.id].verdict]}${REVIEWS[r.id].reviewer?` (${REVIEWS[r.id].reviewer})`:""}${REVIEWS[r.id].note?`: ${REVIEWS[r.id].note}`:""}`,``] : []),
    `## Not assessed`,`Natural hazards, geology and foundation, sediment infill, access and grid, water rights and cost.`,``,
-   `Sources: team terrain analysis of 2 Oct 2026 (swissALTI3D, SGI 2016), Hydro-CH2018 (FOEN), federal inventories via geo.admin.ch. Screening only, not a construction recommendation.`,`BasinScope Alps, team SwissStainability, Swiss Hackathon 2026.`].join("\n");
+   `Sources: team terrain analysis of 2 Oct 2026 (swissALTI3D, SGI 2016), Hydro-CH2018 (FOEN), federal inventories via geo.admin.ch. Screening only, not a construction recommendation.`,`BasinScope Alps, team Swisstainability, Swiss Hackathon 2026.`].join("\n");
 }
 function copyText(text, msg, fb){
   const done = () => { msg.textContent = "Copied"; setTimeout(()=> msg.textContent="", 2500); };
