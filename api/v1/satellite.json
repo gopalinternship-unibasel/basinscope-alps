@@ -1,0 +1,326 @@
+{
+ "meta": {
+  "api_version": "1.2.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "snow_and_ice_at_end_of_summer": {
+   "product": "swissEO S2-SR v200, swisstopo (Copernicus Sentinel-2)",
+   "study_area_km2": 783.5,
+   "method": "NDSI >= 0.4 on a 40 m grid inside the study area, clear pixels only, persistent water taken out. Per year: the clear scene between 10 August and 5 October with the least snow and ice that a second scene confirms within 5 per cent. Misses debris-covered ice and ice in deep shadow, includes snow fields outside the glaciers.",
+   "mosaics_screened": 244,
+   "mosaics_measured": 46,
+   "years": [
+    {
+     "year": 2015,
+     "scene": "2015-08-29t103026",
+     "date": "2015-08-29",
+     "snow_and_ice_km2": 276.9,
+     "under_cloud_km2": 1.5,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 2,
+     "passes": 7
+    },
+    {
+     "year": 2016,
+     "scene": "2016-08-23t103022",
+     "date": "2016-08-23",
+     "snow_and_ice_km2": 301.8,
+     "under_cloud_km2": 0.0,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 2,
+     "passes": 12
+    },
+    {
+     "year": 2017,
+     "scene": null,
+     "clear_scenes": 0,
+     "passes": 18
+    },
+    {
+     "year": 2018,
+     "scene": "2018-08-28t103019",
+     "date": "2018-08-28",
+     "snow_and_ice_km2": 279.7,
+     "under_cloud_km2": 0.0,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 3,
+     "passes": 22
+    },
+    {
+     "year": 2019,
+     "scene": "2019-09-04t102021",
+     "date": "2019-09-04",
+     "snow_and_ice_km2": 257.8,
+     "under_cloud_km2": 0.0,
+     "confirmed_by_second_scene": false,
+     "partly_cloudy": false,
+     "clear_scenes": 4,
+     "passes": 21
+    },
+    {
+     "year": 2020,
+     "scene": "2020-09-08t102031",
+     "date": "2020-09-08",
+     "snow_and_ice_km2": 268.8,
+     "under_cloud_km2": 6.2,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 2,
+     "passes": 21
+    },
+    {
+     "year": 2021,
+     "scene": "2021-08-14t102031",
+     "date": "2021-08-14",
+     "snow_and_ice_km2": 312.7,
+     "under_cloud_km2": 4.0,
+     "confirmed_by_second_scene": false,
+     "partly_cloudy": false,
+     "clear_scenes": 2,
+     "passes": 21
+    },
+    {
+     "year": 2022,
+     "scene": "2022-08-24t101559",
+     "date": "2022-08-24",
+     "snow_and_ice_km2": 213.6,
+     "under_cloud_km2": 6.0,
+     "confirmed_by_second_scene": false,
+     "partly_cloudy": false,
+     "clear_scenes": 2,
+     "passes": 19
+    },
+    {
+     "year": 2023,
+     "scene": "2023-09-06t102601",
+     "date": "2023-09-06",
+     "snow_and_ice_km2": 240.1,
+     "under_cloud_km2": 0.0,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 4,
+     "passes": 18
+    },
+    {
+     "year": 2024,
+     "scene": "2024-08-31t103021",
+     "date": "2024-08-31",
+     "snow_and_ice_km2": 238.2,
+     "under_cloud_km2": 8.0,
+     "confirmed_by_second_scene": false,
+     "partly_cloudy": true,
+     "clear_scenes": 0,
+     "passes": 22
+    },
+    {
+     "year": 2025,
+     "scene": "2025-08-26t103051",
+     "date": "2025-08-26",
+     "snow_and_ice_km2": 237.7,
+     "under_cloud_km2": 2.9,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 7,
+     "passes": 31
+    },
+    {
+     "year": 2026,
+     "scene": "2026-09-27t101801",
+     "date": "2026-09-27",
+     "snow_and_ice_km2": 204.8,
+     "under_cloud_km2": 0.0,
+     "confirmed_by_second_scene": true,
+     "partly_cloudy": false,
+     "clear_scenes": 7,
+     "passes": 32
+    }
+   ]
+  },
+  "scene_pair": {
+   "then": {
+    "scene": "2016-09-29t102022",
+    "date": "2016-09-29",
+    "snow_and_ice_km2": 309.4,
+    "under_cloud_km2": 0.0
+   },
+   "now": {
+    "scene": "2026-09-27t101801",
+    "date": "2026-09-27",
+    "snow_and_ice_km2": 204.8,
+    "under_cloud_km2": 0.0
+   },
+   "pictures": {
+    "study_area": [
+     "https://gopalinternship-unibasel.github.io/basinscope-alps/assets/sat/area_then.webp",
+     "https://gopalinternship-unibasel.github.io/basinscope-alps/assets/sat/area_now.webp"
+    ],
+    "site": "https://gopalinternship-unibasel.github.io/basinscope-alps/assets/sat/s{site id}_then.webp and s{site id}_now.webp, 4 km square at 10 m per pixel",
+    "study_area_box_lv95": [
+     2619000.0,
+     1132000.0,
+     2666000.0,
+     1170000.0
+    ]
+   }
+  },
+  "glacier_thinning": {
+   "source": "Hugonnet et al. 2021, Nature 592, doi:10.1038/s41586-021-03436-z: elevation change from ASTER satellite stereo pictures, on Randolph Glacier Inventory 6.0 outlines",
+   "glaciers_with_centre_in_study_area": 367,
+   "outline_year": 2003,
+   "study_area": [
+    {
+     "period": "2000-2009",
+     "glaciers_measured": 318,
+     "area_km2": 338.5,
+     "mass_change_m_water_per_year": -1.05,
+     "surface_change_m_per_year": -1.23,
+     "net_water_loss_mio_m3_per_year": 355
+    },
+    {
+     "period": "2010-2019",
+     "glaciers_measured": 318,
+     "area_km2": 338.5,
+     "mass_change_m_water_per_year": -1.05,
+     "surface_change_m_per_year": -1.24,
+     "net_water_loss_mio_m3_per_year": 357
+    },
+    {
+     "period": "2000-2019",
+     "glaciers_measured": 318,
+     "area_km2": 338.5,
+     "mass_change_m_water_per_year": -1.05,
+     "surface_change_m_per_year": -1.24,
+     "net_water_loss_mio_m3_per_year": 356
+    }
+   ],
+   "glaciers": [
+    {
+     "name": "Grosser Aletschgletscher",
+     "rgi_id": "RGI60-11.01450",
+     "rgi_area_km2": 82.2,
+     "surface_change_m_per_year": -1.42,
+     "uncertainty_m_per_year": 0.1,
+     "mass_change_m_water_per_year": -1.21,
+     "mass_uncertainty_m_water_per_year": 0.13,
+     "surface_change_2000_2009": -1.4,
+     "surface_change_2010_2019": -1.45,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Fieschergletscher E",
+     "rgi_id": "RGI60-11.01478",
+     "rgi_area_km2": 31.3,
+     "surface_change_m_per_year": -1.26,
+     "uncertainty_m_per_year": 0.11,
+     "mass_change_m_water_per_year": -1.07,
+     "mass_uncertainty_m_water_per_year": 0.14,
+     "surface_change_2000_2009": -1.21,
+     "surface_change_2010_2019": -1.31,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Unteraargletscher",
+     "rgi_id": "RGI60-11.01328",
+     "rgi_area_km2": 23.8,
+     "surface_change_m_per_year": -1.87,
+     "uncertainty_m_per_year": 0.12,
+     "mass_change_m_water_per_year": -1.59,
+     "mass_uncertainty_m_water_per_year": 0.2,
+     "surface_change_2000_2009": -1.82,
+     "surface_change_2010_2019": -1.92,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Oberaletschgletscher",
+     "rgi_id": "RGI60-11.01827",
+     "rgi_area_km2": 19.3,
+     "surface_change_m_per_year": -1.67,
+     "uncertainty_m_per_year": 0.12,
+     "mass_change_m_water_per_year": -1.42,
+     "mass_uncertainty_m_water_per_year": 0.21,
+     "surface_change_2000_2009": -1.66,
+     "surface_change_2010_2019": -1.68,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Kanderfirn N",
+     "rgi_id": "RGI60-11.01702",
+     "rgi_area_km2": 13.2,
+     "surface_change_m_per_year": -1.35,
+     "uncertainty_m_per_year": 0.13,
+     "mass_change_m_water_per_year": -1.15,
+     "mass_uncertainty_m_water_per_year": 0.15,
+     "surface_change_2000_2009": -1.42,
+     "surface_change_2010_2019": -1.28,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Gauligletscher",
+     "rgi_id": "RGI60-11.01275",
+     "rgi_area_km2": 12.7,
+     "surface_change_m_per_year": -1.21,
+     "uncertainty_m_per_year": 0.13,
+     "mass_change_m_water_per_year": -1.02,
+     "mass_uncertainty_m_water_per_year": 0.15,
+     "surface_change_2000_2009": -1.09,
+     "surface_change_2010_2019": -1.32,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Unterer Grindelwaldgletscher",
+     "rgi_id": "RGI60-11.01346",
+     "rgi_area_km2": 18.8,
+     "surface_change_m_per_year": -1.17,
+     "uncertainty_m_per_year": 0.12,
+     "mass_change_m_water_per_year": -0.99,
+     "mass_uncertainty_m_water_per_year": 0.15,
+     "surface_change_2000_2009": -1.36,
+     "surface_change_2010_2019": -0.98,
+     "shares_rgi_outline": true
+    },
+    {
+     "name": "Oberer Grindelwaldgletscher",
+     "rgi_id": "RGI60-11.01270",
+     "rgi_area_km2": 9.0,
+     "surface_change_m_per_year": -0.7,
+     "uncertainty_m_per_year": 0.14,
+     "mass_change_m_water_per_year": -0.59,
+     "mass_uncertainty_m_water_per_year": 0.13,
+     "surface_change_2000_2009": -0.75,
+     "surface_change_2010_2019": -0.65,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Langgletscher",
+     "rgi_id": "RGI60-11.01698",
+     "rgi_area_km2": 9.4,
+     "surface_change_m_per_year": -1.19,
+     "uncertainty_m_per_year": 0.13,
+     "mass_change_m_water_per_year": -1.01,
+     "mass_uncertainty_m_water_per_year": 0.16,
+     "surface_change_2000_2009": -1.36,
+     "surface_change_2010_2019": -1.01,
+     "shares_rgi_outline": false
+    },
+    {
+     "name": "Obers Ischmeer E",
+     "rgi_id": "RGI60-11.01346",
+     "rgi_area_km2": 18.8,
+     "surface_change_m_per_year": -1.17,
+     "uncertainty_m_per_year": 0.12,
+     "mass_change_m_water_per_year": -0.99,
+     "mass_uncertainty_m_water_per_year": 0.15,
+     "surface_change_2000_2009": -1.36,
+     "surface_change_2010_2019": -0.98,
+     "shares_rgi_outline": true
+    }
+   ]
+  }
+ }
+}

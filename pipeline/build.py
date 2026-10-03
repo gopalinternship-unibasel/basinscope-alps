@@ -24,6 +24,8 @@ base = json.load(open(B + "base.json", encoding="utf-8"))
 raw = json.load(open(B + "checks_raw.json", encoding="utf-8"))
 # hazard process areas, hydropower plants, dams and reservoir storage: written by fetch_federal.py
 federal = json.load(open(B + "federal.json", encoding="utf-8")) if os.path.exists(B + "federal.json") else None
+# snow and ice per year, the then/now scene pair and glacier thinning: written by fetch_satellite_series.py
+satellite = json.load(open(B + "satellite.json", encoding="utf-8")) if os.path.exists(B + "satellite.json") else None
 
 # ---- protected-area hits from the federal geodata API (queried 3 Oct 2026, 250 m around each point)
 KEY = {
@@ -73,6 +75,8 @@ catch = {str(k): {**v, "id": int(k)} for k, v in hyd.items()}
 snap = {"sites": sites, "candidates": cands, "catchments": catch, "exits": base["exits"], "glaciers": base["glaciers"], "bands": base["bands"]}
 if federal:
     snap["federal"] = federal
+if satellite:
+    snap["satellite"] = satellite
 geo_small = {k: geo[k] for k in ("W", "H", "cE", "cN", "poly")}
 dump = lambda o: json.dumps(o, separators=(",", ":"), ensure_ascii=False)
 IMG = {"__RELIEF__": "base_relief.webp", "__DEM__": "base_dem.webp", "__LOGO__": "logo.webp"}
@@ -83,6 +87,11 @@ SAT_DATE = json.load(open(B + "base_s2.json"))["date"] if os.path.exists(B + "ba
 if SAT_DATE:  # shown on the page as "13 August 2026"
     y, m, d = SAT_DATE.split("-")
     SAT_DATE = f"{int(d)} {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][int(m) - 1]} {y}"
+# pictures of the Satellite sheet: a folder of their own, fetched when that sheet is opened. Like the layers they are kept in build/ and
+# exist in the site repo only as published assets.
+SPACE = B + "sat/" if os.path.isdir(B + "sat") else SITE + "assets/sat/"
+SPACE_PICS = sorted(f for f in os.listdir(SPACE) if f.endswith(".webp")) if os.path.isdir(SPACE) else []
+SPACE_V = hashlib.sha1(b"".join(open(SPACE + f, "rb").read() for f in SPACE_PICS)).hexdigest()[:8]
 TITLE = "<title>BasinScope Alps</title>\n"
 
 
@@ -108,7 +117,8 @@ def page(mode, inline_images):
         have = mode == "site" and os.path.exists(src(f))
         out = out.replace(k, ((PUBLIC if inline_images else "") + versioned(f)) if have else "")
     out = out.replace("__SAT_DATE__", SAT_DATE)
-    assert "/*__" not in out and not any(k in out for k in list(IMG) + list(LAYERS) + ["__MODE__", "__SAT_DATE__"]), "placeholder left"
+    out = out.replace("__SPACE_DIR__", ((PUBLIC if inline_images else "") + "assets/sat/") if mode == "site" and satellite and SPACE_PICS else "").replace("__SPACE_V__", SPACE_V)
+    assert "/*__" not in out and not any(k in out for k in list(IMG) + list(LAYERS) + ["__MODE__", "__SAT_DATE__", "__SPACE_DIR__", "__SPACE_V__"]), "placeholder left"
     return out
 
 
@@ -130,6 +140,10 @@ open(SITE + "index.html", "w", encoding="utf-8").write(document(page("site", Fal
 for f in list(IMG.values()) + list(LAYERS.values()):
     if os.path.exists(B + f):
         shutil.copyfile(B + f, SITE + "assets/" + f)
+if SPACE_PICS and os.path.abspath(SPACE) != os.path.abspath(SITE + "assets/sat"):
+    os.makedirs(SITE + "assets/sat", exist_ok=True)
+    for f in SPACE_PICS:
+        shutil.copyfile(SPACE + f, SITE + "assets/sat/" + f)
 json.dump(snap, open(SITE + "data/dataset.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 open(SITE + ".nojekyll", "w").write("")
 

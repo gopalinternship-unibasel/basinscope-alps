@@ -7,7 +7,7 @@ Run on its own with `python build_api.py <site folder>`; build.py calls it after
 """
 import json, os, sys, shutil, datetime, hashlib
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 BASE = "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1"
 TRIFT = {"chf": 387, "vol": 85, "gwh": 215}  # same reference project as the dashboard's business case
 TYPE = {"new": "New site", "reservoir": "Existing reservoir", "lake": "Existing lake", "settlement": "Settlement area"}
@@ -23,6 +23,8 @@ SOURCES = [
     {"what": "Protected areas", "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point", "as_of": "2026-10-03"},
     {"what": "Hazard process areas", "source": "SilvaProtect-CH (debris flow, rockfall, shallow landslide) and the map of potential permafrost distribution, FOEN, read from wms.geo.admin.ch for a 250 m square around each site. Index maps, valid to 1:50,000", "as_of": "2026-10-03"},
     {"what": "Hydropower plants, dams, reservoir storage", "source": "Hydropower statistics (WASTA), dams under federal supervision and filling level of the storage lakes, Swiss Federal Office of Energy (SFOE)"},
+    {"what": "Satellite scenes, snow and ice extent", "source": "swissEO S2-SR, swisstopo, contains modified Copernicus Sentinel data 2015-2026; the extent is the dashboard's own count on those scenes"},
+    {"what": "Glacier thinning", "source": "Hugonnet et al. 2021, Nature 592 (ASTER satellite stereo pictures, 2000-2019), on Randolph Glacier Inventory 6.0 outlines"},
 ]
 NOTICE = ("Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. "
           "Not a basis for engineering or investment decisions without a feasibility study.")
@@ -128,6 +130,31 @@ def main(site_dir):
     write("reservoir-storage.json", {"date": sto.get("date"), "energy_gwh": sto.get("gwh"), "capacity_gwh": sto.get("max"), "area": "Switzerland",
                                      "past_year": [{"date": a, "energy_gwh": v} for a, v in sto.get("year", [])]})
 
+    sat = d.get("satellite") or {}
+    if sat:
+        pics = BASE.rsplit("/", 2)[0] + "/assets/sat/"
+        scene = lambda s: {"scene": s["id"], "date": s["date"], "snow_and_ice_km2": s["km2"], "under_cloud_km2": s["unknown"]}
+        thin = sat["thin"]
+        write("satellite.json", {
+            "snow_and_ice_at_end_of_summer": {
+                "product": sat["product"] + ", swisstopo (Copernicus Sentinel-2)", "study_area_km2": sat["area"],
+                "method": f"NDSI >= {sat['ndsi']} on a {sat['grid']} m grid inside the study area, clear pixels only, persistent water taken out. Per year: the clear scene between 10 August and 5 October "
+                          f"with the least snow and ice that a second scene confirms within {round(sat['confirm'] * 100)} per cent. Misses debris-covered ice and ice in deep shadow, includes snow fields outside the glaciers.",
+                "mosaics_screened": sat["mosaics"], "mosaics_measured": sat["used"],
+                "years": [{"year": y["y"], **({**scene(y), "confirmed_by_second_scene": y["confirmed"], "partly_cloudy": y["partly"]} if "km2" in y else {"scene": None}),
+                           "clear_scenes": y["clear"], "passes": y["passes"]} for y in sat["years"]]},
+            "scene_pair": {"then": scene(sat["pair"]["then"]), "now": scene(sat["pair"]["now"]),
+                           "pictures": {"study_area": [pics + "area_then.webp", pics + "area_now.webp"], "site": pics + "s{site id}_then.webp and s{site id}_now.webp, 4 km square at 10 m per pixel",
+                                        "study_area_box_lv95": sat["frames"]["box"]}},
+            "glacier_thinning": {
+                "source": "Hugonnet et al. 2021, Nature 592, doi:10.1038/s41586-021-03436-z: elevation change from ASTER satellite stereo pictures, on Randolph Glacier Inventory 6.0 outlines",
+                "glaciers_with_centre_in_study_area": thin["n"], "outline_year": thin["outlines"],
+                "study_area": [{"period": k[:5] + str(int(k[5:]) - 1), "glaciers_measured": v["measured"], "area_km2": v["area"], "mass_change_m_water_per_year": v["mwe"],
+                                "surface_change_m_per_year": v["dh"], "net_water_loss_mio_m3_per_year": v["water"]} for k, v in thin["periods"].items()],
+                "glaciers": [{"name": g["n"], "rgi_id": g["rgi"], "rgi_area_km2": g["area"], "surface_change_m_per_year": g["dh"], "uncertainty_m_per_year": g["err"],
+                              "mass_change_m_water_per_year": g["mwe"], "mass_uncertainty_m_water_per_year": g["errm"], "surface_change_2000_2009": g["dh1"], "surface_change_2010_2019": g["dh2"],
+                              "shares_rgi_outline": g["shared"]} for g in thin["glaciers"]]}})
+
     ENDPOINTS = [
         ("/sites.json", "Sites", "The 15 ranked basin sites: location, basin volume, dam length, glacier area upstream, protection, illustrative investment."),
         ("/sites/{id}.json", "Sites", "One site by id (1 to 15, its rank in the terrain analysis report)."),
@@ -141,7 +168,7 @@ def main(site_dir):
         ("/hydropower-plants.json", "Energy", f"The {len(plants)} hydropower plants of 300 kW or more in the map extent: type, status, turbine power, expected yearly production (SFOE)."),
         ("/dams.json", "Energy", f"The {len(dams)} dams under federal supervision in the map extent: type, height, crest length, reservoir volume (SFOE)."),
         ("/reservoir-storage.json", "Energy", "Energy held in Swiss reservoirs, latest week and the past year, with the capacity (SFOE)."),
-    ]
+    ] + ([("/satellite.json", "Satellite", "Snow and ice left in the study area at the end of each summer since 2015 (Sentinel-2), the two scenes behind the then/now pictures, and glacier thinning measured from space for 2000 to 2019.")] if sat else [])
     write("index.json", {"name": "BasinScope Alps data API", "study_area": "Jungfrau-Aletsch, 781 km2, Bernese and Valais Alps", "base_url": BASE,
                          "endpoints": [{"path": p, "url": BASE + p, "description": t} for p, _, t in ENDPOINTS] + [{"path": "/openapi.json", "url": BASE + "/openapi.json", "description": "OpenAPI 3.0 description of this API."}],
                          "sources": SOURCES})
@@ -183,7 +210,8 @@ def main(site_dir):
          "/candidates.json": ok(env(arr("Candidate"))), "/catchments.json": ok(env(arr("Catchment"))),
          "/catchments/{id}.json": ok(env({"$ref": "#/components/schemas/CatchmentRunoff"})), "/glaciers.json": ok(env(arr("Glacier"))),
          "/exits.json": ok(env(arr("Exit"))), "/elevation-bands.json": ok(env(arr("ElevationBand"))),
-         "/hydropower-plants.json": ok(env(arr("Plant"))), "/dams.json": ok(env(arr("Dam"))), "/reservoir-storage.json": ok(env({"$ref": "#/components/schemas/ReservoirStorage"}))}
+         "/hydropower-plants.json": ok(env(arr("Plant"))), "/dams.json": ok(env(arr("Dam"))), "/reservoir-storage.json": ok(env({"$ref": "#/components/schemas/ReservoirStorage"})),
+         "/satellite.json": ok(env({"type": "object", "description": "Keys: snow_and_ice_at_end_of_summer, scene_pair, glacier_thinning. Extents in km2, rates in metres per year.", "additionalProperties": True}))}
     paths = {}
     for p, tag, text in ENDPOINTS:
         op = {"tags": [tag], "summary": text, "responses": dict(R[p])}
@@ -198,7 +226,7 @@ def main(site_dir):
 
     # documentation page
     row = lambda p, text: f'<tr><td><a href="v1{p.replace("{id}", "1" if "sites" in p else sorted(d["catchments"])[0])}"><code>GET /api/v1{p}</code></a></td><td>{text}</td></tr>'
-    groups = "".join(f'<h3>{tag}</h3><div class="scroll"><table><tbody>' + "".join(row(p, t) for p, g, t in ENDPOINTS if g == tag) + "</tbody></table></div>" for tag in ("Sites", "Meltwater", "Energy"))
+    groups = "".join(f'<h3>{tag}</h3><div class="scroll"><table><tbody>' + "".join(row(p, t) for p, g, t in ENDPOINTS if g == tag) + "</tbody></table></div>" for tag in ("Sites", "Meltwater", "Energy") + (("Satellite",) if sat else ()))
     example = json.dumps({"meta": {"api_version": VERSION, "generated": generated}, "data": {k: sites[1][k] for k in ("id", "name", "type", "location", "glacier_area_upstream_km2", "basin", "illustrative_investment_chf_m", "catchment_id")}}, ensure_ascii=False, indent=1)
     fields = [("location", "LV95 coordinates as in the terrain analysis, plus WGS84 longitude and latitude converted with swisstopo's approximate formulas (about 1 m)."),
               ("glacier_area_upstream_km2", "Glacier area draining to the site (SGI 2016)."),
@@ -238,7 +266,7 @@ footer{{margin-top:40px;color:var(--ink-2);font-size:.88rem}}
 <main>
 <div class="logo"><img src="../assets/logo.webp?v={logo_v}" alt=""><a href="../">BasinScope Alps</a></div>
 <h1>Data API</h1>
-<p class="lead">The figures behind the dashboard as plain JSON: the ranked basin sites of the Jungfrau–Aletsch area with their protection and hazard-index checks, the runoff scenarios of their catchments, and the hydropower plants and dams around them. Read-only, no key, callable from a browser on any origin.</p>
+<p class="lead">The figures behind the dashboard as plain JSON: the ranked basin sites of the Jungfrau–Aletsch area with their protection and hazard-index checks, the runoff scenarios of their catchments, the hydropower plants and dams around them, and what satellites measured of the area's snow and ice. Read-only, no key, callable from a browser on any origin.</p>
 <div class="base"><code>{BASE}</code></div>
 
 <h2>Endpoints</h2>

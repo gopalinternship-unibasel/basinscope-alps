@@ -362,6 +362,40 @@ table.infra td:first-child span{display:block;font-size:12px;color:var(--ink-3)}
 .flow ul{margin:0;padding-left:16px;font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:3px}
 .flow .scope-tag{font:600 10.5px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 footer a{color:var(--accent)}
+/* satellite sheet */
+.cmpwrap{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:16px 28px;align-items:start}
+.cmpwrap > div{display:flex;flex-direction:column;gap:10px;min-width:0}
+.cmp{--cut:50%;position:relative;border-radius:9px;overflow:hidden;background:var(--panel-2);touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none}
+.cmp.sq,.cmp.sq + .cmpslide{max-width:640px}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;max-width:none;display:block;pointer-events:none}
+.cmp img.then{clip-path:inset(0 calc(100% - var(--cut)) 0 0);background:var(--panel-2)}
+.cmp svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cmp .dv{position:absolute;top:0;bottom:0;left:var(--cut);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(14,42,51,.45);pointer-events:none}
+.cmp .dv::after{content:"◂ ▸";position:absolute;top:84%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#0E2A33;border-radius:999px;padding:5px 8px;font:700 12px/1 var(--f-display);white-space:nowrap;box-shadow:0 0 0 1px rgba(14,42,51,.45)}
+.cmp .lab{position:absolute;top:10px;padding:5px 9px;border-radius:7px;background:var(--map-chip);border:1px solid var(--line);font:600 12.5px/1 var(--f-display);letter-spacing:.05em;pointer-events:none}
+.cmp .lab.l{left:10px} .cmp .lab.r{right:10px}
+.cmp .sd{cursor:pointer}
+.cmp .sd circle{stroke:#fff}
+.cmp .sd text{font-family:var(--f-display);font-weight:700;fill:var(--cls-ink);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.cmp .scl{position:absolute;left:12px;bottom:12px;height:7px;border:2px solid #fff;border-top:0;filter:drop-shadow(0 0 1px #0E2A33);pointer-events:none}
+.cmp .scl span{position:absolute;left:-2px;bottom:10px;padding:2px 6px;border-radius:5px;background:var(--map-chip);border:1px solid var(--line);font:500 11px/1.3 var(--f-mono);white-space:nowrap;filter:none}
+.cmpslide{width:100%;accent-color:var(--accent);margin:0}
+.stats2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.satpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.satpair figure{margin:0;position:relative;border-radius:7px;overflow:hidden;background:var(--panel-2);aspect-ratio:1}
+.satpair figure::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px #0E2A33}
+.satpair img{width:100%;height:100%;display:block;object-fit:cover}
+.satpair figcaption{position:absolute;left:6px;top:6px;padding:3px 6px;border-radius:5px;background:var(--map-chip);font:600 11px/1 var(--f-display);letter-spacing:.05em}
+.passpic{border-radius:9px;overflow:hidden;background:var(--panel-2)}
+.passpic canvas{width:100%;height:auto;display:block}
+table.passes td{padding:7px 6px}
+table.passes td:first-child{font-family:var(--f-body);font-size:13.5px}
+table.passes tbody tr{cursor:pointer}
+table.passes tbody tr:hover{background:var(--panel-2)}
+table.passes tbody tr.sel{background:var(--accent-wash)}
+@media (max-width:860px){
+  .cmpwrap{grid-template-columns:minmax(0,1fr)}
+}
 @media (max-width:1240px){
   .work{grid-template-columns:minmax(0,1fr) 340px}
   .map{aspect-ratio:4/3}
@@ -414,6 +448,7 @@ footer a{color:var(--accent)}
     <button role="tab" id="tab-live" data-sheet="live" aria-controls="sheet-live" aria-selected="false" tabindex="-1" hidden><span class="dot"></span>Live now</button>
     <button role="tab" id="tab-risk" data-sheet="risk" aria-controls="sheet-risk" aria-selected="false" tabindex="-1">Risk outlook</button>
     <button role="tab" id="tab-water" data-sheet="water" aria-controls="sheet-water" aria-selected="false" tabindex="-1">Meltwater</button>
+    <button role="tab" id="tab-satellite" data-sheet="satellite" aria-controls="sheet-satellite" aria-selected="false" tabindex="-1">Satellite</button>
     <button role="tab" id="tab-business" data-sheet="business" aria-controls="sheet-business" aria-selected="false" tabindex="-1">Business case</button>
     <button role="tab" id="tab-method" data-sheet="method" aria-controls="sheet-method" aria-selected="false" tabindex="-1">Method &amp; sources</button>
   </div>
@@ -487,6 +522,7 @@ footer a{color:var(--accent)}
             <button data-go="live" id="guide-live" hidden><span class="nm"><b>Live now</b><span><strong>What is happening today?</strong> River discharge and mountain air temperature from the federal services, refreshed every 5 minutes.</span></span><i aria-hidden="true">→</i></button>
             <button data-go="risk"><span class="nm"><b>Risk outlook</b><span><strong>Where could melt and rain set something off?</strong> <span id="guide-risk"></span></span></span><i aria-hidden="true">→</i></button>
             <button data-go="water"><span class="nm"><b>Meltwater</b><span><strong>Where is the water, and when does it come?</strong> Where the ice sits, where its water leaves the area and how the season shifts.</span></span><i aria-hidden="true">→</i></button>
+            <button data-go="satellite" id="guide-satellite"><span class="nm"><b>Satellite</b><span><strong>What does it look like from space?</strong> Sentinel-2 scenes ten years apart, the snow and ice left each summer since 2015, and how fast satellites measured the glaciers thinning.</span></span><i aria-hidden="true">→</i></button>
             <button data-go="business"><span class="nm"><b>Business case</b><span><strong>Does it pay, and does the water last?</strong> An illustrative cost, energy and payback estimate for a site, and its storage as the glaciers shrink.</span></span><i aria-hidden="true">→</i></button>
             <button data-go="method"><span class="nm"><b>Method &amp; sources</b><span><strong>Can the result be trusted?</strong> Checks on the ranking, the evidence not assessed yet, the limits of the method and the data sources.</span></span><i aria-hidden="true">→</i></button>
           </div>
@@ -662,7 +698,67 @@ footer a{color:var(--accent)}
       <div class="card">
         <header><h2>The ten largest glaciers</h2><span class="sub">of 299 in the study area</span></header>
         <div class="body"><div class="bars" id="glaciers"></div>
-          <p class="sub">14 glaciers larger than 5 km² hold 75% of the ice. For the Grosser Aletschgletscher the analysis found no suitable site inside the area: its tongue ends in the steep Massa gorge.</p></div>
+          <p class="sub">14 glaciers larger than 5 km² hold 75% of the ice. For the Grosser Aletschgletscher the analysis found no suitable site inside the area: its tongue ends in the steep Massa gorge.<span id="thin-hint"> Thinning: how much the surface sank per year from 2000 to 2019, measured from space (Satellite sheet).</span></p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet-satellite" role="tabpanel" aria-labelledby="tab-satellite" hidden>
+    <section class="card" id="sat-cmp-card">
+      <header><h2>Ten years apart, seen from space<span class="hint">Drag across the picture to compare.</span></h2>
+        <div class="rowsel"><label class="sub" for="sat-place">Show</label><select id="sat-place"></select></div></header>
+      <div class="body">
+        <div class="cmpwrap">
+          <div>
+            <div class="cmp" id="sat-cmp">
+              <img id="sat-now" alt="">
+              <img class="then" id="sat-then" alt="">
+              <svg id="sat-over" preserveAspectRatio="none"></svg>
+              <div class="scl" id="sat-scale"><span></span></div>
+              <div class="dv"></div>
+              <span class="lab l" id="sat-lab-then"></span><span class="lab r" id="sat-lab-now"></span>
+            </div>
+            <input class="cmpslide" type="range" id="sat-slide" min="0" max="100" value="50" aria-label="Share of the picture that shows the older scene">
+            <p class="attr">Sentinel-2 true-colour scenes: swissEO S2-SR, © swisstopo, contains modified Copernicus Sentinel data <span id="sat-years"></span>. <span id="sat-mark"></span></p>
+          </div>
+          <div id="sat-side"></div>
+        </div>
+      </div>
+    </section>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>Snow and ice left at the end of summer</h2><span class="sub">what stays white, per year, from Sentinel-2</span></header>
+        <div class="body">
+          <div class="legend" id="sat-ext-legend"></div>
+          <div class="chart" id="sat-ext" style="position:relative"></div>
+          <div class="stats3" id="sat-ext-stats"></div>
+          <p class="sub" id="sat-ext-note"></p>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>How fast the ice is thinning</h2><span class="sub">surface lowering per year, 2000–2019, measured from space</span></header>
+        <div class="body">
+          <div class="bars" id="sat-thin"></div>
+          <div class="stats3" id="sat-thin-stats"></div>
+          <p class="sub" id="sat-thin-note"></p>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="pass-card" hidden>
+      <header><h2>The latest passes<span class="hint">Asked from the federal data catalogue when this sheet opens.</span></h2>
+        <div class="rowsel"><span class="sub" id="pass-status" role="status"></span><button class="btn" id="pass-refresh">Check again</button></div></header>
+      <div class="body">
+        <div class="nowgrid">
+          <div>
+            <div class="passpic"><canvas id="pass-pic" width="783" height="633" role="img" aria-label="True-colour picture of the selected satellite pass over the study area"></canvas></div>
+            <p class="attr" id="pass-cap"></p>
+          </div>
+          <div>
+            <div class="tblwrap" id="pass-tbl"></div>
+            <div class="stats3" id="pass-stats"></div>
+            <p class="sub">Sentinel-2 passes over the area every two to three days, and swisstopo publishes each mosaic 10 to 24 hours after the overpass. Your browser reads the picture and the cloud mask straight from the cloud-optimised files of the federal data catalogue (data.geo.admin.ch). Cloud share: cloud and cloud shadow inside the study area. Click a pass to see it.</p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -730,7 +826,7 @@ footer a{color:var(--accent)}
       <header><h2>From one region to Switzerland</h2><span class="sub">reference architecture for a federal roll-out</span></header>
       <div class="body">
         <div class="flow">
-          <div><span class="scope-tag">Nationwide today</span><b>Federal open data</b><ul><li>swissALTI3D terrain, SGI glacier inventory</li><li>Hydro-CH2018 runoff scenarios</li><li>Protection inventories, hazard index maps</li><li>Hydropower plants, dams, reservoir storage</li><li>Live gauges, weather stations, ICON forecast</li></ul></div>
+          <div><span class="scope-tag">Nationwide today</span><b>Federal open data</b><ul><li>swissALTI3D terrain, SGI glacier inventory</li><li>Hydro-CH2018 runoff scenarios</li><li>Protection inventories, hazard index maps</li><li>Hydropower plants, dams, reservoir storage</li><li>Live gauges, weather stations, ICON forecast</li><li>Sentinel-2 satellite mosaics, every few days</li></ul></div>
           <div><span class="scope-tag">Repeated per region</span><b>Terrain run</b><ul><li>Flow routing and basin search in GRASS, on a study-area polygon</li><li>Checks against the federal layers for each site found</li><li>The study area is one polygon file: a new region is a new polygon</li></ul></div>
           <div><span class="scope-tag">One per region</span><b>Data file and open API</b><ul><li>A single JSON dataset per region</li><li>Static JSON API with an OpenAPI description</li><li>No server to run, any static host</li></ul></div>
           <div><span class="scope-tag">Shared</span><b>Decision interface</b><ul><li>This dashboard, reading the region's dataset</li><li>Live federal feeds asked from the browser</li><li>GIS, utilities and offices reading the API</li></ul></div>
@@ -766,6 +862,7 @@ footer a{color:var(--accent)}
               <li>Hazard process areas: SilvaProtect-CH (debris flow, rockfall, shallow landslide, 2006) and the map of potential permafrost distribution (2005), FOEN, read from the federal map service for a 250 m square around each site on <span id="src-fed"></span>. Index maps, valid to 1:50,000.</li>
               <li>Hydropower plants (WASTA statistics), dams under federal supervision and the filling level of the storage lakes: SFOE.</li>
               <li>Five-day forecast: MeteoSwiss ICON-CH2, served by <a href="https://open-meteo.com/">Open-Meteo</a> (CC BY 4.0).<span id="src-sat" hidden> Satellite picture: swissEO S2-SR, swisstopo, from Copernicus Sentinel-2 data.</span></li>
+              <li>Satellite sheet: Sentinel-2 scenes from <a href="https://www.swisstopo.admin.ch/en/satelliteimage-swisseo-s2-sr">swissEO S2-SR</a>, © swisstopo, contains modified Copernicus Sentinel data 2015–2026; snow and ice extent is this dashboard's own count on those scenes. Glacier thinning: <a href="https://doi.org/10.1038/s41586-021-03436-z">Hugonnet et al. 2021</a>, Nature 592, from ASTER satellite stereo pictures, on Randolph Glacier Inventory 6.0 outlines.</li>
               <li>Round-table reference: <a href="https://www.srf.ch/news/schweiz/runder-tisch-wasserkraft-15-wasserkraftwerke-sollen-realisiert-werden">SRF on the 15 hydropower projects</a>; <a href="https://grimselstrom.ch/wp-content/uploads/20240528_medienmitteilung_konzessionseinreichung_vergroesserung_grimselsee_final.pdf">KWO on the Grimsel enlargement</a>.</li>
             </ul>
           </div>
@@ -964,7 +1061,7 @@ function drawMap(){
 }
 
 /* ---------- sheets: one tab per question, like the sheets of a workbook ---------- */
-const SHEETS = ["overview","sites","live","risk","water","business","method"];
+const SHEETS = ["overview","sites","live","risk","water","satellite","business","method"];
 const sheetOk = id => SHEETS.includes(id) && !$("tab-"+id).hidden;
 function showSheet(id, quiet){
   if (!sheetOk(id)) id = SHEETS[0];
@@ -973,6 +1070,7 @@ function showSheet(id, quiet){
   $("controls").hidden = id==="live" || id==="risk"; // the settings do not change measurements or the forecast
   if (id==="sites" && !mapFitted) fit();
   if (id==="risk") drawRisk(); // its chart takes the width of the open sheet
+  if (id==="satellite") openSat(); // its pictures are fetched when the sheet is first opened
   const box = $("tabs"), bt = $("tab-"+id), l = bt.offsetLeft, r = l + bt.offsetWidth;
   if (l < box.scrollLeft + 12) box.scrollLeft = l - 12; else if (r > box.scrollLeft + box.clientWidth - 12) box.scrollLeft = r - box.clientWidth + 12;
   if (quiet) return;
@@ -1114,6 +1212,7 @@ function drawSite(){
    <div class="block"><div class="eyebrow">Protected areas within 250 m</div>${protList(r)}<p class="sub">Federal inventories on geo.admin.ch, checked ${PROT_AT}. This is a flag for the legal check, not a ruling.</p></div>
    <div class="block"><div class="eyebrow">Hazard process areas within 250 m</div>${hazList(r)}<p class="sub">Share of the 250 m square that the federal index maps mark (SilvaProtect-CH, permafrost map; FOEN). A flag for the hazard assessment, not a hazard map. Not part of the score.</p></div>
    <div class="block"><div class="eyebrow">Hydropower within ${NEAR_KM} km</div>${infraList(r)}</div>
+   ${satBlock(r)}
    <div class="block" id="review"></div>
    <div class="coord">LV95 ${swiss(r.E)} / ${swiss(r.N)}<br>WGS84 ${lat.toFixed(4)}° N, ${lon.toFixed(4)}° E</div>
    <div class="actions"><a class="btn primary" href="${link}" target="_blank" rel="noopener" style="text-decoration:none">Check on the swisstopo map</a><button class="btn" id="copy-note">Copy evidence note</button><span class="copied" id="note-msg" role="status"></span></div>
@@ -1225,7 +1324,7 @@ function drawExits(){
 }
 function drawGlaciers(){
   const top = Math.max(...GLACIERS.map(g => g.a));
-  $("glaciers").innerHTML = GLACIERS.map(g => `<div class="bar"><span class="nm">${esc(g.n)}</span><span class="val">${f1(g.a)} km²</span><span class="trk"><i style="width:${g.a/top*100}%"></i></span><span class="note">${f1(g.l)} km long, ${swiss(g.lo)} to ${swiss(g.hi)} m</span></div>`).join("");
+  $("glaciers").innerHTML = GLACIERS.map(g => `<div class="bar"><span class="nm">${esc(g.n)}</span><span class="val">${f1(g.a)} km²</span><span class="trk"><i style="width:${g.a/top*100}%"></i></span><span class="note">${f1(g.l)} km long, ${swiss(g.lo)} to ${swiss(g.hi)} m${thinNote(g)}</span></div>`).join("");
 }
 function drawHypso(){
   const Wd=420, Ht=262, m={l:46,r:62,t:8,b:28}, pw=Wd-m.l-m.r, ph=Ht-m.t-m.b, X = v => m.l + v/320*pw, Y = z => m.t + ph - (z-1000)/3500*ph;
@@ -1441,11 +1540,179 @@ function drawEnergy(){
     <div class="stat"><b>${share==null ? "–" : "+" + (share>=0.1 ? f2(share) : share.toFixed(3)) + "%"}</b><span>${share==null ? "No basin is proposed at a settlement." : `what the ≈ ${b.gwh>=10 ? Math.round(b.gwh) : f1(b.gwh)} GWh of ${esc(r.name)} would add to that capacity`}</span></div>`;
 }
 
+/* ---------- satellite sheet: Sentinel-2 scenes of the study area (swissEO S2-SR, swisstopo) and glacier thinning measured from space
+   (Hugonnet et al. 2021). fetch_satellite_series.py makes the numbers and the pictures when the site is built; the self-hosted page
+   also asks the federal data catalogue for the latest passes ---------- */
+const SATD = SNAP.satellite || null, SPACE = "__SPACE_DIR__", SPACE_V = "__SPACE_V__";
+const SV = {place:"area", cut:50, open:false, picks:""};
+const satPic = (name, when) => `${SPACE}${name}_${when}.webp?v=${SPACE_V}`;
+const thinOf = g => SATD ? SATD.thin.glaciers.find(x => x.n===g.n) : null;
+const thinNote = g => { const t = thinOf(g); return t ? `, thinning ${f2(-t.dh)} m a year` : ""; };
+if (SATD) EVIDENCE.splice(3, 0, ["Satellite scenes and glacier thinning measured from space",1]);
+else { $("tab-satellite").hidden = true; $("guide-satellite").hidden = true; $("thin-hint").hidden = true; }
+$("pass-card").hidden = MODE!=="site" || !SATD;
+/* the two scenes around the selected site, on its card */
+function satBlock(r){
+  if (!SATD || !SPACE) return "";
+  const P = SATD.pair;
+  return `<div class="block"><div class="eyebrow">Seen from space, ${P.then.date.slice(0,4)} and ${P.now.date.slice(0,4)}</div>
+     <div class="satpair">${["then","now"].map(k => `<figure><img loading="lazy" src="${satPic("s"+r.id, k)}" alt="Satellite picture of the ground around ${esc(r.name)} on ${isoDay(P[k].date)}"><figcaption>${isoDay(P[k].date)}</figcaption></figure>`).join("")}</div>
+     <div class="actions"><button class="btn" data-go="satellite" data-place="site">Compare the two</button><span class="sub">Sentinel-2, 4 km across. The ring marks the site.</span></div></div>`;
+}
+function drawSatCmp(){
+  const card = $("sat-cmp-card"); card.hidden = !SPACE; if (!SPACE) return;
+  const F = SATD.frames, P = SATD.pair, r = ROWS.find(x => x.id===S.sel), site = SV.place==="site";
+  const opts = `<option value="area">Whole study area</option>` + ROWS.map(x => `<option value="${x.id}">${x.rank} · ${esc(x.name)}</option>`).join(""), pick = $("sat-place");
+  if (opts !== SV.picks){ pick.innerHTML = opts; SV.picks = opts; }
+  pick.value = site ? String(r.id) : "area";
+  const box = site ? [r.E-F.half, r.N-F.half, r.E+F.half, r.N+F.half] : F.box, w = site ? F.px : F.w, h = site ? F.px : F.h, el = $("sat-cmp");
+  el.classList.toggle("sq", site); el.style.aspectRatio = w + " / " + h;
+  if (SV.open) ["then","now"].forEach(k => { const im = $("sat-"+k), u = satPic(site ? "s"+r.id : "area", k); if (im.getAttribute("src") !== u) im.setAttribute("src", u);
+    im.alt = `Sentinel-2 picture of ${site ? "the ground around " + r.name : "the study area"} on ${isoDay(P[k].date)}`; }); // fetched when the sheet is first opened
+  $("sat-lab-then").textContent = isoDay(P.then.date); $("sat-lab-now").textContent = isoDay(P.now.date); $("sat-years").textContent = P.then.date.slice(0,4) + " and " + P.now.date.slice(0,4);
+  $("sat-mark").textContent = site ? "Ring: the site." : "Red line: study area. Dots: ranked sites.";
+  const X = E => (E-box[0])/(box[2]-box[0])*w, Y = N => (box[3]-N)/(box[3]-box[1])*h, u = w/100, sv = $("sat-over"); sv.setAttribute("viewBox", `0 0 ${w} ${h}`); sv.innerHTML = "";
+  if (site) svgEl("circle", {cx:w/2, cy:h/2, r:3.2*u, fill:"none", stroke:"#fff", "stroke-width":0.7*u, style:"filter:drop-shadow(0 0 1px #0E2A33)"}, sv);
+  else {
+    svgEl("polygon", {points:GEO.poly.map(([x,y]) => X(a*x+b*y+c0).toFixed(1) + "," + Y(d*x+e*y+f0).toFixed(1)).join(" "), fill:"none", stroke:"#E5332A", "stroke-width":2.5, "stroke-linejoin":"round", "vector-effect":"non-scaling-stroke"}, sv);
+    ROWS.forEach(x => { const g = svgEl("g", {class:"sd", transform:`translate(${X(x.E).toFixed(1)} ${Y(x.N).toFixed(1)})`, tabindex:0, role:"button", "aria-label":`Rank ${x.rank}, ${x.name}: show the ground around it`}, sv);
+      g.innerHTML = `<circle r="${1.15*u}" stroke-width="${0.2*u}" style="fill:var(--cls-${x.cls.toLowerCase()})"/><text style="font-size:${1.3*u}px">${x.rank}</text>`;
+      const go = () => { SV.place = "site"; S.sel = x.id; S.hc = null; render(); };
+      g.addEventListener("click", go); g.addEventListener("keydown", ev => { if (ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); go(); } }); });
+  }
+  const km = site ? 1 : 10, bar = $("sat-scale"); bar.style.width = (km*1000/(box[2]-box[0])*100).toFixed(2) + "%"; bar.firstChild.textContent = km + " km";
+  $("sat-side").innerHTML = site
+    ? `<div class="site-h"><div class="rk" style="background:var(--cls-${r.cls.toLowerCase()})">${r.rank}</div><div><h3>${esc(r.name)}</h3><div class="tags"><span class="tag">${TYPE[r.type]}</span><span class="tag">${r.z} m a.s.l.</span><span class="tag">${f1(r.gl)} km² glacier upstream</span></div></div></div>
+       <p style="font-size:14px">The same two scenes, 4 km across at 10 m per pixel. The ring marks the site at LV95 ${swiss(r.E)} / ${swiss(r.N)}.</p>
+       <p class="sub">Look for ice and snow that have gone, lakes that have grown or changed colour, and ground that has become bare. The pictures show the surface only: they say nothing about the ground under a basin.</p>
+       <div class="actions"><button class="btn primary" data-go="sites" data-id="${r.id}">Open its evidence</button><button class="btn" data-place="area">Whole study area</button></div>`
+    : `<div class="stats2"><div class="stat"><b>${Math.round(P.then.km2)} km²</b><span>of snow and ice on ${isoDay(P.then.date)}</span></div><div class="stat"><b>${Math.round(P.now.km2)} km²</b><span>on ${isoDay(P.now.date)}, ${Math.round((1 - P.now.km2/P.then.km2)*100)}% less</span></div></div>
+       <p style="font-size:14px">White is snow and clean glacier ice. The grey bands on the ice are rock debris, the turquoise patches are meltwater lakes. Both scenes were taken in the last days of September at about 10:20 UTC, so the shadows fall the same way.</p>
+       <p class="sub"><strong>Two days are not a trend.</strong> How much winter snow is left differs from year to year, so the chart below uses every clear late-summer scene since ${SATD.years[0].y}.</p>
+       <p class="sub">The numbered dots are the ranked sites. Click one to see the ground around it at 10 m per pixel.</p>`;
+}
+function setCut(v){ SV.cut = clamp(v, 0, 100); $("sat-cmp").style.setProperty("--cut", SV.cut + "%"); $("sat-slide").value = Math.round(SV.cut); }
+{ const el = $("sat-cmp"); let dragging = false;
+  const at = ev => { const bb = el.getBoundingClientRect(); setCut((ev.clientX - bb.left)/bb.width*100); };
+  el.addEventListener("pointerdown", ev => { if (ev.target.closest(".sd")) return; dragging = true; try { el.setPointerCapture(ev.pointerId); } catch(err){} at(ev); });
+  el.addEventListener("pointermove", ev => { if (dragging) at(ev); });
+  ["pointerup","pointercancel"].forEach(k => el.addEventListener(k, () => { dragging = false; }));
+  $("sat-slide").addEventListener("input", ev => setCut(+ev.target.value)); }
+$("sat-place").addEventListener("change", ev => { if (ev.target.value==="area"){ SV.place = "area"; drawSatCmp(); } else { SV.place = "site"; S.sel = +ev.target.value; S.hc = null; render(); } });
+/* a button with data-place picks what the comparison shows; it runs before the handler that opens a sheet */
+document.addEventListener("click", ev => { const bt = ev.target.closest("[data-place]"); if (!bt) return; SV.place = bt.dataset.place; if (S.sheet==="satellite" && !bt.dataset.go) drawSatCmp(); }, true);
+/* snow and ice left at the end of each summer: one bar per year, the clear scene with the least snow that a second scene confirms */
+function drawSatExtent(){
+  const Yr = SATD.years, ok = Yr.filter(v => v.km2 != null), Wd = 640, Ht = 270, m = {l:42,r:14,t:20,b:30}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b;
+  const ymax = Math.ceil(Math.max(GLACIER_KM2, ...ok.map(v => v.km2 + v.unknown))/100)*100, bw = pw/Yr.length, X = i => m.l + (i+0.5)*bw, Y = v => m.t + ph - v/ymax*ph;
+  $("sat-ext-legend").innerHTML = `<span><i class="box" style="background:var(--s1)"></i>Confirmed by a second scene</span><span><i class="box" style="background:var(--s1);opacity:.45"></i>Single or partly cloudy scene</span><span><i style="background:var(--ink-2)"></i>Glacier area in the inventory, ${Math.round(GLACIER_KM2)} km²</span>`;
+  const box = $("sat-ext"); box.innerHTML = "";
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Snow and ice left in the study area at the end of each summer, in square kilometres, from Sentinel-2 scenes"}, box);
+  for (let v = 0; v <= ymax; v += 100){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:v ? "var(--line-2)" : "var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = v; }
+  svgEl("text", {x:m.l-6, y:m.t-8, "text-anchor":"end"}, sv).textContent = "km²";
+  const ht = document.createElement("div"); ht.className = "tip"; ht.hidden = true; box.appendChild(ht);
+  Yr.forEach((v,i) => {
+    svgEl("text", {x:X(i), y:Ht-9, "text-anchor":"middle"}, sv).textContent = v.y;
+    if (v.km2 == null){ const t = svgEl("text", {x:X(i), y:Y(0)-18, "text-anchor":"middle"}, sv); t.innerHTML = `<tspan x="${X(i)}">no clear</tspan><tspan x="${X(i)}" dy="12">scene</tspan>`; return; }
+    const w = bw*0.62, y = Y(v.km2);
+    svgEl("path", {d:`M${X(i)-w/2} ${Y(0)}V${y+3}a3 3 0 0 1 3 -3h${w-6}a3 3 0 0 1 3 3V${Y(0)}z`, fill:"var(--s1)", "fill-opacity":v.confirmed && !v.partly ? 1 : .45}, sv);
+    if (v.unknown >= 1) svgEl("line", {x1:X(i), x2:X(i), y1:y, y2:Y(v.km2+v.unknown), stroke:"var(--ink-2)", "stroke-width":1.5}, sv);
+    svgEl("text", {x:X(i), y:Y(v.km2+v.unknown)-5, "text-anchor":"middle", style:"fill:var(--ink)"}, sv).textContent = Math.round(v.km2);
+    const hit = svgEl("rect", {x:X(i)-bw/2, y:m.t, width:bw, height:ph, fill:"transparent"}, sv);
+    hit.addEventListener("pointerenter", () => { ht.innerHTML = `<b>${isoDay(v.date)}</b><br>Snow and ice: <span class="num">${f1(v.km2)} km²</span>${v.unknown >= 0.05 ? `<br>Under cloud: <span class="num">${f1(v.unknown)} km²</span>` : ""}<br>${v.clear} clear of ${v.passes} passes that summer${v.confirmed ? "" : "<br>No second scene confirms it"}`;
+      ht.hidden = false; const k = box.offsetWidth/Wd; ht.style.left = clamp(X(i)*k - ht.offsetWidth/2, 0, box.offsetWidth - ht.offsetWidth) + "px"; ht.style.top = "0px"; });
+    hit.addEventListener("pointerleave", () => { ht.hidden = true; });
+  });
+  svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(GLACIER_KM2), y2:Y(GLACIER_KM2), stroke:"var(--ink-2)", "stroke-width":1.5, "stroke-dasharray":"5 4", "pointer-events":"none"}, sv);
+  const avg = l => l.reduce((t,v) => t + v.km2, 0)/l.length, first = ok.slice(0,3), last = ok.slice(-3), cur = ok[ok.length-1], span = l => l[0].y + "–" + l[l.length-1].y;
+  $("sat-ext-stats").innerHTML = `<div class="stat"><b>${Math.round(cur.km2)} km²</b><span>on ${isoDay(cur.date)}, the value for ${cur.y}</span></div>
+    <div class="stat"><b>${sg((avg(last)/avg(first) - 1)*100)}%</b><span>the three latest years (${span(last)}) against the three earliest with a usable scene (${span(first)})</span></div>
+    <div class="stat"><b>${SATD.used} of ${SATD.mosaics}</b><span>late-summer passes since ${Yr[0].y} were clear enough to measure</span></div>`;
+  $("sat-ext-note").innerHTML = `<strong>What stays white, not a glacier area.</strong> Snow and ice are counted where the snow index (NDSI) of a scene is ${SATD.ndsi} or more, on a ${SATD.grid} m grid inside the study area, with lakes taken out where the scenes agree on them. The count misses debris-covered ice and ice in deep shadow, and it includes snow fields outside the glaciers. Each bar is the clear scene between 10 August and 5 October with the least snow that a second scene confirms within ${Math.round(SATD.confirm*100)}%, because haze makes a scene read too low. A pale bar had no second scene, or some cloud; the thin line above a bar is the area under cloud. More satellites pass since 2017, so later years have more scenes to choose from.`;
+}
+/* glacier thinning measured from space, set against the dashboard's melt setting */
+function drawSatThin(){
+  const T = SATD.thin, p = T.periods["2000-2020"], seen = new Set(), rows = T.glaciers.filter(g => !seen.has(g.rgi) && seen.add(g.rgi)), top = Math.max(...rows.map(g => -g.dh));
+  $("sat-thin").innerHTML = rows.map(g => { const also = T.glaciers.filter(x => x.rgi===g.rgi && x.n!==g.n).map(x => x.n);
+    return `<div class="bar"><span class="nm">${esc(g.n)}${also.length ? " with " + esc(also.join(", ")) : ""}</span><span class="val">${f2(-g.dh)} ± ${f2(g.err)} m a year</span><span class="trk"><i style="width:${-g.dh/top*100}%"></i></span><span class="note">${f2(-g.dh1)} m a year in 2000–2009, ${f2(-g.dh2)} in 2010–2019${also.length ? " · mapped as one glacier in the satellite study" : ""}</span></div>`; }).join("");
+  const model = GLACIER_KM2*S.melt*S.ice/100, gap = (model/p.water - 1)*100;
+  $("sat-thin-stats").innerHTML = `<div class="stat"><b>${f2(-p.mwe)} m</b><span>of water lost per year, averaged over the area's glaciers, 2000–2019</span></div>
+    <div class="stat"><b>${p.water} Mio m³</b><span>of water a year from ice that was not replaced</span></div>
+    <div class="stat"><b>${Math.round(model)} Mio m³</b><span>is what the melt setting of ${f2(S.melt)} m gives${S.ice < 100 ? " at " + S.ice + "% of today's glacier area" : ""}: ${Math.abs(gap) < 5 ? "about the measured loss" : Math.abs(Math.round(gap)) + "% " + (gap < 0 ? "below" : "above") + " the measured loss"}</span></div>`;
+  $("sat-thin-note").innerHTML = `<strong>Net loss, not total melt.</strong> Hugonnet et al. 2021 measured how much the surface of every glacier sank between 2000 and 2019, from ASTER satellite stereo pictures. Of the ${T.n} glaciers of the ${T.outlines} outlines whose centre lies in the study area, ${p.measured} could be measured (${p.area} km²). The loss is ice that did not come back. The winter snow that melts on the glaciers every summer comes on top, so the water that runs off is more than this figure. ± is the uncertainty the study gives.`;
+}
+function drawSat(){ if (!SATD) return; drawSatCmp(); drawSatExtent(); drawSatThin(); }
+function openSat(){ if (!SATD) return; SV.open = true; drawSatCmp(); if (MODE==="site" && !PASS.busy && Date.now() - PASS.at > PASS_MS) pullPasses(); }
+
+/* the latest passes (self-hosted page only): the catalogue lists the mosaics, geotiff.js reads a small window of their cloud-optimised files */
+const PASS = {list:null, at:0, busy:false, err:"", sel:null, lib:null, pics:{}}, PASS_MS = 30*60e3;
+const S2 = "https://data.geo.admin.ch/ch.swisstopo.swisseo_s2-sr_v200/", S2_STAC = "https://data.geo.admin.ch/api/stac/v1/collections/ch.swisstopo.swisseo_s2-sr_v200/items";
+const s2file = (id, what) => `${S2}${id}/swisseo_s2-sr_v200_mosaic_${id}_${what}.tif`;
+const utc = t => new Date(t).toISOString().slice(11,16);
+/* study-area outline on a picture of the frame box: a path for a canvas of w by h pixels */
+function areaPath(ctx, w, h){ const F = SATD.frames.box; ctx.beginPath();
+  GEO.poly.forEach(([x,y],i) => { const px = (a*x+b*y+c0 - F[0])/(F[2]-F[0])*w, py = (F[3] - (d*x+e*y+f0))/(F[3]-F[1])*h; if (i) ctx.lineTo(px,py); else ctx.moveTo(px,py); }); ctx.closePath(); }
+function areaMask(w, h){ const cv = document.createElement("canvas"); cv.width = w; cv.height = h; const ctx = cv.getContext("2d"); areaPath(ctx, w, h); ctx.fill();
+  const px = ctx.getImageData(0, 0, w, h).data, mk = new Uint8Array(w*h); for (let i = 0; i < mk.length; i++) mk[i] = px[i*4+3] > 127 ? 1 : 0; return mk; }
+async function pullPasses(){
+  if (PASS.busy) return; PASS.busy = true; PASS.err = ""; drawPasses();
+  try {
+    const F = SATD.frames.box, [la0,lo0] = wgs(F[0],F[1]), [la1,lo1] = wgs(F[2],F[3]), iso = t => new Date(t).toISOString().slice(0,19) + "Z";
+    const j = await getJson(`${S2_STAC}?bbox=${lo0.toFixed(3)},${la0.toFixed(3)},${lo1.toFixed(3)},${la1.toFixed(3)}&datetime=${iso(Date.now() - 21*864e5)}/${iso(Date.now())}&limit=100`);
+    const list = (j.features || []).filter(f => /^20\d\d-\d\d-\d\dt\d{6}$/.test(f.id)).map(f => ({id:f.id, t:Date.parse(f.properties.datetime)})).sort((p,q) => q.t - p.t).slice(0,6);
+    if (!list.length) throw new Error("no pass");
+    if (!PASS.lib) try { PASS.lib = await import("https://cdn.jsdelivr.net/npm/geotiff@2.1.3/+esm"); } catch(err){ throw new Error("reader"); }
+    const w = 235, h = 190, mk = areaMask(w, h), band = async (id, what) => (await (await PASS.lib.fromUrl(s2file(id, what))).readRasters({bbox:F, width:w, height:h, samples:[0]}))[0];
+    await Promise.all(list.map(async p => { try { const [cm, scl] = await Promise.all([band(p.id, "cloudmask_10m"), band(p.id, "scl_20m")]); // scene classification 0 = outside the flight path
+        let n = 0, out = 0, cl = 0; for (let i = 0; i < mk.length; i++) if (mk[i]){ n++; if (scl[i]===0) out++; else if (cm[i] > 0) cl++; }
+        p.cover = (1 - out/n)*100; p.cloud = n > out ? cl/(n-out)*100 : null; p.scl = scl; p.gw = w; p.gh = h; } catch(err){ p.cover = null; p.cloud = null; } }));
+    PASS.list = list; PASS.at = Date.now();
+    if (!list.some(p => p.id===PASS.sel)) PASS.sel = (list.find(p => p.cover >= 99) || list[0]).id;
+  } catch(err){ PASS.err = err && err.message==="reader" ? "The reader for the satellite files could not be loaded." : "The federal data catalogue did not answer."; }
+  PASS.busy = false; drawPasses(); if (PASS.list && PASS.sel) showPass(PASS.sel);
+}
+function drawPasses(){
+  const L = PASS.list;
+  $("pass-status").textContent = PASS.busy ? "Asking the federal data catalogue." : PASS.err ? PASS.err + (L ? " Showing the check of " + hhmm(PASS.at) + "." : "") : L ? "Checked at " + hhmm(PASS.at) + "." : "";
+  if (!L) return;
+  const clear = p => p.cover >= 99 && p.cloud < 5;
+  const tag = p => p.cover == null ? `<span class="tag">not read</span>` : p.cover < 99 ? `<span class="tag">covers ${Math.round(p.cover)}% of the area</span>` : clear(p) ? `<span class="tag calm">clear</span>` : p.cloud < 40 ? `<span class="tag watch">partly cloudy</span>` : `<span class="tag">cloudy</span>`;
+  $("pass-tbl").innerHTML = `<table class="mini passes"><thead><tr><th>Pass</th><th>Cloud over the area</th><th></th></tr></thead><tbody>${L.map(p => `<tr data-id="${p.id}" tabindex="0"${p.id===PASS.sel ? ` class="sel"` : ""}><td>${dmy(p.t)}, ${utc(p.t)} UTC</td><td>${p.cloud == null ? "–" : Math.round(p.cloud) + "%"}</td><td>${tag(p)}</td></tr>`).join("")}</tbody></table>`;
+  const days = Math.max(0, Math.floor((Date.now() - L[0].t)/864e5)), last = L.find(clear);
+  $("pass-stats").innerHTML = `<div class="stat"><b>${days ? days + (days===1 ? " day ago" : " days ago") : "Today"}</b><span>the newest pass, ${dmy(L[0].t)}</span></div>
+    <div class="stat"><b>${last ? dmy(last.t) : "None"}</b><span>${last ? "the last clear view of the area" : "of these passes was clear"}</span></div>
+    <div class="stat"><b>${L.filter(clear).length} of ${L.length}</b><span>latest passes were clear</span></div>`;
+}
+/* true-colour picture of the frame box. The file holds the picture as JPEG tiles in YCbCr with a mask after each overview, so the
+   overview is picked here among the three-band images and converted with readRGB */
+async function passPicture(id, w, h){
+  const tf = await PASS.lib.fromUrl(s2file(id, "tci_10m")), F = SATD.frames.box, first = await tf.getImage(0), n = await tf.getImageCount(), [ox, oy] = first.getOrigin(), r0 = first.getResolution()[0], want = (F[2]-F[0])/w;
+  let img = first, res = r0;
+  for (let i = 1; i < n; i++){ const im = await tf.getImage(i); if (im.getSamplesPerPixel() !== 3) continue; const r = r0*first.getWidth()/im.getWidth(); if (r <= want*1.01){ img = im; res = r; } }
+  return img.readRGB({window:[(F[0]-ox)/res, (oy-F[3])/res, (F[2]-ox)/res, (oy-F[1])/res].map(Math.round), width:w, height:h, interleave:true});
+}
+async function showPass(id){
+  const p = (PASS.list || []).find(x => x.id===id); if (!p || !PASS.lib) return;
+  PASS.sel = id; drawPasses();
+  const cv = $("pass-pic"), w = cv.width, h = cv.height, cap = $("pass-cap");
+  try {
+    if (!PASS.pics[id]){ cap.textContent = "Reading the picture of " + dmy(p.t) + "."; PASS.pics[id] = await passPicture(id, w, h); }
+    if (PASS.sel !== id) return;
+    const px = PASS.pics[id], ctx = cv.getContext("2d"), im = ctx.createImageData(w, h), seen = (x, y) => !p.scl || p.scl[Math.floor(y*p.gh/h)*p.gw + Math.floor(x*p.gw/w)] !== 0; // outside the flight path stays empty
+    for (let i = 0, j = 0; i < px.length; i += 3, j += 4){ im.data[j] = px[i]; im.data[j+1] = px[i+1]; im.data[j+2] = px[i+2]; im.data[j+3] = seen((i/3) % w, Math.floor(i/3/w)) ? 255 : 0; }
+    ctx.putImageData(im, 0, 0); areaPath(ctx, w, h); ctx.strokeStyle = "#E5332A"; ctx.lineWidth = 2; ctx.lineJoin = "round"; ctx.stroke();
+    cap.textContent = `Pass of ${dmy(p.t)}, ${utc(p.t)} UTC${p.cloud == null ? "" : ", " + Math.round(p.cloud) + "% cloud over the study area"}. swissEO S2-SR, © swisstopo, contains modified Copernicus Sentinel data ${new Date(p.t).getUTCFullYear()}. Red line: study area.`;
+  } catch(err){ cap.textContent = "The picture of this pass could not be read."; }
+}
+$("pass-refresh").addEventListener("click", pullPasses);
+$("pass-tbl").addEventListener("click", ev => { const tr = ev.target.closest("tr[data-id]"); if (tr) showPass(tr.dataset.id); });
+$("pass-tbl").addEventListener("keydown", ev => { const tr = ev.target.closest("tr[data-id]"); if (tr && (ev.key==="Enter" || ev.key===" ")){ ev.preventDefault(); showPass(tr.dataset.id); } });
+
 /* ---------- the Track 06 brief, point by point ---------- */
 function drawBrief(){
   const B = [
-    [SAT ? "ok" : "part", SAT ? "In" : "Partly", "Integrate multi-source Earth-observation, climate and infrastructure data", `Terrain model and glacier inventory from airborne survey${SAT ? ", a Sentinel-2 satellite mosaic" : ""}, Hydro-CH2018 climate scenarios, live river gauges and weather stations, a five-day forecast, protection inventories, hazard index maps, hydropower plants, dams and reservoir storage.${SAT ? "" : " No satellite product yet."}`],
-    ["part", "Partly", "Model glacier retreat and alpine risk dynamics", "Glacier size and melt rate are scenario controls on every sheet, and the Risk outlook sets a forecast of thaw and heavy precipitation against mapped process areas. Glacier retreat is a uniform share of today's area, not a glacier model, and the risk thresholds are not calibrated."],
+    [SAT || SATD ? "ok" : "part", SAT || SATD ? "In" : "Partly", "Integrate multi-source Earth-observation, climate and infrastructure data", `Terrain model and glacier inventory from airborne survey${SATD ? ", Sentinel-2 satellite scenes since 2015, glacier thinning measured from satellite stereo pictures" : SAT ? ", a Sentinel-2 satellite mosaic" : ""}, Hydro-CH2018 climate scenarios, live river gauges and weather stations, a five-day forecast, protection inventories, hazard index maps, hydropower plants, dams and reservoir storage.${SAT || SATD ? "" : " No satellite product yet."}`],
+    ["part", "Partly", "Model glacier retreat and alpine risk dynamics", "Glacier size and melt rate are scenario controls on every sheet, and the Risk outlook sets a forecast of thaw and heavy precipitation against mapped process areas. Glacier retreat is a uniform share of today's area, not a glacier model, and the risk thresholds are not calibrated." + (SATD ? " The Satellite sheet sets the melt setting against the ice loss satellites measured, and shows the snow and ice left each summer since " + SATD.years[0].y + "." : "")],
     ["part", "Partly", "Couple energy grid behaviour with climate variability", "Storage, winter energy and payback respond to the runoff scenario, the melt rate and the glacier size, next to the plants and dams around each site and the energy held in Swiss reservoirs. The grid itself is not modelled."],
     ["ok", "In", "Surface insight in a public-grade decision interface", "This page: no login, a next action for every site, the evidence and its gaps on each site card, and an open data API."],
     ["ok", "In", "Outcome: a working digital twin of one Swiss region", "Jungfrau–Aletsch, 781 km²: the state now, the model and the what-if scenarios."],
@@ -1469,7 +1736,7 @@ function render(){
   $("melt-out").textContent = f2(S.melt)+" m" + (S.melt===1 ? " (report)" : "");
   $("ice-out").textContent = S.ice + "%" + (S.ice===100 ? " (today)" : "");
   $("price-out").textContent = S.price + " Rp./kWh";
-  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawEnergy(); drawRisk(); drawStatus();
+  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawEnergy(); drawRisk(); drawSat(); drawStatus();
   if (keep){ const el = $(keep.id); if (el){ el.focus(); if (keep.pos!=null) try { el.setSelectionRange(keep.pos, keep.pos); } catch(err){} } }
 }
 
