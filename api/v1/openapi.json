@@ -1,0 +1,602 @@
+{
+ "openapi": "3.0.3",
+ "info": {
+  "title": "BasinScope Alps data API",
+  "version": "1.0.0",
+  "description": "Read-only data on glacier-meltwater retention basin sites in the Jungfrau-Aletsch area. Static JSON, no key, open to browser calls from any origin. Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study."
+ },
+ "servers": [
+  {
+   "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1"
+  }
+ ],
+ "paths": {
+  "/sites.json": {
+   "get": {
+    "tags": [
+     "Sites"
+    ],
+    "summary": "The 15 ranked basin sites: location, basin volume, dam length, glacier area upstream, protection, illustrative investment.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Site"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/sites/{id}.json": {
+   "get": {
+    "tags": [
+     "Sites"
+    ],
+    "summary": "One site by id (1 to 15, its rank in the terrain analysis report).",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "$ref": "#/components/schemas/Site"
+          }
+         }
+        }
+       }
+      }
+     },
+     "404": {
+      "description": "No such id"
+     }
+    },
+    "parameters": [
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer"
+      },
+      "description": "Site id, 1 to 15"
+     }
+    ]
+   }
+  },
+  "/sites.geojson": {
+   "get": {
+    "tags": [
+     "Sites"
+    ],
+    "summary": "The same sites as a GeoJSON FeatureCollection in WGS84, for GIS and web maps.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/geo+json": {
+        "schema": {
+         "type": "object",
+         "description": "GeoJSON FeatureCollection of Point features"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/candidates.json": {
+   "get": {
+    "tags": [
+     "Sites"
+    ],
+    "summary": "The 28 further candidate points that did not make the shortlist, with their protection check.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Candidate"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/catchments.json": {
+   "get": {
+    "tags": [
+     "Meltwater"
+    ],
+    "summary": "The 9 Hydro-CH2018 catchments the sites are matched to.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Catchment"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/catchments/{id}.json": {
+   "get": {
+    "tags": [
+     "Meltwater"
+    ],
+    "summary": "One catchment with monthly runoff for RCP2.6, 4.5 and 8.5 in the reference period, 2035, 2060 and 2085 (median, minimum, maximum of the model ensemble).",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "$ref": "#/components/schemas/CatchmentRunoff"
+          }
+         }
+        }
+       }
+      }
+     },
+     "404": {
+      "description": "No such id"
+     }
+    },
+    "parameters": [
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer"
+      },
+      "description": "Hydro-CH2018 catchment id: 3003, 3004, 3124, 3143, 4006, 4020, 4022, 4128, 4134"
+     }
+    ]
+   }
+  },
+  "/glaciers.json": {
+   "get": {
+    "tags": [
+     "Meltwater"
+    ],
+    "summary": "The ten largest glaciers of the study area.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Glacier"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/exits.json": {
+   "get": {
+    "tags": [
+     "Meltwater"
+    ],
+    "summary": "Where meltwater leaves the study area, with the glacier area behind each exit.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Exit"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/elevation-bands.json": {
+   "get": {
+    "tags": [
+     "Meltwater"
+    ],
+    "summary": "Land and glacier area by 500 m elevation band.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/ElevationBand"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "Meta": {
+    "type": "object",
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "generated": {
+      "type": "string",
+      "format": "date"
+     },
+     "notice": {
+      "type": "string"
+     },
+     "docs": {
+      "type": "string"
+     },
+     "count": {
+      "type": "integer"
+     }
+    }
+   },
+   "Protection": {
+    "type": "object",
+    "properties": {
+     "level": {
+      "type": "string",
+      "enum": [
+       "none",
+       "landscape",
+       "strict"
+      ]
+     },
+     "strict": {
+      "type": "boolean"
+     },
+     "areas": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "kind": {
+         "type": "string",
+         "enum": [
+          "floodplain",
+          "mire_landscape",
+          "fen",
+          "bog",
+          "hydro_waiver",
+          "unesco",
+          "bln",
+          "game_reserve"
+         ]
+        },
+        "label": {
+         "type": "string"
+        },
+        "level": {
+         "type": "string"
+        },
+        "name": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   },
+   "Site": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer"
+     },
+     "report_rank": {
+      "type": "integer"
+     },
+     "name": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "new",
+       "reservoir",
+       "lake",
+       "settlement"
+      ]
+     },
+     "type_label": {
+      "type": "string"
+     },
+     "valley": {
+      "type": "string"
+     },
+     "location": {
+      "type": "object",
+      "properties": {
+       "easting_lv95": {
+        "type": "integer"
+       },
+       "northing_lv95": {
+        "type": "integer"
+       },
+       "longitude": {
+        "type": "number"
+       },
+       "latitude": {
+        "type": "number"
+       },
+       "elevation_m": {
+        "type": "integer"
+       }
+      }
+     },
+     "glacier_area_upstream_km2": {
+      "type": "number"
+     },
+     "basin": {
+      "type": "object",
+      "properties": {
+       "volume_10m_dam_mio_m3": {
+        "type": "number"
+       },
+       "volume_20m_dam_mio_m3": {
+        "type": "number"
+       },
+       "lake_area_ha": {
+        "type": "number"
+       },
+       "dam_length_m": {
+        "type": "number"
+       }
+      }
+     },
+     "illustrative_investment_chf_m": {
+      "type": "object",
+      "description": "Basin volume scaled in a straight line from the KWO Trift project (CHF 387 m for 85 Mio m3). Order of magnitude only.",
+      "properties": {
+       "dam_10m": {
+        "type": "number"
+       },
+       "dam_20m": {
+        "type": "number"
+       }
+      }
+     },
+     "catchment_id": {
+      "type": "integer"
+     },
+     "protection": {
+      "$ref": "#/components/schemas/Protection"
+     },
+     "confidence_note": {
+      "type": "string",
+      "nullable": true
+     },
+     "notes": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    }
+   },
+   "Candidate": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "location": {
+      "type": "object",
+      "properties": {
+       "easting_lv95": {
+        "type": "integer"
+       },
+       "northing_lv95": {
+        "type": "integer"
+       },
+       "longitude": {
+        "type": "number"
+       },
+       "latitude": {
+        "type": "number"
+       },
+       "elevation_m": {
+        "type": "integer"
+       }
+      }
+     },
+     "protection": {
+      "$ref": "#/components/schemas/Protection"
+     }
+    }
+   },
+   "Catchment": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer"
+     },
+     "river": {
+      "type": "string"
+     },
+     "gauge_place": {
+      "type": "string"
+     },
+     "area_km2": {
+      "type": "number"
+     },
+     "glacier_cover_percent": {
+      "type": "number"
+     },
+     "site_ids": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     }
+    }
+   },
+   "CatchmentRunoff": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Catchment"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "runoff_unit": {
+        "type": "string"
+       },
+       "runoff": {
+        "type": "object",
+        "description": "Keys: RCP26 | RCP45 | RCP85, then ref | 2035 | 2060 | 2085, then med | min | max, then jan to dec.",
+        "additionalProperties": true
+       }
+      }
+     }
+    ]
+   },
+   "Glacier": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "area_km2": {
+      "type": "number"
+     },
+     "length_km": {
+      "type": "number"
+     },
+     "lowest_m": {
+      "type": "integer"
+     },
+     "highest_m": {
+      "type": "integer"
+     }
+    }
+   },
+   "Exit": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string"
+     },
+     "glacier_area_km2": {
+      "type": "number"
+     },
+     "description": {
+      "type": "string"
+     },
+     "warning": {
+      "type": "string"
+     }
+    }
+   },
+   "ElevationBand": {
+    "type": "object",
+    "properties": {
+     "band_from_m": {
+      "type": "integer"
+     },
+     "area_km2": {
+      "type": "number"
+     },
+     "glacier_area_km2": {
+      "type": "number"
+     }
+    }
+   }
+  }
+ }
+}

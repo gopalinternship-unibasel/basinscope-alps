@@ -1,0 +1,785 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 15
+ },
+ "data": [
+  {
+   "id": 1,
+   "report_rank": 1,
+   "name": "Grimselsee, western part",
+   "type": "reservoir",
+   "type_label": "Existing reservoir",
+   "valley": "Grimsel area (Aare)",
+   "location": {
+    "easting_lv95": 2664285,
+    "northing_lv95": 1157195,
+    "longitude": 8.27705,
+    "latitude": 46.562943,
+    "elevation_m": 1908
+   },
+   "glacier_area_upstream_km2": 30.1,
+   "basin": {
+    "volume_10m_dam_mio_m3": 6.27,
+    "volume_20m_dam_mio_m3": 14.96,
+    "lake_area_ha": 99,
+    "dam_length_m": 670
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 28.5,
+    "dam_20m": 68.1
+   },
+   "catchment_id": 4128,
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "mire_landscape",
+      "label": "Mire landscape of national importance",
+      "level": "strict",
+      "name": "Grimsel"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": "The terrain model edge cuts through the lake.",
+   "notes": [
+    "On the federal hydropower round-table list (2021) as the Grimsel enlargement. The analysis found it independently.",
+    "The terrain model's eastern edge runs through the middle of the lake, so this volume is uncertain."
+   ]
+  },
+  {
+   "id": 2,
+   "report_rank": 2,
+   "name": "Gauligletscher forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Gauli / Urbachtal",
+   "location": {
+    "easting_lv95": 2659955,
+    "northing_lv95": 1162765,
+    "longitude": 8.221306,
+    "latitude": 46.613448,
+    "elevation_m": 2139
+   },
+   "glacier_area_upstream_km2": 13.8,
+   "basin": {
+    "volume_10m_dam_mio_m3": 4.98,
+    "volume_20m_dam_mio_m3": 12.49,
+    "lake_area_ha": 83,
+    "dam_length_m": 210
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 22.7,
+    "dam_20m": 56.9
+   },
+   "catchment_id": 4022,
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Gauligletscher, object 1206, glacier forefield"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Best new site in the terrain analysis: a large volume behind a short dam. Its whole catchment is 25.7 km², 54% glaciated."
+   ]
+  },
+  {
+   "id": 3,
+   "report_rank": 3,
+   "name": "Oberaarsee",
+   "type": "reservoir",
+   "type_label": "Existing reservoir",
+   "valley": "Grimsel area (Aare)",
+   "location": {
+    "easting_lv95": 2662995,
+    "northing_lv95": 1154885,
+    "longitude": 8.259911,
+    "latitude": 46.542287,
+    "elevation_m": 2302
+   },
+   "glacier_area_upstream_km2": 4.48,
+   "basin": {
+    "volume_10m_dam_mio_m3": 9.55,
+    "volume_20m_dam_mio_m3": 20.38,
+    "lake_area_ha": 114,
+    "dam_length_m": 1060
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 43.5,
+    "dam_20m": 92.8
+   },
+   "catchment_id": 4128,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "On the federal hydropower round-table list (2021). The analysis found it independently."
+   ]
+  },
+  {
+   "id": 4,
+   "report_rank": 4,
+   "name": "Oeschinensee",
+   "type": "lake",
+   "type_label": "Existing lake",
+   "valley": "Kandersteg (Öschibach)",
+   "location": {
+    "easting_lv95": 2621445,
+    "northing_lv95": 1149575,
+    "longitude": 7.717981,
+    "latitude": 46.497142,
+    "elevation_m": 1575
+   },
+   "glacier_area_upstream_km2": 4.4,
+   "basin": {
+    "volume_10m_dam_mio_m3": 10.64,
+    "volume_20m_dam_mio_m3": 22.61,
+    "lake_area_ha": 124,
+    "dam_length_m": 780
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 48.4,
+    "dam_20m": 102.9
+   },
+   "catchment_id": 4134,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": []
+  },
+  {
+   "id": 5,
+   "report_rank": 5,
+   "name": "Fieschergletscher forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Below the Fieschergletscher",
+   "location": {
+    "easting_lv95": 2653415,
+    "northing_lv95": 1144985,
+    "longitude": 8.133879,
+    "latitude": 46.454067,
+    "elevation_m": 1675
+   },
+   "glacier_area_upstream_km2": 33.2,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.73,
+    "volume_20m_dam_mio_m3": 2.1,
+    "lake_area_ha": 16,
+    "dam_length_m": 190
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 3.3,
+    "dam_20m": 9.6
+   },
+   "catchment_id": 3143,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "A great deal of glacier upstream but little space."
+   ]
+  },
+  {
+   "id": 6,
+   "report_rank": 6,
+   "name": "Fafleralp, Lötschental",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Lötschental",
+   "location": {
+    "easting_lv95": 2632445,
+    "northing_lv95": 1142545,
+    "longitude": 7.860773,
+    "latitude": 46.433461,
+    "elevation_m": 1761
+   },
+   "glacier_area_upstream_km2": 17.1,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.26,
+    "volume_20m_dam_mio_m3": 1.88,
+    "lake_area_ha": 23,
+    "dam_length_m": 300
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 1.2,
+    "dam_20m": 8.6
+   },
+   "catchment_id": 3003,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Bietschhorn, partial protection"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "A great deal of glacier upstream but little space."
+   ]
+  },
+  {
+   "id": 7,
+   "report_rank": 7,
+   "name": "Lake near the Gruebengletscher",
+   "type": "lake",
+   "type_label": "Existing lake",
+   "valley": "Grimsel area (Aare)",
+   "location": {
+    "easting_lv95": 2663435,
+    "northing_lv95": 1161755,
+    "longitude": 8.266592,
+    "latitude": 46.604042,
+    "elevation_m": 2332
+   },
+   "glacier_area_upstream_km2": 1.29,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.61,
+    "volume_20m_dam_mio_m3": 1.85,
+    "lake_area_ha": 16,
+    "dam_length_m": 320
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 2.8,
+    "dam_20m": 8.4
+   },
+   "catchment_id": 4128,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": []
+  },
+  {
+   "id": 8,
+   "report_rank": 8,
+   "name": "Blatten, Lötschental",
+   "type": "settlement",
+   "type_label": "Settlement area",
+   "valley": "Lötschental",
+   "location": {
+    "easting_lv95": 2629245,
+    "northing_lv95": 1141005,
+    "longitude": 7.819042,
+    "latitude": 46.419755,
+    "elevation_m": 1524
+   },
+   "glacier_area_upstream_km2": 21.9,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.13,
+    "volume_20m_dam_mio_m3": 0.85,
+    "lake_area_ha": 11,
+    "dam_length_m": 460
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 0.6,
+    "dam_20m": 3.9
+   },
+   "catchment_id": 3003,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Bietschhorn, partial protection"
+     }
+    ]
+   },
+   "confidence_note": "The terrain model may show the valley before or after the 2025 collapse.",
+   "notes": [
+    "The village was buried in May 2025 by the collapse of the Birch Glacier. The terrain has changed fundamentally and the site is unsuitable in any case."
+   ]
+  },
+  {
+   "id": 9,
+   "report_rank": 9,
+   "name": "Kanderfirn forefield, upper Gasterntal",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Gasterntal (Kanderfirn)",
+   "location": {
+    "easting_lv95": 2623945,
+    "northing_lv95": 1144525,
+    "longitude": 7.750285,
+    "latitude": 46.45163,
+    "elevation_m": 1724
+   },
+   "glacier_area_upstream_km2": 13.2,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.11,
+    "volume_20m_dam_mio_m3": 0.71,
+    "lake_area_ha": 9,
+    "dam_length_m": 460
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 0.5,
+    "dam_20m": 3.2
+   },
+   "catchment_id": 4006,
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Kanderfirn, object 1121, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 10,
+   "report_rank": 10,
+   "name": "Blüemlisalpgletscher forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Kandersteg (Öschibach)",
+   "location": {
+    "easting_lv95": 2623635,
+    "northing_lv95": 1150555,
+    "longitude": 7.746558,
+    "latitude": 46.505884,
+    "elevation_m": 2174
+   },
+   "glacier_area_upstream_km2": 2.2,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.12,
+    "volume_20m_dam_mio_m3": 0.68,
+    "lake_area_ha": 7,
+    "dam_length_m": 360
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 0.5,
+    "dam_20m": 3.1
+   },
+   "catchment_id": 4134,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 11,
+   "report_rank": 11,
+   "name": "Bächlital, Grimsel",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Grimsel area (Aare)",
+   "location": {
+    "easting_lv95": 2665225,
+    "northing_lv95": 1159815,
+    "longitude": 8.289679,
+    "latitude": 46.586419,
+    "elevation_m": 2173
+   },
+   "glacier_area_upstream_km2": 1.2,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.21,
+    "volume_20m_dam_mio_m3": 0.68,
+    "lake_area_ha": 5,
+    "dam_length_m": 360
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 1.0,
+    "dam_20m": 3.1
+   },
+   "catchment_id": 4128,
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Bächlisboden, object 1327, alpine alluvial plain"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 12,
+   "report_rank": 12,
+   "name": "Breitlouwenengletscher forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Hinteres Lauterbrunnental",
+   "location": {
+    "easting_lv95": 2636945,
+    "northing_lv95": 1151685,
+    "longitude": 7.92005,
+    "latitude": 46.515447,
+    "elevation_m": 2211
+   },
+   "glacier_area_upstream_km2": 0.6,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.22,
+    "volume_20m_dam_mio_m3": 0.59,
+    "lake_area_ha": 4,
+    "dam_length_m": 290
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 1.0,
+    "dam_20m": 2.7
+   },
+   "catchment_id": 4020,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 13,
+   "report_rank": 13,
+   "name": "Baltschiedergletscher forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Baltschiedertal",
+   "location": {
+    "easting_lv95": 2634775,
+    "northing_lv95": 1137275,
+    "longitude": 7.890693,
+    "latitude": 46.385938,
+    "elevation_m": 2281
+   },
+   "glacier_area_upstream_km2": 5.5,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.11,
+    "volume_20m_dam_mio_m3": 0.56,
+    "lake_area_ha": 6,
+    "dam_length_m": 290
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 0.5,
+    "dam_20m": 2.5
+   },
+   "catchment_id": 3124,
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Üssre Baltschiedergletscher, object 1118, glacier forefield"
+     },
+     {
+      "kind": "hydro_waiver",
+      "label": "Hydropower use waived for compensation",
+      "level": "strict",
+      "name": "Baltschiedertal, since 2002"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 14,
+   "report_rank": 14,
+   "name": "Jegigletscher forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Lötschental",
+   "location": {
+    "easting_lv95": 2635325,
+    "northing_lv95": 1145305,
+    "longitude": 7.898454,
+    "latitude": 46.458143,
+    "elevation_m": 2203
+   },
+   "glacier_area_upstream_km2": 2.1,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.1,
+    "volume_20m_dam_mio_m3": 0.54,
+    "lake_area_ha": 6,
+    "dam_length_m": 360
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 0.5,
+    "dam_20m": 2.5
+   },
+   "catchment_id": 3003,
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Langgletscher/Jegigletscher, object 1115, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  },
+  {
+   "id": 15,
+   "report_rank": 15,
+   "name": "Tschingelfirn forefield",
+   "type": "new",
+   "type_label": "New site",
+   "valley": "Hinteres Lauterbrunnental",
+   "location": {
+    "easting_lv95": 2632305,
+    "northing_lv95": 1149925,
+    "longitude": 7.859466,
+    "latitude": 46.499855,
+    "elevation_m": 2267
+   },
+   "glacier_area_upstream_km2": 5.2,
+   "basin": {
+    "volume_10m_dam_mio_m3": 0.19,
+    "volume_20m_dam_mio_m3": 0.51,
+    "lake_area_ha": 4,
+    "dam_length_m": 230
+   },
+   "illustrative_investment_chf_m": {
+    "dam_10m": 0.9,
+    "dam_20m": 2.3
+   },
+   "catchment_id": 4020,
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   },
+   "confidence_note": null,
+   "notes": [
+    "Small basin in a forefield step."
+   ]
+  }
+ ]
+}

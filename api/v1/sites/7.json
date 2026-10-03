@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 7,
+  "report_rank": 7,
+  "name": "Lake near the Gruebengletscher",
+  "type": "lake",
+  "type_label": "Existing lake",
+  "valley": "Grimsel area (Aare)",
+  "location": {
+   "easting_lv95": 2663435,
+   "northing_lv95": 1161755,
+   "longitude": 8.266592,
+   "latitude": 46.604042,
+   "elevation_m": 2332
+  },
+  "glacier_area_upstream_km2": 1.29,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.61,
+   "volume_20m_dam_mio_m3": 1.85,
+   "lake_area_ha": 16,
+   "dam_length_m": 320
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 2.8,
+   "dam_20m": 8.4
+  },
+  "catchment_id": 4128,
+  "protection": {
+   "level": "landscape",
+   "strict": false,
+   "areas": [
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": []
+ }
+}

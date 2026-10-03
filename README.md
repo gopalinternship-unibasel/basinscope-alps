@@ -59,6 +59,22 @@ context figures. The page re-reads this file at every check, so editing it and
 uploading the new version updates every open page within 5 minutes, and at once on reload.
 Records that fail validation are ignored and the built-in copy is used instead.
 
+## Data API
+
+The figures behind the dashboard are also served as read-only JSON under `api/v1/`, with a documentation
+page at `api/` and an OpenAPI 3.0 description at `api/v1/openapi.json`. No key, no server: the files are static.
+
+| Endpoint | What it returns |
+|---|---|
+| `api/v1/sites.json`, `api/v1/sites/{id}.json` | The 15 ranked sites: location (LV95 and WGS84), basin volume, dam length, protection, illustrative investment |
+| `api/v1/sites.geojson` | The same sites as GeoJSON for GIS and web maps |
+| `api/v1/candidates.json` | The 28 further candidate points with their protection check |
+| `api/v1/catchments.json`, `api/v1/catchments/{id}.json` | Hydro-CH2018 catchments and their monthly runoff scenarios |
+| `api/v1/glaciers.json`, `api/v1/exits.json`, `api/v1/elevation-bands.json` | Glaciers, meltwater exits, area by elevation |
+
+The files are generated from `data/dataset.json` by `build_api.py` in the build folder. Scores, classes and the
+energy side of the business case depend on the scenario settings and are computed in the dashboard, not served by the API.
+
 ## Limits
 
 - The gauges lie below reservoirs and diversions. They show what each river carries now,

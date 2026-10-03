@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 3,
+  "report_rank": 3,
+  "name": "Oberaarsee",
+  "type": "reservoir",
+  "type_label": "Existing reservoir",
+  "valley": "Grimsel area (Aare)",
+  "location": {
+   "easting_lv95": 2662995,
+   "northing_lv95": 1154885,
+   "longitude": 8.259911,
+   "latitude": 46.542287,
+   "elevation_m": 2302
+  },
+  "glacier_area_upstream_km2": 4.48,
+  "basin": {
+   "volume_10m_dam_mio_m3": 9.55,
+   "volume_20m_dam_mio_m3": 20.38,
+   "lake_area_ha": 114,
+   "dam_length_m": 1060
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 43.5,
+   "dam_20m": 92.8
+  },
+  "catchment_id": 4128,
+  "protection": {
+   "level": "landscape",
+   "strict": false,
+   "areas": [
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "On the federal hydropower round-table list (2021). The analysis found it independently."
+  ]
+ }
+}

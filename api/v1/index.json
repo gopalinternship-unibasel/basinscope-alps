@@ -1,0 +1,81 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "name": "BasinScope Alps data API",
+  "study_area": "Jungfrau-Aletsch, 781 km2, Bernese and Valais Alps",
+  "base_url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1",
+  "endpoints": [
+   {
+    "path": "/sites.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/sites.json",
+    "description": "The 15 ranked basin sites: location, basin volume, dam length, glacier area upstream, protection, illustrative investment."
+   },
+   {
+    "path": "/sites/{id}.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/sites/{id}.json",
+    "description": "One site by id (1 to 15, its rank in the terrain analysis report)."
+   },
+   {
+    "path": "/sites.geojson",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/sites.geojson",
+    "description": "The same sites as a GeoJSON FeatureCollection in WGS84, for GIS and web maps."
+   },
+   {
+    "path": "/candidates.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/candidates.json",
+    "description": "The 28 further candidate points that did not make the shortlist, with their protection check."
+   },
+   {
+    "path": "/catchments.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/catchments.json",
+    "description": "The 9 Hydro-CH2018 catchments the sites are matched to."
+   },
+   {
+    "path": "/catchments/{id}.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/catchments/{id}.json",
+    "description": "One catchment with monthly runoff for RCP2.6, 4.5 and 8.5 in the reference period, 2035, 2060 and 2085 (median, minimum, maximum of the model ensemble)."
+   },
+   {
+    "path": "/glaciers.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/glaciers.json",
+    "description": "The ten largest glaciers of the study area."
+   },
+   {
+    "path": "/exits.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/exits.json",
+    "description": "Where meltwater leaves the study area, with the glacier area behind each exit."
+   },
+   {
+    "path": "/elevation-bands.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/elevation-bands.json",
+    "description": "Land and glacier area by 500 m elevation band."
+   },
+   {
+    "path": "/openapi.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/openapi.json",
+    "description": "OpenAPI 3.0 description of this API."
+   }
+  ],
+  "sources": [
+   {
+    "what": "Sites, volumes, dam lengths, glacier areas",
+    "source": "Team terrain analysis on swissALTI3D (swisstopo) and the Swiss Glacier Inventory SGI 2016 (GLAMOS)",
+    "as_of": "2026-10-02"
+   },
+   {
+    "what": "Monthly runoff scenarios",
+    "source": "Hydro-CH2018, data set L03, Federal Office for the Environment (FOEN)"
+   },
+   {
+    "what": "Protected areas",
+    "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point",
+    "as_of": "2026-10-03"
+   }
+  ]
+ }
+}

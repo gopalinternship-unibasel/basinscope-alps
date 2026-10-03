@@ -1,0 +1,57 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 2,
+  "report_rank": 2,
+  "name": "Gauligletscher forefield",
+  "type": "new",
+  "type_label": "New site",
+  "valley": "Gauli / Urbachtal",
+  "location": {
+   "easting_lv95": 2659955,
+   "northing_lv95": 1162765,
+   "longitude": 8.221306,
+   "latitude": 46.613448,
+   "elevation_m": 2139
+  },
+  "glacier_area_upstream_km2": 13.8,
+  "basin": {
+   "volume_10m_dam_mio_m3": 4.98,
+   "volume_20m_dam_mio_m3": 12.49,
+   "lake_area_ha": 83,
+   "dam_length_m": 210
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 22.7,
+   "dam_20m": 56.9
+  },
+  "catchment_id": 4022,
+  "protection": {
+   "level": "strict",
+   "strict": true,
+   "areas": [
+    {
+     "kind": "floodplain",
+     "label": "Floodplain of national importance",
+     "level": "strict",
+     "name": "Gauligletscher, object 1206, glacier forefield"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "Best new site in the terrain analysis: a large volume behind a short dam. Its whole catchment is 25.7 km², 54% glaciated."
+  ]
+ }
+}

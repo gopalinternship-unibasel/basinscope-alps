@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 6,
+  "report_rank": 6,
+  "name": "Fafleralp, Lötschental",
+  "type": "new",
+  "type_label": "New site",
+  "valley": "Lötschental",
+  "location": {
+   "easting_lv95": 2632445,
+   "northing_lv95": 1142545,
+   "longitude": 7.860773,
+   "latitude": 46.433461,
+   "elevation_m": 1761
+  },
+  "glacier_area_upstream_km2": 17.1,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.26,
+   "volume_20m_dam_mio_m3": 1.88,
+   "lake_area_ha": 23,
+   "dam_length_m": 300
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 1.2,
+   "dam_20m": 8.6
+  },
+  "catchment_id": 3003,
+  "protection": {
+   "level": "landscape",
+   "strict": false,
+   "areas": [
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+    },
+    {
+     "kind": "game_reserve",
+     "label": "Federal game reserve",
+     "level": "landscape",
+     "name": "Bietschhorn, partial protection"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "A great deal of glacier upstream but little space."
+  ]
+ }
+}

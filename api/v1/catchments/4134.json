@@ -1,0 +1,556 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 4134,
+  "river": "Öschibach",
+  "gauge_place": "Kandersteg",
+  "area_km2": 30.7,
+  "glacier_cover_percent": 22,
+  "site_ids": [
+   4,
+   10
+  ],
+  "runoff_unit": "mm per month",
+  "runoff": {
+   "RCP26": {
+    "ref": {
+     "med": {
+      "jan": 20,
+      "feb": 15,
+      "mar": 21,
+      "apr": 45,
+      "may": 128,
+      "jun": 266,
+      "jul": 323,
+      "aug": 274,
+      "sep": 159,
+      "oct": 88,
+      "nov": 50,
+      "dec": 29
+     },
+     "min": {
+      "jan": 17,
+      "feb": 14,
+      "mar": 18,
+      "apr": 38,
+      "may": 106,
+      "jun": 249,
+      "jul": 305,
+      "aug": 262,
+      "sep": 152,
+      "oct": 76,
+      "nov": 39,
+      "dec": 26
+     },
+     "max": {
+      "jan": 22,
+      "feb": 18,
+      "mar": 28,
+      "apr": 57,
+      "may": 147,
+      "jun": 314,
+      "jul": 343,
+      "aug": 282,
+      "sep": 174,
+      "oct": 94,
+      "nov": 55,
+      "dec": 31
+     }
+    },
+    "2035": {
+     "med": {
+      "jan": 26,
+      "feb": 19,
+      "mar": 28,
+      "apr": 55,
+      "may": 168,
+      "jun": 299,
+      "jul": 271,
+      "aug": 218,
+      "sep": 139,
+      "oct": 85,
+      "nov": 50,
+      "dec": 35
+     },
+     "min": {
+      "jan": 20,
+      "feb": 13,
+      "mar": 18,
+      "apr": 45,
+      "may": 132,
+      "jun": 248,
+      "jul": 254,
+      "aug": 193,
+      "sep": 119,
+      "oct": 70,
+      "nov": 45,
+      "dec": 31
+     },
+     "max": {
+      "jan": 31,
+      "feb": 24,
+      "mar": 36,
+      "apr": 82,
+      "may": 203,
+      "jun": 333,
+      "jul": 331,
+      "aug": 248,
+      "sep": 147,
+      "oct": 109,
+      "nov": 69,
+      "dec": 39
+     }
+    },
+    "2060": {
+     "med": {
+      "jan": 29,
+      "feb": 22,
+      "mar": 31,
+      "apr": 66,
+      "may": 171,
+      "jun": 311,
+      "jul": 263,
+      "aug": 193,
+      "sep": 123,
+      "oct": 77,
+      "nov": 50,
+      "dec": 36
+     },
+     "min": {
+      "jan": 20,
+      "feb": 14,
+      "mar": 20,
+      "apr": 48,
+      "may": 133,
+      "jun": 259,
+      "jul": 245,
+      "aug": 151,
+      "sep": 96,
+      "oct": 69,
+      "nov": 41,
+      "dec": 28
+     },
+     "max": {
+      "jan": 36,
+      "feb": 25,
+      "mar": 39,
+      "apr": 77,
+      "may": 189,
+      "jun": 329,
+      "jul": 300,
+      "aug": 225,
+      "sep": 134,
+      "oct": 95,
+      "nov": 63,
+      "dec": 41
+     }
+    },
+    "2085": {
+     "med": {
+      "jan": 27,
+      "feb": 22,
+      "mar": 31,
+      "apr": 61,
+      "may": 177,
+      "jun": 302,
+      "jul": 263,
+      "aug": 186,
+      "sep": 118,
+      "oct": 81,
+      "nov": 54,
+      "dec": 34
+     },
+     "min": {
+      "jan": 21,
+      "feb": 15,
+      "mar": 18,
+      "apr": 47,
+      "may": 127,
+      "jun": 273,
+      "jul": 225,
+      "aug": 161,
+      "sep": 103,
+      "oct": 57,
+      "nov": 36,
+      "dec": 27
+     },
+     "max": {
+      "jan": 32,
+      "feb": 26,
+      "mar": 40,
+      "apr": 74,
+      "may": 198,
+      "jun": 326,
+      "jul": 303,
+      "aug": 212,
+      "sep": 129,
+      "oct": 93,
+      "nov": 61,
+      "dec": 40
+     }
+    }
+   },
+   "RCP45": {
+    "ref": {
+     "med": {
+      "jan": 19,
+      "feb": 15,
+      "mar": 22,
+      "apr": 47,
+      "may": 131,
+      "jun": 268,
+      "jul": 324,
+      "aug": 274,
+      "sep": 161,
+      "oct": 88,
+      "nov": 46,
+      "dec": 30
+     },
+     "min": {
+      "jan": 16,
+      "feb": 12,
+      "mar": 16,
+      "apr": 34,
+      "may": 105,
+      "jun": 242,
+      "jul": 299,
+      "aug": 257,
+      "sep": 145,
+      "oct": 73,
+      "nov": 39,
+      "dec": 25
+     },
+     "max": {
+      "jan": 23,
+      "feb": 17,
+      "mar": 29,
+      "apr": 64,
+      "may": 146,
+      "jun": 327,
+      "jul": 351,
+      "aug": 294,
+      "sep": 177,
+      "oct": 108,
+      "nov": 58,
+      "dec": 32
+     }
+    },
+    "2035": {
+     "med": {
+      "jan": 24,
+      "feb": 21,
+      "mar": 27,
+      "apr": 57,
+      "may": 161,
+      "jun": 289,
+      "jul": 282,
+      "aug": 216,
+      "sep": 130,
+      "oct": 78,
+      "nov": 50,
+      "dec": 34
+     },
+     "min": {
+      "jan": 19,
+      "feb": 15,
+      "mar": 17,
+      "apr": 42,
+      "may": 130,
+      "jun": 239,
+      "jul": 239,
+      "aug": 176,
+      "sep": 101,
+      "oct": 58,
+      "nov": 35,
+      "dec": 26
+     },
+     "max": {
+      "jan": 29,
+      "feb": 26,
+      "mar": 40,
+      "apr": 75,
+      "may": 202,
+      "jun": 374,
+      "jul": 316,
+      "aug": 240,
+      "sep": 150,
+      "oct": 102,
+      "nov": 66,
+      "dec": 43
+     }
+    },
+    "2060": {
+     "med": {
+      "jan": 28,
+      "feb": 23,
+      "mar": 30,
+      "apr": 64,
+      "may": 175,
+      "jun": 281,
+      "jul": 239,
+      "aug": 170,
+      "sep": 108,
+      "oct": 75,
+      "nov": 50,
+      "dec": 34
+     },
+     "min": {
+      "jan": 21,
+      "feb": 17,
+      "mar": 18,
+      "apr": 47,
+      "may": 142,
+      "jun": 215,
+      "jul": 177,
+      "aug": 119,
+      "sep": 66,
+      "oct": 43,
+      "nov": 40,
+      "dec": 30
+     },
+     "max": {
+      "jan": 35,
+      "feb": 29,
+      "mar": 41,
+      "apr": 95,
+      "may": 219,
+      "jun": 349,
+      "jul": 279,
+      "aug": 207,
+      "sep": 139,
+      "oct": 91,
+      "nov": 67,
+      "dec": 46
+     }
+    },
+    "2085": {
+     "med": {
+      "jan": 30,
+      "feb": 25,
+      "mar": 32,
+      "apr": 67,
+      "may": 184,
+      "jun": 289,
+      "jul": 224,
+      "aug": 159,
+      "sep": 105,
+      "oct": 76,
+      "nov": 53,
+      "dec": 41
+     },
+     "min": {
+      "jan": 23,
+      "feb": 19,
+      "mar": 24,
+      "apr": 53,
+      "may": 160,
+      "jun": 219,
+      "jul": 141,
+      "aug": 97,
+      "sep": 56,
+      "oct": 53,
+      "nov": 45,
+      "dec": 31
+     },
+     "max": {
+      "jan": 40,
+      "feb": 31,
+      "mar": 44,
+      "apr": 93,
+      "may": 233,
+      "jun": 336,
+      "jul": 261,
+      "aug": 183,
+      "sep": 124,
+      "oct": 97,
+      "nov": 76,
+      "dec": 50
+     }
+    }
+   },
+   "RCP85": {
+    "ref": {
+     "med": {
+      "jan": 19,
+      "feb": 15,
+      "mar": 19,
+      "apr": 45,
+      "may": 133,
+      "jun": 274,
+      "jul": 321,
+      "aug": 272,
+      "sep": 159,
+      "oct": 87,
+      "nov": 45,
+      "dec": 28
+     },
+     "min": {
+      "jan": 15,
+      "feb": 10,
+      "mar": 13,
+      "apr": 34,
+      "may": 105,
+      "jun": 238,
+      "jul": 285,
+      "aug": 254,
+      "sep": 136,
+      "oct": 65,
+      "nov": 37,
+      "dec": 22
+     },
+     "max": {
+      "jan": 23,
+      "feb": 18,
+      "mar": 29,
+      "apr": 61,
+      "may": 158,
+      "jun": 327,
+      "jul": 353,
+      "aug": 297,
+      "sep": 178,
+      "oct": 107,
+      "nov": 60,
+      "dec": 34
+     }
+    },
+    "2035": {
+     "med": {
+      "jan": 25,
+      "feb": 21,
+      "mar": 27,
+      "apr": 61,
+      "may": 173,
+      "jun": 311,
+      "jul": 268,
+      "aug": 214,
+      "sep": 130,
+      "oct": 77,
+      "nov": 49,
+      "dec": 34
+     },
+     "min": {
+      "jan": 20,
+      "feb": 15,
+      "mar": 17,
+      "apr": 44,
+      "may": 138,
+      "jun": 248,
+      "jul": 240,
+      "aug": 186,
+      "sep": 108,
+      "oct": 61,
+      "nov": 38,
+      "dec": 29
+     },
+     "max": {
+      "jan": 32,
+      "feb": 27,
+      "mar": 40,
+      "apr": 81,
+      "may": 203,
+      "jun": 381,
+      "jul": 317,
+      "aug": 256,
+      "sep": 146,
+      "oct": 106,
+      "nov": 63,
+      "dec": 48
+     }
+    },
+    "2060": {
+     "med": {
+      "jan": 30,
+      "feb": 25,
+      "mar": 35,
+      "apr": 79,
+      "may": 201,
+      "jun": 285,
+      "jul": 219,
+      "aug": 156,
+      "sep": 110,
+      "oct": 73,
+      "nov": 53,
+      "dec": 38
+     },
+     "min": {
+      "jan": 25,
+      "feb": 21,
+      "mar": 26,
+      "apr": 57,
+      "may": 166,
+      "jun": 217,
+      "jul": 161,
+      "aug": 100,
+      "sep": 62,
+      "oct": 45,
+      "nov": 40,
+      "dec": 31
+     },
+     "max": {
+      "jan": 39,
+      "feb": 35,
+      "mar": 49,
+      "apr": 115,
+      "may": 247,
+      "jun": 366,
+      "jul": 269,
+      "aug": 205,
+      "sep": 124,
+      "oct": 93,
+      "nov": 72,
+      "dec": 56
+     }
+    },
+    "2085": {
+     "med": {
+      "jan": 43,
+      "feb": 38,
+      "mar": 47,
+      "apr": 102,
+      "may": 220,
+      "jun": 260,
+      "jul": 149,
+      "aug": 104,
+      "sep": 73,
+      "oct": 63,
+      "nov": 56,
+      "dec": 49
+     },
+     "min": {
+      "jan": 36,
+      "feb": 27,
+      "mar": 33,
+      "apr": 83,
+      "may": 192,
+      "jun": 152,
+      "jul": 82,
+      "aug": 52,
+      "sep": 33,
+      "oct": 39,
+      "nov": 42,
+      "dec": 37
+     },
+     "max": {
+      "jan": 60,
+      "feb": 61,
+      "mar": 78,
+      "apr": 160,
+      "may": 267,
+      "jun": 332,
+      "jul": 203,
+      "aug": 140,
+      "sep": 95,
+      "oct": 87,
+      "nov": 80,
+      "dec": 75
+     }
+    }
+   }
+  }
+ }
+}

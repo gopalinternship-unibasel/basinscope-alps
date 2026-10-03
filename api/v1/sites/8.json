@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 8,
+  "report_rank": 8,
+  "name": "Blatten, Lötschental",
+  "type": "settlement",
+  "type_label": "Settlement area",
+  "valley": "Lötschental",
+  "location": {
+   "easting_lv95": 2629245,
+   "northing_lv95": 1141005,
+   "longitude": 7.819042,
+   "latitude": 46.419755,
+   "elevation_m": 1524
+  },
+  "glacier_area_upstream_km2": 21.9,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.13,
+   "volume_20m_dam_mio_m3": 0.85,
+   "lake_area_ha": 11,
+   "dam_length_m": 460
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 0.6,
+   "dam_20m": 3.9
+  },
+  "catchment_id": 3003,
+  "protection": {
+   "level": "landscape",
+   "strict": false,
+   "areas": [
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+    },
+    {
+     "kind": "game_reserve",
+     "label": "Federal game reserve",
+     "level": "landscape",
+     "name": "Bietschhorn, partial protection"
+    }
+   ]
+  },
+  "confidence_note": "The terrain model may show the valley before or after the 2025 collapse.",
+  "notes": [
+   "The village was buried in May 2025 by the collapse of the Birch Glacier. The terrain has changed fundamentally and the site is unsuitable in any case."
+  ]
+ }
+}

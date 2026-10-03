@@ -1,0 +1,81 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 10
+ },
+ "data": [
+  {
+   "name": "Grosser Aletschgletscher",
+   "area_km2": 78.5,
+   "length_km": 23.5,
+   "lowest_m": 1605,
+   "highest_m": 4120
+  },
+  {
+   "name": "Fieschergletscher E",
+   "area_km2": 29.8,
+   "length_km": 15,
+   "lowest_m": 1678,
+   "highest_m": 4159
+  },
+  {
+   "name": "Unteraargletscher",
+   "area_km2": 22.7,
+   "length_km": 12.3,
+   "lowest_m": 1931,
+   "highest_m": 4017
+  },
+  {
+   "name": "Oberaletschgletscher",
+   "area_km2": 17.1,
+   "length_km": 9.5,
+   "lowest_m": 2140,
+   "highest_m": 3826
+  },
+  {
+   "name": "Kanderfirn N",
+   "area_km2": 12,
+   "length_km": 6.9,
+   "lowest_m": 2314,
+   "highest_m": 3227
+  },
+  {
+   "name": "Gauligletscher",
+   "area_km2": 10.8,
+   "length_km": 5.7,
+   "lowest_m": 2244,
+   "highest_m": 3621
+  },
+  {
+   "name": "Unterer Grindelwaldgletscher",
+   "area_km2": 9.2,
+   "length_km": 5.7,
+   "lowest_m": 1357,
+   "highest_m": 4105
+  },
+  {
+   "name": "Oberer Grindelwaldgletscher",
+   "area_km2": 8.3,
+   "length_km": 4.5,
+   "lowest_m": 1448,
+   "highest_m": 3737
+  },
+  {
+   "name": "Langgletscher",
+   "area_km2": 8,
+   "length_km": 4.8,
+   "lowest_m": 2103,
+   "highest_m": 3894
+  },
+  {
+   "name": "Obers Ischmeer E",
+   "area_km2": 7.3,
+   "length_km": 6.2,
+   "lowest_m": 1663,
+   "highest_m": 3889
+  }
+ ]
+}

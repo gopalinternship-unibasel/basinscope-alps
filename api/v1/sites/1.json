@@ -1,0 +1,64 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 1,
+  "report_rank": 1,
+  "name": "Grimselsee, western part",
+  "type": "reservoir",
+  "type_label": "Existing reservoir",
+  "valley": "Grimsel area (Aare)",
+  "location": {
+   "easting_lv95": 2664285,
+   "northing_lv95": 1157195,
+   "longitude": 8.27705,
+   "latitude": 46.562943,
+   "elevation_m": 1908
+  },
+  "glacier_area_upstream_km2": 30.1,
+  "basin": {
+   "volume_10m_dam_mio_m3": 6.27,
+   "volume_20m_dam_mio_m3": 14.96,
+   "lake_area_ha": 99,
+   "dam_length_m": 670
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 28.5,
+   "dam_20m": 68.1
+  },
+  "catchment_id": 4128,
+  "protection": {
+   "level": "strict",
+   "strict": true,
+   "areas": [
+    {
+     "kind": "mire_landscape",
+     "label": "Mire landscape of national importance",
+     "level": "strict",
+     "name": "Grimsel"
+    },
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+    }
+   ]
+  },
+  "confidence_note": "The terrain model edge cuts through the lake.",
+  "notes": [
+   "On the federal hydropower round-table list (2021) as the Grimsel enlargement. The analysis found it independently.",
+   "The terrain model's eastern edge runs through the middle of the lake, so this volume is uncertain."
+  ]
+ }
+}

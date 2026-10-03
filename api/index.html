@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BasinScope Alps data API</title>
+<meta name="description" content="Read-only JSON API with the BasinScope Alps basin sites, runoff scenarios and protection checks.">
+<style>
+:root{--bg:#f6f7f5;--panel:#fff;--ink:#15201c;--ink-2:#4c5a55;--line:#dde2de;--accent:#0b6b62;--code:#eef2f0}
+@media (prefers-color-scheme:dark){:root{--bg:#111715;--panel:#19211e;--ink:#e8eeeb;--ink-2:#a3b0ab;--line:#2c3733;--accent:#5fc7ba;--code:#212b28}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:920px;margin:0 auto;padding:28px 16px 56px}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 6px} h2{font-size:1.2rem;margin:36px 0 10px} h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);margin:20px 0 6px}
+p{margin:0 0 12px} .lead{color:var(--ink-2);max-width:65ch} a{color:var(--accent)}
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:22px;font-weight:600} .logo img{width:40px;height:40px}
+.base{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;white-space:nowrap}
+.scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.93rem} td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top} tr:first-child td{border-top:0} td:first-child{white-space:nowrap}
+code,pre{font:.86rem/1.5 ui-monospace,Consolas,monospace} code{background:var(--code);padding:1px 5px;border-radius:4px} td a code{color:var(--accent)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;margin:0 0 12px} pre code{background:none;padding:0}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;border-radius:0 8px 8px 0;color:var(--ink-2)}
+footer{margin-top:40px;color:var(--ink-2);font-size:.88rem}
+</style>
+</head>
+<body>
+<main>
+<div class="logo"><img src="../assets/logo.webp" alt=""><a href="../">BasinScope Alps</a></div>
+<h1>Data API</h1>
+<p class="lead">The figures behind the dashboard as plain JSON: the ranked basin sites of the Jungfrau–Aletsch area, the runoff scenarios of their catchments and the protected-area checks. Read-only, no key, callable from a browser on any origin.</p>
+<div class="base"><code>https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1</code></div>
+
+<h2>Endpoints</h2>
+<h3>Sites</h3><div class="scroll"><table><tbody><tr><td><a href="v1/sites.json"><code>GET /api/v1/sites.json</code></a></td><td>The 15 ranked basin sites: location, basin volume, dam length, glacier area upstream, protection, illustrative investment.</td></tr><tr><td><a href="v1/sites/1.json"><code>GET /api/v1/sites/{id}.json</code></a></td><td>One site by id (1 to 15, its rank in the terrain analysis report).</td></tr><tr><td><a href="v1/sites.geojson"><code>GET /api/v1/sites.geojson</code></a></td><td>The same sites as a GeoJSON FeatureCollection in WGS84, for GIS and web maps.</td></tr><tr><td><a href="v1/candidates.json"><code>GET /api/v1/candidates.json</code></a></td><td>The 28 further candidate points that did not make the shortlist, with their protection check.</td></tr></tbody></table></div><h3>Meltwater</h3><div class="scroll"><table><tbody><tr><td><a href="v1/catchments.json"><code>GET /api/v1/catchments.json</code></a></td><td>The 9 Hydro-CH2018 catchments the sites are matched to.</td></tr><tr><td><a href="v1/catchments/3003.json"><code>GET /api/v1/catchments/{id}.json</code></a></td><td>One catchment with monthly runoff for RCP2.6, 4.5 and 8.5 in the reference period, 2035, 2060 and 2085 (median, minimum, maximum of the model ensemble).</td></tr><tr><td><a href="v1/glaciers.json"><code>GET /api/v1/glaciers.json</code></a></td><td>The ten largest glaciers of the study area.</td></tr><tr><td><a href="v1/exits.json"><code>GET /api/v1/exits.json</code></a></td><td>Where meltwater leaves the study area, with the glacier area behind each exit.</td></tr><tr><td><a href="v1/elevation-bands.json"><code>GET /api/v1/elevation-bands.json</code></a></td><td>Land and glacier area by 500 m elevation band.</td></tr></tbody></table></div>
+<p style="margin-top:12px">Machine-readable description: <a href="v1/openapi.json"><code>openapi.json</code></a> (OpenAPI 3.0). List of all endpoints: <a href="v1/index.json"><code>index.json</code></a>.</p>
+
+<h2>Quick start</h2>
+<h3>curl</h3>
+<pre><code>curl https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/sites.json</code></pre>
+<h3>JavaScript</h3>
+<pre><code>const res = await fetch("https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/sites.json");
+const { data } = await res.json();
+const free = data.filter(s =&gt; s.type === "new" &amp;&amp; !s.protection.strict);</code></pre>
+<h3>Python</h3>
+<pre><code>import requests
+sites = requests.get("https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/sites.json").json()["data"]
+big = [s for s in sites if s["basin"]["volume_20m_dam_mio_m3"] &gt;= 5]</code></pre>
+
+<h2>Response shape</h2>
+<p>Every JSON endpoint returns a <code>meta</code> block (version, generation date, notice) and the payload in <code>data</code>. <code>sites.geojson</code> is a plain GeoJSON FeatureCollection.</p>
+<pre><code>{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03"
+ },
+ "data": {
+  "id": 2,
+  "name": "Gauligletscher forefield",
+  "type": "new",
+  "location": {
+   "easting_lv95": 2659955,
+   "northing_lv95": 1162765,
+   "longitude": 8.221306,
+   "latitude": 46.613448,
+   "elevation_m": 2139
+  },
+  "glacier_area_upstream_km2": 13.8,
+  "basin": {
+   "volume_10m_dam_mio_m3": 4.98,
+   "volume_20m_dam_mio_m3": 12.49,
+   "lake_area_ha": 83,
+   "dam_length_m": 210
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 22.7,
+   "dam_20m": 56.9
+  },
+  "catchment_id": 4022
+ }
+}</code></pre>
+
+<h2>Fields</h2>
+<div class="scroll"><table><tbody><tr><td><code>location</code></td><td>LV95 coordinates as in the terrain analysis, plus WGS84 longitude and latitude converted with swisstopo's approximate formulas (about 1 m).</td></tr><tr><td><code>glacier_area_upstream_km2</code></td><td>Glacier area draining to the site (SGI 2016).</td></tr><tr><td><code>basin.volume_10m_dam_mio_m3, volume_20m_dam_mio_m3</code></td><td>Basin volume behind a 10 m and a 20 m dam, in million cubic metres.</td></tr><tr><td><code>basin.lake_area_ha, dam_length_m</code></td><td>Lake surface and dam length from the terrain analysis.</td></tr><tr><td><code>illustrative_investment_chf_m</code></td><td>Volume scaled in a straight line from the KWO Trift project (CHF 387 m for 85 Mio m³). Order of magnitude only.</td></tr><tr><td><code>protection.level</code></td><td><code>strict</code>: floodplain, mire landscape, fen, raised bog or hydropower waiver. <code>landscape</code>: UNESCO, BLN or game reserve only. <code>none</code>: no hit. The grouping is the team's own.</td></tr><tr><td><code>catchment_id</code></td><td>Hydro-CH2018 catchment the site is matched to. The matching is the team's assumption.</td></tr><tr><td><code>runoff</code></td><td>Monthly runoff in mm per month: emissions path, then period, then <code>med</code>, <code>min</code>, <code>max</code> of the model ensemble, then month.</td></tr></tbody></table></div>
+
+<h2>What the API does not do</h2>
+<p>The files are static, so there is no filtering, paging or writing on the server: fetch a file and filter it in your own code. Scores, the A/B/C classes, usable volume and the energy and payback of the business case depend on the scenario settings chosen in the dashboard and are computed there, not served here. An unknown id returns HTTP 404.</p>
+<p class="note">Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.</p>
+
+<h2>Sources</h2>
+<div class="scroll"><table><tbody><tr><td>Sites, volumes, dam lengths, glacier areas</td><td>Team terrain analysis on swissALTI3D (swisstopo) and the Swiss Glacier Inventory SGI 2016 (GLAMOS), as of 2026-10-02</td></tr><tr><td>Monthly runoff scenarios</td><td>Hydro-CH2018, data set L03, Federal Office for the Environment (FOEN)</td></tr><tr><td>Protected areas</td><td>Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point, as of 2026-10-03</td></tr></tbody></table></div>
+<footer>API version 1.0.0, generated 2026-10-03. Team SwissStainability, Swiss Hackathon 2026, Track 06. Please credit the sources above when you reuse the data.</footer>
+</main>
+</body>
+</html>

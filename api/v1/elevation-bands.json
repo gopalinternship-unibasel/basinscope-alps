@@ -1,0 +1,46 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 7
+ },
+ "data": [
+  {
+   "band_from_m": 1000,
+   "area_km2": 2.8,
+   "glacier_area_km2": 0.2
+  },
+  {
+   "band_from_m": 1500,
+   "area_km2": 52,
+   "glacier_area_km2": 4.4
+  },
+  {
+   "band_from_m": 2000,
+   "area_km2": 173.9,
+   "glacier_area_km2": 38.5
+  },
+  {
+   "band_from_m": 2500,
+   "area_km2": 301.4,
+   "glacier_area_km2": 109.2
+  },
+  {
+   "band_from_m": 3000,
+   "area_km2": 205,
+   "glacier_area_km2": 123.8
+  },
+  {
+   "band_from_m": 3500,
+   "area_km2": 44.9,
+   "glacier_area_km2": 26.3
+  },
+  {
+   "band_from_m": 4000,
+   "area_km2": 0.7,
+   "glacier_area_km2": 0.3
+  }
+ ]
+}

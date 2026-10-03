@@ -1,0 +1,57 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 5,
+  "report_rank": 5,
+  "name": "Fieschergletscher forefield",
+  "type": "new",
+  "type_label": "New site",
+  "valley": "Below the Fieschergletscher",
+  "location": {
+   "easting_lv95": 2653415,
+   "northing_lv95": 1144985,
+   "longitude": 8.133879,
+   "latitude": 46.454067,
+   "elevation_m": 1675
+  },
+  "glacier_area_upstream_km2": 33.2,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.73,
+   "volume_20m_dam_mio_m3": 2.1,
+   "lake_area_ha": 16,
+   "dam_length_m": 190
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 3.3,
+   "dam_20m": 9.6
+  },
+  "catchment_id": 3143,
+  "protection": {
+   "level": "landscape",
+   "strict": false,
+   "areas": [
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "A great deal of glacier upstream but little space."
+  ]
+ }
+}

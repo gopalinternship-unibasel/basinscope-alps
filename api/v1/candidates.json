@@ -1,0 +1,850 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 28
+ },
+ "data": [
+  {
+   "id": "c1",
+   "location": {
+    "easting_lv95": 2655430,
+    "northing_lv95": 1168080,
+    "longitude": 8.162879,
+    "latitude": 46.661648
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Rosenlauigletscher, object 1216, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Schwarzhorn, partial protection"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c2",
+   "location": {
+    "easting_lv95": 2651990,
+    "northing_lv95": 1167690,
+    "longitude": 8.117891,
+    "latitude": 46.658416
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Ganzenlouwina, object 327, Fliessgewässer"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Schwarzhorn, partial protection"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c3",
+   "location": {
+    "easting_lv95": 2656690,
+    "northing_lv95": 1165890,
+    "longitude": 8.179071,
+    "latitude": 46.641843
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c4",
+   "location": {
+    "easting_lv95": 2664200,
+    "northing_lv95": 1164880,
+    "longitude": 8.277012,
+    "latitude": 46.632078
+   },
+   "protection": {
+    "level": "none",
+    "strict": false,
+    "areas": []
+   }
+  },
+  {
+   "id": "c5",
+   "location": {
+    "easting_lv95": 2664360,
+    "northing_lv95": 1163710,
+    "longitude": 8.278938,
+    "latitude": 46.621539
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c6",
+   "location": {
+    "easting_lv95": 2659430,
+    "northing_lv95": 1161680,
+    "longitude": 8.214313,
+    "latitude": 46.603735
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Gauligletscher, object 1206, glacier forefield"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c7",
+   "location": {
+    "easting_lv95": 2647310,
+    "northing_lv95": 1160660,
+    "longitude": 8.056026,
+    "latitude": 46.595528
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c8",
+   "location": {
+    "easting_lv95": 2648330,
+    "northing_lv95": 1158240,
+    "longitude": 8.069083,
+    "latitude": 46.573686
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c9",
+   "location": {
+    "easting_lv95": 2627150,
+    "northing_lv95": 1151530,
+    "longitude": 7.792409,
+    "latitude": 46.514521
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Gamchigletscher, object 1401, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Kiental, partial protection"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c10",
+   "location": {
+    "easting_lv95": 2632940,
+    "northing_lv95": 1150750,
+    "longitude": 7.867797,
+    "latitude": 46.507245
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c11",
+   "location": {
+    "easting_lv95": 2635130,
+    "northing_lv95": 1150200,
+    "longitude": 7.896287,
+    "latitude": 46.502186
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c12",
+   "location": {
+    "easting_lv95": 2632640,
+    "northing_lv95": 1144580,
+    "longitude": 7.863453,
+    "latitude": 46.451758
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c13",
+   "location": {
+    "easting_lv95": 2636240,
+    "northing_lv95": 1144350,
+    "longitude": 7.910289,
+    "latitude": 46.449504
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Langgletscher/Jegigletscher, object 1115, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c14",
+   "location": {
+    "easting_lv95": 2636710,
+    "northing_lv95": 1144580,
+    "longitude": 7.916424,
+    "latitude": 46.451547
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Langgletscher/Jegigletscher, object 1115, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c15",
+   "location": {
+    "easting_lv95": 2623330,
+    "northing_lv95": 1143960,
+    "longitude": 7.742252,
+    "latitude": 46.446569
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Kanderfirn, object 1121, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c16",
+   "location": {
+    "easting_lv95": 2634280,
+    "northing_lv95": 1143490,
+    "longitude": 7.884717,
+    "latitude": 46.441871
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Langgletscher/Jegigletscher, object 1115, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c17",
+   "location": {
+    "easting_lv95": 2634750,
+    "northing_lv95": 1143720,
+    "longitude": 7.89085,
+    "latitude": 46.443915
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Langgletscher/Jegigletscher, object 1115, glacier forefield"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c18",
+   "location": {
+    "easting_lv95": 2628730,
+    "northing_lv95": 1142860,
+    "longitude": 7.812458,
+    "latitude": 46.436464
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c19",
+   "location": {
+    "easting_lv95": 2631160,
+    "northing_lv95": 1142000,
+    "longitude": 7.844018,
+    "latitude": 46.42862
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Chiemadmatte, object 135, Fliessgewässer"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Bietschhorn, partial protection"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c20",
+   "location": {
+    "easting_lv95": 2628580,
+    "northing_lv95": 1140520,
+    "longitude": 7.810362,
+    "latitude": 46.415421
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c21",
+   "location": {
+    "easting_lv95": 2644770,
+    "northing_lv95": 1140210,
+    "longitude": 8.020901,
+    "latitude": 46.411747
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "hydro_waiver",
+      "label": "Hydropower use waived for compensation",
+      "level": "strict",
+      "name": "Oberaletsch, since 2002"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c22",
+   "location": {
+    "easting_lv95": 2626710,
+    "northing_lv95": 1139120,
+    "longitude": 7.78596,
+    "latitude": 46.402904
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Tännmattu, object 134, Fliessgewässer"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c23",
+   "location": {
+    "easting_lv95": 2627330,
+    "northing_lv95": 1139660,
+    "longitude": 7.794054,
+    "latitude": 46.407737
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Tännmattu, object 134, Fliessgewässer"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c24",
+   "location": {
+    "easting_lv95": 2635310,
+    "northing_lv95": 1138180,
+    "longitude": 7.897716,
+    "latitude": 46.394051
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Üssre Baltschiedergletscher, object 1118, glacier forefield"
+     },
+     {
+      "kind": "hydro_waiver",
+      "label": "Hydropower use waived for compensation",
+      "level": "strict",
+      "name": "Baltschiedertal, since 2002"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c25",
+   "location": {
+    "easting_lv95": 2634450,
+    "northing_lv95": 1137630,
+    "longitude": 7.886494,
+    "latitude": 46.389148
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "floodplain",
+      "label": "Floodplain of national importance",
+      "level": "strict",
+      "name": "Üssre Baltschiedergletscher, object 1118, glacier forefield"
+     },
+     {
+      "kind": "hydro_waiver",
+      "label": "Hydropower use waived for compensation",
+      "level": "strict",
+      "name": "Baltschiedertal, since 2002"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c26",
+   "location": {
+    "easting_lv95": 2633830,
+    "northing_lv95": 1134980,
+    "longitude": 7.878241,
+    "latitude": 46.365342
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "hydro_waiver",
+      "label": "Hydropower use waived for compensation",
+      "level": "strict",
+      "name": "Baltschiedertal, since 2002"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Alpjuhorn, integral protection"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c27",
+   "location": {
+    "easting_lv95": 2628200,
+    "northing_lv95": 1133570,
+    "longitude": 7.804998,
+    "latitude": 46.352918
+   },
+   "protection": {
+    "level": "strict",
+    "strict": true,
+    "areas": [
+     {
+      "kind": "hydro_waiver",
+      "label": "Hydropower use waived for compensation",
+      "level": "strict",
+      "name": "Bietschbach-Jolibach, since 2001"
+     },
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Wilerhorn, integral protection"
+     },
+     {
+      "kind": "game_reserve",
+      "label": "Federal game reserve",
+      "level": "landscape",
+      "name": "Wilerhorn, partial protection"
+     }
+    ]
+   }
+  },
+  {
+   "id": "c28",
+   "location": {
+    "easting_lv95": 2634660,
+    "northing_lv95": 1150360,
+    "longitude": 7.890176,
+    "latitude": 46.50365
+   },
+   "protection": {
+    "level": "landscape",
+    "strict": false,
+    "areas": [
+     {
+      "kind": "unesco",
+      "label": "UNESCO World Heritage property",
+      "level": "landscape",
+      "name": "Schweizer Alpen Jungfrau-Aletsch"
+     },
+     {
+      "kind": "bln",
+      "label": "Federal landscape inventory (BLN)",
+      "level": "landscape",
+      "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+     }
+    ]
+   }
+  }
+ ]
+}

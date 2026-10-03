@@ -1,0 +1,57 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 15,
+  "report_rank": 15,
+  "name": "Tschingelfirn forefield",
+  "type": "new",
+  "type_label": "New site",
+  "valley": "Hinteres Lauterbrunnental",
+  "location": {
+   "easting_lv95": 2632305,
+   "northing_lv95": 1149925,
+   "longitude": 7.859466,
+   "latitude": 46.499855,
+   "elevation_m": 2267
+  },
+  "glacier_area_upstream_km2": 5.2,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.19,
+   "volume_20m_dam_mio_m3": 0.51,
+   "lake_area_ha": 4,
+   "dam_length_m": 230
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 0.9,
+   "dam_20m": 2.3
+  },
+  "catchment_id": 4020,
+  "protection": {
+   "level": "landscape",
+   "strict": false,
+   "areas": [
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "Small basin in a forefield step."
+  ]
+ }
+}

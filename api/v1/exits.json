@@ -1,0 +1,42 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
+  "count": 6
+ },
+ "data": [
+  {
+   "path": "Massa (Aletsch) → Rhone",
+   "glacier_area_km2": 107,
+   "description": "exit at 909 m, southern edge",
+   "warning": "No site found on this path."
+  },
+  {
+   "path": "Lütschine (Grindelwald, Lauterbrunnen)",
+   "glacier_area_km2": 51,
+   "description": "exit at 578 m, northern edge. Sites only in the Lauterbrunnen arm."
+  },
+  {
+   "path": "Rhone, incl. Fieschergletscher",
+   "glacier_area_km2": 38,
+   "description": "exit at 697 m, southern edge"
+  },
+  {
+   "path": "Lonza (Lötschental) → Rhone",
+   "glacier_area_km2": 31,
+   "description": "exit at 498 m, southern edge"
+  },
+  {
+   "path": "Aare at the Grimsel",
+   "glacier_area_km2": 30,
+   "description": "exit at 1,908 m, eastern edge, through the Grimselsee"
+  },
+  {
+   "path": "Kander",
+   "glacier_area_km2": 21,
+   "description": "exit at 1,241 m, northern edge"
+  }
+ ]
+}

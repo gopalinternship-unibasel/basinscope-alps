@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 11,
+  "report_rank": 11,
+  "name": "Bächlital, Grimsel",
+  "type": "new",
+  "type_label": "New site",
+  "valley": "Grimsel area (Aare)",
+  "location": {
+   "easting_lv95": 2665225,
+   "northing_lv95": 1159815,
+   "longitude": 8.289679,
+   "latitude": 46.586419,
+   "elevation_m": 2173
+  },
+  "glacier_area_upstream_km2": 1.2,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.21,
+   "volume_20m_dam_mio_m3": 0.68,
+   "lake_area_ha": 5,
+   "dam_length_m": 360
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 1.0,
+   "dam_20m": 3.1
+  },
+  "catchment_id": 4128,
+  "protection": {
+   "level": "strict",
+   "strict": true,
+   "areas": [
+    {
+     "kind": "floodplain",
+     "label": "Floodplain of national importance",
+     "level": "strict",
+     "name": "Bächlisboden, object 1327, alpine alluvial plain"
+    },
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (nördlicher Teil), object 1507"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "Small basin in a forefield step."
+  ]
+ }
+}

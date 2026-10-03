@@ -1,0 +1,425 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": 1,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.27705,
+     46.562943
+    ]
+   },
+   "properties": {
+    "id": 1,
+    "name": "Grimselsee, western part",
+    "type": "reservoir",
+    "valley": "Grimsel area (Aare)",
+    "elevation_m": 1908,
+    "glacier_area_upstream_km2": 30.1,
+    "volume_10m_dam_mio_m3": 6.27,
+    "volume_20m_dam_mio_m3": 14.96,
+    "lake_area_ha": 99,
+    "dam_length_m": 670,
+    "investment_10m_dam_chf_m": 28.5,
+    "investment_20m_dam_chf_m": 68.1,
+    "protection_level": "strict",
+    "strict_protection": true,
+    "catchment_id": 4128
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 2,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.221306,
+     46.613448
+    ]
+   },
+   "properties": {
+    "id": 2,
+    "name": "Gauligletscher forefield",
+    "type": "new",
+    "valley": "Gauli / Urbachtal",
+    "elevation_m": 2139,
+    "glacier_area_upstream_km2": 13.8,
+    "volume_10m_dam_mio_m3": 4.98,
+    "volume_20m_dam_mio_m3": 12.49,
+    "lake_area_ha": 83,
+    "dam_length_m": 210,
+    "investment_10m_dam_chf_m": 22.7,
+    "investment_20m_dam_chf_m": 56.9,
+    "protection_level": "strict",
+    "strict_protection": true,
+    "catchment_id": 4022
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 3,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.259911,
+     46.542287
+    ]
+   },
+   "properties": {
+    "id": 3,
+    "name": "Oberaarsee",
+    "type": "reservoir",
+    "valley": "Grimsel area (Aare)",
+    "elevation_m": 2302,
+    "glacier_area_upstream_km2": 4.48,
+    "volume_10m_dam_mio_m3": 9.55,
+    "volume_20m_dam_mio_m3": 20.38,
+    "lake_area_ha": 114,
+    "dam_length_m": 1060,
+    "investment_10m_dam_chf_m": 43.5,
+    "investment_20m_dam_chf_m": 92.8,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 4128
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 4,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.717981,
+     46.497142
+    ]
+   },
+   "properties": {
+    "id": 4,
+    "name": "Oeschinensee",
+    "type": "lake",
+    "valley": "Kandersteg (Öschibach)",
+    "elevation_m": 1575,
+    "glacier_area_upstream_km2": 4.4,
+    "volume_10m_dam_mio_m3": 10.64,
+    "volume_20m_dam_mio_m3": 22.61,
+    "lake_area_ha": 124,
+    "dam_length_m": 780,
+    "investment_10m_dam_chf_m": 48.4,
+    "investment_20m_dam_chf_m": 102.9,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 4134
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 5,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.133879,
+     46.454067
+    ]
+   },
+   "properties": {
+    "id": 5,
+    "name": "Fieschergletscher forefield",
+    "type": "new",
+    "valley": "Below the Fieschergletscher",
+    "elevation_m": 1675,
+    "glacier_area_upstream_km2": 33.2,
+    "volume_10m_dam_mio_m3": 0.73,
+    "volume_20m_dam_mio_m3": 2.1,
+    "lake_area_ha": 16,
+    "dam_length_m": 190,
+    "investment_10m_dam_chf_m": 3.3,
+    "investment_20m_dam_chf_m": 9.6,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 3143
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 6,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.860773,
+     46.433461
+    ]
+   },
+   "properties": {
+    "id": 6,
+    "name": "Fafleralp, Lötschental",
+    "type": "new",
+    "valley": "Lötschental",
+    "elevation_m": 1761,
+    "glacier_area_upstream_km2": 17.1,
+    "volume_10m_dam_mio_m3": 0.26,
+    "volume_20m_dam_mio_m3": 1.88,
+    "lake_area_ha": 23,
+    "dam_length_m": 300,
+    "investment_10m_dam_chf_m": 1.2,
+    "investment_20m_dam_chf_m": 8.6,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 3003
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 7,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.266592,
+     46.604042
+    ]
+   },
+   "properties": {
+    "id": 7,
+    "name": "Lake near the Gruebengletscher",
+    "type": "lake",
+    "valley": "Grimsel area (Aare)",
+    "elevation_m": 2332,
+    "glacier_area_upstream_km2": 1.29,
+    "volume_10m_dam_mio_m3": 0.61,
+    "volume_20m_dam_mio_m3": 1.85,
+    "lake_area_ha": 16,
+    "dam_length_m": 320,
+    "investment_10m_dam_chf_m": 2.8,
+    "investment_20m_dam_chf_m": 8.4,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 4128
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 8,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.819042,
+     46.419755
+    ]
+   },
+   "properties": {
+    "id": 8,
+    "name": "Blatten, Lötschental",
+    "type": "settlement",
+    "valley": "Lötschental",
+    "elevation_m": 1524,
+    "glacier_area_upstream_km2": 21.9,
+    "volume_10m_dam_mio_m3": 0.13,
+    "volume_20m_dam_mio_m3": 0.85,
+    "lake_area_ha": 11,
+    "dam_length_m": 460,
+    "investment_10m_dam_chf_m": 0.6,
+    "investment_20m_dam_chf_m": 3.9,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 3003
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 9,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.750285,
+     46.45163
+    ]
+   },
+   "properties": {
+    "id": 9,
+    "name": "Kanderfirn forefield, upper Gasterntal",
+    "type": "new",
+    "valley": "Gasterntal (Kanderfirn)",
+    "elevation_m": 1724,
+    "glacier_area_upstream_km2": 13.2,
+    "volume_10m_dam_mio_m3": 0.11,
+    "volume_20m_dam_mio_m3": 0.71,
+    "lake_area_ha": 9,
+    "dam_length_m": 460,
+    "investment_10m_dam_chf_m": 0.5,
+    "investment_20m_dam_chf_m": 3.2,
+    "protection_level": "strict",
+    "strict_protection": true,
+    "catchment_id": 4006
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 10,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.746558,
+     46.505884
+    ]
+   },
+   "properties": {
+    "id": 10,
+    "name": "Blüemlisalpgletscher forefield",
+    "type": "new",
+    "valley": "Kandersteg (Öschibach)",
+    "elevation_m": 2174,
+    "glacier_area_upstream_km2": 2.2,
+    "volume_10m_dam_mio_m3": 0.12,
+    "volume_20m_dam_mio_m3": 0.68,
+    "lake_area_ha": 7,
+    "dam_length_m": 360,
+    "investment_10m_dam_chf_m": 0.5,
+    "investment_20m_dam_chf_m": 3.1,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 4134
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 11,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.289679,
+     46.586419
+    ]
+   },
+   "properties": {
+    "id": 11,
+    "name": "Bächlital, Grimsel",
+    "type": "new",
+    "valley": "Grimsel area (Aare)",
+    "elevation_m": 2173,
+    "glacier_area_upstream_km2": 1.2,
+    "volume_10m_dam_mio_m3": 0.21,
+    "volume_20m_dam_mio_m3": 0.68,
+    "lake_area_ha": 5,
+    "dam_length_m": 360,
+    "investment_10m_dam_chf_m": 1.0,
+    "investment_20m_dam_chf_m": 3.1,
+    "protection_level": "strict",
+    "strict_protection": true,
+    "catchment_id": 4128
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 12,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.92005,
+     46.515447
+    ]
+   },
+   "properties": {
+    "id": 12,
+    "name": "Breitlouwenengletscher forefield",
+    "type": "new",
+    "valley": "Hinteres Lauterbrunnental",
+    "elevation_m": 2211,
+    "glacier_area_upstream_km2": 0.6,
+    "volume_10m_dam_mio_m3": 0.22,
+    "volume_20m_dam_mio_m3": 0.59,
+    "lake_area_ha": 4,
+    "dam_length_m": 290,
+    "investment_10m_dam_chf_m": 1.0,
+    "investment_20m_dam_chf_m": 2.7,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 4020
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 13,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.890693,
+     46.385938
+    ]
+   },
+   "properties": {
+    "id": 13,
+    "name": "Baltschiedergletscher forefield",
+    "type": "new",
+    "valley": "Baltschiedertal",
+    "elevation_m": 2281,
+    "glacier_area_upstream_km2": 5.5,
+    "volume_10m_dam_mio_m3": 0.11,
+    "volume_20m_dam_mio_m3": 0.56,
+    "lake_area_ha": 6,
+    "dam_length_m": 290,
+    "investment_10m_dam_chf_m": 0.5,
+    "investment_20m_dam_chf_m": 2.5,
+    "protection_level": "strict",
+    "strict_protection": true,
+    "catchment_id": 3124
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 14,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.898454,
+     46.458143
+    ]
+   },
+   "properties": {
+    "id": 14,
+    "name": "Jegigletscher forefield",
+    "type": "new",
+    "valley": "Lötschental",
+    "elevation_m": 2203,
+    "glacier_area_upstream_km2": 2.1,
+    "volume_10m_dam_mio_m3": 0.1,
+    "volume_20m_dam_mio_m3": 0.54,
+    "lake_area_ha": 6,
+    "dam_length_m": 360,
+    "investment_10m_dam_chf_m": 0.5,
+    "investment_20m_dam_chf_m": 2.5,
+    "protection_level": "strict",
+    "strict_protection": true,
+    "catchment_id": 3003
+   }
+  },
+  {
+   "type": "Feature",
+   "id": 15,
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.859466,
+     46.499855
+    ]
+   },
+   "properties": {
+    "id": 15,
+    "name": "Tschingelfirn forefield",
+    "type": "new",
+    "valley": "Hinteres Lauterbrunnental",
+    "elevation_m": 2267,
+    "glacier_area_upstream_km2": 5.2,
+    "volume_10m_dam_mio_m3": 0.19,
+    "volume_20m_dam_mio_m3": 0.51,
+    "lake_area_ha": 4,
+    "dam_length_m": 230,
+    "investment_10m_dam_chf_m": 0.9,
+    "investment_20m_dam_chf_m": 2.3,
+    "protection_level": "landscape",
+    "strict_protection": false,
+    "catchment_id": 4020
+   }
+  }
+ ]
+}

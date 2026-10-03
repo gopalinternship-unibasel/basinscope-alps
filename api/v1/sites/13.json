@@ -1,0 +1,69 @@
+{
+ "meta": {
+  "api_version": "1.0.0",
+  "generated": "2026-10-03",
+  "notice": "Screening-level results from terrain and inventory evidence only. Natural hazards, geology and permafrost are not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "id": 13,
+  "report_rank": 13,
+  "name": "Baltschiedergletscher forefield",
+  "type": "new",
+  "type_label": "New site",
+  "valley": "Baltschiedertal",
+  "location": {
+   "easting_lv95": 2634775,
+   "northing_lv95": 1137275,
+   "longitude": 7.890693,
+   "latitude": 46.385938,
+   "elevation_m": 2281
+  },
+  "glacier_area_upstream_km2": 5.5,
+  "basin": {
+   "volume_10m_dam_mio_m3": 0.11,
+   "volume_20m_dam_mio_m3": 0.56,
+   "lake_area_ha": 6,
+   "dam_length_m": 290
+  },
+  "illustrative_investment_chf_m": {
+   "dam_10m": 0.5,
+   "dam_20m": 2.5
+  },
+  "catchment_id": 3124,
+  "protection": {
+   "level": "strict",
+   "strict": true,
+   "areas": [
+    {
+     "kind": "floodplain",
+     "label": "Floodplain of national importance",
+     "level": "strict",
+     "name": "Üssre Baltschiedergletscher, object 1118, glacier forefield"
+    },
+    {
+     "kind": "hydro_waiver",
+     "label": "Hydropower use waived for compensation",
+     "level": "strict",
+     "name": "Baltschiedertal, since 2002"
+    },
+    {
+     "kind": "unesco",
+     "label": "UNESCO World Heritage property",
+     "level": "landscape",
+     "name": "Schweizer Alpen Jungfrau-Aletsch"
+    },
+    {
+     "kind": "bln",
+     "label": "Federal landscape inventory (BLN)",
+     "level": "landscape",
+     "name": "Berner Hochalpen und Aletsch-Bietschhorn-Gebiet (südlicher Teil), object 1706"
+    }
+   ]
+  },
+  "confidence_note": null,
+  "notes": [
+   "Small basin in a forefield step."
+  ]
+ }
+}
