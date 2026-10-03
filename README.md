@@ -19,6 +19,23 @@ Upload the folder as it is to any static host (GitHub Pages, Netlify, Vercel,
 Cloudflare Pages, or your own web server). `index.html` must sit next to the
 `assets` and `data` folders. The empty `.nojekyll` file is for GitHub Pages.
 
+## How the page is organised
+
+The dashboard is split into sheets, like the sheets of a workbook. The tab strip under the title bar
+switches between them, and each sheet has its own address:
+
+| Sheet | Address | What it holds |
+|---|---|---|
+| Overview | `#overview` | Headline numbers, the top of the shortlist, a guide to the other sheets |
+| Sites | `#sites` | Weights, map, ranked shortlist, the evidence card of the selected site |
+| Live now | `#live` | River discharge and mountain weather from the federal services |
+| Meltwater | `#water` | Seasonal runoff shift, where meltwater leaves, ice by elevation, the ten largest glaciers |
+| Business case | `#business` | Illustrative cost, energy and payback for a site, storage against glacier size |
+| Method & sources | `#method` | Checks on the ranking, evidence layers, scope, limits and sources |
+
+The scenario settings (runoff period, emissions, dam height, protection, melt rate, glacier size)
+and the selected site carry over from sheet to sheet.
+
 ## What is live
 
 The page asks three federal services directly from the visitor's browser,

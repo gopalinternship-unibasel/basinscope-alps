@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: an operations console. One control row scopes everything below it; a map-centred three-column
-   workspace (what matters / where / why); evidence panels underneath. */
+/* Layout: an operations console organised like a workbook. A strip of sheet tabs under the title bar picks one
+   sheet at a time; one control row scopes every sheet; the Sites sheet is the map-centred workspace. */
 :root{
   --bg:#EDF2F3; --panel:#FFFFFF; --panel-2:#F4F8F9; --ink:#0E2A33; --ink-2:#45606A; --ink-3:#6C838B; --line:#D2DDE1; --line-2:#E5ECEF;
   --bar:#0F2F3A; --bar-ink:#EAF4F6; --bar-ink-2:#A5C0C8; --brand:#34C6D0;
@@ -67,6 +67,33 @@ a{color:var(--accent)}
 .chip b{font-weight:600;color:var(--brand)}
 .chip.live{border-color:var(--brand)}
 .chip.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand)}
+
+/* sheet tabs */
+[hidden]{display:none!important}
+.sheets{position:sticky;top:0;z-index:20;background:var(--panel);box-shadow:inset 0 -1px 0 var(--line)}
+.sheets-in{position:relative;max-width:1560px;margin:0 auto;padding:7px 20px 0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.sheets-in::-webkit-scrollbar{display:none}
+.sheets button{flex:none;display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;border-bottom:0;border-radius:7px 7px 0 0;background:transparent;padding:9px 15px;cursor:pointer;font:600 15px/1.2 var(--f-display);letter-spacing:.04em;color:var(--ink-2);white-space:nowrap}
+.sheets button:hover{color:var(--ink);background:var(--panel-2)}
+.sheets button[aria-selected="true"]{background:var(--bg);border-color:var(--line);color:var(--ink);box-shadow:inset 0 3px 0 var(--accent)}
+.sheets button:focus-visible{outline-offset:-3px}
+.sheets .dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3)}
+.sheets button.on .dot{background:var(--cls-a)}
+.sheet{display:flex;flex-direction:column;gap:16px;min-width:0}
+/* lists of clickable rows on the Overview sheet */
+.rows{display:flex;flex-direction:column}
+.rows button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line-2);background:transparent;padding:10px 6px;cursor:pointer}
+.rows button:last-child{border-bottom:0}
+.rows button:hover{background:var(--panel-2)}
+.rows .nm{display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13.5px;color:var(--ink-2)}
+.rows .nm b{font:600 15.5px/1.2 var(--f-display);letter-spacing:.02em;color:var(--ink)}
+.rows .nm strong{font-weight:600;color:var(--ink)}
+.rows i{font-style:normal;font-size:18px;color:var(--ink-3)}
+.rows button:hover i{color:var(--accent)}
+#toplist button{grid-template-columns:22px minmax(0,1fr) auto auto}
+#toplist .n{font:600 17px/1 var(--f-display);color:var(--ink-2);text-align:right}
+#toplist .val{display:flex;flex-direction:column;align-items:flex-end;gap:1px;font:500 12.5px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+#toplist .val b{font:600 17px/1.1 var(--f-display);color:var(--ink)}
 
 .wrap{max-width:1560px;margin:0 auto;padding-inline:20px;padding-block:16px 40px;display:flex;flex-direction:column;gap:16px}
 .notice{font-size:13.5px;color:var(--ink-2);border-left:3px solid var(--cls-b);padding:2px 0 2px 12px;max-width:110ch}
@@ -233,6 +260,7 @@ table.rank tbody tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 .ty.new{border-radius:50%} .ty.lake,.ty.reservoir{border-radius:2px} .ty.settlement{transform:rotate(45deg);border-radius:1px}
 
 .chart svg{width:100%;height:auto;display:block;overflow:visible}
+#hypso{max-width:560px}
 .chart text{font:400 11px var(--f-mono);fill:var(--ink-3)}
 .legend{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
@@ -305,6 +333,8 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
   .top-meta{margin-left:0}
   .wrap{padding-inline:16px}
   .top{padding-inline:16px}
+  .sheets-in{padding-inline:16px}
+  .sheets button{padding-inline:12px}
   .map{aspect-ratio:1/1}
   .stats3,.cols2{grid-template-columns:minmax(0,1fr)}
   .melt input{width:120px}
@@ -329,10 +359,20 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
   </div>
 </div>
 
+<div class="sheets">
+  <div class="sheets-in" id="tabs" role="tablist" aria-label="Sheets of the dashboard">
+    <button role="tab" id="tab-overview" data-sheet="overview" aria-controls="sheet-overview" aria-selected="true">Overview</button>
+    <button role="tab" id="tab-sites" data-sheet="sites" aria-controls="sheet-sites" aria-selected="false" tabindex="-1">Sites</button>
+    <button role="tab" id="tab-live" data-sheet="live" aria-controls="sheet-live" aria-selected="false" tabindex="-1" hidden><span class="dot"></span>Live now</button>
+    <button role="tab" id="tab-water" data-sheet="water" aria-controls="sheet-water" aria-selected="false" tabindex="-1">Meltwater</button>
+    <button role="tab" id="tab-business" data-sheet="business" aria-controls="sheet-business" aria-selected="false" tabindex="-1">Business case</button>
+    <button role="tab" id="tab-method" data-sheet="method" aria-controls="sheet-method" aria-selected="false" tabindex="-1">Method &amp; sources</button>
+  </div>
+</div>
 <div class="wrap">
   <p class="notice"><strong>Screening result from public data, not a construction recommendation.</strong> Sites, volumes and glacier areas come from the team's terrain analysis. Protected areas are checked against federal inventories. Natural hazards, geology and access are not assessed yet, so no site is cleared.</p>
 
-  <section class="controls" aria-label="Scenario and assumptions">
+  <section class="controls" id="controls" aria-label="Scenario and assumptions">
     <div class="ctl">
       <div class="eyebrow">Runoff period <span>Hydro-CH2018</span></div>
       <div class="seg" id="seg-period" role="group" aria-label="Runoff period">
@@ -370,79 +410,177 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
     </div>
   </section>
 
-  <section class="kpis" id="kpis" aria-label="Headline numbers"></section>
-
-  <section class="card" id="now-card" hidden>
-    <header><h2>Right now<span class="hint">Federal measurements, pulled every 5 minutes and whenever the page is reloaded.</span></h2>
-      <div class="rowsel"><span class="sub" id="now-status" role="status">Connecting to the federal services.</span><button class="btn" id="now-refresh">Refresh now</button></div></header>
-    <div class="body">
-      <div class="nowgrid">
-        <div>
-          <div class="eyebrow">Melt conditions: air temperature by altitude</div>
-          <div class="chart" id="now-wx"></div>
-          <div class="stats3" id="now-wx-stats"></div>
-        </div>
-        <div>
-          <div class="eyebrow">Rivers leaving the area</div>
-          <div class="tblwrap" id="now-rivers"></div>
-          <p class="sub">Rivers: Federal Office for the Environment, through the federal linked-data service (lindas.admin.ch). Air temperature and precipitation: MeteoSwiss automatic stations (data.geo.admin.ch). The gauges lie below reservoirs and diversions, so they show what each river carries now, not the inflow at a basin site.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="card">
-        <header><h2>What matters<span class="hint">Move a weight and the sites re-rank.</span></h2><button class="btn" id="w-reset">Reset</button></header>
-        <div class="body"><div class="wgrid" id="weights"></div></div>
-      </div>
-
-  <section class="work">
-    <div class="side">
-    <div class="card mapcard">
-      <header><h2>Where basins could go</h2><span class="sub">Click a site. Drag to pan, buttons or Ctrl + scroll to zoom.</span></header>
-      <div class="body">
-        <div class="map" id="map">
-          <svg id="mapsvg" role="group" aria-label="Map of the study area with candidate basin sites">
-            <image id="base-relief" x="0" y="0" width="1061" height="965" href="assets/base_relief.webp" preserveAspectRatio="none"/>
-            <image id="base-dem" x="0" y="0" width="1061" height="965" href="assets/base_dem.webp" preserveAspectRatio="none" visibility="hidden"/>
-            <g id="g-cands"></g>
-            <g id="g-sites"></g>
-          </svg>
-          <div class="ov tl"><div class="seg" id="seg-base" role="group" aria-label="Base map">
-            <button data-v="relief">Relief + glaciers</button><button data-v="dem">Terrain model</button>
-          </div></div>
-          <div class="ov tr"><button id="z-in" aria-label="Zoom in">+</button><button id="z-out" aria-label="Zoom out">−</button><button id="z-fit" aria-label="Fit study area">FIT</button></div>
-          <div class="ov br"><i id="scalebar"></i><span id="scalelbl"></span></div>
-          <div class="tip" id="tip" hidden></div>
-        </div>
-        <div class="maplegend">
-          <span class="k"><span class="pill A">A</span>Investigate first</span>
-          <span class="k"><span class="pill B">B</span>Monitor / compare</span>
-          <span class="k"><span class="pill C">C</span>Exclude / uncertain</span>
-          <span class="sep"></span>
-          <span class="k"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="var(--ink-3)"/></svg>New site</span>
-          <span class="k"><svg viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" rx="2" fill="var(--ink-3)"/></svg>Existing lake</span>
-          <span class="k"><svg viewBox="0 0 14 14"><rect x="3" y="3" width="8" height="8" transform="rotate(45 7 7)" fill="var(--ink-3)"/></svg>Settlement</span>
-          <span class="k"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="4.5" fill="var(--ink)"/></svg>Under strict protection</span>
-          <label class="k check" style="font-size:12.5px"><input type="checkbox" id="lyr-cands" checked><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3.5" fill="var(--cand)"/></svg><span id="cand-n">28 other candidates</span></label>
-        </div>
-        <p class="attr">Base maps: team QGIS exports, © swisstopo. Glacier outlines: SGI 2016 (GLAMOS). Red line: study area (781 km²). Numbers on the map are the current rank. A dark dot marks a site under strict protection. Meltwater flow paths and hazard zones are not in the evidence pack yet.</p>
-      </div>
-    </div>
-    <div class="card">
-      <header><h2>Ranked shortlist</h2><div class="filters" id="filters" role="group" aria-label="Filter sites"></div></header>
-      <div class="body">
-        <div class="tblwrap"><table class="rank" id="tbl"></table></div>
-        <div class="actions"><button class="btn" id="copy-csv">Copy shortlist as CSV</button><span class="copied" id="csv-msg" role="status"></span></div>
-        <p class="sub" id="rule"></p>
-      </div>
-    </div>
-    </div>
-
-    <div class="side">
+  <div class="sheet" id="sheet-overview" role="tabpanel" aria-labelledby="tab-overview">
+    <section class="kpis" id="kpis" aria-label="Headline numbers"></section>
+    <section class="grid2">
       <div class="card">
-        <header><h2>Selected site</h2><span class="sub" id="site-sub"></span></header>
-        <div class="body" id="site"></div>
+        <header><h2>Top of the shortlist<span class="hint">with the settings above</span></h2></header>
+        <div class="body">
+          <div class="rows" id="toplist"></div>
+          <p class="sub">Score out of 100 and usable volume behind the chosen dam. Pick a site to open its evidence on the Sites sheet.</p>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>What is on each sheet</h2></header>
+        <div class="body">
+          <div class="rows" id="guide">
+            <button data-go="sites"><span class="nm"><b>Sites</b><span><strong>Where could basins go?</strong> The map, the ranked shortlist, the evidence for each site and the weights behind the ranking.</span></span><i aria-hidden="true">→</i></button>
+            <button data-go="live" id="guide-live" hidden><span class="nm"><b>Live now</b><span><strong>What is happening today?</strong> River discharge and mountain air temperature from the federal services, refreshed every 5 minutes.</span></span><i aria-hidden="true">→</i></button>
+            <button data-go="water"><span class="nm"><b>Meltwater</b><span><strong>Where is the water, and when does it come?</strong> Where the ice sits, where its water leaves the area and how the season shifts.</span></span><i aria-hidden="true">→</i></button>
+            <button data-go="business"><span class="nm"><b>Business case</b><span><strong>Does it pay, and does the water last?</strong> An illustrative cost, energy and payback estimate for a site, and its storage as the glaciers shrink.</span></span><i aria-hidden="true">→</i></button>
+            <button data-go="method"><span class="nm"><b>Method &amp; sources</b><span><strong>Can the result be trusted?</strong> Checks on the ranking, the evidence not assessed yet, the limits of the method and the data sources.</span></span><i aria-hidden="true">→</i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet-sites" role="tabpanel" aria-labelledby="tab-sites" hidden>
+    <div class="card">
+      <header><h2>What matters<span class="hint">Move a weight and the sites re-rank.</span></h2><button class="btn" id="w-reset">Reset</button></header>
+      <div class="body"><div class="wgrid" id="weights"></div></div>
+    </div>
+    <section class="work">
+      <div class="side">
+        <div class="card mapcard">
+          <header><h2>Where basins could go</h2><span class="sub">Click a site. Drag to pan, buttons or Ctrl + scroll to zoom.</span></header>
+          <div class="body">
+            <div class="map" id="map">
+              <svg id="mapsvg" role="group" aria-label="Map of the study area with candidate basin sites">
+                <image id="base-relief" x="0" y="0" width="1061" height="965" href="assets/base_relief.webp" preserveAspectRatio="none"/>
+                <image id="base-dem" x="0" y="0" width="1061" height="965" href="assets/base_dem.webp" preserveAspectRatio="none" visibility="hidden"/>
+                <g id="g-cands"></g>
+                <g id="g-sites"></g>
+              </svg>
+              <div class="ov tl"><div class="seg" id="seg-base" role="group" aria-label="Base map">
+                <button data-v="relief">Relief + glaciers</button><button data-v="dem">Terrain model</button>
+              </div></div>
+              <div class="ov tr"><button id="z-in" aria-label="Zoom in">+</button><button id="z-out" aria-label="Zoom out">−</button><button id="z-fit" aria-label="Fit study area">FIT</button></div>
+              <div class="ov br"><i id="scalebar"></i><span id="scalelbl"></span></div>
+              <div class="tip" id="tip" hidden></div>
+            </div>
+            <div class="maplegend">
+              <span class="k"><span class="pill A">A</span>Investigate first</span>
+              <span class="k"><span class="pill B">B</span>Monitor / compare</span>
+              <span class="k"><span class="pill C">C</span>Exclude / uncertain</span>
+              <span class="sep"></span>
+              <span class="k"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="var(--ink-3)"/></svg>New site</span>
+              <span class="k"><svg viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" rx="2" fill="var(--ink-3)"/></svg>Existing lake</span>
+              <span class="k"><svg viewBox="0 0 14 14"><rect x="3" y="3" width="8" height="8" transform="rotate(45 7 7)" fill="var(--ink-3)"/></svg>Settlement</span>
+              <span class="k"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="4.5" fill="var(--ink)"/></svg>Under strict protection</span>
+              <label class="k check" style="font-size:12.5px"><input type="checkbox" id="lyr-cands" checked><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3.5" fill="var(--cand)"/></svg><span id="cand-n">28 other candidates</span></label>
+            </div>
+            <p class="attr">Base maps: team QGIS exports, © swisstopo. Glacier outlines: SGI 2016 (GLAMOS). Red line: study area (781 km²). Numbers on the map are the current rank. A dark dot marks a site under strict protection. Meltwater flow paths and hazard zones are not in the evidence pack yet.</p>
+          </div>
+        </div>
+        <div class="card">
+          <header><h2>Ranked shortlist</h2><div class="filters" id="filters" role="group" aria-label="Filter sites"></div></header>
+          <div class="body">
+            <div class="tblwrap"><table class="rank" id="tbl"></table></div>
+            <div class="actions"><button class="btn" id="copy-csv">Copy shortlist as CSV</button><span class="copied" id="csv-msg" role="status"></span></div>
+            <p class="sub" id="rule"></p>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="card">
+          <header><h2>Selected site</h2><span class="sub" id="site-sub"></span></header>
+          <div class="body" id="site"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet-live" role="tabpanel" aria-labelledby="tab-live" hidden>
+    <section class="card" id="now-card" hidden>
+      <header><h2>Right now<span class="hint">Federal measurements, pulled every 5 minutes and whenever the page is reloaded.</span></h2>
+        <div class="rowsel"><span class="sub" id="now-status" role="status">Connecting to the federal services.</span><button class="btn" id="now-refresh">Refresh now</button></div></header>
+      <div class="body">
+        <div class="nowgrid">
+          <div>
+            <div class="eyebrow">Melt conditions: air temperature by altitude</div>
+            <div class="chart" id="now-wx"></div>
+            <div class="stats3" id="now-wx-stats"></div>
+          </div>
+          <div>
+            <div class="eyebrow">Rivers leaving the area</div>
+            <div class="tblwrap" id="now-rivers"></div>
+            <p class="sub">Rivers: Federal Office for the Environment, through the federal linked-data service (lindas.admin.ch). Air temperature and precipitation: MeteoSwiss automatic stations (data.geo.admin.ch). The gauges lie below reservoirs and diversions, so they show what each river carries now, not the inflow at a basin site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet-water" role="tabpanel" aria-labelledby="tab-water" hidden>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>Why store: the water arrives earlier</h2>
+          <div class="rowsel"><label class="sub" for="hc-select">Catchment</label><select id="hc-select"></select></div>
+        </header>
+        <div class="body">
+          <p class="sub" id="hc-sub"></p>
+          <div class="legend" id="hc-legend"></div>
+          <div class="chart" id="hc-chart" style="position:relative"></div>
+          <div class="stats3" id="hc-stats"></div>
+          <div class="actions"><button class="btn" id="hc-tbl-btn" aria-expanded="false">Show monthly values</button></div>
+          <div id="hc-table" hidden></div>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>Where the meltwater leaves</h2><span class="sub">glacier area upstream of each exit</span></header>
+        <div class="body"><div class="bars" id="exits"></div>
+          <p class="sub">Exit points of glacier water from the terrain model. 324.7 km² of glacier in the model, 324.4 km² arrive at exits, so the flow routing closes.</p></div>
+      </div>
+    </section>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>Where the ice sits, where basins fit</h2><span class="sub">area by elevation band</span></header>
+        <div class="body">
+          <div class="legend"><span><i class="box" style="background:var(--neutral-bar)"></i>Study area</span><span><i class="box" style="background:var(--s1)"></i>Glacier</span><span><i class="box" style="background:var(--ink-2);border-radius:50%;width:9px;height:9px"></i>Ranked site</span></div>
+          <div class="chart" id="hypso" style="position:relative"></div>
+          <p class="sub">Two thirds of the area lies above 2,500 m and mean slope is 30° or more in every band, so flat ground is rare. All 15 ranked sites sit between 1,524 and 2,332 m, below most of the ice.</p>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>The ten largest glaciers</h2><span class="sub">of 299 in the study area</span></header>
+        <div class="body"><div class="bars" id="glaciers"></div>
+          <p class="sub">14 glaciers larger than 5 km² hold 75% of the ice. For the Grosser Aletschgletscher the analysis found no suitable site inside the area: its tongue ends in the steep Massa gorge.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet-business" role="tabpanel" aria-labelledby="tab-business" hidden>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>Business case<span class="hint">illustrative</span></h2><div class="rowsel"><label class="sub" for="site-pick">Site</label><select id="site-pick"></select></div></header>
+        <div class="body">
+          <div class="ctl">
+            <label class="eyebrow" for="price">Winter electricity price</label>
+            <div class="melt"><input type="range" id="price" min="5" max="30" step="1" value="15"><output id="price-out" for="price"></output></div>
+          </div>
+          <div class="tblwrap" id="biz"></div>
+          <p class="sub" id="biz-flag"></p>
+          <p class="sub">Order-of-magnitude estimate, scaled in a straight line from the KWO Trift project (CHF 387 m, 85 Mio m³, 215 GWh of winter energy) and assuming a similar chain of power stations downstream. Investment follows the basin volume, energy follows the water the glaciers can supply. Head, the power chain and costs need a feasibility study.</p>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>If the glaciers shrink</h2><span class="sub">usable storage against glacier size</span></header>
+        <div class="body">
+          <div class="legend" id="ice-legend"></div>
+          <div class="chart" id="ice-chart" style="position:relative"></div>
+          <div class="stats3" id="ice-stats"></div>
+          <p class="sub">In this scenario every glacier shrinks by the same share. Real retreat removes low-lying ice first, so a basin below a small, low glacier loses its supply sooner than shown. Move the Glacier size control at the top to apply a size to the whole dashboard.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sheet" id="sheet-method" role="tabpanel" aria-labelledby="tab-method" hidden>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>Does the ranking hold up?</h2></header>
+        <div class="body"><div class="tests" id="tests"></div></div>
       </div>
       <div class="card">
         <header><h2>Evidence layers</h2><span class="sub" id="ev-count"></span></header>
@@ -452,94 +590,28 @@ footer strong{color:var(--ink-2);font-weight:600;font-size:13.5px}
           <p class="sub">A site cannot reach high confidence until the open layers are checked by a specialist.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="grid2">
+    </section>
     <div class="card">
-      <header><h2>If the glaciers shrink</h2><span class="sub">usable storage against glacier size</span></header>
+      <header><h2>Responsible scope</h2><span class="sub">triage upstream, professional validation downstream</span></header>
       <div class="body">
-        <div class="legend" id="ice-legend"></div>
-        <div class="chart" id="ice-chart" style="position:relative"></div>
-        <div class="stats3" id="ice-stats"></div>
-        <p class="sub">In this scenario every glacier shrinks by the same share. Real retreat removes low-lying ice first, so a basin below a small, low glacier loses its supply sooner than shown. Move the Glacier size control at the top to apply a size to the whole dashboard.</p>
-      </div>
-    </div>
-    <div class="card">
-      <header><h2>Business case<span class="hint">illustrative</span></h2><span class="sub" id="biz-site"></span></header>
-      <div class="body">
-        <div class="ctl">
-          <label class="eyebrow" for="price">Winter electricity price</label>
-          <div class="melt"><input type="range" id="price" min="5" max="30" step="1" value="15"><output id="price-out" for="price"></output></div>
-        </div>
-        <div class="tblwrap" id="biz"></div>
-        <p class="sub" id="biz-flag"></p>
-        <p class="sub">Order-of-magnitude estimate, scaled in a straight line from the KWO Trift project (CHF 387 m, 85 Mio m³, 215 GWh of winter energy) and assuming a similar chain of power stations downstream. Investment follows the basin volume, energy follows the water the glaciers can supply. Head, the power chain and costs need a feasibility study.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="grid2">
-    <div class="card">
-      <header><h2>Why store: the water arrives earlier</h2>
-        <div class="rowsel"><label class="sub" for="hc-select">Catchment</label><select id="hc-select"></select></div>
-      </header>
-      <div class="body">
-        <p class="sub" id="hc-sub"></p>
-        <div class="legend" id="hc-legend"></div>
-        <div class="chart" id="hc-chart" style="position:relative"></div>
-        <div class="stats3" id="hc-stats"></div>
-        <div class="actions"><button class="btn" id="hc-tbl-btn" aria-expanded="false">Show monthly values</button></div>
-        <div id="hc-table" hidden></div>
-      </div>
-    </div>
-    <div class="card">
-      <header><h2>Where the meltwater leaves</h2><span class="sub">glacier area upstream of each exit</span></header>
-      <div class="body"><div class="bars" id="exits"></div>
-        <p class="sub">Exit points of glacier water from the terrain model. 324.7 km² of glacier in the model, 324.4 km² arrive at exits, so the flow routing closes.</p></div>
-    </div>
-  </section>
-
-  <section class="grid3">
-    <div class="card">
-      <header><h2>Where the ice sits, where basins fit</h2><span class="sub">area by elevation band</span></header>
-      <div class="body">
-        <div class="legend"><span><i class="box" style="background:var(--neutral-bar)"></i>Study area</span><span><i class="box" style="background:var(--s1)"></i>Glacier</span><span><i class="box" style="background:var(--ink-2);border-radius:50%;width:9px;height:9px"></i>Ranked site</span></div>
-        <div class="chart" id="hypso" style="position:relative"></div>
-        <p class="sub">Two thirds of the area lies above 2,500 m and mean slope is 30° or more in every band, so flat ground is rare. All 15 ranked sites sit between 1,524 and 2,332 m, below most of the ice.</p>
-      </div>
-    </div>
-    <div class="card">
-      <header><h2>Does the ranking hold up?</h2></header>
-      <div class="body"><div class="tests" id="tests"></div></div>
-    </div>
-    <div class="card">
-      <header><h2>The ten largest glaciers</h2><span class="sub">of 299 in the study area</span></header>
-      <div class="body"><div class="bars" id="glaciers"></div>
-        <p class="sub">14 glaciers larger than 5 km² hold 75% of the ice. For the Grosser Aletschgletscher the analysis found no suitable site inside the area: its tongue ends in the steep Massa gorge.</p></div>
-    </div>
-  </section>
-
-  <div class="card">
-    <header><h2>Responsible scope</h2><span class="sub">triage upstream, professional validation downstream</span></header>
-    <div class="body">
-      <div class="scope">
-        <div>
-          <div class="cols2">
-            <ul class="does"><li>Prioritises where experts investigate</li><li>Explains why a site is shortlisted</li><li>Exposes constraints and uncertainty</li><li>Documents assumptions and evidence</li><li>Recommends the next validation step</li></ul>
-            <ul class="doesnt"><li>Design dams or infrastructure</li><li>Certify geology or hydrogeology</li><li>Predict exact inflows</li><li>Replace hydrological models</li><li>Make legal or ecological approvals</li></ul>
+        <div class="scope">
+          <div>
+            <div class="cols2">
+              <ul class="does"><li>Prioritises where experts investigate</li><li>Explains why a site is shortlisted</li><li>Exposes constraints and uncertainty</li><li>Documents assumptions and evidence</li><li>Recommends the next validation step</li></ul>
+              <ul class="doesnt"><li>Design dams or infrastructure</li><li>Certify geology or hydrogeology</li><li>Predict exact inflows</li><li>Replace hydrological models</li><li>Make legal or ecological approvals</li></ul>
+            </div>
+            <p class="sub"><strong>Method limits.</strong> Surface runoff only (D8 routing on the 10 m swissALTI3D mean); subglacial flow and karst are missing. Meltwater is glacier area × the melt rate, with no rain or snowmelt from outside the glaciers. Glacier outlines (2013–2018) are older than the terrain model (2024/25), so forefields that have become ice-free since were not tested. Volumes tend to be slightly too small and dam length is indicative.</p>
           </div>
-          <p class="sub"><strong>Method limits.</strong> Surface runoff only (D8 routing on the 10 m swissALTI3D mean); subglacial flow and karst are missing. Meltwater is glacier area × the melt rate, with no rain or snowmelt from outside the glaciers. Glacier outlines (2013–2018) are older than the terrain model (2024/25), so forefields that have become ice-free since were not tested. Volumes tend to be slightly too small and dam length is indicative.</p>
-        </div>
-        <div>
-          <p class="sub"><strong>Sources and attribution.</strong></p>
-          <ul class="src">
-            <li>Team analysis: “Retention Basins for Glacier Meltwater, Jungfrau–Aletsch”, 2 Oct 2026 (GRASS r.watershed and r.lake; 43 candidates, 15 ranked).</li>
-            <li>Terrain: swissALTI3D, © swisstopo. Glaciers: <a href="https://doi.glamos.ch/data/inventory/inventory_sgi2016_r2020.html">Swiss Glacier Inventory SGI 2016</a>, GLAMOS.</li>
-            <li>Runoff scenarios: <a href="https://www.bafu.admin.ch/en/data-hydro-ch2018">Hydro-CH2018</a>, FOEN, glacier catchment set L03, monthly total runoff, ensemble median and range.</li>
-            <li>Protected areas: federal inventories of floodplains, mires, mire landscapes, BLN, game reserves and UNESCO World Heritage (FOEN) and hydropower-waiver areas (SFOE), queried through the <a href="https://docs.geo.admin.ch/">geo.admin.ch API</a> on 3 Oct 2026 for a 250 m square around each point.</li>
-            <li>Round-table reference: <a href="https://www.srf.ch/news/schweiz/runder-tisch-wasserkraft-15-wasserkraftwerke-sollen-realisiert-werden">SRF on the 15 hydropower projects</a>; <a href="https://grimselstrom.ch/wp-content/uploads/20240528_medienmitteilung_konzessionseinreichung_vergroesserung_grimselsee_final.pdf">KWO on the Grimsel enlargement</a>.</li>
-          </ul>
+          <div>
+            <p class="sub"><strong>Sources and attribution.</strong></p>
+            <ul class="src">
+              <li>Team analysis: “Retention Basins for Glacier Meltwater, Jungfrau–Aletsch”, 2 Oct 2026 (GRASS r.watershed and r.lake; 43 candidates, 15 ranked).</li>
+              <li>Terrain: swissALTI3D, © swisstopo. Glaciers: <a href="https://doi.glamos.ch/data/inventory/inventory_sgi2016_r2020.html">Swiss Glacier Inventory SGI 2016</a>, GLAMOS.</li>
+              <li>Runoff scenarios: <a href="https://www.bafu.admin.ch/en/data-hydro-ch2018">Hydro-CH2018</a>, FOEN, glacier catchment set L03, monthly total runoff, ensemble median and range.</li>
+              <li>Protected areas: federal inventories of floodplains, mires, mire landscapes, BLN, game reserves and UNESCO World Heritage (FOEN) and hydropower-waiver areas (SFOE), queried through the <a href="https://docs.geo.admin.ch/">geo.admin.ch API</a> on 3 Oct 2026 for a 250 m square around each point.</li>
+              <li>Round-table reference: <a href="https://www.srf.ch/news/schweiz/runder-tisch-wasserkraft-15-wasserkraftwerke-sollen-realisiert-werden">SRF on the 15 hydropower projects</a>; <a href="https://grimselstrom.ch/wp-content/uploads/20240528_medienmitteilung_konzessionseinreichung_vergroesserung_grimselsee_final.pdf">KWO on the Grimsel enlargement</a>.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -578,7 +650,7 @@ const PERIOD = {ref:"1981–2010","2035":"2020–2049","2060":"2045–2074","208
 const RCPL = {RCP26:"RCP2.6",RCP45:"RCP4.5",RCP85:"RCP8.5"};
 const A_MIN = 60;
 
-const S = {period:"2085", rcp:"RCP45", dam:20, melt:1, ice:100, price:15, w:Object.fromEntries(CRIT.map(c=>[c.k,c.w])), sel:2, prot:"flag", filter:"all", base:"relief", cands:true, hc:null, tbl:false};
+const S = {period:"2085", rcp:"RCP45", dam:20, melt:1, ice:100, price:15, w:Object.fromEntries(CRIT.map(c=>[c.k,c.w])), sel:2, prot:"flag", filter:"all", base:"relief", cands:true, hc:null, tbl:false, sheet:"overview"};
 const $ = id => document.getElementById(id);
 const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 const f1 = v => v.toFixed(1), f2 = v => v.toFixed(2);
@@ -645,7 +717,8 @@ function buildWeights(){
 const svg = $("mapsvg"), W = GEO.W, H = GEO.H;
 const view = {cx:W/2, cy:H/2, s:1};
 const pb = GEO.poly.reduce((o,p)=>({x0:Math.min(o.x0,p[0]),x1:Math.max(o.x1,p[0]),y0:Math.min(o.y0,p[1]),y1:Math.max(o.y1,p[1])}),{x0:1e9,x1:-1e9,y0:1e9,y1:-1e9});
-function fit(){ const r = svg.getBoundingClientRect(); if (!r.width) return; view.s = Math.max((pb.x1-pb.x0)*1.12/r.width, (pb.y1-pb.y0)*1.2/r.height); view.cx=(pb.x0+pb.x1)/2; view.cy=(pb.y0+pb.y1)/2+6; applyView(); }
+let mapFitted = false; // the map has no size while its sheet is closed, so the first fit waits until it opens
+function fit(){ const r = svg.getBoundingClientRect(); if (!r.width) return; mapFitted = true; view.s =Math.max((pb.x1-pb.x0)*1.12/r.width, (pb.y1-pb.y0)*1.2/r.height); view.cx=(pb.x0+pb.x1)/2; view.cy=(pb.y0+pb.y1)/2+6; applyView(); }
 function applyView(){
   const r = svg.getBoundingClientRect(); if (!r.width) return;
   view.s = clamp(view.s, 0.3, Math.max(W/r.width, H/r.height));
@@ -666,7 +739,7 @@ svg.addEventListener("pointerdown", ev => { if (ev.pointerType==="touch") return
 window.addEventListener("pointermove", ev => { if (!drag) return; const dx = ev.clientX-drag.x, dy = ev.clientY-drag.y; if (Math.abs(dx)+Math.abs(dy) > 4){ moved = true; svg.classList.add("drag"); hideTip(); }
   if (moved){ view.cx = drag.cx - dx*view.s; view.cy = drag.cy - dy*view.s; applyView(); } });
 window.addEventListener("pointerup", () => { drag = null; svg.classList.remove("drag"); setTimeout(()=> moved=false, 0); });
-if (window.ResizeObserver) new ResizeObserver(() => applyView()).observe($("map"));
+if (window.ResizeObserver) new ResizeObserver(() => mapFitted ? applyView() : fit()).observe($("map"));
 
 const tip = $("tip");
 function showTip(html, x, y){ tip.innerHTML = html; tip.hidden = false; const m = $("map").getBoundingClientRect(); const tw = tip.offsetWidth, th = tip.offsetHeight;
@@ -700,6 +773,43 @@ function drawMap(){
   });
   applyView();
 }
+
+/* ---------- sheets: one tab per question, like the sheets of a workbook ---------- */
+const SHEETS = ["overview","sites","live","water","business","method"];
+const sheetOk = id => SHEETS.includes(id) && !$("tab-"+id).hidden;
+function showSheet(id, quiet){
+  if (!sheetOk(id)) id = SHEETS[0];
+  S.sheet = id;
+  SHEETS.forEach(k => { const on = k===id, tab = $("tab-"+k); $("sheet-"+k).hidden = !on; tab.setAttribute("aria-selected", String(on)); tab.tabIndex = on ? 0 : -1; });
+  $("controls").hidden = id==="live"; // the settings do not change measurements
+  if (id==="sites" && !mapFitted) fit();
+  const box = $("tabs"), bt = $("tab-"+id), l = bt.offsetLeft, r = l + bt.offsetWidth;
+  if (l < box.scrollLeft + 12) box.scrollLeft = l - 12; else if (r > box.scrollLeft + box.clientWidth - 12) box.scrollLeft = r - box.clientWidth + 12;
+  if (quiet) return;
+  try { history.replaceState(null, "", "#" + id); } catch(err){}
+  const y = document.querySelector(".top").offsetHeight; if (window.scrollY > y) window.scrollTo(0, y);
+}
+$("tabs").addEventListener("click", ev => { const bt = ev.target.closest("[data-sheet]"); if (bt) showSheet(bt.dataset.sheet); });
+$("tabs").addEventListener("keydown", ev => {
+  const tabs = [...$("tabs").querySelectorAll("[data-sheet]")].filter(t => !t.hidden), i = tabs.indexOf(document.activeElement); if (i < 0) return;
+  const j = ev.key==="ArrowRight" ? (i+1)%tabs.length : ev.key==="ArrowLeft" ? (i-1+tabs.length)%tabs.length : ev.key==="Home" ? 0 : ev.key==="End" ? tabs.length-1 : -1;
+  if (j < 0) return; ev.preventDefault(); showSheet(tabs[j].dataset.sheet); tabs[j].focus();
+});
+/* rows on the Overview sheet open another sheet, a site row also selects that site */
+document.addEventListener("click", ev => { const go = ev.target.closest("[data-go]"); if (!go) return;
+  if (go.dataset.id){ S.sel = +go.dataset.id; S.hc = null; render(); }
+  showSheet(go.dataset.go); $("tab-"+S.sheet).focus({preventScroll:true}); });
+window.addEventListener("hashchange", () => { const id = location.hash.slice(1); if (id !== S.sheet && sheetOk(id)) showSheet(id, true); });
+function drawTop(){
+  $("toplist").innerHTML = ROWS.slice(0,5).map(r => `<button data-go="sites" data-id="${r.id}"><span class="n">${r.rank}</span><span class="nm"><b>${esc(r.name)}</b><span>${TYPE[r.type]} · ${r.z} m a.s.l.${r.strict ? " · strict protection: " + esc(uniq(strictHits(r).map(h=>PROT[h.k][1])).join(", ")) : ""}</span></span><span class="pill ${r.cls}">${r.cls}</span><span class="val"><b>${Math.round(r.score)}</b>${vol(r.usable)} Mio m³</span></button>`).join("");
+}
+let PICK = "";
+function drawPick(){
+  const h = ROWS.map(r => `<option value="${r.id}">${r.rank} · ${esc(r.name)}</option>`).join(""), el = $("site-pick");
+  if (h !== PICK){ el.innerHTML = h; PICK = h; }
+  el.value = String(S.sel);
+}
+$("site-pick").addEventListener("change", ev => { S.sel = +ev.target.value; S.hc = null; render(); });
 
 /* ---------- headline numbers ---------- */
 function drawKpis(){
@@ -930,8 +1040,8 @@ function drawTests(){
   const names = cur.split(",").filter(Boolean).map(id => SITES.find(s=>s.id===+id).name.split(",")[0].replace(" forefield","")).join(", ");
   const rvs = ROWS.filter(r => REVIEWS[r.id]), cnt = v => rvs.filter(r => REVIEWS[r.id].verdict===v).length;
   const expert = rvs.length
-    ? `<div class="test"><span class="st live">Expert check</span><h3>Would a professional agree?</h3><p><b>${rvs.length} of ${ROWS.length} sites reviewed:</b> ${cnt("agree")} agree with the class, ${cnt("disagree")} disagree, ${cnt("unsure")} unsure. Reviews are recorded in each site's card.</p></div>`
-    : `<div class="test"><span class="st open">Expert check</span><h3>Would a professional agree?</h3><p>Open. No mentor or partner review is recorded yet. Record one in a site's card. The question to put: can you defend why A goes first, B is monitored and C is excluded?</p></div>`;
+    ? `<div class="test"><span class="st live">Expert check</span><h3>Would a professional agree?</h3><p><b>${rvs.length} of ${ROWS.length} sites reviewed:</b> ${cnt("agree")} agree with the class, ${cnt("disagree")} disagree, ${cnt("unsure")} unsure. Reviews are recorded in each site's card on the Sites sheet.</p></div>`
+    : `<div class="test"><span class="st open">Expert check</span><h3>Would a professional agree?</h3><p>Open. No mentor or partner review is recorded yet. Record one in a site's card on the Sites sheet. The question to put: can you defend why A goes first, B is monitored and C is excluded?</p></div>`;
   $("tests").innerHTML = `
    <div class="test"><span class="st ok">Back-test</span><h3>It recovers places where water is already stored</h3><p><b>4 existing lakes land in the top 7 by volume:</b> Grimselsee (1), Oberaarsee (3), Oeschinensee (4) and the lake near the Gruebengletscher (7). Grimsel and Oberaar are also on the federal hydropower round-table list. Trift, the third Bernese project on that list, lies outside the study area.</p></div>
    <div class="test"><span class="st live">Sensitivity</span><h3>The shortlist is stable when assumptions move</h3><p><b>The top 3 new sites stay the same in ${same} of ${runs} runs</b> (melt 0.5 to 3.0 m per year, dam 10 or 20 m, current weights). Top 3 now: ${esc(names)}. Recomputed whenever you change a setting.</p></div>
@@ -979,7 +1089,6 @@ const money = v => v>=10 ? String(Math.round(v)) : f1(v);
 const years = v => v>200 ? "more than 200 years" : Math.round(v) + " years";
 function drawBiz(){
   const r = ROWS.find(x => x.id===S.sel), b = bizOf(r);
-  $("biz-site").textContent = r.name;
   if (r.type==="settlement"){ $("biz").innerHTML = `<p class="sub">No business case: this is a settlement area and is excluded.</p>`; $("biz-flag").textContent = ""; return; }
   const row = (a, v, how) => `<tr><td>${a}</td><td>${v}</td><td>${how}</td></tr>`;
   $("biz").innerHTML = `<table class="mini biz"><thead><tr><th></th><th>Estimate</th><th>How it is derived</th></tr></thead><tbody>`
@@ -1007,7 +1116,7 @@ function render(){
   $("melt-out").textContent = f2(S.melt)+" m" + (S.melt===1 ? " (report)" : "");
   $("ice-out").textContent = S.ice + "%" + (S.ice===100 ? " (today)" : "");
   $("price-out").textContent = S.price + " Rp./kWh";
-  drawWeights(); drawKpis(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawStatus();
+  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawStatus();
   if (keep){ const el = $(keep.id); if (el){ el.focus(); if (keep.pos!=null) try { el.setSelectionRange(keep.pos, keep.pos); } catch(err){} } }
 }
 
@@ -1030,7 +1139,7 @@ function cleanCatch(o){
 }
 function drawStatus(){
   const c = $("src-chip");
-  if (MODE==="site"){ const on = !!(NOW.rivers || NOW.wx); c.classList.toggle("live", on);
+  if (MODE==="site"){ const on = !!(NOW.rivers || NOW.wx); c.classList.toggle("live", on); $("tab-live").classList.toggle("on", on);
     c.textContent = on ? `Live federal data · checked ${hhmm(NOW.checked)}` : (NOW.checked ? "Federal services unreachable · analysis of 2 Oct 2026" : "Connecting to live data"); return; }
   c.classList.toggle("live", LIVE.sites);
   c.textContent = LIVE.sites ? `Shared database · ${SITES.length} sites · synced ${LIVE.at}` : "Dataset snapshot of 2 Oct 2026";
@@ -1231,7 +1340,7 @@ async function recheckProt(){
   drawProtStatus();
 }
 function startLive(){
-  $("now-card").hidden = false; $("prot-actions").hidden = false;
+  $("now-card").hidden = false; $("prot-actions").hidden = false; $("tab-live").hidden = false; $("guide-live").hidden = false;
   try { const c = JSON.parse(localStorage.getItem("bsa-prot") || "null"); if (c && num(c.at) && c.hits && Date.now() - c.at < 864e5){ PROTC.at = c.at; PROTC.hits = c.hits; applyProt(); } } catch(err){}
   try { REVIEWS = cleanReviews(JSON.parse(localStorage.getItem("bsa-reviews") || "{}")); } catch(err){}
   try { /* last readings seen in this browser, shown with their own measurement times until fresh ones arrive */
@@ -1248,8 +1357,9 @@ function startLive(){
 }
 
 buildWeights(); render();
-requestAnimationFrame(fit);
 if (MODE==="site") startLive(); else connect();
+showSheet(location.hash.slice(1), true); // a link such as #sites opens that sheet
+requestAnimationFrame(fit);
 </script>
 
 </body>
