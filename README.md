@@ -26,7 +26,7 @@ on load, every 5 minutes while the tab is visible, and when "Refresh now" is pre
 
 | What | Source | Updated by the source |
 |---|---|---|
-| River discharge and water temperature at 7 gauges | Federal Office for the Environment, via the SPARQL endpoint `lindas.admin.ch/query` | about every 10 minutes |
+| River discharge and water temperature at 7 gauges | Federal Office for the Environment, via the federal SPARQL endpoint `ld.admin.ch/query` (fallback `lindas.admin.ch/query`) | about every 10 minutes |
 | Air temperature and precipitation at 6 mountain stations | MeteoSwiss automatic stations, via `data.geo.admin.ch` | every 10 minutes |
 | Protected-area inventories within 250 m of each ranked site | `api3.geo.admin.ch` identify service | when inventories change; the page asks at most once a day, or on "Re-check federal inventories" |
 
@@ -47,7 +47,7 @@ Records that fail validation are ignored and the built-in copy is used instead.
 - The gauges lie below reservoirs and diversions. They show what each river carries now,
   not the inflow at a basin site.
 - The Lonza gauge at Blatten has reported nothing since 28 May 2025.
-- If a federal service is unreachable, the page keeps the last readings and says so.
+- If a federal service is unreachable, the page keeps the last readings it saw in that browser, shows their measurement times, and says so.
 - Expert reviews recorded on this page are kept in the visitor's browser only.
   The version published on claude.ai keeps them in a shared database instead.
 - Map backgrounds are static images, not live map tiles.

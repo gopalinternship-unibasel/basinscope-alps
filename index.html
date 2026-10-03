@@ -982,6 +982,8 @@ const GAUGES = [
 ];
 const WX = ["JUN","EGH","GRH","BLA","ULR","ABO"], WXN = {JUN:"Jungfraujoch", EGH:"Eggishorn", GRH:"Grimsel Hospiz", BLA:"Blatten", ULR:"Ulrichen", ABO:"Adelboden"};
 const POLL_MS = 5*60*1000, STALE_MS = 6*3600*1000;
+/* same federal triple store behind both addresses; the first answers every origin with a wildcard, the second is the fallback */
+const SPARQL = ["https://ld.admin.ch/query", "https://lindas.admin.ch/query"];
 const NOW = {rivers:null, wx:null, checked:0, next:0, err:[], busy:false};
 const hhmm = t => new Date(t).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
 const dmy = t => new Date(t).toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"});
@@ -990,7 +992,12 @@ async function pullRivers(){
   const q = "PREFIX schema: <http://schema.org/> PREFIX h: <https://environment.ld.admin.ch/foen/hydro/dimension/> SELECT ?st ?name ?q ?t ?temp WHERE { GRAPH <https://lindas.admin.ch/foen/hydro> { VALUES ?st { "
     + GAUGES.map(g => "<https://environment.ld.admin.ch/foen/hydro/station/" + g.id + ">").join(" ")
     + " } ?st schema:name ?name . ?obs h:station ?st . OPTIONAL { ?obs h:discharge ?q } OPTIONAL { ?obs h:measurementTime ?t } OPTIONAL { ?obs h:waterTemperature ?temp } } }";
-  const j = await getJson("https://lindas.admin.ch/query?query=" + encodeURIComponent(q), {headers:{Accept:"application/sparql-results+json"}});
+  let j = null, last = null;
+  for (const ep of SPARQL){
+    try { const a = await getJson(ep + "?query=" + encodeURIComponent(q), {headers:{Accept:"application/sparql-results+json"}}); if (a && a.results && Array.isArray(a.results.bindings)){ j = a; break; } }
+    catch(err){ last = err; }
+  }
+  if (!j) throw last || new Error("no answer");
   const by = {};
   for (const row of j.results.bindings){ const id = row.st.value.split("/").pop(), fl = k => row[k] ? parseFloat(row[k].value) : NaN;
     by[id] = {name:str(row.name && row.name.value, 60), q:fl("q"), temp:fl("temp"), t:row.t ? Date.parse(row.t.value) : NaN}; }
@@ -1082,6 +1089,7 @@ async function pollLive(){
   const errs = [];
   const [rv, wx] = await Promise.all([pullRivers().catch(() => { errs.push("river gauges"); return null; }), pullWeather().catch(() => { errs.push("weather stations"); return null; })]);
   if (rv) NOW.rivers = rv; if (wx) NOW.wx = wx;
+  if (rv || wx) try { localStorage.setItem("bsa-now", JSON.stringify({rivers:NOW.rivers, wx:NOW.wx})); } catch(err){}
   await pullDataset().catch(() => {});
   NOW.err = errs; NOW.checked = Date.now(); NOW.next = NOW.checked + POLL_MS; NOW.busy = false;
   drawNow(); drawStatus();
@@ -1125,6 +1133,11 @@ function startLive(){
   $("now-card").hidden = false; $("prot-actions").hidden = false;
   try { const c = JSON.parse(localStorage.getItem("bsa-prot") || "null"); if (c && num(c.at) && c.hits && Date.now() - c.at < 864e5){ PROTC.at = c.at; PROTC.hits = c.hits; applyProt(); } } catch(err){}
   try { REVIEWS = cleanReviews(JSON.parse(localStorage.getItem("bsa-reviews") || "{}")); } catch(err){}
+  try { /* last readings seen in this browser, shown with their own measurement times until fresh ones arrive */
+    const c = JSON.parse(localStorage.getItem("bsa-now") || "null"), n = v => typeof v==="number" ? v : NaN;
+    if (c && Array.isArray(c.rivers)) NOW.rivers = GAUGES.map(g => { const o = c.rivers.find(x => x && x.id===g.id) || {}; return Object.assign({}, g, {name:str(o.name,60), q:n(o.q), temp:n(o.temp), t:n(o.t)}); });
+    if (c && Array.isArray(c.wx)){ const w = c.wx.filter(v => v && WXN[v.id] && num(v.z) && num(v.temp) && num(v.t)).map(v => ({id:v.id, name:WXN[v.id], z:v.z, temp:v.temp, t:v.t, rain:num(v.rain) ? v.rain : null})); if (w.length) NOW.wx = w; }
+  } catch(err){}
   $("now-refresh").addEventListener("click", pollLive);
   $("prot-recheck").addEventListener("click", recheckProt);
   render(); drawNow(); drawProtStatus(); pollLive();
