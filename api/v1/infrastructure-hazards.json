@@ -1,0 +1,556 @@
+{
+ "meta": {
+  "api_version": "1.4.0",
+  "generated": "2026-10-04",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "read": "2026-10-04",
+  "square_m": 250,
+  "which": "The plants of the hydropower stress test and the dams under federal supervision within 5 km of a ranked site.",
+  "method": "Share of the square around the powerhouse or the dam that the federal index maps mark, in per cent. An indication for the operator's own assessment, not a hazard map.",
+  "items": [
+   {
+    "kind": "plant",
+    "name": "Bitsch",
+    "type": "storage plant",
+    "expected_production_gwh_per_year": 770.3,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2643810,
+     "northing_lv95": 1131520,
+     "elevation_m": 697
+    },
+    "hazard_index_percent": {
+     "debris_flow": 2,
+     "shallow_landslide": 20,
+     "rockfall": 8,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Moerel Aletsch",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 74.6,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2646510,
+     "northing_lv95": 1133760,
+     "elevation_m": 744
+    },
+    "hazard_index_percent": {
+     "debris_flow": 7,
+     "shallow_landslide": 13,
+     "rockfall": 11,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Loetschen",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 339.3,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2623540,
+     "northing_lv95": 1129860,
+     "elevation_m": 649
+    },
+    "hazard_index_percent": {
+     "debris_flow": 1,
+     "shallow_landslide": 13,
+     "rockfall": 21,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Wiler Kippel",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 13.9,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2625460,
+     "northing_lv95": 1138420,
+     "elevation_m": 1335
+    },
+    "hazard_index_percent": {
+     "debris_flow": 1,
+     "shallow_landslide": 16,
+     "rockfall": 0,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Blatten 1 Runeja",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 3.0,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2629450,
+     "northing_lv95": 1141340,
+     "elevation_m": 1566
+    },
+    "hazard_index_percent": {
+     "debris_flow": 5,
+     "shallow_landslide": 14,
+     "rockfall": 6,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Blatten 2 Fuxloch",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 6.8,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2629660,
+     "northing_lv95": 1141350,
+     "elevation_m": 1547
+    },
+    "hazard_index_percent": {
+     "debris_flow": 6,
+     "shallow_landslide": 9,
+     "rockfall": 7,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Fafleralp",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 3.9,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2631320,
+     "northing_lv95": 1142130,
+     "elevation_m": 1642
+    },
+    "hazard_index_percent": {
+     "debris_flow": 8,
+     "shallow_landslide": 11,
+     "rockfall": 15,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Breithorn Fafleralp",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 5.37,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2632540,
+     "northing_lv95": 1143040,
+     "elevation_m": 1782
+    },
+    "hazard_index_percent": {
+     "debris_flow": 2,
+     "shallow_landslide": 18,
+     "rockfall": 11,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Grimsel 1 Oberaar",
+    "type": "storage plant",
+    "expected_production_gwh_per_year": 72.0,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2668600,
+     "northing_lv95": 1158620,
+     "elevation_m": 1816
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 10,
+     "rockfall": 17,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Grimsel 1 Nachschubmaschine",
+    "type": "storage plant",
+    "expected_production_gwh_per_year": 47.0,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2668600,
+     "northing_lv95": 1158620,
+     "elevation_m": 1816
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 10,
+     "rockfall": 17,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Handeck 2 und 2a",
+    "type": "storage plant",
+    "expected_production_gwh_per_year": 328.5,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2666340,
+     "northing_lv95": 1162960,
+     "elevation_m": 1358
+    },
+    "hazard_index_percent": {
+     "debris_flow": 3,
+     "shallow_landslide": 8,
+     "rockfall": 15,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Handeck 3",
+    "type": "pumped-storage plant",
+    "expected_production_gwh_per_year": 24.0,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2666260,
+     "northing_lv95": 1162970,
+     "elevation_m": 1357
+    },
+    "hazard_index_percent": {
+     "debris_flow": 3,
+     "shallow_landslide": 9,
+     "rockfall": 17,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Innertkirchen 1 und 1a",
+    "type": "storage plant",
+    "expected_production_gwh_per_year": 767.8,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2661200,
+     "northing_lv95": 1172520,
+     "elevation_m": 682
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 13,
+     "rockfall": 14,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Innertkirchen 3",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 13.1,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2660620,
+     "northing_lv95": 1172030,
+     "elevation_m": 714
+    },
+    "hazard_index_percent": {
+     "debris_flow": 2,
+     "shallow_landslide": 12,
+     "rockfall": 12,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Fieschertal",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 169.6,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2654000,
+     "northing_lv95": 1141880,
+     "elevation_m": 1124
+    },
+    "hazard_index_percent": {
+     "debris_flow": 4,
+     "shallow_landslide": 9,
+     "rockfall": 8,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Wysswasser",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 9.5,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2653490,
+     "northing_lv95": 1138610,
+     "elevation_m": 1008
+    },
+    "hazard_index_percent": {
+     "debris_flow": 7,
+     "shallow_landslide": 9,
+     "rockfall": 2,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Kandergrund",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 101.8,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2616930,
+     "northing_lv95": 1154650,
+     "elevation_m": 853
+    },
+    "hazard_index_percent": {
+     "debris_flow": 3,
+     "shallow_landslide": 5,
+     "rockfall": 14,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Kandersteg Dorf",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 5.06,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2618180,
+     "northing_lv95": 1149430,
+     "elevation_m": 1179
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 0,
+     "rockfall": 0,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Stechelberg",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 22.6,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2635370,
+     "northing_lv95": 1154910,
+     "elevation_m": 907
+    },
+    "hazard_index_percent": {
+     "debris_flow": 8,
+     "shallow_landslide": 13,
+     "rockfall": 17,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Sandweidli Sousbach",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 30.5,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2635480,
+     "northing_lv95": 1162670,
+     "elevation_m": 727
+    },
+    "hazard_index_percent": {
+     "debris_flow": 3,
+     "shallow_landslide": 18,
+     "rockfall": 21,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "plant",
+    "name": "Baltschieder",
+    "type": "run-of-river plant",
+    "expected_production_gwh_per_year": 1.38,
+    "dam_height_m": null,
+    "location": {
+     "easting_lv95": 2633360,
+     "northing_lv95": 1128550,
+     "elevation_m": 842
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 16,
+     "rockfall": 8,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Spitallamm",
+    "type": "arch-gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 114.0,
+    "location": {
+     "easting_lv95": 2668300,
+     "northing_lv95": 1158270,
+     "elevation_m": 1911
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 2,
+     "rockfall": 12,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Oberaar",
+    "type": "gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 104.0,
+    "location": {
+     "easting_lv95": 2663960,
+     "northing_lv95": 1155520,
+     "elevation_m": 2289
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 4,
+     "rockfall": 8,
+     "permafrost": 9
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Räterichsboden",
+    "type": "gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 92.0,
+    "location": {
+     "easting_lv95": 2667900,
+     "northing_lv95": 1160190,
+     "elevation_m": 1756
+    },
+    "hazard_index_percent": {
+     "debris_flow": 4,
+     "shallow_landslide": 0,
+     "rockfall": 5,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Seeuferegg",
+    "type": "gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 42.0,
+    "location": {
+     "easting_lv95": 2668950,
+     "northing_lv95": 1158390,
+     "elevation_m": 1912
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 9,
+     "rockfall": 15,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Gelmer",
+    "type": "gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 35.0,
+    "location": {
+     "easting_lv95": 2667640,
+     "northing_lv95": 1162670,
+     "elevation_m": 1850
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 2,
+     "rockfall": 9,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Mattenalp",
+    "type": "gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 25.0,
+    "location": {
+     "easting_lv95": 2661030,
+     "northing_lv95": 1164960,
+     "elevation_m": 1875
+    },
+    "hazard_index_percent": {
+     "debris_flow": 5,
+     "shallow_landslide": 10,
+     "rockfall": 18,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Vordersee",
+    "type": "earthfill dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 22.0,
+    "location": {
+     "easting_lv95": 2651070,
+     "northing_lv95": 1143400,
+     "elevation_m": 2363
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 9,
+     "rockfall": 0,
+     "permafrost": 42
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Handeck",
+    "type": "earthfill dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 16.0,
+    "location": {
+     "easting_lv95": 2666480,
+     "northing_lv95": 1163320,
+     "elevation_m": 1294
+    },
+    "hazard_index_percent": {
+     "debris_flow": 4,
+     "shallow_landslide": 12,
+     "rockfall": 21,
+     "permafrost": 0
+    }
+   },
+   {
+    "kind": "dam",
+    "name": "Trübtensee",
+    "type": "gravity dam",
+    "expected_production_gwh_per_year": null,
+    "dam_height_m": 9.5,
+    "location": {
+     "easting_lv95": 2665950,
+     "northing_lv95": 1156250,
+     "elevation_m": 2365
+    },
+    "hazard_index_percent": {
+     "debris_flow": 0,
+     "shallow_landslide": 1,
+     "rockfall": 2,
+     "permafrost": 24
+    }
+   }
+  ]
+ }
+}

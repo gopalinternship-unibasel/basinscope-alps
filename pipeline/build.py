@@ -30,6 +30,10 @@ satellite = json.load(open(B + "satellite.json", encoding="utf-8")) if os.path.e
 # fetch_hindcast.py and fetch_glacier_path.py
 opt = lambda f: json.load(open(B + f, encoding="utf-8")) if os.path.exists(B + f) else None
 energy, hindcast, glacier_path = opt("energy.json"), opt("hindcast.json"), opt("glacier_path.json")
+# the projects of the 2024 Federal Council report that lie in the study area, entered by hand from its appendix
+fed_report = opt("federal_report.json")
+# hazard process areas around the hydropower plants and dams: written by fetch_infra_hazard.py
+infra = opt("infra_hazard.json")
 
 # ---- protected-area hits from the federal geodata API (queried 3 Oct 2026, 250 m around each point)
 KEY = {
@@ -81,7 +85,7 @@ if federal:
     snap["federal"] = federal
 if satellite:
     snap["satellite"] = satellite
-for key, val in (("energy", energy), ("hindcast", hindcast), ("glacierPath", glacier_path)):
+for key, val in (("energy", energy), ("hindcast", hindcast), ("glacierPath", glacier_path), ("fedReport", fed_report), ("infra", infra)):
     if val:
         snap[key] = val
 geo_small = {k: geo[k] for k in ("W", "H", "cE", "cN", "poly")}

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "api_version": "1.3.0",
+  "api_version": "1.4.0",
   "generated": "2026-10-04",
   "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
@@ -86,6 +86,16 @@
     "description": "What the risk outlook works with, for every day since March 2021: zero-degree level, precipitation, rain at each site, and the documented events the rule is tested against."
    },
    {
+    "path": "/infrastructure-hazards.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/infrastructure-hazards.json",
+    "description": "Hazard process areas mapped around the hydropower plants of the stress test and the dams near the ranked sites, with their ground height."
+   },
+   {
+    "path": "/federal-report.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/federal-report.json",
+    "description": "The projects of the 2024 Federal Council report on hydropower from glacier melt that lie in the study area, with the report's figures and the ranked site each one matches."
+   },
+   {
     "path": "/satellite.json",
     "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/satellite.json",
     "description": "Snow and ice left in the study area at the end of each summer since 2015 (Sentinel-2), the two scenes behind the then/now pictures, and glacier thinning measured from space for 2000 to 2019."
@@ -139,6 +149,15 @@
    {
     "what": "Past forecasts",
     "source": "Forecast archive of Open-Meteo (CC BY 4.0): zero-degree level and precipitation at the 15 site locations"
+   },
+   {
+    "what": "Federal benchmark",
+    "source": "Analyse des Wasserkraftpotenzials der Gletscherschmelze, report of the Federal Council in fulfilment of postulate 21.3974, appendix",
+    "as_of": "2024-12-06"
+   },
+   {
+    "what": "Ground height of plants and dams",
+    "source": "swisstopo height service (api3.geo.admin.ch)"
    }
   ]
  }

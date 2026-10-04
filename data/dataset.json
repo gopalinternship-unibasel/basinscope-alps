@@ -22424,5 +22424,618 @@
     ]
    }
   }
+ },
+ "fedReport": {
+  "title": "Analyse des Wasserkraftpotenzials der Gletscherschmelze",
+  "by": "Federal Council, in fulfilment of postulate 21.3974",
+  "date": "2024-12-06",
+  "url": "https://www.newsd.admin.ch/newsd/message/attachments/90957.pdf",
+  "read": "2026-10-04",
+  "note": "Entered by hand from the appendix on page 25 (projects included) and the summary on page 3. Only the projects that lie in the Jungfrau-Aletsch study area are listed here. gwh: additional production a year. win: additional controllable winter production a year. art12: provisional SFOE assessment of an exclusion under Art. 12 of the Energy Act. bln, unesco: yes, no or adjacent, as printed. site: id of the ranked site matched by the lake or glacier named, null where the ranking has none. The report gives no coordinates, so the match is by name, not by perimeter.",
+  "totals": {
+   "projects": 27,
+   "gwh": 1470,
+   "win": 2430,
+   "noFloodplain": 20
+  },
+  "projects": [
+   {
+    "n": "Grimselsee",
+    "ct": "BE",
+    "gwh": 12,
+    "win": 240,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "adjacent",
+    "site": 1
+   },
+   {
+    "n": "Oberaarsee",
+    "ct": "BE",
+    "gwh": 0,
+    "win": 65,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "adjacent",
+    "site": 3
+   },
+   {
+    "n": "Unterer Grindelwaldgletscher",
+    "ct": "BE",
+    "gwh": 114,
+    "win": 90,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "yes",
+    "site": null
+   },
+   {
+    "n": "Fieschergletscher",
+    "ct": "VS",
+    "gwh": 60,
+    "win": 85,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "yes",
+    "site": 5
+   },
+   {
+    "n": "Kraftwerk Oberaletsch (storage)",
+    "ct": "VS",
+    "gwh": 100,
+    "win": 50,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "yes",
+    "site": null
+   },
+   {
+    "n": "Kraftwerk Oberaletsch + Aletschgletscher (after 2050)",
+    "ct": "VS",
+    "gwh": 100,
+    "win": 480,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "yes",
+    "site": null
+   },
+   {
+    "n": "Blüemlisalpgletscher",
+    "ct": "BE",
+    "gwh": 16,
+    "win": 19,
+    "art12": false,
+    "bln": "yes",
+    "unesco": "yes",
+    "site": 10
+   },
+   {
+    "n": "Gauligletscher",
+    "ct": "BE",
+    "gwh": 64,
+    "win": 75,
+    "art12": true,
+    "bln": "yes",
+    "unesco": "yes",
+    "site": 2
+   }
+  ]
+ },
+ "infra": {
+  "at": "2026-10-04",
+  "r": 250,
+  "nearKm": 5,
+  "items": [
+   {
+    "k": "plant",
+    "n": "Bitsch",
+    "type": "storage plant",
+    "gwh": 770.3,
+    "mw": 340.0,
+    "hc": 3004,
+    "E": 2643810,
+    "N": 1131520,
+    "z": 697,
+    "haz": {
+     "permafrost": 0,
+     "debris": 2,
+     "rockfall": 8,
+     "landslide": 20
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Moerel Aletsch",
+    "type": "run-of-river plant",
+    "gwh": 74.6,
+    "mw": 43.2,
+    "hc": 3004,
+    "E": 2646510,
+    "N": 1133760,
+    "z": 744,
+    "haz": {
+     "permafrost": 0,
+     "debris": 7,
+     "rockfall": 11,
+     "landslide": 13
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Loetschen",
+    "type": "run-of-river plant",
+    "gwh": 339.3,
+    "mw": 122.0,
+    "hc": 3003,
+    "E": 2623540,
+    "N": 1129860,
+    "z": 649,
+    "haz": {
+     "permafrost": 0,
+     "debris": 1,
+     "rockfall": 21,
+     "landslide": 13
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Wiler Kippel",
+    "type": "run-of-river plant",
+    "gwh": 13.9,
+    "mw": 5.2,
+    "hc": 3003,
+    "E": 2625460,
+    "N": 1138420,
+    "z": 1335,
+    "haz": {
+     "permafrost": 0,
+     "debris": 1,
+     "rockfall": 0,
+     "landslide": 16
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Blatten 1 Runeja",
+    "type": "run-of-river plant",
+    "gwh": 3.0,
+    "mw": 0.5,
+    "hc": 3003,
+    "E": 2629450,
+    "N": 1141340,
+    "z": 1566,
+    "haz": {
+     "permafrost": 0,
+     "debris": 5,
+     "rockfall": 6,
+     "landslide": 14
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Blatten 2 Fuxloch",
+    "type": "run-of-river plant",
+    "gwh": 6.8,
+    "mw": 2.05,
+    "hc": 3003,
+    "E": 2629660,
+    "N": 1141350,
+    "z": 1547,
+    "haz": {
+     "permafrost": 0,
+     "debris": 6,
+     "rockfall": 7,
+     "landslide": 9
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Fafleralp",
+    "type": "run-of-river plant",
+    "gwh": 3.9,
+    "mw": 1.25,
+    "hc": 3003,
+    "E": 2631320,
+    "N": 1142130,
+    "z": 1642,
+    "haz": {
+     "permafrost": 0,
+     "debris": 8,
+     "rockfall": 15,
+     "landslide": 11
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Breithorn Fafleralp",
+    "type": "run-of-river plant",
+    "gwh": 5.37,
+    "mw": 1.85,
+    "hc": 3003,
+    "E": 2632540,
+    "N": 1143040,
+    "z": 1782,
+    "haz": {
+     "permafrost": 0,
+     "debris": 2,
+     "rockfall": 11,
+     "landslide": 18
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Grimsel 1 Oberaar",
+    "type": "storage plant",
+    "gwh": 72.0,
+    "mw": 34.0,
+    "hc": 4128,
+    "E": 2668600,
+    "N": 1158620,
+    "z": 1816,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 17,
+     "landslide": 10
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Grimsel 1 Nachschubmaschine",
+    "type": "storage plant",
+    "gwh": 47.0,
+    "mw": 32.0,
+    "hc": 4128,
+    "E": 2668600,
+    "N": 1158620,
+    "z": 1816,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 17,
+     "landslide": 10
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Handeck 2 und 2a",
+    "type": "storage plant",
+    "gwh": 328.5,
+    "mw": 218.0,
+    "hc": 4128,
+    "E": 2666340,
+    "N": 1162960,
+    "z": 1358,
+    "haz": {
+     "permafrost": 0,
+     "debris": 3,
+     "rockfall": 15,
+     "landslide": 8
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Handeck 3",
+    "type": "pumped-storage plant",
+    "gwh": 24.0,
+    "mw": 55.0,
+    "hc": 4128,
+    "E": 2666260,
+    "N": 1162970,
+    "z": 1357,
+    "haz": {
+     "permafrost": 0,
+     "debris": 3,
+     "rockfall": 17,
+     "landslide": 9
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Innertkirchen 1 und 1a",
+    "type": "storage plant",
+    "gwh": 767.8,
+    "mw": 394.0,
+    "hc": 4128,
+    "E": 2661200,
+    "N": 1172520,
+    "z": 682,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 14,
+     "landslide": 13
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Innertkirchen 3",
+    "type": "run-of-river plant",
+    "gwh": 13.1,
+    "mw": 3.0,
+    "hc": 4022,
+    "E": 2660620,
+    "N": 1172030,
+    "z": 714,
+    "haz": {
+     "permafrost": 0,
+     "debris": 2,
+     "rockfall": 12,
+     "landslide": 12
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Fieschertal",
+    "type": "run-of-river plant",
+    "gwh": 169.6,
+    "mw": 64.0,
+    "hc": 3143,
+    "E": 2654000,
+    "N": 1141880,
+    "z": 1124,
+    "haz": {
+     "permafrost": 0,
+     "debris": 4,
+     "rockfall": 8,
+     "landslide": 9
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Wysswasser",
+    "type": "run-of-river plant",
+    "gwh": 9.5,
+    "mw": 3.1,
+    "hc": 3143,
+    "E": 2653490,
+    "N": 1138610,
+    "z": 1008,
+    "haz": {
+     "permafrost": 0,
+     "debris": 7,
+     "rockfall": 2,
+     "landslide": 9
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Kandergrund",
+    "type": "run-of-river plant",
+    "gwh": 101.8,
+    "mw": 19.0,
+    "hc": 4006,
+    "E": 2616930,
+    "N": 1154650,
+    "z": 853,
+    "haz": {
+     "permafrost": 0,
+     "debris": 3,
+     "rockfall": 14,
+     "landslide": 5
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Kandersteg Dorf",
+    "type": "run-of-river plant",
+    "gwh": 5.06,
+    "mw": 1.03,
+    "hc": 4134,
+    "E": 2618180,
+    "N": 1149430,
+    "z": 1179,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 0,
+     "landslide": 0
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Stechelberg",
+    "type": "run-of-river plant",
+    "gwh": 22.6,
+    "mw": 4.6,
+    "hc": 4020,
+    "E": 2635370,
+    "N": 1154910,
+    "z": 907,
+    "haz": {
+     "permafrost": 0,
+     "debris": 8,
+     "rockfall": 17,
+     "landslide": 13
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Sandweidli Sousbach",
+    "type": "run-of-river plant",
+    "gwh": 30.5,
+    "mw": 11.3,
+    "hc": 4020,
+    "E": 2635480,
+    "N": 1162670,
+    "z": 727,
+    "haz": {
+     "permafrost": 0,
+     "debris": 3,
+     "rockfall": 21,
+     "landslide": 18
+    }
+   },
+   {
+    "k": "plant",
+    "n": "Baltschieder",
+    "type": "run-of-river plant",
+    "gwh": 1.38,
+    "mw": 0.33,
+    "hc": 3124,
+    "E": 2633360,
+    "N": 1128550,
+    "z": 842,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 8,
+     "landslide": 16
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Spitallamm",
+    "type": "arch-gravity dam",
+    "h": 114.0,
+    "vol": 100.49,
+    "y": 1932,
+    "E": 2668300,
+    "N": 1158270,
+    "z": 1911,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 12,
+     "landslide": 2
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Oberaar",
+    "type": "gravity dam",
+    "h": 104.0,
+    "vol": 63.65,
+    "y": 1953,
+    "E": 2663960,
+    "N": 1155520,
+    "z": 2289,
+    "haz": {
+     "permafrost": 9,
+     "debris": 0,
+     "rockfall": 8,
+     "landslide": 4
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Räterichsboden",
+    "type": "gravity dam",
+    "h": 92.0,
+    "vol": 26.3,
+    "y": 1950,
+    "E": 2667900,
+    "N": 1160190,
+    "z": 1756,
+    "haz": {
+     "permafrost": 0,
+     "debris": 4,
+     "rockfall": 5,
+     "landslide": 0
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Seeuferegg",
+    "type": "gravity dam",
+    "h": 42.0,
+    "vol": 100.49,
+    "y": 1932,
+    "E": 2668950,
+    "N": 1158390,
+    "z": 1912,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 15,
+     "landslide": 9
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Gelmer",
+    "type": "gravity dam",
+    "h": 35.0,
+    "vol": 13.0,
+    "y": 1929,
+    "E": 2667640,
+    "N": 1162670,
+    "z": 1850,
+    "haz": {
+     "permafrost": 0,
+     "debris": 0,
+     "rockfall": 9,
+     "landslide": 2
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Mattenalp",
+    "type": "gravity dam",
+    "h": 25.0,
+    "vol": 1.85,
+    "y": 1950,
+    "E": 2661030,
+    "N": 1164960,
+    "z": 1875,
+    "haz": {
+     "permafrost": 0,
+     "debris": 5,
+     "rockfall": 18,
+     "landslide": 10
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Vordersee",
+    "type": "earthfill dam",
+    "h": 22.0,
+    "vol": 0.56,
+    "y": 1986,
+    "E": 2651070,
+    "N": 1143400,
+    "z": 2363,
+    "haz": {
+     "permafrost": 42,
+     "debris": 0,
+     "rockfall": 0,
+     "landslide": 9
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Handeck",
+    "type": "earthfill dam",
+    "h": 16.0,
+    "vol": 0.082,
+    "y": 1942,
+    "E": 2666480,
+    "N": 1163320,
+    "z": 1294,
+    "haz": {
+     "permafrost": 0,
+     "debris": 4,
+     "rockfall": 21,
+     "landslide": 12
+    }
+   },
+   {
+    "k": "dam",
+    "n": "Trübtensee",
+    "type": "gravity dam",
+    "h": 9.5,
+    "vol": 1.13,
+    "y": 1950,
+    "E": 2665950,
+    "N": 1156250,
+    "z": 2365,
+    "haz": {
+     "permafrost": 24,
+     "debris": 0,
+     "rockfall": 2,
+     "landslide": 1
+    }
+   }
+  ]
  }
 }

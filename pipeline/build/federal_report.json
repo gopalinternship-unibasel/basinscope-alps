@@ -1,0 +1,19 @@
+{
+ "title": "Analyse des Wasserkraftpotenzials der Gletscherschmelze",
+ "by": "Federal Council, in fulfilment of postulate 21.3974",
+ "date": "2024-12-06",
+ "url": "https://www.newsd.admin.ch/newsd/message/attachments/90957.pdf",
+ "read": "2026-10-04",
+ "note": "Entered by hand from the appendix on page 25 (projects included) and the summary on page 3. Only the projects that lie in the Jungfrau-Aletsch study area are listed here. gwh: additional production a year. win: additional controllable winter production a year. art12: provisional SFOE assessment of an exclusion under Art. 12 of the Energy Act. bln, unesco: yes, no or adjacent, as printed. site: id of the ranked site matched by the lake or glacier named, null where the ranking has none. The report gives no coordinates, so the match is by name, not by perimeter.",
+ "totals": {"projects": 27, "gwh": 1470, "win": 2430, "noFloodplain": 20},
+ "projects": [
+  {"n": "Grimselsee", "ct": "BE", "gwh": 12, "win": 240, "art12": false, "bln": "yes", "unesco": "adjacent", "site": 1},
+  {"n": "Oberaarsee", "ct": "BE", "gwh": 0, "win": 65, "art12": false, "bln": "yes", "unesco": "adjacent", "site": 3},
+  {"n": "Unterer Grindelwaldgletscher", "ct": "BE", "gwh": 114, "win": 90, "art12": false, "bln": "yes", "unesco": "yes", "site": null},
+  {"n": "Fieschergletscher", "ct": "VS", "gwh": 60, "win": 85, "art12": false, "bln": "yes", "unesco": "yes", "site": 5},
+  {"n": "Kraftwerk Oberaletsch (storage)", "ct": "VS", "gwh": 100, "win": 50, "art12": false, "bln": "yes", "unesco": "yes", "site": null},
+  {"n": "Kraftwerk Oberaletsch + Aletschgletscher (after 2050)", "ct": "VS", "gwh": 100, "win": 480, "art12": false, "bln": "yes", "unesco": "yes", "site": null},
+  {"n": "Blüemlisalpgletscher", "ct": "BE", "gwh": 16, "win": 19, "art12": false, "bln": "yes", "unesco": "yes", "site": 10},
+  {"n": "Gauligletscher", "ct": "BE", "gwh": 64, "win": 75, "art12": true, "bln": "yes", "unesco": "yes", "site": 2}
+ ]
+}

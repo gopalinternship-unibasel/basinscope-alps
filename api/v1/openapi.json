@@ -2,7 +2,7 @@
  "openapi": "3.0.3",
  "info": {
   "title": "BasinScope Alps data API",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Read-only data on glacier-meltwater retention basin sites in the Jungfrau-Aletsch area. Static JSON, no key, open to browser calls from any origin. Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study."
  },
  "servers": [
@@ -472,6 +472,66 @@
           "data": {
            "type": "object",
            "description": "Keys: from, to, method, zero_degree_level_m and precipitation_mm (one value per day from the first day), site_rain_mm (per site id: [day index, mm]), events.",
+           "additionalProperties": true
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/infrastructure-hazards.json": {
+   "get": {
+    "tags": [
+     "Risk"
+    ],
+    "summary": "Hazard process areas mapped around the hydropower plants of the stress test and the dams near the ranked sites, with their ground height.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "object",
+           "description": "Keys: read, square_m, which, method, items (kind, name, type, size, location, hazard_index_percent).",
+           "additionalProperties": true
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/federal-report.json": {
+   "get": {
+    "tags": [
+     "Sites"
+    ],
+    "summary": "The projects of the 2024 Federal Council report on hydropower from glacier melt that lie in the study area, with the report's figures and the ranked site each one matches.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "object",
+           "description": "Keys: report, by, date, url, totals, match, projects_in_study_area.",
            "additionalProperties": true
           }
          }

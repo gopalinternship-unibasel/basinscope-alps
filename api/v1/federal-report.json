@@ -1,0 +1,103 @@
+{
+ "meta": {
+  "api_version": "1.4.0",
+  "generated": "2026-10-04",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "report": "Analyse des Wasserkraftpotenzials der Gletscherschmelze",
+  "by": "Federal Council, in fulfilment of postulate 21.3974",
+  "date": "2024-12-06",
+  "url": "https://www.newsd.admin.ch/newsd/message/attachments/90957.pdf",
+  "totals": {
+   "projects": 27,
+   "additional_production_gwh_per_year": 1470,
+   "additional_winter_production_gwh_per_year": 2430,
+   "additional_production_outside_any_floodplain_gwh_per_year": 20
+  },
+  "match": "Projects of the report that lie in the study area, matched to ranked sites by the lake or glacier named. The report gives no coordinates.",
+  "projects_in_study_area": [
+   {
+    "project": "Grimselsee",
+    "canton": "BE",
+    "additional_production_gwh_per_year": 12,
+    "additional_winter_production_gwh_per_year": 240,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "adjacent",
+    "site_id": 1
+   },
+   {
+    "project": "Oberaarsee",
+    "canton": "BE",
+    "additional_production_gwh_per_year": 0,
+    "additional_winter_production_gwh_per_year": 65,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "adjacent",
+    "site_id": 3
+   },
+   {
+    "project": "Unterer Grindelwaldgletscher",
+    "canton": "BE",
+    "additional_production_gwh_per_year": 114,
+    "additional_winter_production_gwh_per_year": 90,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "yes",
+    "site_id": null
+   },
+   {
+    "project": "Fieschergletscher",
+    "canton": "VS",
+    "additional_production_gwh_per_year": 60,
+    "additional_winter_production_gwh_per_year": 85,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "yes",
+    "site_id": 5
+   },
+   {
+    "project": "Kraftwerk Oberaletsch (storage)",
+    "canton": "VS",
+    "additional_production_gwh_per_year": 100,
+    "additional_winter_production_gwh_per_year": 50,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "yes",
+    "site_id": null
+   },
+   {
+    "project": "Kraftwerk Oberaletsch + Aletschgletscher (after 2050)",
+    "canton": "VS",
+    "additional_production_gwh_per_year": 100,
+    "additional_winter_production_gwh_per_year": 480,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "yes",
+    "site_id": null
+   },
+   {
+    "project": "Blüemlisalpgletscher",
+    "canton": "BE",
+    "additional_production_gwh_per_year": 16,
+    "additional_winter_production_gwh_per_year": 19,
+    "excluded_under_art_12_energy_act": false,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "yes",
+    "site_id": 10
+   },
+   {
+    "project": "Gauligletscher",
+    "canton": "BE",
+    "additional_production_gwh_per_year": 64,
+    "additional_winter_production_gwh_per_year": 75,
+    "excluded_under_art_12_energy_act": true,
+    "bln_landscape": "yes",
+    "unesco_world_heritage": "yes",
+    "site_id": 2
+   }
+  ]
+ }
+}

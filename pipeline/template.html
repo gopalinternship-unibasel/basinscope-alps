@@ -338,6 +338,9 @@ table.risk{min-width:700px}
 table.risk td.hz{color:var(--ink-3)}
 table.risk td.hz.on{color:var(--ink);font-weight:600}
 table.risk td.pc{min-width:170px}
+table.rank.plain tbody tr{cursor:default}
+table.rank.plain tbody tr:hover{background:none}
+table.rank.plain td:nth-child(2) span{display:block;font-size:12px;color:var(--ink-3)}
 /* evidence lists in the site card */
 .elist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
 .elist li{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
@@ -397,6 +400,16 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
 }
 /* energy sheet, and the trigger rule tested against the past */
 table.hc{min-width:640px}
+h3.mid{font:600 15px/1.25 var(--f-display);letter-spacing:.02em;margin-top:6px}
+table.hcg{min-width:560px}
+table.hcg th{text-align:left}
+table.hcg td{text-align:left;font-family:var(--f-body);font-size:13px;padding:8px 8px;vertical-align:top;cursor:pointer}
+table.hcg td:first-child{font:500 12.5px var(--f-mono);cursor:default;white-space:nowrap}
+table.hcg td b{font:600 15px/1.1 var(--f-display)}
+table.hcg td .evs{display:flex;gap:4px;margin-top:4px}
+table.hcg td .evs .tag{padding:1px 5px;font:500 10.5px/1.3 var(--f-mono)}
+table.hcg td:not(:first-child):hover{background:var(--panel-2)}
+table.hcg td.on{background:var(--accent-wash);box-shadow:inset 0 0 0 1.5px var(--accent)}
 table.hc td{vertical-align:top;padding:7px 6px}
 table.hc th:nth-child(2),table.hc td:nth-child(2){text-align:left}
 table.hc td.ev{font-family:var(--f-body);font-size:13.5px;text-align:left;white-space:normal}
@@ -405,6 +418,16 @@ table.hc td.ev span{display:block;font-size:12px;color:var(--ink-3)}
 table.hc td.ev a{font-size:12px}
 table.hc td.ev:last-child{text-align:right}
 table.st{min-width:560px}
+table.fr{min-width:640px}
+table.fr th:last-child{text-align:left}
+table.fr td:last-child{text-align:left;font-family:var(--f-body);font-size:12.5px;white-space:normal;min-width:200px}
+table.fr td:last-child span{display:block;font-size:12px;color:var(--ink-3)}
+table.fr td.no{color:var(--ink-3)} table.fr td.yes{color:var(--warn-ink)}
+table.cp{min-width:640px}
+table.cp td:first-child{min-width:170px}
+table.cp th:last-child{text-align:left}
+table.cp td:last-child{text-align:left;font-family:var(--f-body);font-size:12.5px;color:var(--ink-2);white-space:normal;min-width:220px}
+table.cp tr.sum td{border-top:1px solid var(--line);font-weight:600}
 table.st th:nth-child(2),table.st td:nth-child(2){text-align:left}
 table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--ink-2);white-space:normal;min-width:180px}
 .evn{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--ink-2);font:600 10px/1 var(--f-mono);color:var(--ink)}
@@ -662,13 +685,24 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
         <p class="sub" id="rk-rule"></p>
       </div>
     </div>
-    <div class="card" id="hc-card" hidden>
-      <header><h2>Tested against the past<span class="hint">what the rule above would have said on every day since <span id="hc-from"></span></span></h2><span class="sub" id="hc-sub"></span></header>
+    <div class="card" id="ir-card" hidden>
+      <header><h2>The same check for the hydropower on these rivers</h2><span class="sub" id="ir-sub"></span></header>
       <div class="body">
-        <div class="legend" id="hc-legend"></div>
-        <div class="chart" id="hc-chart" style="position:relative"></div>
-        <div class="stats3" id="hc-stats"></div>
+        <div class="stats3" id="ir-stats"></div>
+        <div class="tblwrap"><table class="rank risk plain" id="ir-tbl"></table></div>
+        <p class="sub" id="ir-rule"></p>
+      </div>
+    </div>
+    <div class="card" id="hc-card" hidden>
+      <header><h2>Tested against the past<span class="hint">what the rule above would have said on every day since <span id="hc-from"></span></span></h2><span class="sub" id="hcast-sub"></span></header>
+      <div class="body">
+        <div class="legend" id="hcast-legend"></div>
+        <div class="chart" id="hcast-chart" style="position:relative"></div>
+        <div class="stats3" id="hcast-stats"></div>
         <div class="tblwrap"><table class="mini hc" id="hc-tbl"></table></div>
+        <h3 class="mid">What other thresholds would have said</h3>
+        <div class="tblwrap"><table class="mini hcg" id="hc-grid"></table></div>
+        <p class="sub" id="hc-grid-note"></p>
         <p class="sub"><strong>A test, not a calibration.</strong> Every day is judged on the forecast for that day, kept in the forecast archive of Open-Meteo, and worked out as in the outlook above: the highest zero-degree level and the mean precipitation of the 15 site locations. The archive serves the best model it has for each date, so the model changes over the years; the live outlook uses MeteoSwiss ICON-CH2. A thunderstorm cell that misses the 15 points is not seen, and a multi-day event is judged on its strongest day. Four events cannot set a threshold: they show that the rule reacts on days that mattered, and the yearly counts show how often it reacts on days that did not. <span id="hc-move"></span></p>
       </div>
     </div>
@@ -802,6 +836,14 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
         <p class="sub"><strong>A first-order stress test, not a plant model.</strong> The plants are matched to the nine catchments by name and location on the map; the match is this dashboard's and has not been checked with the operators. A run-of-river plant follows the monthly runoff up to its turbine capacity. A storage plant is shown by the energy of the water that reaches it, because its reservoir decides when that water is turbined. Every plant is scaled so that the reference runoff of 1981–2010 gives its expected production in the SFOE statistics. Runoff: Hydro-CH2018 at the gauge of each catchment, ensemble median; the range takes the lowest and the highest model month by month. Plants further down a river also take water from below the gauge, and pumping is left out.</p>
       </div>
     </section>
+    <section class="card">
+      <header><h2>What that does to the Swiss grid<span class="hint" id="cp-hint"></span></h2><span class="sub" id="cp-sub"></span></header>
+      <div class="body">
+        <div class="stats3" id="cp-stats"></div>
+        <div class="tblwrap"><table class="mini rivers cp" id="cp-tbl"></table></div>
+        <p class="sub" id="cp-note"></p>
+      </div>
+    </section>
     <section class="grid2">
       <div class="card">
         <header><h2>The Swiss grid through the year</h2><span class="sub" id="mix-sub"></span></header>
@@ -901,6 +943,18 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
         </div>
       </div>
     </section>
+    <div class="card" id="fr-card" hidden>
+      <header><h2>Set against the federal report of 2024</h2><span class="sub" id="fr-sub"></span></header>
+      <div class="body">
+        <div class="stats3" id="fr-stats"></div>
+        <div class="tblwrap"><table class="mini rivers fr" id="fr-tbl"></table></div>
+        <div class="cols2">
+          <ul class="does"><li>Finds sites from the terrain itself, so it also ranks places no operator has proposed</li><li>Weighs storage, the late-summer gap, dam length, footprint and protection with weights anyone can move</li><li>Asks the federal inventories for the protection status of each site, and re-asks on demand</li><li>Responds to the runoff period, the emissions path and the glacier size, and shows the region's state today</li></ul>
+          <ul class="doesnt"><li>Cover Switzerland: the report lists projects in four cantons, this is one region</li><li>Carry a design for each project: head, power chain and a dam sized by the operator</li><li>Rank the Unterer Grindelwaldgletscher or the Oberaletsch, which the report lists</li><li>Replace the weighing of interests that the report leaves to the authorities</li></ul>
+        </div>
+        <p class="sub" id="fr-note"></p>
+      </div>
+    </div>
     <div class="card">
       <header><h2>From one region to Switzerland</h2><span class="sub">reference architecture for a federal roll-out</span></header>
       <div class="body">
@@ -939,7 +993,8 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
               <li>Runoff scenarios: <a href="https://www.bafu.admin.ch/en/data-hydro-ch2018">Hydro-CH2018</a>, FOEN, glacier catchment set L03, monthly total runoff, ensemble median and range.</li>
               <li>Protected areas: federal inventories of floodplains, mires, mire landscapes, BLN, game reserves and UNESCO World Heritage (FOEN) and hydropower-waiver areas (SFOE), queried through the <a href="https://docs.geo.admin.ch/">geo.admin.ch API</a> on 3 Oct 2026 for a 250 m square around each point.</li>
               <li>Hazard process areas: SilvaProtect-CH (debris flow, rockfall, shallow landslide, 2006) and the map of potential permafrost distribution (2005), FOEN, read from the federal map service for a 250 m square around each site on <span id="src-fed"></span>. Index maps, valid to 1:50,000.</li>
-              <li>Hydropower plants (WASTA statistics), dams under federal supervision and the filling level of the storage lakes: SFOE.</li>
+              <li>Hydropower plants (WASTA statistics), dams under federal supervision and the filling level of the storage lakes: SFOE. The plants and dams of the Risk outlook are read against the same index maps as the sites; their ground height comes from the swisstopo height service.</li>
+              <li>Federal benchmark: <a href="https://www.newsd.admin.ch/newsd/message/attachments/90957.pdf">Analyse des Wasserkraftpotenzials der Gletscherschmelze</a>, report of the Federal Council of 6 December 2024 in fulfilment of postulate 21.3974. Project figures and assessments from its appendix.</li>
               <li>Energy sheet: electricity production by source, national consumption, cross-border exchange and the filling of the storage lakes from the <a href="https://www.energiedashboard.admin.ch/">SFOE energy dashboard</a> (Swissgrid figures); precipitation at Grimsel Hospiz and air temperature at Jungfraujoch from <a href="https://www.meteoswiss.admin.ch/services-and-publications/service/open-data.html">MeteoSwiss open data</a>. The match of plants to catchments is this dashboard's.</li>
               <li>Years of the Glacier size control: <a href="https://docs.oggm.org/en/stable/download-projections.html">OGGM standard projections</a> v1.6.1 (Open Global Glacier Model, Maussion et al. 2019), CMIP5 runs, glacier area of Randolph Glacier Inventory region 11, Central Europe.</li>
               <li>Test of the risk rule against the past: forecast archive of <a href="https://open-meteo.com/en/docs/historical-forecast-api">Open-Meteo</a> (CC BY 4.0); the events are linked in the table on the Risk outlook sheet.</li>
@@ -1060,6 +1115,9 @@ $("lyr-infra").addEventListener("change", ev => { S.infra = ev.target.checked; r
 $("layers").addEventListener("change", ev => { const k = ev.target.dataset.ov; if (k){ S.ov[k] = ev.target.checked; render(); } });
 $("rk-z").addEventListener("input", ev => { S.rkZ = +ev.target.value; drawRisk(); });
 $("rk-rain").addEventListener("input", ev => { S.rkRain = +ev.target.value; drawRisk(); });
+const pickCell = ev => { const td = ev.target.closest("td[data-z]"); if (!td || MODE!=="site") return; if (ev.type==="keydown"){ if (ev.key!=="Enter" && ev.key!==" ") return; ev.preventDefault(); }
+  S.rkZ = +td.dataset.z; S.rkRain = +td.dataset.r; drawRisk(); };
+$("hc-grid").addEventListener("click", pickCell); $("hc-grid").addEventListener("keydown", pickCell);
 /* layers that need a picture are offered only where the page may load one */
 if (!OV.debris) document.querySelectorAll('[data-need="ov"]').forEach(el => el.hidden = true);
 if (SAT){ $("base-sat-btn").hidden = false; $("sat-attr").hidden = false; $("src-sat").hidden = false; $("sat-date").textContent = SAT_DATE; }
@@ -1296,6 +1354,7 @@ function drawSite(){
    <div class="block"><div class="eyebrow">Protected areas within 250 m</div>${protList(r)}<p class="sub">Federal inventories on geo.admin.ch, checked ${PROT_AT}. This is a flag for the legal check, not a ruling.</p></div>
    <div class="block"><div class="eyebrow">Hazard process areas within 250 m</div>${hazList(r)}<p class="sub">Share of the 250 m square that the federal index maps mark (SilvaProtect-CH, permafrost map; FOEN). A flag for the hazard assessment, not a hazard map. Not part of the score.</p></div>
    <div class="block"><div class="eyebrow">Hydropower within ${NEAR_KM} km</div>${infraList(r)}</div>
+   ${fedBlock(r)}
    ${satBlock(r)}
    <div class="block" id="review"></div>
    <div class="coord">LV95 ${swiss(r.E)} / ${swiss(r.N)}<br>WGS84 ${lat.toFixed(4)}° N, ${lon.toFixed(4)}° E</div>
@@ -1441,6 +1500,33 @@ function drawTests(){
    <div class="test"><span class="st live">Sensitivity</span><h3>The shortlist is stable when assumptions move</h3><p><b>The top 3 new sites stay the same in ${same} of ${runs} runs</b> (melt 0.5 to 3.0 m per year, dam 10 or 20 m, current weights). Top 3 now: ${esc(names)}. Recomputed whenever you change a setting.</p></div>
    ${expert}`;
 }
+/* ---------- the 2024 Federal Council report on hydropower from glacier melt: its projects in the study area, matched to ranked sites by
+   the lake or glacier named (federal_report.json, entered from the report's appendix) ---------- */
+const FR = SNAP.fedReport || null, YN = {yes:"Yes", no:"No", adjacent:"Adjacent"};
+const frOf = id => FR ? FR.projects.find(p => p.site===id) || null : null;
+const gwhShort = v => v >= 10 ? Math.round(v) : f1(v);
+function fedBlock(r){
+  if (!FR) return "";
+  const p = frOf(r.id), src = `<a href="${esc(FR.url)}" target="_blank" rel="noopener">Federal Council, ${isoDay(FR.date)}</a>`;
+  if (!p) return `<div class="block"><div class="eyebrow">In the federal report of 2024</div><p class="sub">Not among the ${FR.totals.projects} known projects of the report on hydropower from glacier melt (${src}).${r.type==="new" ? " A site this screening adds." : ""}</p></div>`;
+  const marks = [p.art12 ? "provisionally excluded under Art. 12 of the Energy Act" : "no exclusion under Art. 12 of the Energy Act", p.bln==="no" ? "" : (p.bln==="yes" ? "in" : "next to") + " a BLN landscape", p.unesco==="no" ? "" : (p.unesco==="yes" ? "in" : "next to") + " the UNESCO World Heritage site"].filter(Boolean).join("; ");
+  return `<div class="block"><div class="eyebrow">In the federal report of 2024</div>
+    <ul class="elist"><li><span>Listed as</span><span>${esc(p.n)}, ${p.ct}</span></li><li><span>Extra production</span><span>${p.gwh} GWh a year</span></li><li><span>Extra controllable winter production</span><span>${p.win} GWh a year</span></li></ul>
+    <p class="sub">The report's assessment: ${marks}. Matched by name: the report gives no coordinates, and its project can be larger than the ${S.dam} m basin screened here${r.type==="new" ? ", which the Business case sheet puts at about " + gwhShort(bizOf(r).gwh) + " GWh of winter energy" : ""}. ${src}, appendix.</p></div>`;
+}
+function drawFedReport(){
+  $("fr-card").hidden = !FR; if (!FR) return;
+  const P = FR.projects, hit = P.filter(p => p.site!=null), ids = new Set(hit.map(p => p.site)), extra = SITES.filter(s => !ids.has(s.id)).length;
+  $("fr-sub").textContent = `Federal Council, ${isoDay(FR.date)}: hydropower potential of glacier melt`;
+  $("fr-stats").innerHTML = `<div class="stat"><b>${ids.size} of ${P.length}</b><span>projects the report lists in this area were found by the terrain run on its own</span></div>
+    <div class="stat"><b>${extra} of ${SITES.length}</b><span>ranked sites are not in the report: places the screening adds, most of them small</span></div>
+    <div class="stat"><b>${FR.totals.noFloodplain} GWh</b><span>of the report's ${swiss(FR.totals.gwh)} GWh a year touch no floodplain area at all, which is why every site here carries its inventory status</span></div>`;
+  const yn = v => `<td class="${v==="no" ? "no" : "yes"}">${YN[v] || esc(v)}</td>`;
+  $("fr-tbl").innerHTML = `<thead><tr><th>Project in the report</th><th>Extra production</th><th>Extra winter production</th><th>Excluded, Art. 12</th><th>BLN</th><th>UNESCO</th><th>In this ranking</th></tr></thead><tbody>`
+    + P.map(p => { const r = p.site==null ? null : ROWS.find(x => x.id===p.site);
+      return `<tr><td><b>${esc(p.n)}</b><span>${p.ct}</span></td><td>${p.gwh} GWh</td><td>${p.win} GWh</td>${yn(p.art12 ? "yes" : "no")}${yn(p.bln)}${yn(p.unesco)}<td>${r ? `<b>${esc(r.name)}</b><span>rank ${r.rank}, class ${r.cls}${r.type==="new" ? `, about ${gwhShort(bizOf(r).gwh)} GWh of winter energy behind a ${S.dam} m dam` : ", an existing reservoir"}</span>` : `<span>No ranked site</span>`}</td></tr>`; }).join("") + `</tbody>`;
+  $("fr-note").innerHTML = `The report (<a href="${esc(FR.url)}" target="_blank" rel="noopener">${esc(FR.title)}</a>, postulate 21.3974) collects the ${FR.totals.projects} hydropower projects known in glacier forefields across Switzerland: ${swiss(FR.totals.gwh)} GWh a year of extra production and ${swiss(FR.totals.win)} GWh of controllable winter production. Figures and assessments in the table are the report's, from its appendix; the exclusion under Art. 12 of the Energy Act is a provisional assessment of the SFOE. Projects are matched to ranked sites by the lake or glacier named, because the report gives no coordinates. Its projects are operator designs with their own dam heights, so they store more than the 10 or 20 m basins screened here.`;
+}
 /* glacier-size scenario: usable storage as every glacier shrinks by the same share */
 function drawIce(){
   const sel = ROWS.find(r => r.id===S.sel), pts = [];
@@ -1516,18 +1602,22 @@ function drawBiz(){
 }
 /* ---------- risk outlook: mapped process areas (read when the page was built) set against a five-day forecast (self-hosted page only) ---------- */
 const FC = {d:null, at:0, tried:0, err:false, busy:false}, FC_MS = 3600e3, FC_RETRY_MS = 5*60e3;
+/* hydropower plants and dams with the hazard process areas mapped around them (fetch_infra_hazard.py) */
+const INFRA = SNAP.infra || null, INF = INFRA ? INFRA.items : [];
 const OUT = {calm:"Calm", watch:"Watch", elev:"Elevated"};
 const dayName = k => new Date(k + "T12:00:00").toLocaleDateString("en-GB", {weekday:"short", day:"numeric", month:"short"});
 const isoDay = k => new Date(k + "T12:00:00").toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"});
 async function pullForecast(){
   if (FC.busy) return; FC.busy = true; FC.tried = Date.now(); drawRisk();
   try {
-    const pts = SITES.map(s => wgs(s.E, s.N));
+    /* one request for the ranked sites and, after them, the plants and dams of the infrastructure check */
+    const where = SITES.concat(INF), pts = where.map(s => wgs(s.E, s.N)), nS = SITES.length;
     const j = await getJson("https://api.open-meteo.com/v1/forecast?latitude=" + pts.map(p => p[0].toFixed(4)).join(",") + "&longitude=" + pts.map(p => p[1].toFixed(4)).join(",")
-      + "&elevation=" + SITES.map(s => s.z).join(",") + "&hourly=freezing_level_height,precipitation&models=meteoswiss_icon_ch2&forecast_days=5&timezone=Europe%2FZurich");
+      + "&elevation=" + where.map(s => s.z).join(",") + "&hourly=freezing_level_height,precipitation&models=meteoswiss_icon_ch2&forecast_days=5&timezone=Europe%2FZurich");
     const list = Array.isArray(j) ? j : [j], time = list[0] && list[0].hourly && list[0].hourly.time, full = a => Array.isArray(a) && a.length===time.length;
-    if (list.length!==SITES.length || !Array.isArray(time) || time.length < 24 || !list.every(o => o && o.hourly && full(o.hourly.freezing_level_height) && full(o.hourly.precipitation))) throw new Error("unexpected answer");
-    FC.d = {time, ids:SITES.map(s => s.id), fl:list.map(o => o.hourly.freezing_level_height), pr:list.map(o => o.hourly.precipitation)};
+    if (list.length!==where.length || !Array.isArray(time) || time.length < 24 || !list.every(o => o && o.hourly && full(o.hourly.freezing_level_height) && full(o.hourly.precipitation))) throw new Error("unexpected answer");
+    FC.d = {time, ids:SITES.map(s => s.id), fl:list.slice(0, nS).map(o => o.hourly.freezing_level_height), pr:list.slice(0, nS).map(o => o.hourly.precipitation),
+      inf:{fl:list.slice(nS).map(o => o.hourly.freezing_level_height), pr:list.slice(nS).map(o => o.hourly.precipitation)}};
     FC.at = Date.now(); FC.err = false;
     try { localStorage.setItem("bsa-fc", JSON.stringify({at:FC.at, d:FC.d})); } catch(err){}
   } catch(err){ FC.err = true; }
@@ -1553,6 +1643,33 @@ function siteOutlook(r, out){
   const rain = (hazOn(r.id,"debris") || hazOn(r.id,"landslide")) && wet.site[s] >= S.rkRain, thaw = (hazOn(r.id,"rockfall") || hazOn(r.id,"permafrost")) && out.days.some(o => o.thaw);
   return {tot, wet, wetMm:wet.site[s], rain, thaw, cls: rain && thaw ? "elev" : (rain || thaw ? "watch" : "calm")};
 }
+/* the same rule at a plant or a dam: its own rain against the processes mapped around it, and the thaw days of the area */
+function infOutlook(k, out){
+  const d = FC.d, it = INF[k]; if (!out || !d.inf || !d.inf.pr[k] || !d.inf.fl[k]) return null;
+  const day = out.days.map(o => { let mm = 0; for (let i = o.i0; i < o.i0 + o.n; i++){ const p = d.inf.pr[k][i], z = d.inf.fl[k][i]; if (num(p) && num(z) && z > it.z + SNOWLINE_M) mm += p; } return mm; });
+  const wetMm = Math.max(...day), on = h => (it.haz[h] || 0) >= HAZ_MIN;
+  const rain = (on("debris") || on("landslide")) && wetMm >= S.rkRain, thaw = (on("rockfall") || on("permafrost")) && out.days.some(o => o.thaw);
+  return {tot:day.reduce((p,q) => p+q, 0), wetMm, wetK:out.days[day.indexOf(wetMm)].k, rain, thaw, cls: rain && thaw ? "elev" : (rain || thaw ? "watch" : "calm")};
+}
+function drawInfraRisk(out){
+  $("ir-card").hidden = !INF.length; if (!INF.length) return;
+  const rows = INF.map((it,k) => ({it, o:infOutlook(k, out), any:Object.keys(HAZ).some(h => (it.haz[h] || 0) >= HAZ_MIN)}));
+  rows.sort((p,q) => (p.it.k===q.it.k ? 0 : (p.it.k==="plant" ? -1 : 1)) || (p.it.k==="plant" ? q.it.gwh - p.it.gwh : q.it.h - p.it.h));
+  const nP = INF.filter(it => it.k==="plant").length, nD = INF.length - nP, shown = rows.filter(r => r.any), clean = rows.filter(r => !r.any), have = rows.some(r => r.o);
+  const gwh = shown.filter(r => r.it.k==="plant").reduce((t,r) => t + r.it.gwh, 0), all = rows.filter(r => r.it.k==="plant").reduce((t,r) => t + r.it.gwh, 0), marked = rows.filter(r => r.o && r.o.cls!=="calm");
+  $("ir-sub").textContent = `${nP} plants and ${nD} dams, federal index maps read ${isoDay(INFRA.at)}`;
+  $("ir-stats").innerHTML = `<div class="stat"><b>${shown.length} of ${rows.length}</b><span>plants and dams have a process mapped within ${INFRA.r} m: nearly every one stands below a mapped slope</span></div>
+    <div class="stat"><b>${swiss(gwh)} GWh</b><span>a year is what the plants among them are expected to produce, of ${swiss(all)} GWh in the stress test</span></div>
+    <div class="stat"><b>${have ? marked.length + " of " + rows.length : "–"}</b><span>${have ? "are marked in the five-day outlook with the thresholds above" : "The forecast runs on the self-hosted page only"}</span></div>`;
+  const cell = (it,h) => { const v = it.haz[h] || 0; return `<td class="hz${v >= HAZ_MIN ? " on" : ""}">${v ? v + "%" : "–"}</td>`; };
+  const size = it => it.k==="plant" ? (it.gwh >= 10 ? swiss(it.gwh) : f1(it.gwh)) + " GWh a year" : Math.round(it.h) + " m high";
+  $("ir-tbl").innerHTML = `<thead><tr><th></th><th>Plant or dam</th><th>Size</th>${Object.keys(HAZ).map(h => `<th>${HAZ[h][0]}</th>`).join("")}${have ? "<th>Rain, 5 days</th><th>Outlook</th>" : ""}</tr></thead><tbody>`
+    + shown.map(({it,o}) => { const why = !o ? "" : [o.rain ? `${f1(o.wetMm)} mm of rain on ${dayName(o.wetK)}` : "", o.thaw ? "thaw above the threshold" : ""].filter(Boolean).join("; ");
+      return `<tr><td>${it.k==="plant" ? "Plant" : "Dam"}</td><td>${esc(it.n)}<span>${esc(it.type || "")}, ${swiss(it.z)} m a.s.l.</span></td><td>${size(it)}</td>${Object.keys(HAZ).map(h => cell(it,h)).join("")}${o ? `<td>${f1(o.tot)} mm</td><td class="pc"><span class="tag ${o.cls}">${OUT[o.cls]}</span>${why ? " " + why : ""}</td>` : (have ? "<td>–</td><td>–</td>" : "")}</tr>`; }).join("") + `</tbody>`;
+  $("ir-rule").textContent = `The ${nP} plants of the stress test on the Energy sheet and the ${nD} dams under federal supervision within ${INFRA.nearKm} km of a ranked site: the same index maps, the same ${INFRA.r} m square and the same rule as for the sites above. `
+    + (clean.length ? `No process is mapped at ${clean.map(r => r.it.n).join(", ")}. ` : "")
+    + `The position is the powerhouse or the dam itself, so intakes, pressure lines and access roads are not covered, and the index maps do not know which protective works exist. A flag for the operator's own assessment, not a finding about any plant.`;
+}
 function drawRisk(){
   const live = MODE==="site", out = live ? outlook() : null;
   $("rk-z").value = S.rkZ; $("rk-rain").value = S.rkRain; // a reload can restore a slider position the page state does not have
@@ -1565,7 +1682,7 @@ function drawRisk(){
     const box = $("fc-chart"); box.innerHTML = "";
     if (!out){ $("fc-days").innerHTML = ""; $("fc-legend").innerHTML = ""; $("fc-stats").innerHTML = `<p class="sub">${FC.busy || !FC.tried ? "Loading the forecast." : "No forecast could be loaded. The table below still shows the mapped process areas."}</p>`; }
     else {
-      $("fc-days").innerHTML = out.days.map(o => `<div class="day"><span class="d">${dayName(o.k)}</span><span class="tag ${o.cls}">${OUT[o.cls]}</span><span class="z">${o.z==null ? "–" : swiss(Math.round(o.z/10)*10) + " m"}</span><span>highest zero-degree level${o.share==null ? "" : ": " + Math.round(o.share*100) + "% of the glacier area lies below it"}</span><span>${f1(o.rain)} mm of precipitation</span></div>`).join("");
+      $("fc-days").innerHTML = out.days.map(o => `<div class="day"><span class="d">${dayName(o.k)}</span><span class="tag ${o.cls}">${OUT[o.cls]}${o.cls==="watch" ? (o.thaw ? ": thaw" : ": precipitation") : ""}</span><span class="z">${o.z==null ? "–" : swiss(Math.round(o.z/10)*10) + " m"}</span><span>highest zero-degree level${o.share==null ? "" : ": " + Math.round(o.share*100) + "% of the glacier area lies below it"}</span><span>${f1(o.rain)} mm of precipitation</span></div>`).join("");
       $("fc-legend").innerHTML = `<span><i style="background:var(--s2)"></i>Zero-degree level</span><span><i class="box" style="background:var(--s1)"></i>Precipitation, mm an hour</span><span><i style="background:var(--ink-3)"></i>Thaw threshold</span><span><i class="box" style="background:color-mix(in srgb,var(--accent) 18%,transparent)"></i>Elevation of the basin sites</span>`;
       /* drawn at the width of its card, so the lettering keeps its size on a wide screen and on a phone */
       const Wd = clamp(Math.round(box.clientWidth) || 760, 420, 1400), Ht = Wd > 900 ? 280 : 250, m = {l:46,r:44,t:22,b:10}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b, n = FC.d.time.length, zs = out.zl.filter(num);
@@ -1605,6 +1722,7 @@ function drawRisk(){
   $("rk-rule").textContent = `Share of the 250 m square around each site that the index map marks. A process counts from ${HAZ_MIN}% (bold). `
     + (out ? `Watch: ${S.rkRain} mm of rain or more in one day at a site with debris flow or landslide mapped, or a zero-degree level of ${swiss(S.rkZ)} m or more over a site with rockfall or permafrost mapped. Elevated: both. Rain is precipitation that falls while the zero-degree level is more than ${SNOWLINE_M} m above the site. ` : (live ? "" : "The forecast runs on the self-hosted page only. "))
     + `Sites are in the order of the current ranking; pick one to open its evidence.`;
+  drawInfraRisk(out);
   drawHindcast();
 }
 /* ---------- the trigger rule run over past forecasts (fetch_hindcast.py): per day the same two figures the live outlook works with ---------- */
@@ -1619,19 +1737,31 @@ function hcDay(i){
     if (((hazOn(s.id,"debris") || hazOn(s.id,"landslide")) && mm >= S.rkRain) || ((hazOn(s.id,"rockfall") || hazOn(s.id,"permafrost")) && thaw)) hit++; });
   return {k:HC_DAYS[i], z, rain, thaw, wet, cls: thaw && wet ? "elev" : (thaw || wet ? "watch" : "calm"), top, hit};
 }
+/* the same record at other thresholds: marked days a year and what each documented weather event would have been called */
+const HC_GZ = [4000,4200,4400,4600], HC_GR = [20,30,40];
+function hcGrid(wx, span){
+  const n = HC.z.length, tagOf = ["calm","watch","elev"];
+  const cell = (Z,R) => { const c = i => { const th = HC.z[i]*10 >= Z, w = HC.rain[i]/10 >= R; return th && w ? 2 : (th || w ? 1 : 0); }; let W = 0, E = 0;
+    for (let i = 0; i < n; i++){ const k = c(i); if (k===2) E++; else if (k===1) W++; }
+    return {W:W/span, E:E/span, ev:wx.map(v => { const a = HC_DAYS.indexOf(v.e.from), b = HC_DAYS.indexOf(v.e.to); let mx = 0; for (let i = a; i <= b; i++) mx = Math.max(mx, c(i)); return [v.j+1, mx]; })}; };
+  $("hc-grid").innerHTML = `<thead><tr><th>Thaw from</th>${HC_GR.map(R => `<th>Heavy precipitation from ${R} mm a day</th>`).join("")}</tr></thead><tbody>`
+    + HC_GZ.map(Z => `<tr><td>${swiss(Z)} m</td>` + HC_GR.map(R => { const o = cell(Z,R), on = S.rkZ===Z && S.rkRain===R;
+      return `<td class="${on ? "on" : ""}" data-z="${Z}" data-r="${R}" tabindex="0" role="button" aria-pressed="${on}" aria-label="Set the thresholds to ${Z} m and ${R} mm a day"><b>${Math.round(o.W)}</b> Watch and <b>${f1(o.E)}</b> Elevated days a year<span class="evs">${o.ev.map(([j,k]) => `<span class="tag ${tagOf[k]}" title="Event ${j}: ${OUT[tagOf[k]]}">${j} ${OUT[tagOf[k]]}</span>`).join("")}</span></td>`; }).join("") + `</tr>`).join("") + `</tbody>`;
+  $("hc-grid-note").textContent = `Each cell runs the rule over the same ${swiss(n)} days with other thresholds: how many days a year it would mark, and what it would have said on the ${wx.length} documented weather events (numbered as in the table above). A higher thaw threshold marks fewer warm days and can miss an event; a lower precipitation threshold catches more rain and marks more days. ${MODE==="site" ? "Pick a cell to set the two thresholds. " : ""}The outlined cell is the current setting. Choosing between them is a call for a hazard specialist, and ${wx.length} events are too few to settle it.`;
+}
 function drawHindcast(){
   $("hc-card").hidden = !HC; if (!HC) return;
   const n = HC.z.length, cls = new Uint8Array(n), yrs = {}; let thawOnly = 0;
   for (let i = 0; i < n; i++){ const thaw = HC.z[i]*10 >= S.rkZ, wet = HC.rain[i]/10 >= S.rkRain, c = thaw && wet ? 2 : (thaw || wet ? 1 : 0), y = HC_DAYS[i].slice(0,4), o = yrs[y] || (yrs[y] = {w:0, e:0});
     cls[i] = c; if (c===2) o.e++; else if (c===1){ o.w++; if (thaw) thawOnly++; } }
   const years = Object.keys(yrs).sort(), span = n/365.25, W = years.reduce((t,y) => t + yrs[y].w, 0), E = years.reduce((t,y) => t + yrs[y].e, 0);
-  $("hc-from").textContent = isoDay(HC.from); $("hc-sub").textContent = `${swiss(n)} days of past forecasts, up to ${isoDay(HC.to)}`;
+  $("hc-from").textContent = isoDay(HC.from); $("hcast-sub").textContent = `${swiss(n)} days of past forecasts, up to ${isoDay(HC.to)}`;
   $("hc-move").textContent = MODE==="site" ? "Move the two thresholds above and the test runs again." : "";
-  $("hc-legend").innerHTML = `<span><i class="box" style="background:var(--warn-ink);opacity:.6"></i>Watch: one condition met</span><span><i class="box" style="background:var(--crit-ink)"></i>Elevated: thaw and heavy precipitation together</span><span><b class="evn">1</b>Documented event, see the table</span>`;
+  $("hcast-legend").innerHTML = `<span><i class="box" style="background:var(--warn-ink);opacity:.6"></i>Watch: one condition met</span><span><i class="box" style="background:var(--crit-ink)"></i>Elevated: thaw and heavy precipitation together</span><span><b class="evn">1</b>Documented event, see the table</span>`;
   const evs = HC.events.map((e,j) => { const a = HC_DAYS.indexOf(e.from), b = HC_DAYS.indexOf(e.to); if (a < 0 || b < a) return null;
     let best = null; for (let i = a; i <= b; i++){ const d = hcDay(i), rk = d.cls==="elev" ? 2 : (d.cls==="watch" ? 1 : 0); if (!best || rk > best.rk || (rk===best.rk && d.rain > best.d.rain)) best = {rk, d}; }
     return {e, j, d:best.d}; }).filter(Boolean);
-  const box = $("hc-chart"); box.innerHTML = "";
+  const box = $("hcast-chart"); box.innerHTML = "";
   /* drawn at the width of its card, like the forecast chart; one row per year, one tick per marked day */
   const Wd = clamp(Math.round(box.clientWidth) || 760, 420, 1400), rowH = 38, m = {l:44,r:12,t:8,b:22}, pw = Wd-m.l-m.r, Ht = m.t + years.length*rowH + m.b, w = pw/366, X = d => m.l + (d-0.5)*w, base = r => m.t + (r+1)*rowH - 5;
   const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Days the trigger rule marks Watch or Elevated, year by year, with the documented events"}, box);
@@ -1649,11 +1779,12 @@ function drawHindcast(){
     ht.hidden = false; ht.style.left = clamp(px/kx + (px > Wd*0.65 ? -ht.offsetWidth-12 : 12), 0, bb.width-ht.offsetWidth) + "px"; ht.style.top = clamp(py/kx - 24, 0, Math.max(0, bb.height-ht.offsetHeight)) + "px"; });
   hit.addEventListener("pointerleave", () => { ht.hidden = true; });
   const wx = evs.filter(v => v.e.cover!==false), caught = wx.filter(v => v.d.cls!=="calm").length, elevN = wx.filter(v => v.d.cls==="elev").length;
-  $("hc-stats").innerHTML = `<div class="stat"><b>${f1(E/span)} a year</b><span>days marked Elevated: ${E} in ${f1(span)} years</span></div>
+  $("hcast-stats").innerHTML = `<div class="stat"><b>${f1(E/span)} a year</b><span>days marked Elevated: ${E} in ${f1(span)} years</span></div>
     <div class="stat"><b>${Math.round(W/span)} a year</b><span>days marked Watch${W ? `, ${Math.round(thawOnly/W*100)}% of them on thaw alone` : ""}. A warm summer day is enough, so Watch by itself says little</span></div>
     <div class="stat"><b>${caught} of ${wx.length}</b><span>documented weather events fell on a day the rule marks${wx.length ? `, ${elevN} of them Elevated` : ""}</span></div>`;
   $("hc-tbl").innerHTML = `<thead><tr><th>#</th><th>Event</th><th>Zero-degree level</th><th>Precipitation</th><th>Wettest site</th><th>The rule says</th></tr></thead><tbody>` + evs.map(v => { const d = v.d, e = v.e;
     return `<tr><td>${v.j+1}</td><td class="ev"><b>${esc(e.name)}</b><span>${e.from===e.to ? isoDay(e.from) : isoDay(e.from) + " to " + isoDay(e.to)} · ${esc(e.where)} · ${esc(e.kind)}</span><a href="${esc(e.src)}" target="_blank" rel="noopener">${esc(e.by)}</a></td><td>${d.z==null ? "–" : swiss(d.z) + " m"}</td><td>${f1(d.rain)} mm</td><td>${d.top ? f1(d.top) + " mm" : "under " + HC.minMm + " mm"}</td><td class="ev"><b class="tag ${d.cls}">${OUT[d.cls]}</b><span>on ${isoDay(d.k)}${d.hit ? `, ${d.hit} of ${SITES.length} sites flagged` : ""}</span></td></tr>`; }).join("") + `</tbody>`;
+  hcGrid(wx, span);
 }
 window.addEventListener("resize", () => { if (S.sheet==="risk") drawRisk(); if (S.sheet==="energy" && EN) drawStress(); });
 $("rk-tbl").addEventListener("keydown", ev => { const tr = ev.target.closest("tr[data-id]"); if (tr && (ev.key==="Enter"||ev.key===" ")){ ev.preventDefault(); tr.click(); } });
@@ -1764,6 +1895,37 @@ function drawStress(){
     + T.rows.slice().sort((p,q) => q.gwh-p.gwh).map(r => `<tr><td><b>${esc(r.h.river)}</b><span>${esc(atPlace(r.h.place))}, ${r.h.glac}% glacier</span></td><td>${r.plants.map(p => esc(p.n)).join(", ")}</td><td>${fmtG(r.gwh)} GWh</td>`
       + (isRef ? `<td>${Math.round(sm(r.ref)/sumOf(r.ref)*100)}% of the year</td>` : `<td>${pctOf(sumOf(r.scn), sumOf(r.ref))}</td><td>${pctOf(sm(r.scn), sm(r.ref))}</td>`) + `</tr>`).join("") + `</tbody>`;
 }
+/* The stress test carried into the Swiss half-year balance. A run-of-river plant changes its output in the month the water arrives.
+   For storage plants two readings bound the answer: the water is turbined as it arrives, or the reservoirs carry the year's inflow
+   into the winter in the share they do today (the winter share of Swiss storage output in the grid record). */
+const WIN = [9,10,11,0,1,2], SUM = [3,4,5,6,7,8], pickM = (a,ix) => sumOf(ix.map(i => a[i]));
+const winMean = () => sumOf(EN.winter.map(w => w[1]))/EN.winter.length;
+function drawCouple(){
+  const T = stress(S), isRef = S.period==="ref", M = EN.mix, scnName = `${PERIOD[S.period]}, ${RCPL[S.rcp]}`;
+  const exp = sumOf(T.rows.map(r => r.gwh)), hyd = sumOf(M.src.ror) + sumOf(M.src.sto), nP = sumOf(T.rows.map(r => r.plants.length));
+  const dR = T.scn.ror.map((v,i) => v - T.ref.ror[i]), dS = T.scn.sto.map((v,i) => v - T.ref.sto[i]), c = sumOf(dS), wsh = pickM(M.src.sto, WIN)/sumOf(M.src.sto);
+  const basins = ROWS.filter(storable), bas = sumOf(basins.map(r => bizOf(r).gwh));
+  const impW = winMean(), expS = -pickM(M.imp, SUM);
+  /* extra production in each half-year: [as it arrives, reservoirs keep today's seasons] */
+  const rorW = pickM(dR, WIN), rorS = pickM(dR, SUM), stoW = [pickM(dS, WIN), c*wsh], stoS = [pickM(dS, SUM), c*(1-wsh)];
+  const addW = stoW.map(v => rorW + v + bas), addS = stoS.map(v => rorS + v);
+  const span = (a, f) => { const lo = f(Math.min(...a)), hi = f(Math.max(...a)); return lo===hi ? lo : lo + " to " + hi; };
+  const gw = v => Math.round(v)===0 ? "0" : sg(v), pc = v => Math.abs(v) < 0.05 ? "0.0" : (v > 0 ? "+" : "−") + f1(Math.abs(v));
+  $("cp-hint").textContent = isRef ? "reference period 1981–2010: pick a later runoff period above" : `${scnName}: the stress test above, carried into the half-year balance`;
+  $("cp-sub").textContent = `the ${nP} plants give ${fmtG(exp)} of the ${swiss(hyd)} GWh of Swiss hydropower a year`;
+  $("cp-stats").innerHTML = `<div class="stat"><b>${span(addW.map(v => -v), gw)} GWh</b><span>of net import in the winter half-year: ${span(addW.map(v => -v/impW*100), pc)}% against the mean winter import of ${swiss(impW)} GWh, with the runoff shift and the ${basins.length} new site${basins.length===1 ? "" : "s"} still in play</span></div>
+    <div class="stat"><b>${span(addS, gw)} GWh</b><span>of production in the summer half-year, April to September: ${span(addS.map(v => v/expS*100), pc)}% against the mean summer export of ${swiss(expS)} GWh</span></div>
+    <div class="stat"><b>${Math.round(exp/hyd*100)}%</b><span>of Swiss hydropower output comes from these ${nP} plants. The other ${100 - Math.round(exp/hyd*100)}% is not in this model</span></div>`;
+  const row = (name, sub, w, s, how, cls) => `<tr${cls ? ` class="${cls}"` : ""}><td><b>${name}</b>${sub ? `<span>${sub}</span>` : ""}</td><td>${w}</td><td>${s}</td><td>${how}</td></tr>`;
+  $("cp-tbl").innerHTML = `<thead><tr><th>GWh</th><th>October to March</th><th>April to September</th><th>How it is derived</th></tr></thead><tbody>`
+    + row("Swiss net balance today", "", swiss(impW) + " import", swiss(expS) + " export", `Mean of the ${EN.winter.length} winters from ${EN.winter[0][0]} to ${EN.winter[EN.winter.length-1][0]}, and of the summers of ${M.years[0]}–${M.years[1]} (SFOE, Swissgrid figures).`)
+    + row("Run-of-river plants on these rivers", "production", gw(rorW), gw(rorS), "Output follows the runoff month by month, up to turbine capacity.")
+    + row("Storage plants, water turbined as it arrives", "production, first reading", gw(stoW[0]), gw(stoS[0]), "The reservoirs still fill, and what arrives in winter is turbined in winter.")
+    + row("Storage plants, reservoirs keep today's seasons", "production, second reading", gw(stoW[1]), gw(stoS[1]), `The year's inflow changes by ${gw(c)} GWh; ${Math.round(wsh*100)}% of Swiss storage output falls in the winter half-year.`)
+    + row(`New basins still in play`, "winter energy", gw(bas), "–", `${basins.length} new site${basins.length===1 ? "" : "s"} with the settings above: the illustrative Trift scaling of the Business case sheet.`)
+    + row("Swiss net balance with these settings", "", span(addW.map(v => impW - v), swiss) + " import", span(addS.map(v => expS + v), swiss) + " export", "Today's balance less the extra production of each half-year. Everything else on the grid is left as it is.", "sum") + `</tbody>`;
+  $("cp-note").innerHTML = `<strong>A first-order coupling, not a grid model.</strong> The change is measured against the reference runoff of 1981–2010 and set on the grid record of ${M.years[0]}–${M.years[1]}, which already carries part of it. For the storage plants the two readings bound the answer, because the operators decide when the water is turbined. Consumption, prices, pumping, the power lines and the rest of Swiss hydropower stay as they are. Change the runoff period, the emissions path, the dam height or the protection setting above and this balance follows.`;
+}
 /* the Swiss grid through the year: mean production by source and national consumption, per calendar month */
 function drawMix(){
   const M = EN.mix, K = [["ror","Run-of-river","var(--s1)"],["sto","Storage hydropower","var(--s3)"],["nuc","Nuclear","var(--s4)"],["oth","Solar, thermal, wind","var(--s2)"]];
@@ -1785,7 +1947,7 @@ function drawMix(){
     hit.addEventListener("pointerleave", () => { ht.hidden = true; }); });
   const wi = [9,10,11,0,1,2], su = [3,4,5,6,7,8], pick = (a,ix) => sumOf(ix.map(i => a[i])), hyd = sumOf(M.src.ror) + sumOf(M.src.sto);
   $("mix-stats").innerHTML = `<div class="stat"><b>${Math.round(hyd/sumOf(prod)*100)}%</b><span>of the electricity produced in Switzerland comes from hydropower</span></div>
-    <div class="stat"><b>${swiss(pick(M.imp, wi))} GWh</b><span>net import in an average winter half-year, October to March</span></div>
+    <div class="stat"><b>${swiss(winMean())} GWh</b><span>net import in an average winter half-year, October to March: the mean of the ${EN.winter.length} winters from ${EN.winter[0][0]} to ${EN.winter[EN.winter.length-1][0]}</span></div>
     <div class="stat"><b>${swiss(-pick(M.imp, su))} GWh</b><span>net export in an average summer half-year, when rivers and reservoirs run full</span></div>`;
   $("mix-note").textContent = `Where the line runs above the columns the country imports, less the electricity used for pumping. Source: Swiss Federal Office of Energy, energy dashboard files (Swissgrid figures), read when this page was built; the files reach ${isoDay(EN.to.prod)} for production and ${isoDay(EN.to.use)} for consumption. Not a live feed.`;
 }
@@ -1859,7 +2021,7 @@ function drawWinter(){
     <div class="stat"><b>${lo[1] < 0 ? "−" : ""}${swiss(Math.abs(lo[1]))} to ${swiss(hi[1])}</b><span>GWh: from the winter of ${lo[0]} to the winter of ${hi[0]}</span></div>
     <div class="stat"><b>${all >= 10 ? Math.round(all) : f1(all)} GWh</b><span>of winter energy from the ${n} new site${n===1 ? "" : "s"} still in play: ${mean > 0 ? f1(all/mean*100) + "% of the mean winter import" : "against no net import on average"}</span></div>`;
 }
-function drawGrid(){ if (!EN) return; drawStress(); drawMix(); drawWet(); drawFill(); drawWinter(); }
+function drawGrid(){ if (!EN) return; drawStress(); drawCouple(); drawMix(); drawWet(); drawFill(); drawWinter(); }
 
 /* ---------- satellite sheet: Sentinel-2 scenes of the study area (swissEO S2-SR, swisstopo) and glacier thinning measured from space
    (Hugonnet et al. 2021). fetch_satellite_series.py makes the numbers and the pictures when the site is built; the self-hosted page
@@ -2035,10 +2197,10 @@ function drawBrief(){
   const B = [
     [SAT || SATD ? "ok" : "part", SAT || SATD ? "In" : "Partly", "Integrate multi-source Earth-observation, climate and infrastructure data", `Terrain model and glacier inventory from airborne survey${SATD ? ", Sentinel-2 satellite scenes since 2015, glacier thinning measured from satellite stereo pictures" : SAT ? ", a Sentinel-2 satellite mosaic" : ""}, Hydro-CH2018 climate scenarios, live river gauges and weather stations, a five-day forecast, protection inventories, hazard index maps, hydropower plants, dams, reservoir storage${EN ? " and Swiss grid records" : ""}.${SAT || SATD ? "" : " No satellite product yet."}`],
     ["ok", "In", "Model glacier retreat and alpine risk dynamics", (GP ? "Glacier size is a scenario control on every sheet, tied to years by a published glacier model (OGGM, Alpine average) for each emissions path. " : "Glacier size and melt rate are scenario controls on every sheet. ") + "The Risk outlook sets a forecast of thaw and heavy precipitation against mapped process areas" + (HC ? ", and runs the same rule over every day since " + isoDay(HC.from) + " and " + HC.events.length + " documented events" : "") + ". Limits: one shrink rate for all glaciers of the area, and thresholds that are tested, not calibrated." + (SATD ? " The Satellite sheet sets the melt setting against the ice loss satellites measured, and shows the snow and ice left each summer since " + SATD.years[0].y + "." : "")],
-    [EN ? "ok" : "part", EN ? "In" : "Partly", "Couple energy grid behaviour with climate variability", EN ? "The Energy sheet stress-tests the " + Object.values(EN.chain).reduce((t,v) => t + v.length, 0) + " hydropower plants on the rivers of the nine catchments under the runoff scenario, month by month, and sets Swiss grid records against the climate: production by source, consumption, winter imports, reservoir filling since " + EN.fill.years[0] + ", and yearly hydropower output against precipitation. A first-order model: the power lines and the market are not modelled, and the grid figures are records, not a live feed." : "Storage, winter energy and payback respond to the runoff scenario, the melt rate and the glacier size, next to the plants and dams around each site and the energy held in Swiss reservoirs. The grid itself is not modelled."],
+    [EN ? "ok" : "part", EN ? "In" : "Partly", "Couple energy grid behaviour with climate variability", EN ? "The Energy sheet stress-tests the " + Object.values(EN.chain).reduce((t,v) => t + v.length, 0) + " hydropower plants on the rivers of the nine catchments under the runoff scenario, month by month, and sets Swiss grid records against the climate: production by source, consumption, winter imports, reservoir filling since " + EN.fill.years[0] + ", and yearly hydropower output against precipitation. It then carries the stress test into the Swiss half-year balance: winter import and summer export under the chosen scenario, with the new basins added. A first-order model: the power lines and the market are not modelled, and the grid figures are records, not a live feed." : "Storage, winter energy and payback respond to the runoff scenario, the melt rate and the glacier size, next to the plants and dams around each site and the energy held in Swiss reservoirs. The grid itself is not modelled."],
     ["ok", "In", "Surface insight in a public-grade decision interface", "This page: no login, a next action for every site, the evidence and its gaps on each site card, and an open data API."],
     ["ok", "In", "Outcome: a working digital twin of one Swiss region", "Jungfrau–Aletsch, 781 km²: the state now, the model and the what-if scenarios."],
-    ["ok", "Prototype", "Outcome: an alpine risk forecasting prototype", "The Risk outlook sheet: a five-day forecast of trigger conditions at the 15 sites" + (HC ? ", tested against past forecasts since " + isoDay(HC.from) : "") + ". It forecasts trigger conditions, not events."],
+    ["ok", "Prototype", "Outcome: an alpine risk forecasting prototype", "The Risk outlook sheet: a five-day forecast of trigger conditions at the 15 sites" + (INF.length ? " and at " + INF.length + " hydropower plants and dams" : "") + (HC ? ", tested against past forecasts since " + isoDay(HC.from) : "") + ". It forecasts trigger conditions, not events."],
     ["ok", "In", "Outcome: a reference architecture for federal-scale roll-out", "The card above this one."]];
   $("brief").innerHTML = B.map(([c,l,t,p]) => `<div><span class="st ${c}">${l}</span><h3>${t}</h3><p>${p}</p></div>`).join("");
 }
@@ -2058,7 +2220,7 @@ function render(){
   $("melt-out").textContent = f2(S.melt)+" m" + (S.melt===1 ? " (report)" : "");
   drawIcePath();
   $("price-out").textContent = S.price + " Rp./kWh";
-  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawEnergy(); drawGrid(); drawRisk(); drawSat(); drawStatus();
+  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawFedReport(); drawIce(); drawBiz(); drawEnergy(); drawGrid(); drawRisk(); drawSat(); drawStatus();
   if (keep){ const el = $(keep.id); if (el){ el.focus(); if (keep.pos!=null) try { el.setSelectionRange(keep.pos, keep.pos); } catch(err){} } }
 }
 
@@ -2298,7 +2460,10 @@ function startLive(){
   try { /* the last forecast seen in this browser, if it is for the same sites */
     const c = JSON.parse(localStorage.getItem("bsa-fc") || "null"), d = c && c.d;
     if (d && num(c.at) && Array.isArray(d.time) && Array.isArray(d.ids) && d.ids.join() === SITES.map(s => s.id).join() && Array.isArray(d.fl) && Array.isArray(d.pr) && d.fl.length===d.ids.length && d.pr.length===d.ids.length
-        && d.fl.concat(d.pr).every(a => Array.isArray(a) && a.length===d.time.length) && d.time[d.time.length-1].slice(0,10) >= new Date().toISOString().slice(0,10)){ FC.d = d; FC.at = c.at; FC.tried = c.at; }
+        && d.fl.concat(d.pr).every(a => Array.isArray(a) && a.length===d.time.length) && d.time[d.time.length-1].slice(0,10) >= new Date().toISOString().slice(0,10)){ FC.d = d; FC.at = c.at; FC.tried = c.at;
+      /* a forecast kept by an earlier version of the page has no values for the plants and dams: show it, and ask again at once */
+      const okInf = d.inf && [d.inf.fl, d.inf.pr].every(a => Array.isArray(a) && a.length===INF.length && a.every(r => Array.isArray(r) && r.length===d.time.length));
+      if (INF.length && !okInf){ delete d.inf; FC.tried = 0; } }
   } catch(err){}
   const fcDue = () => Date.now() - FC.tried >= (FC.err || !FC.d ? FC_RETRY_MS : FC_MS);
   $("now-refresh").addEventListener("click", pollLive);
