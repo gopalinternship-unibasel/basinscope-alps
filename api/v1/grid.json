@@ -1,0 +1,640 @@
+{
+ "meta": {
+  "api_version": "1.3.0",
+  "generated": "2026-10-04",
+  "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
+  "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
+ },
+ "data": {
+  "data_up_to": {
+   "production": "2026-06-14",
+   "consumption": "2025-07-31",
+   "cross_border_exchange": "2025-09",
+   "storage_lakes": "2026-09-28"
+  },
+  "monthly_mean_gwh": {
+   "years": [
+    2017,
+    2024
+   ],
+   "months": [
+    "jan",
+    "feb",
+    "mar",
+    "apr",
+    "may",
+    "jun",
+    "jul",
+    "aug",
+    "sep",
+    "oct",
+    "nov",
+    "dec"
+   ],
+   "national_consumption": [
+    6159,
+    5443,
+    5613,
+    4970,
+    4989,
+    4826,
+    4789,
+    4779,
+    4826,
+    5222,
+    5626,
+    6046
+   ],
+   "net_import": [
+    853,
+    922,
+    567,
+    -97,
+    -675,
+    -1077,
+    -1808,
+    -1432,
+    -366,
+    304,
+    660,
+    960
+   ],
+   "production": {
+    "run_of_river": [
+     966,
+     885,
+     1047,
+     1287,
+     1915,
+     2211,
+     2156,
+     1929,
+     1436,
+     1273,
+     1028,
+     1058
+    ],
+    "storage": [
+     2172,
+     1621,
+     1565,
+     1335,
+     1751,
+     2231,
+     2328,
+     2180,
+     1745,
+     1748,
+     1957,
+     1846
+    ],
+    "nuclear": [
+     2084,
+     1918,
+     2201,
+     2110,
+     1679,
+     1169,
+     1840,
+     1783,
+     1816,
+     1871,
+     1946,
+     2102
+    ],
+    "solar": [
+     75,
+     153,
+     263,
+     354,
+     411,
+     454,
+     474,
+     420,
+     319,
+     207,
+     105,
+     66
+    ],
+    "thermal_and_wind": [
+     373,
+     362,
+     340,
+     281,
+     286,
+     265,
+     286,
+     274,
+     286,
+     327,
+     363,
+     382
+    ]
+   }
+  },
+  "hydropower_by_year": {
+   "correlation_with_precipitation": 0.63,
+   "correlation_with_summer_temperature": 0.12,
+   "years": [
+    {
+     "year": 2015,
+     "run_of_river_gwh": 16594,
+     "storage_gwh": 22890,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 2062,
+     "summer_temperature_jungfraujoch_c": 1.48
+    },
+    {
+     "year": 2016,
+     "run_of_river_gwh": 16574,
+     "storage_gwh": 19752,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 1817,
+     "summer_temperature_jungfraujoch_c": 0.13
+    },
+    {
+     "year": 2018,
+     "run_of_river_gwh": 16907,
+     "storage_gwh": 20520,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 1785,
+     "summer_temperature_jungfraujoch_c": 1.1
+    },
+    {
+     "year": 2019,
+     "run_of_river_gwh": 17699,
+     "storage_gwh": 22855,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 2221,
+     "summer_temperature_jungfraujoch_c": 1.48
+    },
+    {
+     "year": 2020,
+     "run_of_river_gwh": 17648,
+     "storage_gwh": 22967,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 1653,
+     "summer_temperature_jungfraujoch_c": 0.13
+    },
+    {
+     "year": 2021,
+     "run_of_river_gwh": 16962,
+     "storage_gwh": 22539,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 2008,
+     "summer_temperature_jungfraujoch_c": 0.04
+    },
+    {
+     "year": 2022,
+     "run_of_river_gwh": 15488,
+     "storage_gwh": 18009,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 1530,
+     "summer_temperature_jungfraujoch_c": 1.55
+    },
+    {
+     "year": 2023,
+     "run_of_river_gwh": 17491,
+     "storage_gwh": 23287,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 1567,
+     "summer_temperature_jungfraujoch_c": 0.69
+    },
+    {
+     "year": 2024,
+     "run_of_river_gwh": 19402,
+     "storage_gwh": 28933,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 2242,
+     "summer_temperature_jungfraujoch_c": 1.52
+    },
+    {
+     "year": 2025,
+     "run_of_river_gwh": 16326,
+     "storage_gwh": 21043,
+     "precipitation_grimsel_hospiz_oct_to_sep_mm": 1503,
+     "summer_temperature_jungfraujoch_c": 1.14
+    }
+   ]
+  },
+  "winter_net_import_gwh": [
+   {
+    "winter": "2017/18",
+    "october_to_march": 7754
+   },
+   {
+    "winter": "2018/19",
+    "october_to_march": 6092
+   },
+   {
+    "winter": "2019/20",
+    "october_to_march": 1902
+   },
+   {
+    "winter": "2020/21",
+    "october_to_march": 2532
+   },
+   {
+    "winter": "2021/22",
+    "october_to_march": 8347
+   },
+   {
+    "winter": "2022/23",
+    "october_to_march": 4138
+   },
+   {
+    "winter": "2023/24",
+    "october_to_march": -855
+   },
+   {
+    "winter": "2024/25",
+    "october_to_march": 4390
+   }
+  ],
+  "storage_lakes_percent_full_by_week": {
+   "range_years": [
+    2000,
+    2025
+   ],
+   "lowest": [
+    45.9,
+    44.9,
+    40.2,
+    33.2,
+    27.6,
+    25.8,
+    23.4,
+    20.3,
+    17.4,
+    15.7,
+    14.1,
+    12.5,
+    10.3,
+    9.2,
+    8.8,
+    8.3,
+    8.5,
+    9.2,
+    9.6,
+    11.1,
+    13.7,
+    14.9,
+    19.5,
+    26.3,
+    32.4,
+    37.4,
+    42.3,
+    44.6,
+    47.3,
+    51.9,
+    57.7,
+    63.6,
+    65.8,
+    68.7,
+    73.1,
+    75.5,
+    77.9,
+    78.3,
+    78.0,
+    77.6,
+    77.2,
+    76.0,
+    74.8,
+    73.5,
+    71.7,
+    68.4,
+    65.4,
+    59.3,
+    54.5,
+    50.6,
+    47.3,
+    46.5
+   ],
+   "median": [
+    59.5,
+    55.7,
+    51.0,
+    47.4,
+    43.0,
+    38.8,
+    34.4,
+    31.7,
+    28.7,
+    25.0,
+    21.8,
+    19.5,
+    18.0,
+    16.4,
+    14.8,
+    14.4,
+    14.1,
+    15.2,
+    16.9,
+    19.0,
+    21.9,
+    25.6,
+    32.2,
+    39.2,
+    45.0,
+    49.8,
+    56.1,
+    60.9,
+    65.7,
+    68.7,
+    72.4,
+    76.3,
+    79.4,
+    82.0,
+    84.2,
+    84.5,
+    85.1,
+    85.8,
+    85.8,
+    85.3,
+    84.9,
+    84.3,
+    83.5,
+    81.7,
+    80.8,
+    79.5,
+    77.4,
+    74.2,
+    70.0,
+    66.2,
+    62.0,
+    59.9
+   ],
+   "highest": [
+    74.9,
+    74.7,
+    72.4,
+    67.3,
+    60.8,
+    56.8,
+    52.0,
+    48.8,
+    45.7,
+    43.0,
+    40.1,
+    38.3,
+    35.1,
+    33.0,
+    31.8,
+    31.6,
+    32.8,
+    34.6,
+    35.9,
+    37.5,
+    41.0,
+    45.3,
+    48.0,
+    52.3,
+    59.5,
+    65.7,
+    71.2,
+    73.8,
+    76.0,
+    79.4,
+    81.1,
+    86.6,
+    89.4,
+    90.6,
+    92.0,
+    94.6,
+    95.3,
+    92.7,
+    91.0,
+    92.3,
+    93.0,
+    96.2,
+    96.2,
+    94.2,
+    93.6,
+    91.8,
+    90.2,
+    87.5,
+    84.8,
+    82.1,
+    78.8,
+    74.5
+   ],
+   "latest_year": {
+    "year": 2026,
+    "values": [
+     52.7,
+     47.2,
+     42.4,
+     37.7,
+     34.5,
+     31.5,
+     29.1,
+     26.2,
+     23.5,
+     20.3,
+     18.0,
+     15.7,
+     13.1,
+     11.9,
+     12.4,
+     11.8,
+     12.1,
+     13.8,
+     12.8,
+     12.8,
+     13.8,
+     19.9,
+     25.1,
+     29.0,
+     33.5,
+     38.1,
+     42.7,
+     46.0,
+     51.0,
+     54.3,
+     58.6,
+     62.8,
+     66.2,
+     68.4,
+     71.8,
+     73.1,
+     74.3,
+     74.6,
+     74.1
+    ]
+   }
+  },
+  "plants_by_catchment": [
+   {
+    "catchment_id": 3004,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Bitsch",
+      "run_of_river": false,
+      "turbine_power_mw": 340.0,
+      "expected_production_gwh_per_year": 770.3
+     },
+     {
+      "name": "Moerel Aletsch",
+      "run_of_river": true,
+      "turbine_power_mw": 43.2,
+      "expected_production_gwh_per_year": 74.6
+     }
+    ]
+   },
+   {
+    "catchment_id": 3003,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Loetschen",
+      "run_of_river": true,
+      "turbine_power_mw": 122.0,
+      "expected_production_gwh_per_year": 339.3
+     },
+     {
+      "name": "Wiler Kippel",
+      "run_of_river": true,
+      "turbine_power_mw": 5.2,
+      "expected_production_gwh_per_year": 13.9
+     },
+     {
+      "name": "Blatten 1 Runeja",
+      "run_of_river": true,
+      "turbine_power_mw": 0.5,
+      "expected_production_gwh_per_year": 3.0
+     },
+     {
+      "name": "Blatten 2 Fuxloch",
+      "run_of_river": true,
+      "turbine_power_mw": 2.05,
+      "expected_production_gwh_per_year": 6.8
+     },
+     {
+      "name": "Fafleralp",
+      "run_of_river": true,
+      "turbine_power_mw": 1.25,
+      "expected_production_gwh_per_year": 3.9
+     },
+     {
+      "name": "Breithorn Fafleralp",
+      "run_of_river": true,
+      "turbine_power_mw": 1.85,
+      "expected_production_gwh_per_year": 5.37
+     }
+    ]
+   },
+   {
+    "catchment_id": 4128,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Grimsel 1 Oberaar",
+      "run_of_river": false,
+      "turbine_power_mw": 34.0,
+      "expected_production_gwh_per_year": 72.0
+     },
+     {
+      "name": "Grimsel 1 Nachschubmaschine",
+      "run_of_river": false,
+      "turbine_power_mw": 32.0,
+      "expected_production_gwh_per_year": 47.0
+     },
+     {
+      "name": "Handeck 2 und 2a",
+      "run_of_river": false,
+      "turbine_power_mw": 218.0,
+      "expected_production_gwh_per_year": 328.5
+     },
+     {
+      "name": "Handeck 3",
+      "run_of_river": false,
+      "turbine_power_mw": 55.0,
+      "expected_production_gwh_per_year": 24.0
+     },
+     {
+      "name": "Innertkirchen 1 und 1a",
+      "run_of_river": false,
+      "turbine_power_mw": 394.0,
+      "expected_production_gwh_per_year": 767.8
+     }
+    ]
+   },
+   {
+    "catchment_id": 4022,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Innertkirchen 3",
+      "run_of_river": true,
+      "turbine_power_mw": 3.0,
+      "expected_production_gwh_per_year": 13.1
+     }
+    ]
+   },
+   {
+    "catchment_id": 3143,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Fieschertal",
+      "run_of_river": true,
+      "turbine_power_mw": 64.0,
+      "expected_production_gwh_per_year": 169.6
+     },
+     {
+      "name": "Wysswasser",
+      "run_of_river": true,
+      "turbine_power_mw": 3.1,
+      "expected_production_gwh_per_year": 9.5
+     }
+    ]
+   },
+   {
+    "catchment_id": 4006,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Kandergrund",
+      "run_of_river": true,
+      "turbine_power_mw": 19.0,
+      "expected_production_gwh_per_year": 101.8
+     }
+    ]
+   },
+   {
+    "catchment_id": 4134,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Kandersteg Dorf",
+      "run_of_river": true,
+      "turbine_power_mw": 1.03,
+      "expected_production_gwh_per_year": 5.06
+     }
+    ]
+   },
+   {
+    "catchment_id": 4020,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Stechelberg",
+      "run_of_river": true,
+      "turbine_power_mw": 4.6,
+      "expected_production_gwh_per_year": 22.6
+     },
+     {
+      "name": "Sandweidli Sousbach",
+      "run_of_river": true,
+      "turbine_power_mw": 11.3,
+      "expected_production_gwh_per_year": 30.5
+     }
+    ]
+   },
+   {
+    "catchment_id": 3124,
+    "match": "by plant name and location on the map, not checked with the operators",
+    "plants": [
+     {
+      "name": "Baltschieder",
+      "run_of_river": true,
+      "turbine_power_mw": 0.33,
+      "expected_production_gwh_per_year": 1.38
+     }
+    ]
+   }
+  ]
+ }
+}

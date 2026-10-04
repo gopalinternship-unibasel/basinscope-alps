@@ -26,6 +26,10 @@ raw = json.load(open(B + "checks_raw.json", encoding="utf-8"))
 federal = json.load(open(B + "federal.json", encoding="utf-8")) if os.path.exists(B + "federal.json") else None
 # snow and ice per year, the then/now scene pair and glacier thinning: written by fetch_satellite_series.py
 satellite = json.load(open(B + "satellite.json", encoding="utf-8")) if os.path.exists(B + "satellite.json") else None
+# optional inputs of the Energy sheet, the test of the risk rule and the Glacier size control: written by fetch_energy.py,
+# fetch_hindcast.py and fetch_glacier_path.py
+opt = lambda f: json.load(open(B + f, encoding="utf-8")) if os.path.exists(B + f) else None
+energy, hindcast, glacier_path = opt("energy.json"), opt("hindcast.json"), opt("glacier_path.json")
 
 # ---- protected-area hits from the federal geodata API (queried 3 Oct 2026, 250 m around each point)
 KEY = {
@@ -77,6 +81,9 @@ if federal:
     snap["federal"] = federal
 if satellite:
     snap["satellite"] = satellite
+for key, val in (("energy", energy), ("hindcast", hindcast), ("glacierPath", glacier_path)):
+    if val:
+        snap[key] = val
 geo_small = {k: geo[k] for k in ("W", "H", "cE", "cN", "poly")}
 dump = lambda o: json.dumps(o, separators=(",", ":"), ensure_ascii=False)
 IMG = {"__RELIEF__": "base_relief.webp", "__DEM__": "base_dem.webp", "__LOGO__": "logo.webp"}
@@ -93,6 +100,11 @@ SPACE = B + "sat/" if os.path.isdir(B + "sat") else SITE + "assets/sat/"
 SPACE_PICS = sorted(f for f in os.listdir(SPACE) if f.endswith(".webp")) if os.path.isdir(SPACE) else []
 SPACE_V = hashlib.sha1(b"".join(open(SPACE + f, "rb").read() for f in SPACE_PICS)).hexdigest()[:8]
 TITLE = "<title>BasinScope Alps</title>\n"
+# fonts and the geotiff.js library: the self-hosted site serves its own copies (fetch_vendor.py), so that a visitor's browser calls no
+# third party for them. The page on claude.ai and the single-file copy keep the Google Fonts link.
+GOOGLE_FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700'
+                '&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap">')
+OWN = {"fonts": "fonts/fonts.css", "lib": "vendor/geotiff.js"}
 
 
 def src(f):
@@ -117,15 +129,18 @@ def page(mode, inline_images):
         have = mode == "site" and os.path.exists(src(f))
         out = out.replace(k, ((PUBLIC if inline_images else "") + versioned(f)) if have else "")
     out = out.replace("__SAT_DATE__", SAT_DATE)
+    own = mode == "site" and not inline_images
+    out = out.replace("__FONTS__", f'<link rel="stylesheet" href="{versioned(OWN["fonts"])}">' if own and os.path.exists(src(OWN["fonts"])) else GOOGLE_FONTS)
+    out = out.replace("__GEOTIFF__", ((PUBLIC if inline_images else "") + versioned(OWN["lib"])) if mode == "site" and os.path.exists(src(OWN["lib"])) else "https://cdn.jsdelivr.net/npm/geotiff@2.1.3/dist-browser/geotiff.js")
     out = out.replace("__SPACE_DIR__", ((PUBLIC if inline_images else "") + "assets/sat/") if mode == "site" and satellite and SPACE_PICS else "").replace("__SPACE_V__", SPACE_V)
-    assert "/*__" not in out and not any(k in out for k in list(IMG) + list(LAYERS) + ["__MODE__", "__SAT_DATE__", "__SPACE_DIR__", "__SPACE_V__"]), "placeholder left"
+    assert "/*__" not in out and not any(k in out for k in list(IMG) + list(LAYERS) + ["__MODE__", "__SAT_DATE__", "__SPACE_DIR__", "__SPACE_V__", "__FONTS__", "__GEOTIFF__"]), "placeholder left"
     return out
 
 
 def document(body):
     assert body.startswith(TITLE)  # in a full document the title belongs in the head
     return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' + TITLE +
-            '<meta name="description" content="BasinScope Alps: a digital twin of the Jungfrau-Aletsch glacier region. Where glacier meltwater could be stored, with live federal river and weather data, a five-day risk outlook and an open data API.">\n'
+            '<meta name="description" content="BasinScope Alps: a digital twin of the Jungfrau-Aletsch glacier region. Where glacier meltwater could be stored, with live federal river and weather data, a five-day risk outlook, a hydropower stress test and an open data API.">\n'
             '<style>[hidden]{display:none!important}img{max-width:100%}</style>\n</head>\n<body>\n' + body[len(TITLE):] + '\n</body>\n</html>\n')
 
 
@@ -140,6 +155,11 @@ open(SITE + "index.html", "w", encoding="utf-8").write(document(page("site", Fal
 for f in list(IMG.values()) + list(LAYERS.values()):
     if os.path.exists(B + f):
         shutil.copyfile(B + f, SITE + "assets/" + f)
+for folder in ("fonts", "vendor"):  # the site's own copies of the fonts and of geotiff.js
+    if os.path.isdir(B + folder):
+        os.makedirs(SITE + "assets/" + folder, exist_ok=True)
+        for f in os.listdir(B + folder):
+            shutil.copyfile(B + folder + "/" + f, SITE + "assets/" + folder + "/" + f)
 if SPACE_PICS and os.path.abspath(SPACE) != os.path.abspath(SITE + "assets/sat"):
     os.makedirs(SITE + "assets/sat", exist_ok=True)
     for f in SPACE_PICS:

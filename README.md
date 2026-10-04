@@ -32,9 +32,10 @@ switches between them, and each sheet has its own address:
 | Overview | `#overview` | Headline numbers, the top of the shortlist, a guide to the other sheets |
 | Sites | `#sites` | Weights, map, ranked shortlist, the evidence card of the selected site |
 | Live now | `#live` | River discharge and mountain weather from the federal services |
-| Risk outlook | `#risk` | Five-day forecast of thaw and heavy precipitation, set against the hazard process areas mapped at each site |
+| Risk outlook | `#risk` | Five-day forecast of thaw and heavy precipitation, set against the hazard process areas mapped at each site; the same rule run over every day since March 2021 and four documented events |
 | Meltwater | `#water` | Seasonal runoff shift, where meltwater leaves, ice by elevation, the ten largest glaciers |
 | Satellite | `#satellite` | Sentinel-2 pictures of 2016 and 2026 to compare, for the whole area and around each site; snow and ice left at the end of each summer since 2015; glacier thinning measured from space; the latest satellite passes |
+| Energy | `#energy` | Stress test of the hydropower plants on the rivers of the nine catchments under the runoff scenario; the Swiss grid through the year; hydropower output against precipitation; filling of the storage lakes since 2000; net import per winter |
 | Business case | `#business` | Illustrative cost, energy and payback for a site, storage against glacier size, hydropower plants and dams near the site, energy held in Swiss reservoirs |
 | Method & sources | `#method` | Checks on the ranking, evidence layers, roll-out architecture, the Track 06 brief point by point, scope, limits and sources |
 
@@ -54,8 +55,9 @@ on load, every 5 minutes while the tab is visible (the forecast hourly), and whe
 | Zero-degree level and precipitation for the next five days at the 15 site locations | MeteoSwiss ICON-CH2 forecast, served by `api.open-meteo.com` (CC BY 4.0, free for non-commercial use) | several times a day |
 | The six latest Sentinel-2 passes over the study area: time, cloud share, true-colour picture | swissEO S2-SR, swisstopo: the catalogue and the cloud-optimised files on `data.geo.admin.ch` | a new mosaic 10 to 24 hours after each overpass, every two to three days; the page asks when the Satellite sheet is opened, at most every 30 minutes, or on "Check again" |
 
-The satellite files are read in the browser with [geotiff.js](https://geotiffjs.github.io/), which the page loads from `cdn.jsdelivr.net`
-the first time the Satellite sheet is opened. Only a small window of each file is fetched.
+The satellite files are read in the browser with [geotiff.js](https://geotiffjs.github.io/), which the site serves itself
+(`assets/vendor/geotiff.js`) and loads the first time the Satellite sheet is opened. Only a small window of each file is fetched.
+The fonts are served by the site as well (`assets/fonts/`), so a visitor's browser calls no third party except the forecast service.
 
 From the station temperatures the page fits a straight line against altitude and reports
 where it crosses 0 °C, and how much of the glacier area lies below that level.
@@ -91,6 +93,19 @@ The satellite evidence of the Satellite sheet is also made when the site is buil
 | Then and now pictures, whole area (30 m) and 4 km around each ranked site (10 m) | the scenes of 29 September 2016 and 27 September 2026 | true-colour pictures cut from the cloud-optimised files |
 | Glacier thinning 2000 to 2019, for the area and its largest glaciers | Hugonnet et al. 2021 (ASTER satellite stereo pictures), on Randolph Glacier Inventory 6.0 outlines | the 367 glaciers whose centre lies in the study area, area-weighted; 318 of them have a measurement |
 
+Three more inputs are read when the site is built:
+
+| What | Source | How it is used |
+|---|---|---|
+| Swiss grid records (`energy` in the dataset): electricity production by source (daily, since 2015), national consumption (daily), cross-border exchange (hourly, since 2017), filling of the storage lakes (weekly, since 2000) | Swiss Federal Office of Energy, energy dashboard files (Swissgrid figures); the files only allow the origin `map.geo.admin.ch` and are not updated daily, so this is a record, not a live feed | Energy sheet: mean month by month, hydropower output per year against the precipitation at Grimsel Hospiz (MeteoSwiss open data), net import per winter, reservoir filling by week |
+| Past forecasts (`hindcast`): zero-degree level and precipitation at the 15 site locations for every day since 23 March 2021 | Forecast archive of Open-Meteo (CC BY 4.0); it serves the best model it has for each date | Risk outlook: the page applies its two thresholds to every past day, counts the days marked per year and sets four documented events against them |
+| Glacier area by year to 2100 (`glacierPath`), as a share of today's, for RCP2.6, 4.5 and 8.5 | OGGM standard projections v1.6.1, CMIP5 runs, Randolph Glacier Inventory region 11 (Central Europe), median and range over 10 to 11 climate models | The Glacier size control shows the year a size stands for and offers the size that matches the chosen runoff period |
+
+The stress test on the Energy sheet matches 21 hydropower plants to the nine catchments by name and location on the map
+(`CHAIN` in `pipeline/fetch_energy.py`). That match is ours and has not been checked with the operators. A run-of-river plant follows
+the monthly runoff up to its turbine capacity; a storage plant is shown by the energy of the water that reaches it. Every plant is
+scaled so that the reference runoff of 1981–2010 gives its expected production in the SFOE statistics.
+
 Avalanches are left out: the federal index map only models avalanches that start in forest.
 The hazard shares are an indication for a hazard assessment. They are not part of the score.
 
@@ -107,6 +122,9 @@ page at `api/` and an OpenAPI 3.0 description at `api/v1/openapi.json`. No key, 
 | `api/v1/catchments.json`, `api/v1/catchments/{id}.json` | Hydro-CH2018 catchments and their monthly runoff scenarios |
 | `api/v1/glaciers.json`, `api/v1/exits.json`, `api/v1/elevation-bands.json` | Glaciers, meltwater exits, area by elevation |
 | `api/v1/hydropower-plants.json`, `api/v1/dams.json`, `api/v1/reservoir-storage.json` | Hydropower plants and dams in the map extent, energy held in Swiss reservoirs |
+| `api/v1/grid.json` | Swiss grid records behind the Energy sheet, and the plants matched to each catchment |
+| `api/v1/glacier-path.json` | Glacier area by year to 2100 as a share of today's, per emissions path (Alps-wide glacier model) |
+| `api/v1/risk-hindcast.json` | Zero-degree level, precipitation and rain per site for every day since March 2021, and the events the risk rule is tested against |
 | `api/v1/satellite.json` | Snow and ice left at the end of each summer since 2015, the two scenes behind the then and now pictures, glacier thinning measured from space |
 
 Each site also carries `hazard_index_percent`, the mapped share of its 250 m square for each hazard process.
@@ -122,13 +140,17 @@ The page, the dataset and the API are generated by the scripts in `pipeline/`:
 python pipeline/fetch_federal.py pipeline      # hazard maps, plants, dams, reservoir storage
 python pipeline/fetch_satellite.py pipeline    # Sentinel-2 base map (needs rasterio)
 python pipeline/fetch_satellite_series.py pipeline   # Satellite sheet: yearly snow and ice, then and now pictures, glacier thinning (needs rasterio)
+python pipeline/fetch_energy.py pipeline       # Energy sheet: Swiss grid records, station climate, plants per catchment
+python pipeline/fetch_hindcast.py pipeline     # Risk outlook: past forecasts since 2021 and the documented events
+python pipeline/fetch_glacier_path.py pipeline # Glacier size control: glacier area by year from a published glacier model
+python pipeline/fetch_vendor.py pipeline       # the site's own copies of the fonts and of geotiff.js
 python pipeline/build.py pipeline .            # index.html, data/dataset.json, api/
 ```
 
 `pipeline/template.html` is the dashboard's source. `pipeline/build/` holds the inputs: the 15 sites and context
 figures of the terrain analysis (`base.json`), the map georeference (`geo.json`), the Hydro-CH2018 runoff scenarios
 (`hydro.json`), the raw answers of the protected-area check (`checks_raw.json`) and the outputs of the fetch scripts
-(`federal.json`, `base_s2.json`, `satellite.json`). The pictures the fetch scripts write are kept in `assets/` only. The terrain analysis itself
+(`federal.json`, `base_s2.json`, `satellite.json`, `energy.json`, `hindcast.json`, `glacier_path.json`). The pictures the fetch scripts write are kept in `assets/` only. The terrain analysis itself
 (GRASS `r.watershed` and `r.lake` on swissALTI3D) was run separately and is described on the Method & sources sheet.
 
 ## Limits
@@ -140,8 +162,9 @@ figures of the terrain analysis (`base.json`), the map georeference (`geo.json`)
 - Expert reviews recorded on this page are kept in the visitor's browser only.
   The version published on claude.ai keeps them in a shared database instead.
 - Map backgrounds and layers are static images, not live map tiles.
-- The risk thresholds are not calibrated, and glacier collapse and avalanches are not covered.
-- The energy side stops at the plants, the dams and the national reservoir storage: the grid is not modelled.
+- The risk thresholds are tested against past forecasts and four documented events, not calibrated: at the default setting the rule marks about 80 days a year as Watch and about two as Elevated. Glacier collapse and avalanches are not covered.
+- The energy side is a first-order stress test of 21 plants and a set of grid records. Power lines, the market and pumping are not modelled, and the grid figures are not a live feed.
+- The years of the Glacier size control come from an Alps-wide model run. One shrink rate is applied to all glaciers of the area; Jungfrau–Aletsch holds the largest glaciers of the Alps, which respond more slowly, so the years are early.
 - The yearly snow and ice figure is what stays white at the end of summer, not a glacier area: it misses debris-covered ice
   and ice in deep shadow, includes snow fields outside the glaciers, and 2017 has no clear scene. Four of the eleven yearly values rest on a single scene.
 - Glacier thinning is net ice loss on the glacier outlines of 2003. It is not the total meltwater, and it ends in 2019.
@@ -157,3 +180,6 @@ Hazard index maps: SilvaProtect-CH and potential permafrost distribution, FOEN.
 Hydropower plants, dams and reservoir storage: Swiss Federal Office of Energy.
 Satellite pictures and scenes: swissEO S2-SR, © swisstopo, contains modified Copernicus Sentinel data 2015–2026.
 Glacier thinning: Hugonnet et al. 2021, Nature 592, doi:10.1038/s41586-021-03436-z, on Randolph Glacier Inventory 6.0 outlines.
+Grid records: Swiss Federal Office of Energy, energy dashboard (Swissgrid figures). Station climate: MeteoSwiss open data.
+Glacier area by year: OGGM standard projections v1.6.1 (Maussion et al. 2019). Past forecasts: Open-Meteo (CC BY 4.0).
+Fonts: Barlow Semi Condensed, IBM Plex Mono, Source Sans 3 (SIL Open Font License). geotiff.js (MIT licence).

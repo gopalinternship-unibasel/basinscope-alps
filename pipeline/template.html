@@ -1,6 +1,5 @@
 <title>BasinScope Alps</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+__FONTS__
 <style>
 /* Layout: an operations console organised like a workbook. A strip of sheet tabs under the title bar picks one
    sheet at a time; one control row scopes every sheet; the Sites sheet is the map-centred workspace. */
@@ -9,7 +8,7 @@
   --bar:#0F2F3A; --bar-ink:#EAF4F6; --bar-ink-2:#A5C0C8; --brand:#34C6D0;
   --accent:#0B74B5; --accent-ink:#FFFFFF; --accent-wash:#E2EFF8;
   --cls-a:#19B3BD; --cls-b:#F0B93A; --cls-c:#E5675F; --cls-ink:#06242B; --cand:#5A45C9;
-  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --neutral-bar:#C6D3D8;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#5A45C9; --neutral-bar:#C6D3D8;
   --good-ink:#0B6F4F; --warn-ink:#855600; --crit-ink:#A3312B;
   --map-chip:rgba(255,255,255,.92);
   --shadow:0 1px 2px rgba(14,42,51,.06),0 10px 28px rgba(14,42,51,.07);
@@ -22,7 +21,7 @@
   --bar:#06141A; --bar-ink:#EAF4F6; --bar-ink-2:#9DB8C0; --brand:#34C6D0;
   --accent:#58B8EF; --accent-ink:#04202C; --accent-wash:#123849;
   --cls-a:#19B3BD; --cls-b:#F0B93A; --cls-c:#E5675F; --cls-ink:#06242B; --cand:#9C8CF2;
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --neutral-bar:#2E4B56;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#7b68d9; --neutral-bar:#2E4B56;
   --good-ink:#62D4AA; --warn-ink:#F2C45A; --crit-ink:#F3938C;
   --map-chip:rgba(12,32,40,.9);
   --shadow:none; color-scheme:dark;
@@ -32,7 +31,7 @@
   --bar:#06141A; --bar-ink:#EAF4F6; --bar-ink-2:#9DB8C0; --brand:#34C6D0;
   --accent:#58B8EF; --accent-ink:#04202C; --accent-wash:#123849;
   --cls-a:#19B3BD; --cls-b:#F0B93A; --cls-c:#E5675F; --cls-ink:#06242B; --cand:#9C8CF2;
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --neutral-bar:#2E4B56;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#7b68d9; --neutral-bar:#2E4B56;
   --good-ink:#62D4AA; --warn-ink:#F2C45A; --crit-ink:#F3938C;
   --map-chip:rgba(12,32,40,.9);
   --shadow:none; color-scheme:dark;
@@ -396,6 +395,21 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
 @media (max-width:860px){
   .cmpwrap{grid-template-columns:minmax(0,1fr)}
 }
+/* energy sheet, and the trigger rule tested against the past */
+table.hc{min-width:640px}
+table.hc td{vertical-align:top;padding:7px 6px}
+table.hc th:nth-child(2),table.hc td:nth-child(2){text-align:left}
+table.hc td.ev{font-family:var(--f-body);font-size:13.5px;text-align:left;white-space:normal}
+table.hc td.ev:nth-child(2){min-width:250px}
+table.hc td.ev span{display:block;font-size:12px;color:var(--ink-3)}
+table.hc td.ev a{font-size:12px}
+table.hc td.ev:last-child{text-align:right}
+table.st{min-width:560px}
+table.st th:nth-child(2),table.st td:nth-child(2){text-align:left}
+table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--ink-2);white-space:normal;min-width:180px}
+.evn{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--ink-2);font:600 10px/1 var(--f-mono);color:var(--ink)}
+.icelink{align-self:flex-start;border:0;background:none;padding:0;color:var(--accent);cursor:pointer;font-size:12.5px;text-decoration:underline;text-align:left}
+.icelink:disabled{color:var(--ink-3);text-decoration:none;cursor:default}
 @media (max-width:1240px){
   .work{grid-template-columns:minmax(0,1fr) 340px}
   .map{aspect-ratio:4/3}
@@ -449,6 +463,7 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
     <button role="tab" id="tab-risk" data-sheet="risk" aria-controls="sheet-risk" aria-selected="false" tabindex="-1">Risk outlook</button>
     <button role="tab" id="tab-water" data-sheet="water" aria-controls="sheet-water" aria-selected="false" tabindex="-1">Meltwater</button>
     <button role="tab" id="tab-satellite" data-sheet="satellite" aria-controls="sheet-satellite" aria-selected="false" tabindex="-1">Satellite</button>
+    <button role="tab" id="tab-energy" data-sheet="energy" aria-controls="sheet-energy" aria-selected="false" tabindex="-1">Energy</button>
     <button role="tab" id="tab-business" data-sheet="business" aria-controls="sheet-business" aria-selected="false" tabindex="-1">Business case</button>
     <button role="tab" id="tab-method" data-sheet="method" aria-controls="sheet-method" aria-selected="false" tabindex="-1">Method &amp; sources</button>
   </div>
@@ -491,6 +506,7 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
     <div class="ctl">
       <label class="eyebrow" for="ice">Glacier size <span>share of today's area</span></label>
       <div class="melt"><input type="range" id="ice" min="0" max="100" step="5" value="100"><output id="ice-out" for="ice"></output></div>
+      <button class="icelink" id="ice-link" hidden></button>
     </div>
   </section>
 
@@ -502,7 +518,7 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
         <div class="twin">
           <div><span class="eyebrow">1 · State now</span><b>What the region is doing today</b><p id="twin-now"></p></div>
           <div><span class="eyebrow">2 · Model</span><b>How the region is built</b><p>Terrain, 299 glaciers and the paths their meltwater takes, 15 basin sites with their volumes, federal protection inventories, hazard index maps, hydropower plants and dams.</p></div>
-          <div><span class="eyebrow">3 · What-if</span><b>How it responds</b><p>Runoff period, emissions path, dam height, melt rate and glacier size. Change one in the row above and the ranking, the storage and the business case follow.</p></div>
+          <div><span class="eyebrow">3 · What-if</span><b>How it responds</b><p>Runoff period, emissions path, dam height, melt rate and glacier size. Change one in the row above and the ranking, the storage, the hydropower stress test and the business case follow.</p></div>
         </div>
       </div>
     </section>
@@ -523,6 +539,7 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
             <button data-go="risk"><span class="nm"><b>Risk outlook</b><span><strong>Where could melt and rain set something off?</strong> <span id="guide-risk"></span></span></span><i aria-hidden="true">→</i></button>
             <button data-go="water"><span class="nm"><b>Meltwater</b><span><strong>Where is the water, and when does it come?</strong> Where the ice sits, where its water leaves the area and how the season shifts.</span></span><i aria-hidden="true">→</i></button>
             <button data-go="satellite" id="guide-satellite"><span class="nm"><b>Satellite</b><span><strong>What does it look like from space?</strong> Sentinel-2 scenes ten years apart, the snow and ice left each summer since 2015, and how fast satellites measured the glaciers thinning.</span></span><i aria-hidden="true">→</i></button>
+            <button data-go="energy" id="guide-energy"><span class="nm"><b>Energy</b><span><strong>How does the grid feel the climate?</strong> A stress test of the hydropower on these rivers under the runoff scenario, wet and dry years on the Swiss grid record, and the winter gap the basins would work against.</span></span><i aria-hidden="true">→</i></button>
             <button data-go="business"><span class="nm"><b>Business case</b><span><strong>Does it pay, and does the water last?</strong> An illustrative cost, energy and payback estimate for a site, and its storage as the glaciers shrink.</span></span><i aria-hidden="true">→</i></button>
             <button data-go="method"><span class="nm"><b>Method &amp; sources</b><span><strong>Can the result be trusted?</strong> Checks on the ranking, the evidence not assessed yet, the limits of the method and the data sources.</span></span><i aria-hidden="true">→</i></button>
           </div>
@@ -635,7 +652,7 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
           <div class="ctl"><label class="eyebrow" for="rk-rain">Heavy precipitation counts from</label><div class="melt"><input type="range" id="rk-rain" min="10" max="80" step="5" value="30"><output id="rk-rain-out" for="rk-rain"></output></div></div>
         </div>
         <div class="stats3" id="fc-stats"></div>
-        <p class="sub"><strong>A prototype of trigger conditions, not a warning service.</strong> A day is marked Watch when one condition is met and Elevated when thaw and heavy precipitation fall together. The two thresholds are the team's first setting and are not calibrated against past events. Forecast: MeteoSwiss ICON-CH2 through Open-Meteo, at the 15 site locations, refreshed hourly. Official warnings: <a href="https://www.natural-hazards.ch/" target="_blank" rel="noopener">natural-hazards.ch</a>.</p>
+        <p class="sub"><strong>A prototype of trigger conditions, not a warning service.</strong> A day is marked Watch when one condition is met and Elevated when thaw and heavy precipitation fall together. The two thresholds are the team's first setting. The card further down runs them over every day since March 2021 and four documented events; that is a test, not a calibration. Forecast: MeteoSwiss ICON-CH2 through Open-Meteo, at the 15 site locations, refreshed hourly. Official warnings: <a href="https://www.natural-hazards.ch/" target="_blank" rel="noopener">natural-hazards.ch</a>.</p>
       </div>
     </section>
     <div class="card">
@@ -643,6 +660,16 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
       <div class="body">
         <div class="tblwrap"><table class="rank risk" id="rk-tbl"></table></div>
         <p class="sub" id="rk-rule"></p>
+      </div>
+    </div>
+    <div class="card" id="hc-card" hidden>
+      <header><h2>Tested against the past<span class="hint">what the rule above would have said on every day since <span id="hc-from"></span></span></h2><span class="sub" id="hc-sub"></span></header>
+      <div class="body">
+        <div class="legend" id="hc-legend"></div>
+        <div class="chart" id="hc-chart" style="position:relative"></div>
+        <div class="stats3" id="hc-stats"></div>
+        <div class="tblwrap"><table class="mini hc" id="hc-tbl"></table></div>
+        <p class="sub"><strong>A test, not a calibration.</strong> Every day is judged on the forecast for that day, kept in the forecast archive of Open-Meteo, and worked out as in the outlook above: the highest zero-degree level and the mean precipitation of the 15 site locations. The archive serves the best model it has for each date, so the model changes over the years; the live outlook uses MeteoSwiss ICON-CH2. A thunderstorm cell that misses the 15 points is not seen, and a multi-day event is judged on its strongest day. Four events cannot set a threshold: they show that the rule reacts on days that mattered, and the yearly counts show how often it reacts on days that did not. <span id="hc-move"></span></p>
       </div>
     </div>
     <div class="card">
@@ -763,6 +790,58 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
     </section>
   </div>
 
+  <div class="sheet" id="sheet-energy" role="tabpanel" aria-labelledby="tab-energy" hidden>
+    <section class="card">
+      <header><h2>Stress test: the hydropower on these rivers<span class="hint" id="st-hint"></span></h2><span class="sub" id="st-sub"></span></header>
+      <div class="body">
+        <div class="legend" id="st-legend"></div>
+        <div class="chart" id="st-chart" style="position:relative"></div>
+        <div class="stats3" id="st-stats"></div>
+        <p class="sub" id="st-note"></p>
+        <div class="tblwrap"><table class="mini rivers st" id="st-tbl"></table></div>
+        <p class="sub"><strong>A first-order stress test, not a plant model.</strong> The plants are matched to the nine catchments by name and location on the map; the match is this dashboard's and has not been checked with the operators. A run-of-river plant follows the monthly runoff up to its turbine capacity. A storage plant is shown by the energy of the water that reaches it, because its reservoir decides when that water is turbined. Every plant is scaled so that the reference runoff of 1981–2010 gives its expected production in the SFOE statistics. Runoff: Hydro-CH2018 at the gauge of each catchment, ensemble median; the range takes the lowest and the highest model month by month. Plants further down a river also take water from below the gauge, and pumping is left out.</p>
+      </div>
+    </section>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>The Swiss grid through the year</h2><span class="sub" id="mix-sub"></span></header>
+        <div class="body">
+          <div class="legend" id="mix-legend"></div>
+          <div class="chart" id="mix-chart" style="position:relative"></div>
+          <div class="stats3" id="mix-stats"></div>
+          <p class="sub" id="mix-note"></p>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>Wet and dry years on the grid</h2><span class="sub" id="wet-sub"></span></header>
+        <div class="body">
+          <div class="chart" id="wet-chart" style="position:relative"></div>
+          <div class="stats3" id="wet-stats"></div>
+          <p class="sub" id="wet-note"></p>
+        </div>
+      </div>
+    </section>
+    <section class="grid2">
+      <div class="card">
+        <header><h2>The storage lakes through the year</h2><span class="sub" id="fill-sub"></span></header>
+        <div class="body">
+          <div class="legend" id="fill-legend"></div>
+          <div class="chart" id="fill-chart" style="position:relative"></div>
+          <div class="stats3" id="fill-stats"></div>
+          <p class="sub">Energy held in the Swiss storage lakes as a share of what they can hold, week by week. The lakes are drawn down over the winter and refilled by snow and ice melt; how early and how fast they refill differs from year to year. Source: SFOE, filling of the storage lakes, read when this page was built.</p>
+        </div>
+      </div>
+      <div class="card">
+        <header><h2>The winter gap</h2><span class="sub">net electricity import, October to March</span></header>
+        <div class="body">
+          <div class="chart" id="win-chart" style="position:relative"></div>
+          <div class="stats3" id="win-stats"></div>
+          <p class="sub">Net import is imports minus exports, summed over the winter half-year. Source: SFOE energy dashboard, cross-border exchange (Swissgrid figures). The winter energy of the basins is the illustrative Trift scaling of the Business case sheet, for the new sites still in play with the settings above. Nuclear outages and prices move the winter balance as much as the weather does; the grid itself, its lines and its market, is not modelled.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <div class="sheet" id="sheet-business" role="tabpanel" aria-labelledby="tab-business" hidden>
     <section class="grid2">
       <div class="card">
@@ -783,7 +862,7 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
           <div class="legend" id="ice-legend"></div>
           <div class="chart" id="ice-chart" style="position:relative"></div>
           <div class="stats3" id="ice-stats"></div>
-          <p class="sub">In this scenario every glacier shrinks by the same share. Real retreat removes low-lying ice first, so a basin below a small, low glacier loses its supply sooner than shown. Move the Glacier size control at the top to apply a size to the whole dashboard.</p>
+          <p class="sub">In this scenario every glacier shrinks by the same share. Real retreat removes low-lying ice first, so a basin below a small, low glacier loses its supply sooner than shown. Move the Glacier size control at the top to apply a size to the whole dashboard.<span id="ice-path-note"></span></p>
         </div>
       </div>
     </section>
@@ -832,8 +911,8 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
           <div><span class="scope-tag">Shared</span><b>Decision interface</b><ul><li>This dashboard, reading the region's dataset</li><li>Live federal feeds asked from the browser</li><li>GIS, utilities and offices reading the API</li></ul></div>
         </div>
         <div class="cols2">
-          <ul class="does"><li>Every source already covers the whole country, so no new data has to be bought or collected</li><li>The dashboard and the API are static files: a federal or cantonal host can serve them as they are</li><li>Jungfrau–Aletsch is the first region, with 303 of the about 961 km² of Swiss glacier ice (SGI 2016)</li></ul>
-          <ul class="doesnt"><li>The terrain run has been done for this one region only and is not yet a repeatable job</li><li>Site names and the match to Hydro-CH2018 catchments are not automated yet</li><li>The forecast comes through Open-Meteo, free for non-commercial use: a federal service would read the MeteoSwiss open data itself</li></ul>
+          <ul class="does"><li>Every source already covers the whole country, so no new data has to be bought or collected</li><li>The dashboard and the API are static files: a federal or cantonal host can serve them as they are</li><li>Data sovereignty: the live measurements, maps and satellite scenes come straight from Swiss federal services, and no account, key or tracker stands between a visitor and the data</li><li>Jungfrau–Aletsch is the first region, with 303 of the about 961 km² of Swiss glacier ice (SGI 2016)</li></ul>
+          <ul class="doesnt"><li>The terrain run has been done for this one region only and is not yet a repeatable job</li><li>Site names and the match to Hydro-CH2018 catchments are not automated yet</li><li>The forecast comes through Open-Meteo, free for non-commercial use: a federal service would read the MeteoSwiss open data itself</li><li>This demonstration is hosted on GitHub Pages; the same files can move to a Swiss host unchanged</li></ul>
         </div>
       </div>
     </div>
@@ -861,6 +940,9 @@ table.passes tbody tr.sel{background:var(--accent-wash)}
               <li>Protected areas: federal inventories of floodplains, mires, mire landscapes, BLN, game reserves and UNESCO World Heritage (FOEN) and hydropower-waiver areas (SFOE), queried through the <a href="https://docs.geo.admin.ch/">geo.admin.ch API</a> on 3 Oct 2026 for a 250 m square around each point.</li>
               <li>Hazard process areas: SilvaProtect-CH (debris flow, rockfall, shallow landslide, 2006) and the map of potential permafrost distribution (2005), FOEN, read from the federal map service for a 250 m square around each site on <span id="src-fed"></span>. Index maps, valid to 1:50,000.</li>
               <li>Hydropower plants (WASTA statistics), dams under federal supervision and the filling level of the storage lakes: SFOE.</li>
+              <li>Energy sheet: electricity production by source, national consumption, cross-border exchange and the filling of the storage lakes from the <a href="https://www.energiedashboard.admin.ch/">SFOE energy dashboard</a> (Swissgrid figures); precipitation at Grimsel Hospiz and air temperature at Jungfraujoch from <a href="https://www.meteoswiss.admin.ch/services-and-publications/service/open-data.html">MeteoSwiss open data</a>. The match of plants to catchments is this dashboard's.</li>
+              <li>Years of the Glacier size control: <a href="https://docs.oggm.org/en/stable/download-projections.html">OGGM standard projections</a> v1.6.1 (Open Global Glacier Model, Maussion et al. 2019), CMIP5 runs, glacier area of Randolph Glacier Inventory region 11, Central Europe.</li>
+              <li>Test of the risk rule against the past: forecast archive of <a href="https://open-meteo.com/en/docs/historical-forecast-api">Open-Meteo</a> (CC BY 4.0); the events are linked in the table on the Risk outlook sheet.</li>
               <li>Five-day forecast: MeteoSwiss ICON-CH2, served by <a href="https://open-meteo.com/">Open-Meteo</a> (CC BY 4.0).<span id="src-sat" hidden> Satellite picture: swissEO S2-SR, swisstopo, from Copernicus Sentinel-2 data.</span></li>
               <li>Satellite sheet: Sentinel-2 scenes from <a href="https://www.swisstopo.admin.ch/en/satelliteimage-swisseo-s2-sr">swissEO S2-SR</a>, © swisstopo, contains modified Copernicus Sentinel data 2015–2026; snow and ice extent is this dashboard's own count on those scenes. Glacier thinning: <a href="https://doi.org/10.1038/s41586-021-03436-z">Hugonnet et al. 2021</a>, Nature 592, from ASTER satellite stereo pictures, on Randolph Glacier Inventory 6.0 outlines.</li>
               <li>Round-table reference: <a href="https://www.srf.ch/news/schweiz/runder-tisch-wasserkraft-15-wasserkraftwerke-sollen-realisiert-werden">SRF on the 15 hydropower projects</a>; <a href="https://grimselstrom.ch/wp-content/uploads/20240528_medienmitteilung_konzessionseinreichung_vergroesserung_grimselsee_final.pdf">KWO on the Grimsel enlargement</a>.</li>
@@ -891,6 +973,7 @@ const PROT = {floodplain:["Floodplain of national importance","Floodplain",2], m
 const protLevel = o => (o.prot||[]).reduce((m,h) => Math.max(m, PROT[h.k] ? PROT[h.k][2] : 0), 0);
 const strictHits = o => (o.prot||[]).filter(h => PROT[h.k] && PROT[h.k][2]===2);
 const uniq = a => [...new Set(a)];
+const atPlace = p => (/^(above|below) /.test(p) ? "" : "at ") + p;
 const CRIT = [
  {k:"vol", label:"Storage volume", w:35, help:"Usable volume: the smaller of basin volume and yearly meltwater. Each doubling adds the same points (0.25 Mio m³ = 0, 16 = 100)."},
  {k:"gap", label:"Late-summer gap covered", w:30, help:"Share of the catchment's July–September shortfall the basin could hold, for the period and emissions chosen above."},
@@ -1061,7 +1144,7 @@ function drawMap(){
 }
 
 /* ---------- sheets: one tab per question, like the sheets of a workbook ---------- */
-const SHEETS = ["overview","sites","live","risk","water","satellite","business","method"];
+const SHEETS = ["overview","sites","live","risk","water","satellite","energy","business","method"];
 const sheetOk = id => SHEETS.includes(id) && !$("tab-"+id).hidden;
 function showSheet(id, quiet){
   if (!sheetOk(id)) id = SHEETS[0];
@@ -1071,6 +1154,7 @@ function showSheet(id, quiet){
   if (id==="sites" && !mapFitted) fit();
   if (id==="risk") drawRisk(); // its chart takes the width of the open sheet
   if (id==="satellite") openSat(); // its pictures are fetched when the sheet is first opened
+  if (id==="energy") drawStress(); // its chart takes the width of the open sheet
   const box = $("tabs"), bt = $("tab-"+id), l = bt.offsetLeft, r = l + bt.offsetWidth;
   if (l < box.scrollLeft + 12) box.scrollLeft = l - 12; else if (r > box.scrollLeft + box.clientWidth - 12) box.scrollLeft = r - box.clientWidth + 12;
   if (quiet) return;
@@ -1228,7 +1312,7 @@ function noteFor(r){
    `- Weights: `+CRIT.map(c=>`${c.label} ${S.w[c.k]}`).join(", "),``,
    `## Site`,`- Type: ${TYPE[r.type]}, ${r.z} m a.s.l., ${r.valley}`,`- LV95 ${r.E} / ${r.N} (WGS84 ${lat.toFixed(4)} N, ${lon.toFixed(4)} E)`,
    `- Glacier upstream ${f1(r.gl)} km², meltwater ${vol(r.melt)} Mio m³ per year`,`- Basin volume ${f2(r.v10)} (10 m) / ${f2(r.v20)} (20 m) Mio m³, usable ${vol(r.usable)} Mio m³`,
-   `- Lake area ${r.lake} ha and dam length ~${r.dam} m at a 20 m dam`,`- Host catchment (matched by location): ${h.river} at ${h.place}, ${h.area} km², ${h.glac}% glacier`,``,
+   `- Lake area ${r.lake} ha and dam length ~${r.dam} m at a 20 m dam`,`- Host catchment (matched by location): ${h.river} ${atPlace(h.place)}, ${h.area} km², ${h.glac}% glacier`,``,
    `## Why`, ...reasons(r).map(t=>`- ${t}`), `- ${whyClass(r)}`,``,
    ...(r.type==="settlement" ? [] : [`## Business case (illustrative, scaled from the Trift project)`, `- Investment about CHF ${money(bizOf(r).inv)} m, winter energy about ${Math.round(bizOf(r).gwh)} GWh a year, value about CHF ${money(bizOf(r).val)} m a year at ${S.price} Rp./kWh, simple payback ${bizOf(r).pay==null ? "not reached" : "about " + years(bizOf(r).pay)}`, ``]),
    `## Protected areas within 250 m (federal inventories, checked ${PROT_AT})`, ...((r.prot||[]).filter(h=>PROT[h.k]).length ? r.prot.filter(h=>PROT[h.k]).map(h=>`- ${PROT[h.k][0]}: ${h.name}`) : [`- None of the checked inventories`]),``,
@@ -1262,7 +1346,7 @@ $("copy-csv").onclick = () => { const head = "rank,site,type,class,score,usable_
   let fb = $("csv-fb"); if (!fb){ fb = document.createElement("div"); fb.id="csv-fb"; $("copy-csv").parentNode.after(fb); } copyText([head,...lines].join("\n"), $("csv-msg"), fb); };
 
 /* ---------- seasonal runoff chart ---------- */
-function buildHcSelect(){ $("hc-select").innerHTML = `<option value="">Follow the selected site</option>` + Object.values(HYDRO).map(h=>`<option value="${h.id}">${esc(h.river)} at ${esc(h.place)}</option>`).join(""); if (S.hc && !HYDRO[S.hc]) S.hc = null; }
+function buildHcSelect(){ $("hc-select").innerHTML = `<option value="">Follow the selected site</option>` + Object.values(HYDRO).map(h=>`<option value="${h.id}">${esc(h.river)} ${esc(atPlace(h.place))}</option>`).join(""); if (S.hc && !HYDRO[S.hc]) S.hc = null; }
 buildHcSelect();
 $("hc-select").addEventListener("change", ev => { S.hc = ev.target.value ? +ev.target.value : null; render(); });
 $("hc-tbl-btn").addEventListener("click", () => { S.tbl = !S.tbl; render(); });
@@ -1364,12 +1448,15 @@ function drawIce(){
   const Wd = 640, Ht = 250, m = {l:42,r:16,t:16,b:30}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b;
   const top = Math.max(...pts.map(v => Math.max(v.all, v.one)), 1), step = top>20 ? 10 : (top>8 ? 5 : (top>3 ? 2 : 1)), ymax = Math.ceil(top/step)*step;
   const X = pc => m.l + (100-pc)/100*pw, Y = v => m.t + ph - v/ymax*ph;
-  $("ice-legend").innerHTML = `<span><i style="background:var(--s1)"></i>All new sites</span><span><i style="background:var(--ink-2)"></i>${esc(sel.name)}</span>`;
+  $("ice-legend").innerHTML = `<span><i style="background:var(--s1)"></i>All new sites</span><span><i style="background:var(--ink-2)"></i>${esc(sel.name)}</span>${GP ? `<span>Years along the top: glacier model, ${RCPL[S.rcp]}</span>` : ""}`;
   const box = $("ice-chart"); box.innerHTML = "";
   const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Usable storage in million cubic metres against the share of today's glacier area that remains"}, box);
   for (let v = 0; v <= ymax; v += step){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:v ? "var(--line-2)" : "var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = v; }
   svgEl("text", {x:m.l-6, y:m.t-5, "text-anchor":"end"}, sv).textContent = "Mio m³";
   [100,75,50,25,0].forEach(pc => svgEl("text", {x:X(pc), y:Ht-9, "text-anchor":pc===100 ? "start" : (pc===0 ? "end" : "middle")}, sv).textContent = pc===100 ? "100% (today)" : pc + "%");
+  const put = []; // a year label is left out where it would run into one already placed
+  if (GP) [2040,2060,2100,2080].forEach(yr => { const pc = gpShare(yr, S.rcp); if (pc==null || pc > 97 || put.some(v => Math.abs(v-pc) < 7)) return; put.push(pc);
+    svgEl("line", {x1:X(pc), x2:X(pc), y1:m.t-3, y2:m.t+ph, stroke:"var(--line)", "stroke-width":1}, sv); svgEl("text", {x:X(pc), y:m.t-6, "text-anchor":"middle"}, sv).textContent = yr; });
   const path = k => pts.map((v,i) => `${i?"L":"M"}${X(v.pc).toFixed(1)} ${Y(v[k]).toFixed(1)}`).join("");
   svgEl("path", {d:path("all") + `L${X(0)} ${Y(0)}L${X(100)} ${Y(0)}Z`, fill:"color-mix(in srgb,var(--s1) 13%,transparent)"}, sv);
   svgEl("path", {d:path("all"), fill:"none", stroke:"var(--s1)", "stroke-width":2, "stroke-linejoin":"round"}, sv);
@@ -1391,6 +1478,21 @@ function drawIce(){
   $("ice-stats").innerHTML = `<div class="stat"><b>${f1(cur.all)} Mio m³</b><span>usable at new sites with ${S.ice}% of today's glacier area${S.ice<100 ? ", against " + f1(base) + " today" : ""}</span></div>
     <div class="stat"><b>${need>100 ? Math.round(sel.gl*S.melt/sel.V*100) + "%" : Math.ceil(need) + "%"}</b><span>${need>100 ? "of the selected basin is all that today's glaciers fill in a year: water already limits it" : "of today's glacier area is what the selected basin needs to fill once a year"}</span></div>
     <div class="stat"><b>${Math.round(GLACIER_KM2*S.melt*S.ice/100)} Mio m³</b><span>meltwater a year in this scenario, at ${f2(S.melt)} m of melt</span></div>`;
+}
+/* ---------- a time axis for the Glacier size control: the share of today's glacier area that a published glacier model leaves, year by year
+   (OGGM standard projections, Alps-wide, median of the climate models; fetch_glacier_path.py) ---------- */
+const GP = SNAP.glacierPath || null;
+const gpShare = (yr, rcp) => { const i = GP ? GP.years.indexOf(yr) : -1; return i < 0 ? null : GP.rcp[rcp].med[i]; };
+const gpYear = (pc, rcp) => { if (!GP) return null; const a = GP.rcp[rcp].med; for (let i = 1; i < a.length; i++) if (a[i] <= pc) return GP.years[i]; return null; };
+$("ice-link").addEventListener("click", ev => { S.ice = +ev.currentTarget.dataset.to; render(); });
+function drawIcePath(){
+  const yr = GP && S.ice < 100 ? gpYear(S.ice, S.rcp) : null, lk = $("ice-link"), sh = GP && S.period!=="ref" ? gpShare(+S.period, S.rcp) : null;
+  $("ice-out").textContent = S.ice + "%" + (S.ice===100 ? " (today)" : (GP ? (yr ? " ≈ " + yr : " after 2100") : ""));
+  $("ice-out").title = GP && S.ice < 100 ? (yr ? `A glacier model leaves ${S.ice}% of today's Alpine glacier area around ${yr} under ${RCPL[S.rcp]}` : `Under ${RCPL[S.rcp]} the glacier model keeps more than ${S.ice}% until 2100`) : "";
+  lk.hidden = sh==null;
+  if (sh!=null){ const to = clamp(Math.round(sh/5)*5, 0, 100), on = to===S.ice; lk.dataset.to = to; lk.disabled = on;
+    lk.textContent = on ? `Glacier model for ${PERIOD[S.period]}, ${RCPL[S.rcp]}` : `Set to the glacier model for ${PERIOD[S.period]}, ${RCPL[S.rcp]}: ${to}%`; }
+  $("ice-path-note").textContent = GP ? ` The years are when a published glacier model (OGGM standard projections, median of ${GP.rcp[S.rcp].n} climate models) leaves that share of today's glacier area across the Alps under ${RCPL[S.rcp]}. Jungfrau–Aletsch holds the largest glaciers of the Alps, which respond more slowly than small ones, so read the years as early.` : "";
 }
 /* illustrative business case, scaled from the KWO Trift project as in the team's pitch */
 const TRIFT = {chf:387, vol:85, gwh:215};
@@ -1503,8 +1605,57 @@ function drawRisk(){
   $("rk-rule").textContent = `Share of the 250 m square around each site that the index map marks. A process counts from ${HAZ_MIN}% (bold). `
     + (out ? `Watch: ${S.rkRain} mm of rain or more in one day at a site with debris flow or landslide mapped, or a zero-degree level of ${swiss(S.rkZ)} m or more over a site with rockfall or permafrost mapped. Elevated: both. Rain is precipitation that falls while the zero-degree level is more than ${SNOWLINE_M} m above the site. ` : (live ? "" : "The forecast runs on the self-hosted page only. "))
     + `Sites are in the order of the current ranking; pick one to open its evidence.`;
+  drawHindcast();
 }
-window.addEventListener("resize", () => { if (S.sheet==="risk") drawRisk(); });
+/* ---------- the trigger rule run over past forecasts (fetch_hindcast.py): per day the same two figures the live outlook works with ---------- */
+const HC = SNAP.hindcast || null, HC_DAYS = [], HC_SITE = {};
+if (HC){ const t0 = Date.parse(HC.from + "T12:00:00Z"); for (let i = 0; i < HC.z.length; i++) HC_DAYS.push(new Date(t0 + i*864e5).toISOString().slice(0,10));
+  Object.keys(HC.site).forEach(id => { const o = HC_SITE[id] = {}; HC.site[id].forEach(([i,v]) => { o[i] = v/10; }); }); }
+const doy366 = k => (Date.UTC(2024, +k.slice(5,7)-1, +k.slice(8,10)) - Date.UTC(2024,0,1))/864e5 + 1; // day of the year on a leap-year frame, so the months line up across years
+function hcDay(i){
+  const z = HC.z[i] < 0 ? null : HC.z[i]*10, rain = HC.rain[i]/10, thaw = z!=null && z >= S.rkZ, wet = rain >= S.rkRain;
+  let top = 0, hit = 0;
+  SITES.forEach(s => { const mm = (HC_SITE[s.id] || {})[i] || 0; if (mm > top) top = mm;
+    if (((hazOn(s.id,"debris") || hazOn(s.id,"landslide")) && mm >= S.rkRain) || ((hazOn(s.id,"rockfall") || hazOn(s.id,"permafrost")) && thaw)) hit++; });
+  return {k:HC_DAYS[i], z, rain, thaw, wet, cls: thaw && wet ? "elev" : (thaw || wet ? "watch" : "calm"), top, hit};
+}
+function drawHindcast(){
+  $("hc-card").hidden = !HC; if (!HC) return;
+  const n = HC.z.length, cls = new Uint8Array(n), yrs = {}; let thawOnly = 0;
+  for (let i = 0; i < n; i++){ const thaw = HC.z[i]*10 >= S.rkZ, wet = HC.rain[i]/10 >= S.rkRain, c = thaw && wet ? 2 : (thaw || wet ? 1 : 0), y = HC_DAYS[i].slice(0,4), o = yrs[y] || (yrs[y] = {w:0, e:0});
+    cls[i] = c; if (c===2) o.e++; else if (c===1){ o.w++; if (thaw) thawOnly++; } }
+  const years = Object.keys(yrs).sort(), span = n/365.25, W = years.reduce((t,y) => t + yrs[y].w, 0), E = years.reduce((t,y) => t + yrs[y].e, 0);
+  $("hc-from").textContent = isoDay(HC.from); $("hc-sub").textContent = `${swiss(n)} days of past forecasts, up to ${isoDay(HC.to)}`;
+  $("hc-move").textContent = MODE==="site" ? "Move the two thresholds above and the test runs again." : "";
+  $("hc-legend").innerHTML = `<span><i class="box" style="background:var(--warn-ink);opacity:.6"></i>Watch: one condition met</span><span><i class="box" style="background:var(--crit-ink)"></i>Elevated: thaw and heavy precipitation together</span><span><b class="evn">1</b>Documented event, see the table</span>`;
+  const evs = HC.events.map((e,j) => { const a = HC_DAYS.indexOf(e.from), b = HC_DAYS.indexOf(e.to); if (a < 0 || b < a) return null;
+    let best = null; for (let i = a; i <= b; i++){ const d = hcDay(i), rk = d.cls==="elev" ? 2 : (d.cls==="watch" ? 1 : 0); if (!best || rk > best.rk || (rk===best.rk && d.rain > best.d.rain)) best = {rk, d}; }
+    return {e, j, d:best.d}; }).filter(Boolean);
+  const box = $("hc-chart"); box.innerHTML = "";
+  /* drawn at the width of its card, like the forecast chart; one row per year, one tick per marked day */
+  const Wd = clamp(Math.round(box.clientWidth) || 760, 420, 1400), rowH = 38, m = {l:44,r:12,t:8,b:22}, pw = Wd-m.l-m.r, Ht = m.t + years.length*rowH + m.b, w = pw/366, X = d => m.l + (d-0.5)*w, base = r => m.t + (r+1)*rowH - 5;
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Days the trigger rule marks Watch or Elevated, year by year, with the documented events"}, box);
+  MON.forEach((mo,j) => { const x = X(doy366("2024-" + String(j+1).padStart(2,"0") + "-01")) - w/2; svgEl("line", {x1:x, x2:x, y1:m.t, y2:Ht-m.b, stroke:"var(--line-2)", "stroke-width":1}, sv); if (Wd >= 620 || j%2===0) svgEl("text", {x:x+3, y:Ht-7}, sv).textContent = mo; });
+  years.forEach((y,r) => { svgEl("line", {x1:m.l, x2:Wd-m.r, y1:base(r), y2:base(r), stroke:"var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-8, y:base(r)-5, "text-anchor":"end"}, sv).textContent = y; });
+  [1,2].forEach(c => { for (let i = 0; i < n; i++){ if (cls[i]!==c) continue; const k = HC_DAYS[i], r = years.indexOf(k.slice(0,4)), hh = c===2 ? 20 : 9, ww = c===2 ? Math.max(w, 3) : Math.max(w, 1);
+    svgEl("rect", {x:X(doy366(k)) - ww/2, y:base(r)-hh, width:ww, height:hh, fill:c===2 ? "var(--crit-ink)" : "var(--warn-ink)", "fill-opacity":c===2 ? 1 : .6}, sv); } });
+  evs.forEach(v => { const r = years.indexOf(v.d.k.slice(0,4)), x = X(doy366(v.d.k)), y = base(r) - 27;
+    svgEl("circle", {cx:x, cy:y, r:7, fill:"var(--panel)", stroke:"var(--ink-2)", "stroke-width":1.5}, sv); svgEl("text", {x, y:y+3.5, "text-anchor":"middle", style:"fill:var(--ink);font-weight:600;font-size:10px"}, sv).textContent = v.j+1; });
+  const hit = svgEl("rect", {x:m.l, y:m.t, width:pw, height:years.length*rowH, fill:"transparent"}, sv), ht = document.createElement("div"); ht.className = "tip"; ht.hidden = true; box.appendChild(ht);
+  hit.addEventListener("pointermove", ev => { const bb = sv.getBoundingClientRect(), kx = Wd/bb.width, px = (ev.clientX-bb.left)*kx, py = (ev.clientY-bb.top)*kx, r = clamp(Math.floor((py-m.t)/rowH), 0, years.length-1), dd = clamp(Math.floor((px-m.l)/w) + 1, 1, 366);
+    const dt = new Date(Date.UTC(2024, 0, dd)), key = years[r] + "-" + String(dt.getUTCMonth()+1).padStart(2,"0") + "-" + String(dt.getUTCDate()).padStart(2,"0"), i = HC_DAYS.indexOf(key);
+    if (i < 0){ ht.hidden = true; return; } const o = hcDay(i);
+    ht.innerHTML = `<b>${isoDay(key)}</b> · ${OUT[o.cls]}<br>Zero-degree level: <span class="num">${o.z==null ? "–" : swiss(o.z) + " m"}</span><br>Precipitation: <span class="num">${f1(o.rain)} mm</span>${o.top ? `<br>Wettest site: <span class="num">${f1(o.top)} mm of rain</span>` : ""}`;
+    ht.hidden = false; ht.style.left = clamp(px/kx + (px > Wd*0.65 ? -ht.offsetWidth-12 : 12), 0, bb.width-ht.offsetWidth) + "px"; ht.style.top = clamp(py/kx - 24, 0, Math.max(0, bb.height-ht.offsetHeight)) + "px"; });
+  hit.addEventListener("pointerleave", () => { ht.hidden = true; });
+  const wx = evs.filter(v => v.e.cover!==false), caught = wx.filter(v => v.d.cls!=="calm").length, elevN = wx.filter(v => v.d.cls==="elev").length;
+  $("hc-stats").innerHTML = `<div class="stat"><b>${f1(E/span)} a year</b><span>days marked Elevated: ${E} in ${f1(span)} years</span></div>
+    <div class="stat"><b>${Math.round(W/span)} a year</b><span>days marked Watch${W ? `, ${Math.round(thawOnly/W*100)}% of them on thaw alone` : ""}. A warm summer day is enough, so Watch by itself says little</span></div>
+    <div class="stat"><b>${caught} of ${wx.length}</b><span>documented weather events fell on a day the rule marks${wx.length ? `, ${elevN} of them Elevated` : ""}</span></div>`;
+  $("hc-tbl").innerHTML = `<thead><tr><th>#</th><th>Event</th><th>Zero-degree level</th><th>Precipitation</th><th>Wettest site</th><th>The rule says</th></tr></thead><tbody>` + evs.map(v => { const d = v.d, e = v.e;
+    return `<tr><td>${v.j+1}</td><td class="ev"><b>${esc(e.name)}</b><span>${e.from===e.to ? isoDay(e.from) : isoDay(e.from) + " to " + isoDay(e.to)} · ${esc(e.where)} · ${esc(e.kind)}</span><a href="${esc(e.src)}" target="_blank" rel="noopener">${esc(e.by)}</a></td><td>${d.z==null ? "–" : swiss(d.z) + " m"}</td><td>${f1(d.rain)} mm</td><td>${d.top ? f1(d.top) + " mm" : "under " + HC.minMm + " mm"}</td><td class="ev"><b class="tag ${d.cls}">${OUT[d.cls]}</b><span>on ${isoDay(d.k)}${d.hit ? `, ${d.hit} of ${SITES.length} sites flagged` : ""}</span></td></tr>`; }).join("") + `</tbody>`;
+}
+window.addEventListener("resize", () => { if (S.sheet==="risk") drawRisk(); if (S.sheet==="energy" && EN) drawStress(); });
 $("rk-tbl").addEventListener("keydown", ev => { const tr = ev.target.closest("tr[data-id]"); if (tr && (ev.key==="Enter"||ev.key===" ")){ ev.preventDefault(); tr.click(); } });
 
 /* ---------- energy context on the Business case sheet ---------- */
@@ -1539,6 +1690,176 @@ function drawEnergy(){
     <div class="stat"><b>${swiss(low[1])} GWh</b><span>the low point of the past year, on ${isoDay(low[0])}, before the melt season refilled them</span></div>
     <div class="stat"><b>${share==null ? "–" : "+" + (share>=0.1 ? f2(share) : share.toFixed(3)) + "%"}</b><span>${share==null ? "No basin is proposed at a settlement." : `what the ≈ ${b.gwh>=10 ? Math.round(b.gwh) : f1(b.gwh)} GWh of ${esc(r.name)} would add to that capacity`}</span></div>`;
 }
+
+/* ---------- energy sheet: Swiss grid records (SFOE, read by fetch_energy.py) and a stress test of the hydropower plants on the rivers
+   of the nine catchments under the runoff scenario chosen in the control row ---------- */
+const EN = SNAP.energy || null, HOURS = [744,672,744,720,744,720,744,744,720,744,720,744];
+if (!EN){ $("tab-energy").hidden = true; $("guide-energy").hidden = true; }
+const sumOf = a => a.reduce((t,v) => t+v, 0);
+const fmtG = v => Math.abs(v) >= 100 ? swiss(v) : (Math.abs(v) >= 10 ? String(Math.round(v)) : f1(v));
+const pctOf = (a,b) => b ? sg((a/b-1)*100) + "%" : "–";
+/* a column with a rounded top, square at the baseline */
+const colPath = (x,y,w,h) => { h = Math.max(0, h); const r = Math.min(3, w/2, h); return `M${x} ${y+h}V${y+r}a${r} ${r} 0 0 1 ${r} ${-r}h${w-2*r}a${r} ${r} 0 0 1 ${r} ${r}V${y+h}z`; };
+function chartTip(box){ const ht = document.createElement("div"); ht.className = "tip"; ht.hidden = true; box.appendChild(ht); return ht; }
+function placeTip(ht, box, x){ ht.hidden = false; ht.style.left = clamp(x - ht.offsetWidth/2, 0, box.offsetWidth - ht.offsetWidth) + "px"; ht.style.top = "0px"; }
+/* A run-of-river plant follows the monthly runoff up to its turbine capacity. The factor k is set so that the reference runoff gives the
+   plant's expected yearly production; where capacity cannot explain that production, output simply follows the water. */
+function rorFit(p, ref){
+  const cap = HOURS.map(h => p.mw*h/1000), base = p.gwh/sumOf(ref), tot = k => ref.reduce((t,q,i) => t + Math.min(k*q, cap[i]), 0);
+  if (!(p.mw > 0) || sumOf(cap) <= p.gwh*1.02) return {k:base, cap:null};
+  let lo = base, hi = base*64; for (let n = 0; n < 40; n++){ const mid = (lo+hi)/2; if (tot(mid) < p.gwh) lo = mid; else hi = mid; }
+  return {k:hi, cap};
+}
+function stress(st){
+  const z = () => Array(12).fill(0), T = {ref:{ror:z(), sto:z()}, scn:{ror:z(), sto:z()}, lo:z(), hi:z(), spill:{ref:0, scn:0}, rows:[]};
+  Object.keys(EN.chain).forEach(hc => { const h = HYDRO[hc]; if (!h) return;
+    const q = h.q[st.rcp], ref = q.ref.med, sc = st.period==="ref" ? q.ref : q[st.period], row = {h, plants:EN.chain[hc], gwh:0, ref:z(), scn:z()};
+    EN.chain[hc].forEach(p => { row.gwh += p.gwh;
+      const fit = p.ror ? rorFit(p, ref) : {k:p.gwh/sumOf(ref), cap:null}, out = a => a.map((v,i) => fit.cap ? Math.min(fit.k*v, fit.cap[i]) : fit.k*v), over = a => fit.cap ? sumOf(a.map((v,i) => Math.max(0, fit.k*v - fit.cap[i]))) : 0;
+      const r = out(ref), s2 = out(sc.med), l = out(sc.min), u = out(sc.max), key = p.ror ? "ror" : "sto";
+      for (let i = 0; i < 12; i++){ T.ref[key][i] += r[i]; T.scn[key][i] += s2[i]; T.lo[i] += l[i]; T.hi[i] += u[i]; row.ref[i] += r[i]; row.scn[i] += s2[i]; }
+      T.spill.ref += over(ref); T.spill.scn += over(sc.med); });
+    T.rows.push(row); });
+  T.refTot = T.ref.ror.map((v,i) => v + T.ref.sto[i]); T.scnTot = T.scn.ror.map((v,i) => v + T.scn.sto[i]);
+  return T;
+}
+function drawStress(){
+  if (!EN) return;
+  const T = stress(S), isRef = S.period==="ref", box = $("st-chart"); box.innerHTML = "";
+  const nP = sumOf(T.rows.map(r => r.plants.length)), exp = sumOf(T.rows.map(r => r.gwh)), scnName = `${PERIOD[S.period]}, ${RCPL[S.rcp]}`;
+  $("st-sub").textContent = `${nP} plants on ${T.rows.length} rivers, ${swiss(exp)} GWh a year expected (SFOE)`;
+  $("st-hint").textContent = isRef ? "reference period 1981–2010: pick a later runoff period above" : `${scnName}, against 1981–2010`;
+  $("st-legend").innerHTML = `<span><i class="box" style="background:var(--ink-3)"></i>Reference 1981–2010</span>` + (isRef ? "" : `<span><i class="box" style="background:var(--s1)"></i>${scnName}</span><span><i style="background:var(--ink-2)"></i>Range of the climate models</span>`)
+    + `<span>Solid part of a column: output of run-of-river plants. Paler part: energy of the water reaching storage plants.</span>`;
+  const Wd = clamp(Math.round(box.clientWidth) || 760, 420, 1400), Ht = Wd > 900 ? 300 : 260, m = {l:46,r:12,t:20,b:26}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b;
+  const top = Math.max(...T.refTot, ...(isRef ? [0] : T.hi)), step = top > 500 ? 100 : (top > 200 ? 50 : (top > 80 ? 20 : 10)), ymax = Math.ceil(top/step)*step || step;
+  const slot = pw/12, bw = Math.min(24, slot*(isRef ? 0.5 : 0.3)), Y = v => m.t + ph - v/ymax*ph, CX = i => m.l + (i+0.5)*slot;
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Monthly energy of the hydropower plants on the rivers of the nine catchments, reference period against the chosen scenario, in gigawatt hours"}, box);
+  for (let v = 0; v <= ymax; v += step){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:v ? "var(--line-2)" : "var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = v; }
+  svgEl("text", {x:m.l-6, y:m.t-8, "text-anchor":"end"}, sv).textContent = "GWh";
+  /* one column: run-of-river output below, storage inflow above it in a paler tone, a 2 px gap between the two */
+  const col = (x, ror, sto, color) => { const y1 = Y(ror), y2 = Y(ror+sto);
+    if (sto > 0){ svgEl("rect", {x, y:y1, width:bw, height:Math.max(0, Y(0)-y1), fill:color}, sv); if (y1-2 > y2) svgEl("path", {d:colPath(x, y2, bw, y1-2-y2), fill:color, "fill-opacity":.45}, sv); }
+    else svgEl("path", {d:colPath(x, y1, bw, Y(0)-y1), fill:color}, sv); };
+  const ht = chartTip(box);
+  MON.forEach((mo,i) => { svgEl("text", {x:CX(i), y:Ht-8, "text-anchor":"middle"}, sv).textContent = mo;
+    if (isRef) col(CX(i)-bw/2, T.ref.ror[i], T.ref.sto[i], "var(--ink-3)");
+    else { col(CX(i)-bw-1, T.ref.ror[i], T.ref.sto[i], "var(--ink-3)"); col(CX(i)+1, T.scn.ror[i], T.scn.sto[i], "var(--s1)");
+      svgEl("line", {x1:CX(i)+1+bw/2, x2:CX(i)+1+bw/2, y1:Y(T.lo[i]), y2:Y(T.hi[i]), stroke:"var(--ink-2)", "stroke-width":1.5}, sv); }
+    const hit = svgEl("rect", {x:m.l+i*slot, y:m.t, width:slot, height:ph, fill:"transparent"}, sv);
+    hit.addEventListener("pointerenter", () => { ht.innerHTML = `<b>${mo}</b><br>Reference: <span class="num">${fmtG(T.refTot[i])} GWh</span>` + (isRef ? "" : `<br>${scnName}: <span class="num">${fmtG(T.scnTot[i])} GWh</span> <span class="num">(${fmtG(T.lo[i])} to ${fmtG(T.hi[i])})</span>`)
+      + `<br>Run-of-river: <span class="num">${fmtG(T.ref.ror[i])}${isRef ? "" : " → " + fmtG(T.scn.ror[i])} GWh</span><br>Storage inflow: <span class="num">${fmtG(T.ref.sto[i])}${isRef ? "" : " → " + fmtG(T.scn.sto[i])} GWh</span>`;
+      placeTip(ht, box, CX(i)*box.offsetWidth/Wd); });
+    hit.addEventListener("pointerleave", () => { ht.hidden = true; }); });
+  const R = sumOf(T.refTot), Sc = sumOf(T.scnTot), sm = a => a[6]+a[7]+a[8], sp = a => a[3]+a[4]+a[5], wi = a => a[9]+a[10]+a[11]+a[0]+a[1]+a[2];
+  $("st-stats").innerHTML = isRef
+    ? `<div class="stat"><b>${fmtG(R)} GWh</b><span>a year in the reference period: what the SFOE statistics expect of these plants</span></div>
+       <div class="stat"><b>${Math.round(sm(T.refTot)/R*100)}%</b><span>of it arrives in July to September, when the glaciers melt</span></div>
+       <div class="stat"><b>${Math.round(wi(T.refTot)/R*100)}%</b><span>arrives in the winter half-year, October to March, when Switzerland imports electricity</span></div>`
+    : `<div class="stat"><b>${pctOf(Sc, R)}</b><span>over the year: ${fmtG(Sc)} GWh against ${fmtG(R)} in the reference period</span></div>
+       <div class="stat"><b>${sg(sm(T.scnTot)-sm(T.refTot))} GWh</b><span>in July to September (${pctOf(sm(T.scnTot), sm(T.refTot))}). Run-of-river plants, which have no reservoir to move water, account for ${sg(sm(T.scn.ror)-sm(T.ref.ror))} GWh of it</span></div>
+       <div class="stat"><b>${sg(wi(T.scnTot)-wi(T.refTot))} GWh</b><span>in the winter half-year, October to March (${pctOf(wi(T.scnTot), wi(T.refTot))})</span></div>`;
+  $("st-note").textContent = isRef ? "" : `April to June ${sp(T.scnTot) >= sp(T.refTot) ? "gain" : "lose"} ${fmtG(Math.abs(sp(T.scnTot)-sp(T.refTot)))} GWh as the melt season shifts. At the run-of-river plants the water above turbine capacity is worth ${fmtG(T.spill.scn)} GWh a year, against ${fmtG(T.spill.ref)} in the reference period: water that arrives when the turbines are already full runs past.`;
+  $("st-tbl").innerHTML = `<thead><tr><th>River</th><th>Plants on its water</th><th>Expected a year</th>${isRef ? "<th>July to September</th>" : "<th>Year</th><th>July to September</th>"}</tr></thead><tbody>`
+    + T.rows.slice().sort((p,q) => q.gwh-p.gwh).map(r => `<tr><td><b>${esc(r.h.river)}</b><span>${esc(atPlace(r.h.place))}, ${r.h.glac}% glacier</span></td><td>${r.plants.map(p => esc(p.n)).join(", ")}</td><td>${fmtG(r.gwh)} GWh</td>`
+      + (isRef ? `<td>${Math.round(sm(r.ref)/sumOf(r.ref)*100)}% of the year</td>` : `<td>${pctOf(sumOf(r.scn), sumOf(r.ref))}</td><td>${pctOf(sm(r.scn), sm(r.ref))}</td>`) + `</tr>`).join("") + `</tbody>`;
+}
+/* the Swiss grid through the year: mean production by source and national consumption, per calendar month */
+function drawMix(){
+  const M = EN.mix, K = [["ror","Run-of-river","var(--s1)"],["sto","Storage hydropower","var(--s3)"],["nuc","Nuclear","var(--s4)"],["oth","Solar, thermal, wind","var(--s2)"]];
+  const val = (k,i) => k==="oth" ? M.src.pv[i] + M.src.oth[i] : M.src[k][i], prod = MON.map((_,i) => sumOf(K.map(k => val(k[0], i))));
+  const Wd = 640, Ht = 260, m = {l:48,r:12,t:20,b:26}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b, ymax = Math.ceil(Math.max(...M.use, ...prod)/2000)*2000, slot = pw/12, bw = Math.min(24, slot*0.5), Y = v => m.t + ph - v/ymax*ph, CX = i => m.l + (i+0.5)*slot;
+  $("mix-sub").textContent = `mean of ${M.years[0]}–${M.years[1]}, GWh a month`;
+  $("mix-legend").innerHTML = K.map(k => `<span><i class="box" style="background:${k[2]}"></i>${k[1]}</span>`).join("") + `<span><i style="background:var(--ink)"></i>National consumption</span>`;
+  const box = $("mix-chart"); box.innerHTML = "";
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Mean Swiss electricity production by source and national consumption for each calendar month, in gigawatt hours"}, box), ht = chartTip(box);
+  for (let v = 0; v <= ymax; v += 2000){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:v ? "var(--line-2)" : "var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = swiss(v); }
+  svgEl("text", {x:m.l-6, y:m.t-8, "text-anchor":"end"}, sv).textContent = "GWh";
+  MON.forEach((mo,i) => { let acc = 0; svgEl("text", {x:CX(i), y:Ht-8, "text-anchor":"middle"}, sv).textContent = mo;
+    K.forEach((k,j) => { const v = val(k[0], i), y0 = Y(acc) - (j ? 2 : 0), y1 = Y(acc+v);
+      if (j===K.length-1) svgEl("path", {d:colPath(CX(i)-bw/2, y1, bw, y0-y1), fill:k[2]}, sv); else svgEl("rect", {x:CX(i)-bw/2, y:y1, width:bw, height:Math.max(0, y0-y1), fill:k[2]}, sv); acc += v; }); });
+  svgEl("path", {d:M.use.map((v,i) => `${i?"L":"M"}${CX(i).toFixed(1)} ${Y(v).toFixed(1)}`).join(""), fill:"none", stroke:"var(--ink)", "stroke-width":2, "stroke-linejoin":"round", "stroke-linecap":"round"}, sv);
+  MON.forEach((mo,i) => { const hit = svgEl("rect", {x:m.l+i*slot, y:m.t, width:slot, height:ph, fill:"transparent"}, sv);
+    hit.addEventListener("pointerenter", () => { ht.innerHTML = `<b>${mo}</b><br>Consumption: <span class="num">${swiss(M.use[i])} GWh</span><br>Production: <span class="num">${swiss(prod[i])} GWh</span><br>${M.imp[i] >= 0 ? "Net import" : "Net export"}: <span class="num">${swiss(Math.abs(M.imp[i]))} GWh</span><br>` + K.map(k => `${k[1]}: <span class="num">${swiss(val(k[0], i))}</span>`).join("<br>");
+      placeTip(ht, box, CX(i)*box.offsetWidth/Wd); });
+    hit.addEventListener("pointerleave", () => { ht.hidden = true; }); });
+  const wi = [9,10,11,0,1,2], su = [3,4,5,6,7,8], pick = (a,ix) => sumOf(ix.map(i => a[i])), hyd = sumOf(M.src.ror) + sumOf(M.src.sto);
+  $("mix-stats").innerHTML = `<div class="stat"><b>${Math.round(hyd/sumOf(prod)*100)}%</b><span>of the electricity produced in Switzerland comes from hydropower</span></div>
+    <div class="stat"><b>${swiss(pick(M.imp, wi))} GWh</b><span>net import in an average winter half-year, October to March</span></div>
+    <div class="stat"><b>${swiss(-pick(M.imp, su))} GWh</b><span>net export in an average summer half-year, when rivers and reservoirs run full</span></div>`;
+  $("mix-note").textContent = `Where the line runs above the columns the country imports, less the electricity used for pumping. Source: Swiss Federal Office of Energy, energy dashboard files (Swissgrid figures), read when this page was built; the files reach ${isoDay(EN.to.prod)} for production and ${isoDay(EN.to.use)} for consumption. Not a live feed.`;
+}
+/* climate variability on the grid record: yearly hydropower output against the precipitation of the hydrological year at one station in the area */
+function drawWet(){
+  const H = EN.hydro.map(h => ({y:h[0], ror:h[1]/1000, sto:h[2]/1000, twh:(h[1]+h[2])/1000, mm:h[3]})), Wd = 640, Ht = 260, m = {l:44,r:20,t:20,b:38}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b;
+  const x0 = Math.floor(Math.min(...H.map(h => h.mm))/200)*200, x1 = Math.ceil(Math.max(...H.map(h => h.mm))/200)*200, y0 = Math.floor(Math.min(...H.map(h => h.twh))/5)*5, y1 = Math.ceil(Math.max(...H.map(h => h.twh))/5)*5;
+  const X = v => m.l + (v-x0)/(x1-x0)*pw, Y = v => m.t + ph - (v-y0)/(y1-y0)*ph;
+  $("wet-sub").textContent = `Swiss hydropower output, ${H[0].y}–${H[H.length-1].y}`;
+  const box = $("wet-chart"); box.innerHTML = "";
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Yearly Swiss hydropower output against the precipitation at Grimsel Hospiz in the twelve months to September"}, box), ht = chartTip(box);
+  for (let v = y0; v <= y1; v += 5){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:"var(--line-2)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = v; }
+  for (let v = x0; v <= x1; v += 200) svgEl("text", {x:X(v), y:m.t+ph+15, "text-anchor":"middle"}, sv).textContent = swiss(v);
+  svgEl("text", {x:m.l-6, y:m.t-8, "text-anchor":"end"}, sv).textContent = "TWh";
+  svgEl("text", {x:m.l+pw/2, y:Ht-6, "text-anchor":"middle"}, sv).textContent = "mm of precipitation at Grimsel Hospiz, October to September";
+  const mx = sumOf(H.map(h => h.mm))/H.length, my = sumOf(H.map(h => h.twh))/H.length, sl = sumOf(H.map(h => (h.mm-mx)*(h.twh-my)))/sumOf(H.map(h => (h.mm-mx)**2)), fit = v => my + sl*(v-mx);
+  svgEl("line", {x1:X(x0), x2:X(x1), y1:Y(fit(x0)), y2:Y(fit(x1)), stroke:"var(--ink-3)", "stroke-width":1.5}, sv);
+  const lo = H.reduce((p,q) => q.twh < p.twh ? q : p), hi = H.reduce((p,q) => q.twh > p.twh ? q : p), last = H[H.length-1];
+  H.forEach(h => { svgEl("circle", {cx:X(h.mm), cy:Y(h.twh), r:5, fill:"var(--s1)", stroke:"var(--panel)", "stroke-width":2}, sv);
+    if (h===lo || h===hi || h===last) svgEl("text", {x:X(h.mm)+(X(h.mm) > Wd-70 ? -9 : 9), y:Y(h.twh)+4, "text-anchor":X(h.mm) > Wd-70 ? "end" : "start", style:"fill:var(--ink-2)"}, sv).textContent = h.y;
+    const hit = svgEl("circle", {cx:X(h.mm), cy:Y(h.twh), r:13, fill:"transparent"}, sv);
+    hit.addEventListener("pointerenter", () => { ht.innerHTML = `<b>${h.y}</b><br>Hydropower: <span class="num">${f1(h.twh)} TWh</span><br>Run-of-river: <span class="num">${f1(h.ror)}</span>, storage: <span class="num">${f1(h.sto)}</span><br>Precipitation: <span class="num">${swiss(h.mm)} mm</span>`; placeTip(ht, box, X(h.mm)*box.offsetWidth/Wd); });
+    hit.addEventListener("pointerleave", () => { ht.hidden = true; }); });
+  $("wet-stats").innerHTML = `<div class="stat"><b>${f1(lo.twh)} to ${f1(hi.twh)} TWh</b><span>a year: from the dry ${lo.y} to the wet ${hi.y}, a swing of ${Math.round((hi.twh/lo.twh-1)*100)}%</span></div>
+    <div class="stat"><b>r = ${f2(EN.r.rain)}</b><span>between a year's output and the precipitation at Grimsel Hospiz, over ${H.length} years</span></div>
+    <div class="stat"><b>r = ${f2(EN.r.temp)}</b><span>with the summer air temperature at Jungfraujoch: no visible link</span></div>`;
+  $("wet-note").textContent = `Each dot is a year: Swiss hydropower output (run-of-river and storage plants, Swissgrid figures from the SFOE) against the precipitation at the MeteoSwiss station Grimsel Hospiz in the twelve months to September. One station stands in for the Alps and ${H.length} years are few, so the link is loose. On the national grid wet and dry years show more clearly than warm and cool summers.`;
+}
+/* filling of the storage lakes: this year against the range of every year since 2000 */
+function drawFill(){
+  const F = EN.fill, now = F.now[1], Wd = 640, Ht = 250, m = {l:40,r:14,t:18,b:26}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b, X = w => m.l + w/51*pw, Y = v => m.t + ph - v/100*ph;
+  $("fill-sub").textContent = `per cent of capacity, ${F.now[0]} against ${F.years[0]}–${F.years[1]}`;
+  $("fill-legend").innerHTML = `<span><i class="box" style="background:color-mix(in srgb,var(--s1) 22%,transparent)"></i>Lowest to highest, ${F.years[0]}–${F.years[1]}</span><span><i style="background:var(--ink-3)"></i>Median</span><span><i style="background:var(--s1)"></i>${F.now[0]}</span>`;
+  const box = $("fill-chart"); box.innerHTML = "";
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Filling of the Swiss storage lakes through the year, this year against the range since 2000, in per cent of capacity"}, box), ht = chartTip(box);
+  for (let v = 0; v <= 100; v += 25){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:v ? "var(--line-2)" : "var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = v + "%"; }
+  MON.forEach((mo,j) => svgEl("text", {x:X((doy366("2024-" + String(j+1).padStart(2,"0") + "-15")-1)/7), y:Ht-8, "text-anchor":"middle"}, sv).textContent = mo);
+  const line = a => a.map((v,w) => `${w?"L":"M"}${X(w).toFixed(1)} ${Y(v).toFixed(1)}`).join("");
+  svgEl("path", {d:line(F.hi) + F.lo.map((v,w) => `L${X(w).toFixed(1)} ${Y(v).toFixed(1)}`).reverse().join("") + "Z", fill:"color-mix(in srgb,var(--s1) 16%,transparent)"}, sv);
+  svgEl("path", {d:line(F.med), fill:"none", stroke:"var(--ink-3)", "stroke-width":1.5, "stroke-linejoin":"round"}, sv);
+  const pts = now.map((v,w) => v==null ? null : [w,v]).filter(Boolean), end = pts[pts.length-1];
+  svgEl("path", {d:pts.map((p,i) => `${i?"L":"M"}${X(p[0]).toFixed(1)} ${Y(p[1]).toFixed(1)}`).join(""), fill:"none", stroke:"var(--s1)", "stroke-width":2, "stroke-linejoin":"round"}, sv);
+  svgEl("circle", {cx:X(end[0]), cy:Y(end[1]), r:4.5, fill:"var(--s1)", stroke:"var(--panel)", "stroke-width":2}, sv);
+  const cross = svgEl("line", {y1:m.t, y2:m.t+ph, stroke:"var(--ink-3)", "stroke-width":1, visibility:"hidden"}, sv), hit = svgEl("rect", {x:m.l, y:m.t, width:pw, height:ph, fill:"transparent"}, sv);
+  hit.addEventListener("pointermove", ev => { const bb = sv.getBoundingClientRect(), k = Wd/bb.width, w = clamp(Math.round(((ev.clientX-bb.left)*k - m.l)/pw*51), 0, 51), d = new Date(Date.UTC(2024, 0, 1 + w*7));
+    cross.setAttribute("x1", X(w)); cross.setAttribute("x2", X(w)); cross.setAttribute("visibility", "visible");
+    ht.innerHTML = `<b>Week of ${d.getUTCDate()} ${MON[d.getUTCMonth()]}</b><br>${F.now[0]}: <span class="num">${now[w]==null ? "–" : f1(now[w]) + "%"}</span><br>Median: <span class="num">${f1(F.med[w])}%</span><br>Range: <span class="num">${f1(F.lo[w])} to ${f1(F.hi[w])}%</span>`; placeTip(ht, box, X(w)/k); });
+  hit.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); ht.hidden = true; });
+  const low = pts.reduce((p,q) => q[1] < p[1] ? q : p), wide = F.hi.map((v,w) => [w, v - F.lo[w]]).reduce((p,q) => q[1] > p[1] ? q : p)[0], wd = new Date(Date.UTC(2024, 0, 1 + wide*7)), dm = end[1] - F.med[end[0]];
+  $("fill-stats").innerHTML = `<div class="stat"><b>${Math.round(end[1])}%</b><span>full on ${isoDay(F.to)}: ${Math.abs(dm) < 0.5 ? "at" : f1(Math.abs(dm)) + " points " + (dm < 0 ? "below" : "above")} the median of that week</span></div>
+    <div class="stat"><b>${Math.round(low[1])}%</b><span>at this year's low point; in that week the lakes have held between ${Math.round(F.lo[low[0]])}% and ${Math.round(F.hi[low[0]])}% since ${F.years[0]}</span></div>
+    <div class="stat"><b>${Math.round(F.lo[wide])} to ${Math.round(F.hi[wide])}%</b><span>the widest spread between years, in the week of ${wd.getUTCDate()} ${MON[wd.getUTCMonth()]}: how far the lakes are drawn down differs from winter to winter</span></div>`;
+}
+/* net import per winter half-year, and what the shortlisted basins would add */
+function drawWinter(){
+  const Wn = EN.winter, Wd = 640, Ht = 250, m = {l:48,r:12,t:22,b:26}, pw = Wd-m.l-m.r, ph = Ht-m.t-m.b, vals = Wn.map(w => w[1]);
+  const y1 = Math.ceil(Math.max(...vals, 0)/2000)*2000, y0 = Math.floor(Math.min(...vals, 0)/2000)*2000, Y = v => m.t + ph - (v-y0)/(y1-y0)*ph, slot = pw/Wn.length, bw = Math.min(24, slot*0.5), CX = i => m.l + (i+0.5)*slot;
+  const box = $("win-chart"); box.innerHTML = "";
+  const sv = svgEl("svg", {viewBox:`0 0 ${Wd} ${Ht}`, role:"img", "aria-label":"Net electricity import of Switzerland per winter half-year, in gigawatt hours"}, box), ht = chartTip(box);
+  for (let v = y0; v <= y1; v += 2000){ svgEl("line", {x1:m.l, x2:Wd-m.r, y1:Y(v), y2:Y(v), stroke:v ? "var(--line-2)" : "var(--line)", "stroke-width":1}, sv); svgEl("text", {x:m.l-6, y:Y(v)+4, "text-anchor":"end"}, sv).textContent = swiss(v).replace("-", "−"); }
+  svgEl("text", {x:m.l-6, y:m.t-10, "text-anchor":"end"}, sv).textContent = "GWh";
+  Wn.forEach((w,i) => { const v = w[1], x = CX(i)-bw/2;
+    svgEl("text", {x:CX(i), y:Ht-8, "text-anchor":"middle"}, sv).textContent = w[0].slice(2);
+    if (v >= 0) svgEl("path", {d:colPath(x, Y(v), bw, Y(0)-Y(v)), fill:"var(--s1)"}, sv); else svgEl("rect", {x, y:Y(0), width:bw, height:Y(v)-Y(0), fill:"var(--s1)", "fill-opacity":.45}, sv);
+    svgEl("text", {x:CX(i), y:v >= 0 ? Y(v)-5 : Y(v)+13, "text-anchor":"middle", style:"fill:var(--ink)"}, sv).textContent = (v < 0 ? "−" : "") + swiss(Math.abs(v));
+    const hit = svgEl("rect", {x:m.l+i*slot, y:m.t, width:slot, height:ph, fill:"transparent"}, sv);
+    hit.addEventListener("pointerenter", () => { ht.innerHTML = `<b>Winter ${w[0]}</b><br>${v >= 0 ? "Net import" : "Net export"}: <span class="num">${swiss(Math.abs(v))} GWh</span>`; placeTip(ht, box, CX(i)*box.offsetWidth/Wd); });
+    hit.addEventListener("pointerleave", () => { ht.hidden = true; }); });
+  const mean = sumOf(vals)/vals.length, lo = Wn.reduce((p,q) => q[1] < p[1] ? q : p), hi = Wn.reduce((p,q) => q[1] > p[1] ? q : p), all = ROWS.filter(storable).reduce((t,r) => t + bizOf(r).gwh, 0), n = ROWS.filter(storable).length;
+  $("win-stats").innerHTML = `<div class="stat"><b>${swiss(mean)} GWh</b><span>mean net import of the ${Wn.length} winters shown</span></div>
+    <div class="stat"><b>${lo[1] < 0 ? "−" : ""}${swiss(Math.abs(lo[1]))} to ${swiss(hi[1])}</b><span>GWh: from the winter of ${lo[0]} to the winter of ${hi[0]}</span></div>
+    <div class="stat"><b>${all >= 10 ? Math.round(all) : f1(all)} GWh</b><span>of winter energy from the ${n} new site${n===1 ? "" : "s"} still in play: ${mean > 0 ? f1(all/mean*100) + "% of the mean winter import" : "against no net import on average"}</span></div>`;
+}
+function drawGrid(){ if (!EN) return; drawStress(); drawMix(); drawWet(); drawFill(); drawWinter(); }
 
 /* ---------- satellite sheet: Sentinel-2 scenes of the study area (swissEO S2-SR, swisstopo) and glacier thinning measured from space
    (Hugonnet et al. 2021). fetch_satellite_series.py makes the numbers and the pictures when the site is built; the self-hosted page
@@ -1588,7 +1909,7 @@ function drawSatCmp(){
        <div class="actions"><button class="btn primary" data-go="sites" data-id="${r.id}">Open its evidence</button><button class="btn" data-place="area">Whole study area</button></div>`
     : `<div class="stats2"><div class="stat"><b>${Math.round(P.then.km2)} km²</b><span>of snow and ice on ${isoDay(P.then.date)}</span></div><div class="stat"><b>${Math.round(P.now.km2)} km²</b><span>on ${isoDay(P.now.date)}, ${Math.round((1 - P.now.km2/P.then.km2)*100)}% less</span></div></div>
        <p style="font-size:14px">White is snow and clean glacier ice. The grey bands on the ice are rock debris, the turquoise patches are meltwater lakes. Both scenes were taken in the last days of September at about 10:20 UTC, so the shadows fall the same way.</p>
-       <p class="sub"><strong>Two days are not a trend.</strong> How much winter snow is left differs from year to year, so the chart below uses every clear late-summer scene since ${SATD.years[0].y}.</p>
+       <p class="sub"><strong>Two days are not a trend.</strong> How much winter snow is left differs from year to year, so the chart below uses every clear late-summer scene since ${SATD.years[0].y}.${(() => { const b = SATD.years.find(v => String(v.y)===P.then.date.slice(0,4)); return b && b.km2!=null && b.date!==P.then.date ? ` Its bar for ${b.y} is another scene, of ${isoDay(b.date)} (${Math.round(b.km2)} km²): the clear one with the least snow that summer.` : ""; })()}</p>
        <p class="sub">The numbered dots are the ranked sites. Click one to see the ground around it at 10 m per pixel.</p>`;
 }
 function setCut(v){ SV.cut = clamp(v, 0, 100); $("sat-cmp").style.setProperty("--cut", SV.cut + "%"); $("sat-slide").value = Math.round(SV.cut); }
@@ -1661,7 +1982,8 @@ async function pullPasses(){
     const j = await getJson(`${S2_STAC}?bbox=${lo0.toFixed(3)},${la0.toFixed(3)},${lo1.toFixed(3)},${la1.toFixed(3)}&datetime=${iso(Date.now() - 21*864e5)}/${iso(Date.now())}&limit=100`);
     const list = (j.features || []).filter(f => /^20\d\d-\d\d-\d\dt\d{6}$/.test(f.id)).map(f => ({id:f.id, t:Date.parse(f.properties.datetime)})).sort((p,q) => q.t - p.t).slice(0,6);
     if (!list.length) throw new Error("no pass");
-    if (!PASS.lib) try { PASS.lib = await import("https://cdn.jsdelivr.net/npm/geotiff@2.1.3/+esm"); } catch(err){ throw new Error("reader"); }
+    /* geotiff.js reads a small window of each cloud-optimised file; the self-hosted site serves the library itself (fetch_vendor.py) */
+    if (!PASS.lib) try { await new Promise((ok, no) => { const sc = document.createElement("script"); sc.src = "__GEOTIFF__"; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); }); PASS.lib = window.GeoTIFF; if (!PASS.lib) throw new Error("reader"); } catch(err){ throw new Error("reader"); }
     const w = 235, h = 190, mk = areaMask(w, h), band = async (id, what) => (await (await PASS.lib.fromUrl(s2file(id, what))).readRasters({bbox:F, width:w, height:h, samples:[0]}))[0];
     await Promise.all(list.map(async p => { try { const [cm, scl] = await Promise.all([band(p.id, "cloudmask_10m"), band(p.id, "scl_20m")]); // scene classification 0 = outside the flight path
         let n = 0, out = 0, cl = 0; for (let i = 0; i < mk.length; i++) if (mk[i]){ n++; if (scl[i]===0) out++; else if (cm[i] > 0) cl++; }
@@ -1711,12 +2033,12 @@ $("pass-tbl").addEventListener("keydown", ev => { const tr = ev.target.closest("
 /* ---------- the Track 06 brief, point by point ---------- */
 function drawBrief(){
   const B = [
-    [SAT || SATD ? "ok" : "part", SAT || SATD ? "In" : "Partly", "Integrate multi-source Earth-observation, climate and infrastructure data", `Terrain model and glacier inventory from airborne survey${SATD ? ", Sentinel-2 satellite scenes since 2015, glacier thinning measured from satellite stereo pictures" : SAT ? ", a Sentinel-2 satellite mosaic" : ""}, Hydro-CH2018 climate scenarios, live river gauges and weather stations, a five-day forecast, protection inventories, hazard index maps, hydropower plants, dams and reservoir storage.${SAT || SATD ? "" : " No satellite product yet."}`],
-    ["part", "Partly", "Model glacier retreat and alpine risk dynamics", "Glacier size and melt rate are scenario controls on every sheet, and the Risk outlook sets a forecast of thaw and heavy precipitation against mapped process areas. Glacier retreat is a uniform share of today's area, not a glacier model, and the risk thresholds are not calibrated." + (SATD ? " The Satellite sheet sets the melt setting against the ice loss satellites measured, and shows the snow and ice left each summer since " + SATD.years[0].y + "." : "")],
-    ["part", "Partly", "Couple energy grid behaviour with climate variability", "Storage, winter energy and payback respond to the runoff scenario, the melt rate and the glacier size, next to the plants and dams around each site and the energy held in Swiss reservoirs. The grid itself is not modelled."],
+    [SAT || SATD ? "ok" : "part", SAT || SATD ? "In" : "Partly", "Integrate multi-source Earth-observation, climate and infrastructure data", `Terrain model and glacier inventory from airborne survey${SATD ? ", Sentinel-2 satellite scenes since 2015, glacier thinning measured from satellite stereo pictures" : SAT ? ", a Sentinel-2 satellite mosaic" : ""}, Hydro-CH2018 climate scenarios, live river gauges and weather stations, a five-day forecast, protection inventories, hazard index maps, hydropower plants, dams, reservoir storage${EN ? " and Swiss grid records" : ""}.${SAT || SATD ? "" : " No satellite product yet."}`],
+    ["ok", "In", "Model glacier retreat and alpine risk dynamics", (GP ? "Glacier size is a scenario control on every sheet, tied to years by a published glacier model (OGGM, Alpine average) for each emissions path. " : "Glacier size and melt rate are scenario controls on every sheet. ") + "The Risk outlook sets a forecast of thaw and heavy precipitation against mapped process areas" + (HC ? ", and runs the same rule over every day since " + isoDay(HC.from) + " and " + HC.events.length + " documented events" : "") + ". Limits: one shrink rate for all glaciers of the area, and thresholds that are tested, not calibrated." + (SATD ? " The Satellite sheet sets the melt setting against the ice loss satellites measured, and shows the snow and ice left each summer since " + SATD.years[0].y + "." : "")],
+    [EN ? "ok" : "part", EN ? "In" : "Partly", "Couple energy grid behaviour with climate variability", EN ? "The Energy sheet stress-tests the " + Object.values(EN.chain).reduce((t,v) => t + v.length, 0) + " hydropower plants on the rivers of the nine catchments under the runoff scenario, month by month, and sets Swiss grid records against the climate: production by source, consumption, winter imports, reservoir filling since " + EN.fill.years[0] + ", and yearly hydropower output against precipitation. A first-order model: the power lines and the market are not modelled, and the grid figures are records, not a live feed." : "Storage, winter energy and payback respond to the runoff scenario, the melt rate and the glacier size, next to the plants and dams around each site and the energy held in Swiss reservoirs. The grid itself is not modelled."],
     ["ok", "In", "Surface insight in a public-grade decision interface", "This page: no login, a next action for every site, the evidence and its gaps on each site card, and an open data API."],
     ["ok", "In", "Outcome: a working digital twin of one Swiss region", "Jungfrau–Aletsch, 781 km²: the state now, the model and the what-if scenarios."],
-    ["part", "Prototype", "Outcome: an alpine risk forecasting prototype", "The Risk outlook sheet. It forecasts trigger conditions, not events."],
+    ["ok", "Prototype", "Outcome: an alpine risk forecasting prototype", "The Risk outlook sheet: a five-day forecast of trigger conditions at the 15 sites" + (HC ? ", tested against past forecasts since " + isoDay(HC.from) : "") + ". It forecasts trigger conditions, not events."],
     ["ok", "In", "Outcome: a reference architecture for federal-scale roll-out", "The card above this one."]];
   $("brief").innerHTML = B.map(([c,l,t,p]) => `<div><span class="st ${c}">${l}</span><h3>${t}</h3><p>${p}</p></div>`).join("");
 }
@@ -1734,9 +2056,9 @@ function render(){
   $("seg-rcp").querySelectorAll("button").forEach(bt => bt.disabled = S.period==="ref");
   $("melt").value = S.melt; $("ice").value = S.ice; $("price").value = S.price;
   $("melt-out").textContent = f2(S.melt)+" m" + (S.melt===1 ? " (report)" : "");
-  $("ice-out").textContent = S.ice + "%" + (S.ice===100 ? " (today)" : "");
+  drawIcePath();
   $("price-out").textContent = S.price + " Rp./kWh";
-  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawEnergy(); drawRisk(); drawSat(); drawStatus();
+  drawWeights(); drawKpis(); drawTop(); drawPick(); drawMap(); drawSite(); drawTable(); drawHydro(); drawExits(); drawGlaciers(); drawHypso(); drawTests(); drawIce(); drawBiz(); drawEnergy(); drawGrid(); drawRisk(); drawSat(); drawStatus();
   if (keep){ const el = $(keep.id); if (el){ el.focus(); if (keep.pos!=null) try { el.setSelectionRange(keep.pos, keep.pos); } catch(err){} } }
 }
 

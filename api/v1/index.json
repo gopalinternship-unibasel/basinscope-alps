@@ -1,7 +1,7 @@
 {
  "meta": {
-  "api_version": "1.2.0",
-  "generated": "2026-10-03",
+  "api_version": "1.3.0",
+  "generated": "2026-10-04",
   "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
  },
@@ -71,6 +71,21 @@
     "description": "Energy held in Swiss reservoirs, latest week and the past year, with the capacity (SFOE)."
    },
    {
+    "path": "/grid.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/grid.json",
+    "description": "Swiss grid records: mean production by source, consumption and net import per calendar month, hydropower output per year against precipitation, net import per winter, filling of the storage lakes by week since 2000, and the plants matched to each catchment."
+   },
+   {
+    "path": "/glacier-path.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/glacier-path.json",
+    "description": "Glacier area by year to 2100 as a share of today's, for RCP2.6, 4.5 and 8.5, from a published glacier model (Alps-wide)."
+   },
+   {
+    "path": "/risk-hindcast.json",
+    "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/risk-hindcast.json",
+    "description": "What the risk outlook works with, for every day since March 2021: zero-degree level, precipitation, rain at each site, and the documented events the rule is tested against."
+   },
+   {
     "path": "/satellite.json",
     "url": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1/satellite.json",
     "description": "Snow and ice left in the study area at the end of each summer since 2015 (Sentinel-2), the two scenes behind the then/now pictures, and glacier thinning measured from space for 2000 to 2019."
@@ -112,6 +127,18 @@
    {
     "what": "Glacier thinning",
     "source": "Hugonnet et al. 2021, Nature 592 (ASTER satellite stereo pictures, 2000-2019), on Randolph Glacier Inventory 6.0 outlines"
+   },
+   {
+    "what": "Grid records",
+    "source": "Electricity production by source, national consumption, cross-border exchange and filling of the storage lakes: Swiss Federal Office of Energy, energy dashboard files (Swissgrid figures). Precipitation at Grimsel Hospiz and air temperature at Jungfraujoch: MeteoSwiss open data"
+   },
+   {
+    "what": "Glacier area by year",
+    "source": "OGGM standard projections v1.6.1 (Open Global Glacier Model, Maussion et al. 2019), CMIP5 runs, Randolph Glacier Inventory region 11 (Central Europe)"
+   },
+   {
+    "what": "Past forecasts",
+    "source": "Forecast archive of Open-Meteo (CC BY 4.0): zero-degree level and precipitation at the 15 site locations"
    }
   ]
  }

@@ -2,7 +2,7 @@
  "openapi": "3.0.3",
  "info": {
   "title": "BasinScope Alps data API",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Read-only data on glacier-meltwater retention basin sites in the Jungfrau-Aletsch area. Static JSON, no key, open to browser calls from any origin. Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study."
  },
  "servers": [
@@ -383,6 +383,96 @@
           },
           "data": {
            "$ref": "#/components/schemas/ReservoirStorage"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/grid.json": {
+   "get": {
+    "tags": [
+     "Energy"
+    ],
+    "summary": "Swiss grid records: mean production by source, consumption and net import per calendar month, hydropower output per year against precipitation, net import per winter, filling of the storage lakes by week since 2000, and the plants matched to each catchment.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "object",
+           "description": "Keys: data_up_to, monthly_mean_gwh, hydropower_by_year, winter_net_import_gwh, storage_lakes_percent_full_by_week, plants_by_catchment.",
+           "additionalProperties": true
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/glacier-path.json": {
+   "get": {
+    "tags": [
+     "Meltwater"
+    ],
+    "summary": "Glacier area by year to 2100 as a share of today's, for RCP2.6, 4.5 and 8.5, from a published glacier model (Alps-wide).",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "object",
+           "description": "Keys: what, years, emission_paths (RCP26 | RCP45 | RCP85, each with median, lowest, highest in per cent).",
+           "additionalProperties": true
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/risk-hindcast.json": {
+   "get": {
+    "tags": [
+     "Risk"
+    ],
+    "summary": "What the risk outlook works with, for every day since March 2021: zero-degree level, precipitation, rain at each site, and the documented events the rule is tested against.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+           "type": "object",
+           "description": "Keys: from, to, method, zero_degree_level_m and precipitation_mm (one value per day from the first day), site_rain_mm (per site id: [day index, mm]), events.",
+           "additionalProperties": true
           }
          }
         }
