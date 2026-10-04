@@ -5996,92 +5996,92 @@
    "1": {
     "permafrost": 0,
     "debris": 0,
-    "rockfall": 12,
-    "landslide": 6
+    "landslide": 24,
+    "rockfall": 53
    },
    "2": {
     "permafrost": 4,
     "debris": 0,
-    "rockfall": 3,
-    "landslide": 1
+    "landslide": 6,
+    "rockfall": 12
    },
    "3": {
     "permafrost": 4,
-    "debris": 0,
-    "rockfall": 6,
-    "landslide": 5
+    "debris": 3,
+    "landslide": 21,
+    "rockfall": 28
    },
    "4": {
     "permafrost": 0,
-    "debris": 1,
-    "rockfall": 1,
-    "landslide": 0
+    "debris": 4,
+    "landslide": 0,
+    "rockfall": 3
    },
    "5": {
     "permafrost": 0,
-    "debris": 1,
-    "rockfall": 8,
-    "landslide": 2
+    "debris": 6,
+    "landslide": 8,
+    "rockfall": 36
    },
    "6": {
     "permafrost": 0,
-    "debris": 8,
-    "rockfall": 1,
-    "landslide": 3
+    "debris": 32,
+    "landslide": 12,
+    "rockfall": 3
    },
    "7": {
     "permafrost": 4,
-    "debris": 2,
-    "rockfall": 10,
-    "landslide": 1
+    "debris": 8,
+    "landslide": 5,
+    "rockfall": 45
    },
    "8": {
     "permafrost": 0,
-    "debris": 7,
-    "rockfall": 3,
-    "landslide": 9
+    "debris": 32,
+    "landslide": 41,
+    "rockfall": 13
    },
    "9": {
     "permafrost": 0,
-    "debris": 11,
-    "rockfall": 22,
-    "landslide": 8
+    "debris": 47,
+    "landslide": 36,
+    "rockfall": 100
    },
    "10": {
     "permafrost": 8,
-    "debris": 1,
-    "rockfall": 10,
-    "landslide": 4
+    "debris": 4,
+    "landslide": 18,
+    "rockfall": 46
    },
    "11": {
     "permafrost": 0,
-    "debris": 2,
-    "rockfall": 17,
-    "landslide": 8
+    "debris": 6,
+    "landslide": 34,
+    "rockfall": 74
    },
    "12": {
     "permafrost": 0,
-    "debris": 6,
-    "rockfall": 17,
-    "landslide": 11
+    "debris": 26,
+    "landslide": 48,
+    "rockfall": 73
    },
    "13": {
     "permafrost": 5,
-    "debris": 8,
-    "rockfall": 20,
-    "landslide": 12
+    "debris": 36,
+    "landslide": 53,
+    "rockfall": 90
    },
    "14": {
     "permafrost": 2,
-    "debris": 1,
-    "rockfall": 13,
-    "landslide": 7
+    "debris": 5,
+    "landslide": 29,
+    "rockfall": 58
    },
    "15": {
     "permafrost": 3,
-    "debris": 3,
-    "rockfall": 10,
-    "landslide": 2
+    "debris": 13,
+    "landslide": 8,
+    "rockfall": 46
    }
   },
   "plants": [
@@ -8100,7 +8100,8 @@
      6588.0
     ]
    ]
-  }
+  },
+  "hazAt": "2026-10-04"
  },
  "satellite": {
   "at": "2026-10-03",
@@ -22538,9 +22539,9 @@
     "z": 697,
     "haz": {
      "permafrost": 0,
-     "debris": 2,
-     "rockfall": 8,
-     "landslide": 20
+     "debris": 9,
+     "landslide": 89,
+     "rockfall": 37
     }
    },
    {
@@ -22555,9 +22556,9 @@
     "z": 744,
     "haz": {
      "permafrost": 0,
-     "debris": 7,
-     "rockfall": 11,
-     "landslide": 13
+     "debris": 27,
+     "landslide": 63,
+     "rockfall": 47
     }
    },
    {
@@ -22572,9 +22573,9 @@
     "z": 649,
     "haz": {
      "permafrost": 0,
-     "debris": 1,
-     "rockfall": 21,
-     "landslide": 13
+     "debris": 5,
+     "landslide": 58,
+     "rockfall": 96
     }
    },
    {
@@ -22589,9 +22590,9 @@
     "z": 1335,
     "haz": {
      "permafrost": 0,
-     "debris": 1,
-     "rockfall": 0,
-     "landslide": 16
+     "debris": 5,
+     "landslide": 73,
+     "rockfall": 0
     }
    },
    {
@@ -22606,9 +22607,9 @@
     "z": 1566,
     "haz": {
      "permafrost": 0,
-     "debris": 5,
-     "rockfall": 6,
-     "landslide": 14
+     "debris": 23,
+     "landslide": 62,
+     "rockfall": 24
     }
    },
    {
@@ -22623,9 +22624,9 @@
     "z": 1547,
     "haz": {
      "permafrost": 0,
-     "debris": 6,
-     "rockfall": 7,
-     "landslide": 9
+     "debris": 27,
+     "landslide": 40,
+     "rockfall": 30
     }
    },
    {
@@ -22640,9 +22641,9 @@
     "z": 1642,
     "haz": {
      "permafrost": 0,
-     "debris": 8,
-     "rockfall": 15,
-     "landslide": 11
+     "debris": 37,
+     "landslide": 51,
+     "rockfall": 67
     }
    },
    {
@@ -22657,9 +22658,9 @@
     "z": 1782,
     "haz": {
      "permafrost": 0,
-     "debris": 2,
-     "rockfall": 11,
-     "landslide": 18
+     "debris": 10,
+     "landslide": 82,
+     "rockfall": 51
     }
    },
    {
@@ -22674,9 +22675,9 @@
     "z": 1816,
     "haz": {
      "permafrost": 0,
-     "debris": 0,
-     "rockfall": 17,
-     "landslide": 10
+     "debris": 2,
+     "landslide": 45,
+     "rockfall": 79
     }
    },
    {
@@ -22691,9 +22692,9 @@
     "z": 1816,
     "haz": {
      "permafrost": 0,
-     "debris": 0,
-     "rockfall": 17,
-     "landslide": 10
+     "debris": 2,
+     "landslide": 45,
+     "rockfall": 79
     }
    },
    {
@@ -22708,9 +22709,9 @@
     "z": 1358,
     "haz": {
      "permafrost": 0,
-     "debris": 3,
-     "rockfall": 15,
-     "landslide": 8
+     "debris": 15,
+     "landslide": 36,
+     "rockfall": 70
     }
    },
    {
@@ -22725,9 +22726,9 @@
     "z": 1357,
     "haz": {
      "permafrost": 0,
-     "debris": 3,
-     "rockfall": 17,
-     "landslide": 9
+     "debris": 13,
+     "landslide": 41,
+     "rockfall": 78
     }
    },
    {
@@ -22743,8 +22744,8 @@
     "haz": {
      "permafrost": 0,
      "debris": 0,
-     "rockfall": 14,
-     "landslide": 13
+     "landslide": 56,
+     "rockfall": 65
     }
    },
    {
@@ -22759,9 +22760,9 @@
     "z": 714,
     "haz": {
      "permafrost": 0,
-     "debris": 2,
-     "rockfall": 12,
-     "landslide": 12
+     "debris": 9,
+     "landslide": 55,
+     "rockfall": 56
     }
    },
    {
@@ -22776,9 +22777,9 @@
     "z": 1124,
     "haz": {
      "permafrost": 0,
-     "debris": 4,
-     "rockfall": 8,
-     "landslide": 9
+     "debris": 19,
+     "landslide": 40,
+     "rockfall": 37
     }
    },
    {
@@ -22793,9 +22794,9 @@
     "z": 1008,
     "haz": {
      "permafrost": 0,
-     "debris": 7,
-     "rockfall": 2,
-     "landslide": 9
+     "debris": 31,
+     "landslide": 42,
+     "rockfall": 5
     }
    },
    {
@@ -22810,9 +22811,9 @@
     "z": 853,
     "haz": {
      "permafrost": 0,
-     "debris": 3,
-     "rockfall": 14,
-     "landslide": 5
+     "debris": 13,
+     "landslide": 25,
+     "rockfall": 62
     }
    },
    {
@@ -22828,8 +22829,8 @@
     "haz": {
      "permafrost": 0,
      "debris": 0,
-     "rockfall": 0,
-     "landslide": 0
+     "landslide": 0,
+     "rockfall": 0
     }
    },
    {
@@ -22844,9 +22845,9 @@
     "z": 907,
     "haz": {
      "permafrost": 0,
-     "debris": 8,
-     "rockfall": 17,
-     "landslide": 13
+     "debris": 34,
+     "landslide": 57,
+     "rockfall": 78
     }
    },
    {
@@ -22861,9 +22862,9 @@
     "z": 727,
     "haz": {
      "permafrost": 0,
-     "debris": 3,
-     "rockfall": 21,
-     "landslide": 18
+     "debris": 13,
+     "landslide": 82,
+     "rockfall": 93
     }
    },
    {
@@ -22878,9 +22879,9 @@
     "z": 842,
     "haz": {
      "permafrost": 0,
-     "debris": 0,
-     "rockfall": 8,
-     "landslide": 16
+     "debris": 1,
+     "landslide": 70,
+     "rockfall": 34
     }
    },
    {
@@ -22896,8 +22897,8 @@
     "haz": {
      "permafrost": 0,
      "debris": 0,
-     "rockfall": 12,
-     "landslide": 2
+     "landslide": 8,
+     "rockfall": 56
     }
    },
    {
@@ -22913,8 +22914,8 @@
     "haz": {
      "permafrost": 9,
      "debris": 0,
-     "rockfall": 8,
-     "landslide": 4
+     "landslide": 18,
+     "rockfall": 38
     }
    },
    {
@@ -22929,9 +22930,9 @@
     "z": 1756,
     "haz": {
      "permafrost": 0,
-     "debris": 4,
-     "rockfall": 5,
-     "landslide": 0
+     "debris": 17,
+     "landslide": 1,
+     "rockfall": 24
     }
    },
    {
@@ -22947,8 +22948,8 @@
     "haz": {
      "permafrost": 0,
      "debris": 0,
-     "rockfall": 15,
-     "landslide": 9
+     "landslide": 40,
+     "rockfall": 68
     }
    },
    {
@@ -22964,8 +22965,8 @@
     "haz": {
      "permafrost": 0,
      "debris": 0,
-     "rockfall": 9,
-     "landslide": 2
+     "landslide": 7,
+     "rockfall": 41
     }
    },
    {
@@ -22980,9 +22981,9 @@
     "z": 1875,
     "haz": {
      "permafrost": 0,
-     "debris": 5,
-     "rockfall": 18,
-     "landslide": 10
+     "debris": 22,
+     "landslide": 44,
+     "rockfall": 83
     }
    },
    {
@@ -22998,8 +22999,8 @@
     "haz": {
      "permafrost": 42,
      "debris": 0,
-     "rockfall": 0,
-     "landslide": 9
+     "landslide": 42,
+     "rockfall": 1
     }
    },
    {
@@ -23014,9 +23015,9 @@
     "z": 1294,
     "haz": {
      "permafrost": 0,
-     "debris": 4,
-     "rockfall": 21,
-     "landslide": 12
+     "debris": 15,
+     "landslide": 51,
+     "rockfall": 94
     }
    },
    {
@@ -23032,8 +23033,8 @@
     "haz": {
      "permafrost": 24,
      "debris": 0,
-     "rockfall": 2,
-     "landslide": 1
+     "landslide": 5,
+     "rockfall": 11
     }
    }
   ]

@@ -2,3 +2,4 @@ pipeline/build/basinscope-alps.html
 pipeline/build/seed/
 pipeline/build/seed_writes.json
 __pycache__/
+pipeline/build/haz_cache/

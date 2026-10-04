@@ -1,6 +1,6 @@
 {
  "meta": {
-  "api_version": "1.4.0",
+  "api_version": "1.4.1",
   "generated": "2026-10-04",
   "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/",
@@ -59,8 +59,8 @@
    },
    "hazard_index_percent": {
     "debris_flow": 0,
-    "shallow_landslide": 6,
-    "rockfall": 12,
+    "shallow_landslide": 24,
+    "rockfall": 53,
     "permafrost": 0
    },
    "confidence_note": "The terrain model edge cuts through the lake.",
@@ -115,8 +115,8 @@
    },
    "hazard_index_percent": {
     "debris_flow": 0,
-    "shallow_landslide": 1,
-    "rockfall": 3,
+    "shallow_landslide": 6,
+    "rockfall": 12,
     "permafrost": 4
    },
    "confidence_note": null,
@@ -163,9 +163,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 0,
-    "shallow_landslide": 5,
-    "rockfall": 6,
+    "debris_flow": 3,
+    "shallow_landslide": 21,
+    "rockfall": 28,
     "permafrost": 4
    },
    "confidence_note": null,
@@ -218,9 +218,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 1,
+    "debris_flow": 4,
     "shallow_landslide": 0,
-    "rockfall": 1,
+    "rockfall": 3,
     "permafrost": 0
    },
    "confidence_note": null,
@@ -271,9 +271,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 1,
-    "shallow_landslide": 2,
-    "rockfall": 8,
+    "debris_flow": 6,
+    "shallow_landslide": 8,
+    "rockfall": 36,
     "permafrost": 0
    },
    "confidence_note": null,
@@ -332,9 +332,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 8,
-    "shallow_landslide": 3,
-    "rockfall": 1,
+    "debris_flow": 32,
+    "shallow_landslide": 12,
+    "rockfall": 3,
     "permafrost": 0
    },
    "confidence_note": null,
@@ -387,9 +387,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 2,
-    "shallow_landslide": 1,
-    "rockfall": 10,
+    "debris_flow": 8,
+    "shallow_landslide": 5,
+    "rockfall": 45,
     "permafrost": 4
    },
    "confidence_note": null,
@@ -446,9 +446,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 7,
-    "shallow_landslide": 9,
-    "rockfall": 3,
+    "debris_flow": 32,
+    "shallow_landslide": 41,
+    "rockfall": 13,
     "permafrost": 0
    },
    "confidence_note": "The terrain model may show the valley before or after the 2025 collapse.",
@@ -507,9 +507,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 11,
-    "shallow_landslide": 8,
-    "rockfall": 22,
+    "debris_flow": 47,
+    "shallow_landslide": 36,
+    "rockfall": 100,
     "permafrost": 0
    },
    "confidence_note": null,
@@ -562,9 +562,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 1,
-    "shallow_landslide": 4,
-    "rockfall": 10,
+    "debris_flow": 4,
+    "shallow_landslide": 18,
+    "rockfall": 46,
     "permafrost": 8
    },
    "confidence_note": null,
@@ -623,9 +623,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 2,
-    "shallow_landslide": 8,
-    "rockfall": 17,
+    "debris_flow": 6,
+    "shallow_landslide": 34,
+    "rockfall": 74,
     "permafrost": 0
    },
    "confidence_note": null,
@@ -678,9 +678,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 6,
-    "shallow_landslide": 11,
-    "rockfall": 17,
+    "debris_flow": 26,
+    "shallow_landslide": 48,
+    "rockfall": 73,
     "permafrost": 0
    },
    "confidence_note": null,
@@ -745,9 +745,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 8,
-    "shallow_landslide": 12,
-    "rockfall": 20,
+    "debris_flow": 36,
+    "shallow_landslide": 53,
+    "rockfall": 90,
     "permafrost": 5
    },
    "confidence_note": null,
@@ -806,9 +806,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 1,
-    "shallow_landslide": 7,
-    "rockfall": 13,
+    "debris_flow": 5,
+    "shallow_landslide": 29,
+    "rockfall": 58,
     "permafrost": 2
    },
    "confidence_note": null,
@@ -861,9 +861,9 @@
     ]
    },
    "hazard_index_percent": {
-    "debris_flow": 3,
-    "shallow_landslide": 2,
-    "rockfall": 10,
+    "debris_flow": 13,
+    "shallow_landslide": 8,
+    "rockfall": 46,
     "permafrost": 3
    },
    "confidence_note": null,

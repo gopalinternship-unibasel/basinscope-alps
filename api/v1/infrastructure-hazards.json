@@ -1,15 +1,15 @@
 {
  "meta": {
-  "api_version": "1.4.0",
+  "api_version": "1.4.1",
   "generated": "2026-10-04",
   "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
  },
  "data": {
   "read": "2026-10-04",
-  "square_m": 250,
+  "square_m": 500,
   "which": "The plants of the hydropower stress test and the dams under federal supervision within 5 km of a ranked site.",
-  "method": "Share of the square around the powerhouse or the dam that the federal index maps mark, in per cent. An indication for the operator's own assessment, not a hazard map.",
+  "method": "Share of the square of that side, centred on the powerhouse or the dam, that the federal index maps mark, in per cent: measured on the SilvaProtect-CH polygons for debris flow, shallow landslide and rockfall, and on the federal map service for permafrost. An indication for the operator's own assessment, not a hazard map.",
   "items": [
    {
     "kind": "plant",
@@ -23,9 +23,9 @@
      "elevation_m": 697
     },
     "hazard_index_percent": {
-     "debris_flow": 2,
-     "shallow_landslide": 20,
-     "rockfall": 8,
+     "debris_flow": 9,
+     "shallow_landslide": 89,
+     "rockfall": 37,
      "permafrost": 0
     }
    },
@@ -41,9 +41,9 @@
      "elevation_m": 744
     },
     "hazard_index_percent": {
-     "debris_flow": 7,
-     "shallow_landslide": 13,
-     "rockfall": 11,
+     "debris_flow": 27,
+     "shallow_landslide": 63,
+     "rockfall": 47,
      "permafrost": 0
     }
    },
@@ -59,9 +59,9 @@
      "elevation_m": 649
     },
     "hazard_index_percent": {
-     "debris_flow": 1,
-     "shallow_landslide": 13,
-     "rockfall": 21,
+     "debris_flow": 5,
+     "shallow_landslide": 58,
+     "rockfall": 96,
      "permafrost": 0
     }
    },
@@ -77,8 +77,8 @@
      "elevation_m": 1335
     },
     "hazard_index_percent": {
-     "debris_flow": 1,
-     "shallow_landslide": 16,
+     "debris_flow": 5,
+     "shallow_landslide": 73,
      "rockfall": 0,
      "permafrost": 0
     }
@@ -95,9 +95,9 @@
      "elevation_m": 1566
     },
     "hazard_index_percent": {
-     "debris_flow": 5,
-     "shallow_landslide": 14,
-     "rockfall": 6,
+     "debris_flow": 23,
+     "shallow_landslide": 62,
+     "rockfall": 24,
      "permafrost": 0
     }
    },
@@ -113,9 +113,9 @@
      "elevation_m": 1547
     },
     "hazard_index_percent": {
-     "debris_flow": 6,
-     "shallow_landslide": 9,
-     "rockfall": 7,
+     "debris_flow": 27,
+     "shallow_landslide": 40,
+     "rockfall": 30,
      "permafrost": 0
     }
    },
@@ -131,9 +131,9 @@
      "elevation_m": 1642
     },
     "hazard_index_percent": {
-     "debris_flow": 8,
-     "shallow_landslide": 11,
-     "rockfall": 15,
+     "debris_flow": 37,
+     "shallow_landslide": 51,
+     "rockfall": 67,
      "permafrost": 0
     }
    },
@@ -149,9 +149,9 @@
      "elevation_m": 1782
     },
     "hazard_index_percent": {
-     "debris_flow": 2,
-     "shallow_landslide": 18,
-     "rockfall": 11,
+     "debris_flow": 10,
+     "shallow_landslide": 82,
+     "rockfall": 51,
      "permafrost": 0
     }
    },
@@ -167,9 +167,9 @@
      "elevation_m": 1816
     },
     "hazard_index_percent": {
-     "debris_flow": 0,
-     "shallow_landslide": 10,
-     "rockfall": 17,
+     "debris_flow": 2,
+     "shallow_landslide": 45,
+     "rockfall": 79,
      "permafrost": 0
     }
    },
@@ -185,9 +185,9 @@
      "elevation_m": 1816
     },
     "hazard_index_percent": {
-     "debris_flow": 0,
-     "shallow_landslide": 10,
-     "rockfall": 17,
+     "debris_flow": 2,
+     "shallow_landslide": 45,
+     "rockfall": 79,
      "permafrost": 0
     }
    },
@@ -203,9 +203,9 @@
      "elevation_m": 1358
     },
     "hazard_index_percent": {
-     "debris_flow": 3,
-     "shallow_landslide": 8,
-     "rockfall": 15,
+     "debris_flow": 15,
+     "shallow_landslide": 36,
+     "rockfall": 70,
      "permafrost": 0
     }
    },
@@ -221,9 +221,9 @@
      "elevation_m": 1357
     },
     "hazard_index_percent": {
-     "debris_flow": 3,
-     "shallow_landslide": 9,
-     "rockfall": 17,
+     "debris_flow": 13,
+     "shallow_landslide": 41,
+     "rockfall": 78,
      "permafrost": 0
     }
    },
@@ -240,8 +240,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 13,
-     "rockfall": 14,
+     "shallow_landslide": 56,
+     "rockfall": 65,
      "permafrost": 0
     }
    },
@@ -257,9 +257,9 @@
      "elevation_m": 714
     },
     "hazard_index_percent": {
-     "debris_flow": 2,
-     "shallow_landslide": 12,
-     "rockfall": 12,
+     "debris_flow": 9,
+     "shallow_landslide": 55,
+     "rockfall": 56,
      "permafrost": 0
     }
    },
@@ -275,9 +275,9 @@
      "elevation_m": 1124
     },
     "hazard_index_percent": {
-     "debris_flow": 4,
-     "shallow_landslide": 9,
-     "rockfall": 8,
+     "debris_flow": 19,
+     "shallow_landslide": 40,
+     "rockfall": 37,
      "permafrost": 0
     }
    },
@@ -293,9 +293,9 @@
      "elevation_m": 1008
     },
     "hazard_index_percent": {
-     "debris_flow": 7,
-     "shallow_landslide": 9,
-     "rockfall": 2,
+     "debris_flow": 31,
+     "shallow_landslide": 42,
+     "rockfall": 5,
      "permafrost": 0
     }
    },
@@ -311,9 +311,9 @@
      "elevation_m": 853
     },
     "hazard_index_percent": {
-     "debris_flow": 3,
-     "shallow_landslide": 5,
-     "rockfall": 14,
+     "debris_flow": 13,
+     "shallow_landslide": 25,
+     "rockfall": 62,
      "permafrost": 0
     }
    },
@@ -347,9 +347,9 @@
      "elevation_m": 907
     },
     "hazard_index_percent": {
-     "debris_flow": 8,
-     "shallow_landslide": 13,
-     "rockfall": 17,
+     "debris_flow": 34,
+     "shallow_landslide": 57,
+     "rockfall": 78,
      "permafrost": 0
     }
    },
@@ -365,9 +365,9 @@
      "elevation_m": 727
     },
     "hazard_index_percent": {
-     "debris_flow": 3,
-     "shallow_landslide": 18,
-     "rockfall": 21,
+     "debris_flow": 13,
+     "shallow_landslide": 82,
+     "rockfall": 93,
      "permafrost": 0
     }
    },
@@ -383,9 +383,9 @@
      "elevation_m": 842
     },
     "hazard_index_percent": {
-     "debris_flow": 0,
-     "shallow_landslide": 16,
-     "rockfall": 8,
+     "debris_flow": 1,
+     "shallow_landslide": 70,
+     "rockfall": 34,
      "permafrost": 0
     }
    },
@@ -402,8 +402,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 2,
-     "rockfall": 12,
+     "shallow_landslide": 8,
+     "rockfall": 56,
      "permafrost": 0
     }
    },
@@ -420,8 +420,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 4,
-     "rockfall": 8,
+     "shallow_landslide": 18,
+     "rockfall": 38,
      "permafrost": 9
     }
    },
@@ -437,9 +437,9 @@
      "elevation_m": 1756
     },
     "hazard_index_percent": {
-     "debris_flow": 4,
-     "shallow_landslide": 0,
-     "rockfall": 5,
+     "debris_flow": 17,
+     "shallow_landslide": 1,
+     "rockfall": 24,
      "permafrost": 0
     }
    },
@@ -456,8 +456,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 9,
-     "rockfall": 15,
+     "shallow_landslide": 40,
+     "rockfall": 68,
      "permafrost": 0
     }
    },
@@ -474,8 +474,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 2,
-     "rockfall": 9,
+     "shallow_landslide": 7,
+     "rockfall": 41,
      "permafrost": 0
     }
    },
@@ -491,9 +491,9 @@
      "elevation_m": 1875
     },
     "hazard_index_percent": {
-     "debris_flow": 5,
-     "shallow_landslide": 10,
-     "rockfall": 18,
+     "debris_flow": 22,
+     "shallow_landslide": 44,
+     "rockfall": 83,
      "permafrost": 0
     }
    },
@@ -510,8 +510,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 9,
-     "rockfall": 0,
+     "shallow_landslide": 42,
+     "rockfall": 1,
      "permafrost": 42
     }
    },
@@ -527,9 +527,9 @@
      "elevation_m": 1294
     },
     "hazard_index_percent": {
-     "debris_flow": 4,
-     "shallow_landslide": 12,
-     "rockfall": 21,
+     "debris_flow": 15,
+     "shallow_landslide": 51,
+     "rockfall": 94,
      "permafrost": 0
     }
    },
@@ -546,8 +546,8 @@
     },
     "hazard_index_percent": {
      "debris_flow": 0,
-     "shallow_landslide": 1,
-     "rockfall": 2,
+     "shallow_landslide": 5,
+     "rockfall": 11,
      "permafrost": 24
     }
    }

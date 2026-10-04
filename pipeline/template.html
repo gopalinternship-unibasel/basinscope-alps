@@ -759,7 +759,7 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
       <div class="card">
         <header><h2>The ten largest glaciers</h2><span class="sub">of 299 in the study area</span></header>
         <div class="body"><div class="bars" id="glaciers"></div>
-          <p class="sub">14 glaciers larger than 5 km² hold 75% of the ice. For the Grosser Aletschgletscher the analysis found no suitable site inside the area: its tongue ends in the steep Massa gorge.<span id="thin-hint"> Thinning: how much the surface sank per year from 2000 to 2019, measured from space (Satellite sheet).</span></p></div>
+          <p class="sub">14 glaciers larger than 5 km² make up 75% of the glacier area. For the Grosser Aletschgletscher the analysis found no suitable site inside the area: its tongue ends in the steep Massa gorge.<span id="thin-hint"> Thinning: how much the surface sank per year from 2000 to 2019, measured from space (Satellite sheet).</span></p></div>
       </div>
     </section>
   </div>
@@ -965,7 +965,7 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
           <div><span class="scope-tag">Shared</span><b>Decision interface</b><ul><li>This dashboard, reading the region's dataset</li><li>Live federal feeds asked from the browser</li><li>GIS, utilities and offices reading the API</li></ul></div>
         </div>
         <div class="cols2">
-          <ul class="does"><li>Every source already covers the whole country, so no new data has to be bought or collected</li><li>The dashboard and the API are static files: a federal or cantonal host can serve them as they are</li><li>Data sovereignty: the live measurements, maps and satellite scenes come straight from Swiss federal services, and no account, key or tracker stands between a visitor and the data</li><li>Jungfrau–Aletsch is the first region, with 303 of the about 961 km² of Swiss glacier ice (SGI 2016)</li></ul>
+          <ul class="does"><li>Every source already covers the whole country, so no new data has to be bought or collected</li><li>The dashboard and the API are static files: a federal or cantonal host can serve them as they are</li><li>Data sovereignty: the live measurements, maps and satellite scenes come straight from Swiss federal services, and no account, key or tracker stands between a visitor and the data</li><li>Jungfrau–Aletsch is the first region, with 303 of the about 961 km² of Swiss glacier area (SGI 2016)</li></ul>
           <ul class="doesnt"><li>The terrain run has been done for this one region only and is not yet a repeatable job</li><li>Site names and the match to Hydro-CH2018 catchments are not automated yet</li><li>The forecast comes through Open-Meteo, free for non-commercial use: a federal service would read the MeteoSwiss open data itself</li><li>This demonstration is hosted on GitHub Pages; the same files can move to a Swiss host unchanged</li></ul>
         </div>
       </div>
@@ -991,8 +991,8 @@ table.st td:nth-child(2){font-family:var(--f-body);font-size:12.5px;color:var(--
               <li>Team analysis: “Retention Basins for Glacier Meltwater, Jungfrau–Aletsch”, 2 Oct 2026 (GRASS r.watershed and r.lake; 43 candidates, 15 ranked).</li>
               <li>Terrain: swissALTI3D, © swisstopo. Glaciers: <a href="https://doi.glamos.ch/data/inventory/inventory_sgi2016_r2020.html">Swiss Glacier Inventory SGI 2016</a>, GLAMOS.</li>
               <li>Runoff scenarios: <a href="https://www.bafu.admin.ch/en/data-hydro-ch2018">Hydro-CH2018</a>, FOEN, glacier catchment set L03, monthly total runoff, ensemble median and range.</li>
-              <li>Protected areas: federal inventories of floodplains, mires, mire landscapes, BLN, game reserves and UNESCO World Heritage (FOEN) and hydropower-waiver areas (SFOE), queried through the <a href="https://docs.geo.admin.ch/">geo.admin.ch API</a> on 3 Oct 2026 for a 250 m square around each point.</li>
-              <li>Hazard process areas: SilvaProtect-CH (debris flow, rockfall, shallow landslide, 2006) and the map of potential permafrost distribution (2005), FOEN, read from the federal map service for a 250 m square around each site on <span id="src-fed"></span>. Index maps, valid to 1:50,000.</li>
+              <li>Protected areas: federal inventories of floodplains, mires, mire landscapes, BLN, game reserves and UNESCO World Heritage (FOEN) and hydropower-waiver areas (SFOE), queried through the <a href="https://docs.geo.admin.ch/">geo.admin.ch API</a> on 3 Oct 2026 for a square reaching 250 m from each point.</li>
+              <li>Hazard process areas: SilvaProtect-CH (debris flow, rockfall, shallow landslide, 2006) and the map of potential permafrost distribution (2005), FOEN. For each site the share of the square reaching 250 m from it is measured: on the SilvaProtect-CH polygons of the federal data catalogue for debris flow, shallow landslide and rockfall, and on the federal map service for permafrost, on <span id="src-fed"></span>. Index maps, valid to 1:50,000.</li>
               <li>Hydropower plants (WASTA statistics), dams under federal supervision and the filling level of the storage lakes: SFOE. The plants and dams of the Risk outlook are read against the same index maps as the sites; their ground height comes from the swisstopo height service.</li>
               <li>Federal benchmark: <a href="https://www.newsd.admin.ch/newsd/message/attachments/90957.pdf">Analyse des Wasserkraftpotenzials der Gletscherschmelze</a>, report of the Federal Council of 6 December 2024 in fulfilment of postulate 21.3974. Project figures and assessments from its appendix.</li>
               <li>Energy sheet: electricity production by source, national consumption, cross-border exchange and the filling of the storage lakes from the <a href="https://www.energiedashboard.admin.ch/">SFOE energy dashboard</a> (Swissgrid figures); precipitation at Grimsel Hospiz and air temperature at Jungfraujoch from <a href="https://www.meteoswiss.admin.ch/services-and-publications/service/open-data.html">MeteoSwiss open data</a>. The match of plants to catchments is this dashboard's.</li>
@@ -1039,13 +1039,14 @@ const CRIT = [
 /* evidence layers: 1 = in, 2 = in as an index map only, 0 = not assessed */
 const EVIDENCE = [["Terrain and basin volume",1],["Meltwater supply",1],["Seasonal runoff scenarios",1],["Protected areas, federal inventories",1],["Hydropower plants and dams nearby",1],["Natural hazards, federal index maps",2],["Natural hazards, on-site assessment",0],["Geology and foundation",0],["Sediment infill",0],["Access and grid connection",0],["Water rights and cost",0]];
 /* federal layers read when the page was built: hazard process areas per site, hydropower plants, dams, reservoir storage */
-const FED = Object.assign({at:"", haz:{}, plants:[], dams:[], plantsAsOf:"", storage:null}, SNAP.federal || {});
+const FED = Object.assign({at:"", hazAt:"", haz:{}, plants:[], dams:[], plantsAsOf:"", storage:null}, SNAP.federal || {});
 const OV = {permafrost:"__OV_PERMAFROST__", debris:"__OV_DEBRIS__", rockfall:"__OV_ROCKFALL__"}, SAT = "__SAT__", SAT_DATE = "__SAT_DATE__";
-/* hazard processes: [label, what sets it off]; a process counts at a site when its mapped area covers HAZ_MIN per cent of the 250 m square */
+/* hazard processes: [label, what sets it off]; a process counts at a site when its mapped area covers HAZ_MIN per cent of the square that reaches 250 m from the site.
+   The permafrost map marks patches: no ranked site reaches 20 per cent, so permafrost keeps a lower bar */
 const HAZ = {debris:["Debris flow","rain"], landslide:["Shallow landslide","rain"], rockfall:["Rockfall","thaw"], permafrost:["Permafrost","thaw"]};
-const HAZ_MIN = 5, NEAR_KM = 5, SNOWLINE_M = 300;
+const HAZ_MIN = {debris:20, landslide:20, rockfall:20, permafrost:5}, NEAR_KM = 5, SNOWLINE_M = 300;
 const hazOf = id => FED.haz[id] || null;
-const hazOn = (id,k) => ((hazOf(id) || {})[k] || 0) >= HAZ_MIN;
+const hazOn = (id,k) => ((hazOf(id) || {})[k] || 0) >= HAZ_MIN[k];
 const nearby = (list, s) => list.map(p => ({...p, km: Math.hypot(p.E-s.E, p.N-s.N)/1000})).filter(p => p.km <= NEAR_KM).sort((p,q) => p.km-q.km);
 const nearest = (list, s) => list.reduce((m,p) => { const km = Math.hypot(p.E-s.E, p.N-s.N)/1000; return !m || km < m.km ? {...p, km} : m; }, null);
 const GLACIER_KM2 = 302.7, MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -1250,7 +1251,7 @@ function drawKpis(){
   const n = k => ROWS.filter(r=>r.cls===k).length;
   $("kpis").innerHTML = `
    <div class="kpi"><span class="eyebrow">Study area</span><span class="v">781<small>km²</small></span><span class="s">1,249 to 4,271 m a.s.l., Bernese and Valais Alps</span></div>
-   <div class="kpi"><span class="eyebrow">Glaciers</span><span class="v">${S.ice===100 ? "299" : "≈ " + Math.round(GLACIER_KM2*S.ice/100)}<small>${S.ice===100 ? "· 303 km²" : "km²"}</small></span><span class="s">${S.ice===100 ? "39% of the area. Three glaciers hold 43% of the ice." : "Scenario: " + S.ice + "% of today's 303 km² in 299 glaciers."}</span></div>
+   <div class="kpi"><span class="eyebrow">Glaciers</span><span class="v">${S.ice===100 ? "299" : "≈ " + Math.round(GLACIER_KM2*S.ice/100)}<small>${S.ice===100 ? "· 303 km²" : "km²"}</small></span><span class="s">${S.ice===100 ? "39% of the area. Three glaciers make up 43% of the glacier area." : "Scenario: " + S.ice + "% of today's 303 km² in 299 glaciers."}</span></div>
    <div class="kpi live"><span class="eyebrow">Meltwater per year</span><span class="v">${Math.round(melt)}<small>Mio m³</small></span><span class="s">at ${f2(S.melt)} m of melt, about ${f1(melt/31.536)} m³/s on average</span></div>
    <div class="kpi"><span class="eyebrow">Screening funnel</span><span class="v funnel">${CANDS.length+SITES.length}<i>→</i>${SITES.length}<i>→</i>${nw.length}</span><span class="s">candidates, ranked sites, new sites</span></div>
    <div class="kpi live"><span class="eyebrow">Storage at new sites</span><span class="v">${f1(stor)}<small>Mio m³</small></span><span class="s">${stor>0 ? f1(stor/melt*100) + "% of yearly melt, " + S.dam + " m dams. " + Math.round(nw.reduce((m,r)=>Math.max(m,r.usable),0)/stor*100) + "% of it at one site." : "No meltwater left to store in this scenario."}${cut ? " " + cut + " sites under strict protection left out." : (stor>0 && free<stor ? " " + f1(free) + " of it outside strict protection." : "")}${S.ice<100 ? " With today's glaciers: " + f1(today) + "." : ""}</span></div>
@@ -1352,7 +1353,7 @@ function drawSite(){
    </dl>
    <div class="conf"><span class="m"><i class="on"></i><i class="${conf>1?"on":""}"></i><i></i></span><span><b>${conf>1?"Medium":"Low"} confidence.</b> ${r.low? esc(r.low)+" " : ""}Terrain, inventory and index-map evidence only; hazards on site and geology are open.</span></div>
    <div class="block"><div class="eyebrow">Protected areas within 250 m</div>${protList(r)}<p class="sub">Federal inventories on geo.admin.ch, checked ${PROT_AT}. This is a flag for the legal check, not a ruling.</p></div>
-   <div class="block"><div class="eyebrow">Hazard process areas within 250 m</div>${hazList(r)}<p class="sub">Share of the 250 m square that the federal index maps mark (SilvaProtect-CH, permafrost map; FOEN). A flag for the hazard assessment, not a hazard map. Not part of the score.</p></div>
+   <div class="block"><div class="eyebrow">Hazard process areas within 250 m</div>${hazList(r)}<p class="sub">Share of the square reaching 250 m from the site that the federal index maps mark (SilvaProtect-CH, permafrost map; FOEN). A flag for the hazard assessment, not a hazard map. Not part of the score.</p></div>
    <div class="block"><div class="eyebrow">Hydropower within ${NEAR_KM} km</div>${infraList(r)}</div>
    ${fedBlock(r)}
    ${satBlock(r)}
@@ -1647,13 +1648,13 @@ function siteOutlook(r, out){
 function infOutlook(k, out){
   const d = FC.d, it = INF[k]; if (!out || !d.inf || !d.inf.pr[k] || !d.inf.fl[k]) return null;
   const day = out.days.map(o => { let mm = 0; for (let i = o.i0; i < o.i0 + o.n; i++){ const p = d.inf.pr[k][i], z = d.inf.fl[k][i]; if (num(p) && num(z) && z > it.z + SNOWLINE_M) mm += p; } return mm; });
-  const wetMm = Math.max(...day), on = h => (it.haz[h] || 0) >= HAZ_MIN;
+  const wetMm = Math.max(...day), on = h => (it.haz[h] || 0) >= HAZ_MIN[h];
   const rain = (on("debris") || on("landslide")) && wetMm >= S.rkRain, thaw = (on("rockfall") || on("permafrost")) && out.days.some(o => o.thaw);
   return {tot:day.reduce((p,q) => p+q, 0), wetMm, wetK:out.days[day.indexOf(wetMm)].k, rain, thaw, cls: rain && thaw ? "elev" : (rain || thaw ? "watch" : "calm")};
 }
 function drawInfraRisk(out){
   $("ir-card").hidden = !INF.length; if (!INF.length) return;
-  const rows = INF.map((it,k) => ({it, o:infOutlook(k, out), any:Object.keys(HAZ).some(h => (it.haz[h] || 0) >= HAZ_MIN)}));
+  const rows = INF.map((it,k) => ({it, o:infOutlook(k, out), any:Object.keys(HAZ).some(h => (it.haz[h] || 0) >= HAZ_MIN[h])}));
   rows.sort((p,q) => (p.it.k===q.it.k ? 0 : (p.it.k==="plant" ? -1 : 1)) || (p.it.k==="plant" ? q.it.gwh - p.it.gwh : q.it.h - p.it.h));
   const nP = INF.filter(it => it.k==="plant").length, nD = INF.length - nP, shown = rows.filter(r => r.any), clean = rows.filter(r => !r.any), have = rows.some(r => r.o);
   const gwh = shown.filter(r => r.it.k==="plant").reduce((t,r) => t + r.it.gwh, 0), all = rows.filter(r => r.it.k==="plant").reduce((t,r) => t + r.it.gwh, 0), marked = rows.filter(r => r.o && r.o.cls!=="calm");
@@ -1661,12 +1662,12 @@ function drawInfraRisk(out){
   $("ir-stats").innerHTML = `<div class="stat"><b>${shown.length} of ${rows.length}</b><span>plants and dams have a process mapped within ${INFRA.r} m: nearly every one stands below a mapped slope</span></div>
     <div class="stat"><b>${swiss(gwh)} GWh</b><span>a year is what the plants among them are expected to produce, of ${swiss(all)} GWh in the stress test</span></div>
     <div class="stat"><b>${have ? marked.length + " of " + rows.length : "–"}</b><span>${have ? "are marked in the five-day outlook with the thresholds above" : "The forecast runs on the self-hosted page only"}</span></div>`;
-  const cell = (it,h) => { const v = it.haz[h] || 0; return `<td class="hz${v >= HAZ_MIN ? " on" : ""}">${v ? v + "%" : "–"}</td>`; };
+  const cell = (it,h) => { const v = it.haz[h] || 0; return `<td class="hz${v >= HAZ_MIN[h] ? " on" : ""}">${v ? v + "%" : "–"}</td>`; };
   const size = it => it.k==="plant" ? (it.gwh >= 10 ? swiss(it.gwh) : f1(it.gwh)) + " GWh a year" : Math.round(it.h) + " m high";
   $("ir-tbl").innerHTML = `<thead><tr><th></th><th>Plant or dam</th><th>Size</th>${Object.keys(HAZ).map(h => `<th>${HAZ[h][0]}</th>`).join("")}${have ? "<th>Rain, 5 days</th><th>Outlook</th>" : ""}</tr></thead><tbody>`
     + shown.map(({it,o}) => { const why = !o ? "" : [o.rain ? `${f1(o.wetMm)} mm of rain on ${dayName(o.wetK)}` : "", o.thaw ? "thaw above the threshold" : ""].filter(Boolean).join("; ");
       return `<tr><td>${it.k==="plant" ? "Plant" : "Dam"}</td><td>${esc(it.n)}<span>${esc(it.type || "")}, ${swiss(it.z)} m a.s.l.</span></td><td>${size(it)}</td>${Object.keys(HAZ).map(h => cell(it,h)).join("")}${o ? `<td>${f1(o.tot)} mm</td><td class="pc"><span class="tag ${o.cls}">${OUT[o.cls]}</span>${why ? " " + why : ""}</td>` : (have ? "<td>–</td><td>–</td>" : "")}</tr>`; }).join("") + `</tbody>`;
-  $("ir-rule").textContent = `The ${nP} plants of the stress test on the Energy sheet and the ${nD} dams under federal supervision within ${INFRA.nearKm} km of a ranked site: the same index maps, the same ${INFRA.r} m square and the same rule as for the sites above. `
+  $("ir-rule").textContent = `The ${nP} plants of the stress test on the Energy sheet and the ${nD} dams under federal supervision within ${INFRA.nearKm} km of a ranked site: the same index maps, the same square reaching ${INFRA.r} m from each one and the same rule as for the sites above. `
     + (clean.length ? `No process is mapped at ${clean.map(r => r.it.n).join(", ")}. ` : "")
     + `The position is the powerhouse or the dam itself, so intakes, pressure lines and access roads are not covered, and the index maps do not know which protective works exist. A flag for the operator's own assessment, not a finding about any plant.`;
 }
@@ -1713,13 +1714,13 @@ function drawRisk(){
         <div class="stat"><b>${hitN} of ${ROWS.length}</b><span>sites where a forecast trigger meets a mapped process, with the thresholds above</span></div>`;
     }
   }
-  $("rk-sub").textContent = FED.at ? "federal index maps, read " + isoDay(FED.at) : "";
-  const cell = (r,k) => { const v = (hazOf(r.id) || {})[k] || 0; return `<td class="hz${v >= HAZ_MIN ? " on" : ""}">${v ? v + "%" : "–"}</td>`; };
+  $("rk-sub").textContent = (FED.hazAt || FED.at) ? "federal index maps, read " + isoDay(FED.hazAt || FED.at) : "";
+  const cell = (r,k) => { const v = (hazOf(r.id) || {})[k] || 0; return `<td class="hz${v >= HAZ_MIN[k] ? " on" : ""}">${v ? v + "%" : "–"}</td>`; };
   $("rk-tbl").innerHTML = `<thead><tr><th>#</th><th>Site</th>${Object.keys(HAZ).map(k => `<th>${HAZ[k][0]}</th>`).join("")}${out ? "<th>Rain, 5 days</th><th>Outlook</th>" : ""}</tr></thead><tbody>`
     + ROWS.map((r,i) => { const o = sos[i];
       const why = !o ? "" : [o.rain ? `${f1(o.wetMm)} mm of rain on ${dayName(o.wet.k)}` : "", o.thaw ? "thaw above the threshold" : ""].filter(Boolean).join("; ");
       return `<tr data-go="sites" data-id="${r.id}" tabindex="0"><td>${r.rank}</td><td><span class="ty ${r.type}" title="${TYPE[r.type]}"></span>${esc(r.name)}</td>${Object.keys(HAZ).map(k => cell(r,k)).join("")}${o ? `<td>${f1(o.tot)} mm</td><td class="pc"><span class="tag ${o.cls}">${OUT[o.cls]}</span>${why ? " " + why : ""}</td>` : (out ? "<td>–</td><td>–</td>" : "")}</tr>`; }).join("") + `</tbody>`;
-  $("rk-rule").textContent = `Share of the 250 m square around each site that the index map marks. A process counts from ${HAZ_MIN}% (bold). `
+  $("rk-rule").textContent = `Share of the square reaching 250 m from each site that the index map marks. A process counts from ${HAZ_MIN.rockfall}% of the square, permafrost from ${HAZ_MIN.permafrost}% (bold). `
     + (out ? `Watch: ${S.rkRain} mm of rain or more in one day at a site with debris flow or landslide mapped, or a zero-degree level of ${swiss(S.rkZ)} m or more over a site with rockfall or permafrost mapped. Elevated: both. Rain is precipitation that falls while the zero-degree level is more than ${SNOWLINE_M} m above the site. ` : (live ? "" : "The forecast runs on the self-hosted page only. "))
     + `Sites are in the order of the current ranking; pick one to open its evidence.`;
   drawInfraRisk(out);
@@ -2281,7 +2282,7 @@ async function connect(){
 }
 $("evidence").innerHTML = EVIDENCE.map(([t,ok]) => `<li class="${ok===1?"ok":(ok===2?"idx":"")}"><span>${t}</span><span>${ok===1?"in":(ok===2?"index map only":"not assessed")}</span></li>`).join("");
 $("ev-count").textContent = `${EVIDENCE.filter(x=>x[1]===1).length} of ${EVIDENCE.length} in, ${EVIDENCE.filter(x=>x[1]===2).length} as an index map`;
-$("src-fed").textContent = FED.at ? isoDay(FED.at) : "3 Oct 2026";
+$("src-fed").textContent = (FED.hazAt || FED.at) ? isoDay(FED.hazAt || FED.at) : "3 Oct 2026";
 $("twin-now").textContent = MODE==="site" ? "River discharge at seven federal gauges, air temperature at six mountain stations and a five-day forecast of the zero-degree level, asked from the federal services while the page is open."
   : "River discharge, mountain air temperature and a five-day forecast are shown on the self-hosted page. This copy shows the dataset snapshot.";
 drawBrief();

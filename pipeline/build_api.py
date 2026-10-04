@@ -7,7 +7,7 @@ Run on its own with `python build_api.py <site folder>`; build.py calls it after
 """
 import json, os, sys, shutil, datetime, hashlib
 
-VERSION = "1.4.0"
+VERSION = "1.4.1"
 BASE = "https://gopalinternship-unibasel.github.io/basinscope-alps/api/v1"
 TRIFT = {"chf": 387, "vol": 85, "gwh": 215}  # same reference project as the dashboard's business case
 TYPE = {"new": "New site", "reservoir": "Existing reservoir", "lake": "Existing lake", "settlement": "Settlement area"}
@@ -20,8 +20,8 @@ MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", 
 SOURCES = [
     {"what": "Sites, volumes, dam lengths, glacier areas", "source": "Team terrain analysis on swissALTI3D (swisstopo) and the Swiss Glacier Inventory SGI 2016 (GLAMOS)", "as_of": "2026-10-02"},
     {"what": "Monthly runoff scenarios", "source": "Hydro-CH2018, data set L03, Federal Office for the Environment (FOEN)"},
-    {"what": "Protected areas", "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point", "as_of": "2026-10-03"},
-    {"what": "Hazard process areas", "source": "SilvaProtect-CH (debris flow, rockfall, shallow landslide) and the map of potential permafrost distribution, FOEN, read from wms.geo.admin.ch for a 250 m square around each site. Index maps, valid to 1:50,000", "as_of": "2026-10-03"},
+    {"what": "Protected areas", "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, for a square reaching 250 m from each point", "as_of": "2026-10-03"},
+    {"what": "Hazard process areas", "source": "SilvaProtect-CH (debris flow, rockfall, shallow landslide) and the map of potential permafrost distribution, FOEN. Share of the square reaching 250 m from each site, measured on the SilvaProtect-CH polygons of data.geo.admin.ch and, for permafrost, on wms.geo.admin.ch. Index maps, valid to 1:50,000", "as_of": "2026-10-04"},
     {"what": "Hydropower plants, dams, reservoir storage", "source": "Hydropower statistics (WASTA), dams under federal supervision and filling level of the storage lakes, Swiss Federal Office of Energy (SFOE)"},
     {"what": "Satellite scenes, snow and ice extent", "source": "swissEO S2-SR, swisstopo, contains modified Copernicus Sentinel data 2015-2026; the extent is the dashboard's own count on those scenes"},
     {"what": "Glacier thinning", "source": "Hugonnet et al. 2021, Nature 592 (ASTER satellite stereo pictures, 2000-2019), on Randolph Glacier Inventory 6.0 outlines"},
@@ -191,9 +191,9 @@ def main(site_dir):
     haz_out = lambda h: {"debris_flow": h.get("debris", 0), "shallow_landslide": h.get("landslide", 0), "rockfall": h.get("rockfall", 0), "permafrost": h.get("permafrost", 0)}
     if inf:
         write("infrastructure-hazards.json", {
-            "read": inf["at"], "square_m": inf["r"],
+            "read": inf["at"], "square_m": 2 * inf["r"],
             "which": "The plants of the hydropower stress test and the dams under federal supervision within " + str(inf["nearKm"]) + " km of a ranked site.",
-            "method": "Share of the square around the powerhouse or the dam that the federal index maps mark, in per cent. An indication for the operator's own assessment, not a hazard map.",
+            "method": "Share of the square of that side, centred on the powerhouse or the dam, that the federal index maps mark, in per cent: measured on the SilvaProtect-CH polygons for debris flow, shallow landslide and rockfall, and on the federal map service for permafrost. An indication for the operator's own assessment, not a hazard map.",
             "items": [{"kind": i["k"], "name": i["n"], "type": i.get("type"), "expected_production_gwh_per_year": i.get("gwh"), "dam_height_m": i.get("h"),
                        "location": {"easting_lv95": i["E"], "northing_lv95": i["N"], "elevation_m": i["z"]}, "hazard_index_percent": haz_out(i["haz"])} for i in inf["items"]]})
     if fr:
@@ -241,7 +241,7 @@ def main(site_dir):
             "basin": {"type": "object", "properties": {"volume_10m_dam_mio_m3": num, "volume_20m_dam_mio_m3": num, "lake_area_ha": num, "dam_length_m": num}},
             "illustrative_investment_chf_m": {"type": "object", "description": "Basin volume scaled in a straight line from the KWO Trift project (CHF 387 m for 85 Mio m3). Order of magnitude only.", "properties": {"dam_10m": num, "dam_20m": num}},
             "catchment_id": integer, "protection": {"$ref": "#/components/schemas/Protection"},
-            "hazard_index_percent": {"type": "object", "nullable": True, "description": "Share of the 250 m square around the site that the federal index maps mark, in per cent. An indication for the hazard assessment, not a hazard map.",
+            "hazard_index_percent": {"type": "object", "nullable": True, "description": "Share of the square reaching 250 m from the site (500 m across) that the federal index maps mark, in per cent. An indication for the hazard assessment, not a hazard map.",
                                      "properties": {"debris_flow": num, "shallow_landslide": num, "rockfall": num, "permafrost": num}}, "confidence_note": {"type": "string", "nullable": True}, "notes": {"type": "array", "items": st}}},
         "Candidate": {"type": "object", "properties": {"id": st, "location": loc, "protection": {"$ref": "#/components/schemas/Protection"}}},
         "Catchment": {"type": "object", "properties": {"id": integer, "river": st, "gauge_place": st, "area_km2": num, "glacier_cover_percent": num, "site_ids": {"type": "array", "items": integer}}},
@@ -289,7 +289,7 @@ def main(site_dir):
               ("basin.lake_area_ha, dam_length_m", "Lake surface and dam length from the terrain analysis."),
               ("illustrative_investment_chf_m", "Volume scaled in a straight line from the KWO Trift project (CHF 387 m for 85 Mio m³). Order of magnitude only."),
               ("protection.level", "<code>strict</code>: floodplain, mire landscape, fen, raised bog or hydropower waiver. <code>landscape</code>: UNESCO, BLN or game reserve only. <code>none</code>: no hit. The grouping is the team's own."),
-              ("hazard_index_percent", "Share of the 250 m square around the site that the federal index maps mark for debris flow, shallow landslide, rockfall and permafrost. An indication for the hazard assessment, not a hazard map, and not part of any score."),
+              ("hazard_index_percent", "Share of the square reaching 250 m from the site (500 m across) that the federal index maps mark for debris flow, shallow landslide, rockfall and permafrost. An indication for the hazard assessment, not a hazard map, and not part of any score. Corrected in version 1.4.1: earlier versions gave about a fifth of the true share for debris flow, shallow landslide and rockfall, because they counted the hatch lines of the map picture."),
               ("catchment_id", "Hydro-CH2018 catchment the site is matched to. The matching is the team's assumption."),
               ("runoff", "Monthly runoff in mm per month: emissions path, then period, then <code>med</code>, <code>min</code>, <code>max</code> of the model ensemble, then month.")]
     html = f"""<!doctype html>

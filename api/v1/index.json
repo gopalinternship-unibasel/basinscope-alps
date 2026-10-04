@@ -1,6 +1,6 @@
 {
  "meta": {
-  "api_version": "1.4.0",
+  "api_version": "1.4.1",
   "generated": "2026-10-04",
   "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
@@ -118,13 +118,13 @@
    },
    {
     "what": "Protected areas",
-    "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, 250 m square around each point",
+    "source": "Federal inventories (FOEN, SFOE) through api3.geo.admin.ch, for a square reaching 250 m from each point",
     "as_of": "2026-10-03"
    },
    {
     "what": "Hazard process areas",
-    "source": "SilvaProtect-CH (debris flow, rockfall, shallow landslide) and the map of potential permafrost distribution, FOEN, read from wms.geo.admin.ch for a 250 m square around each site. Index maps, valid to 1:50,000",
-    "as_of": "2026-10-03"
+    "source": "SilvaProtect-CH (debris flow, rockfall, shallow landslide) and the map of potential permafrost distribution, FOEN. Share of the square reaching 250 m from each site, measured on the SilvaProtect-CH polygons of data.geo.admin.ch and, for permafrost, on wms.geo.admin.ch. Index maps, valid to 1:50,000",
+    "as_of": "2026-10-04"
    },
    {
     "what": "Hydropower plants, dams, reservoir storage",

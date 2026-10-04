@@ -1,6 +1,6 @@
 {
  "meta": {
-  "api_version": "1.4.0",
+  "api_version": "1.4.1",
   "generated": "2026-10-04",
   "notice": "Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study.",
   "docs": "https://gopalinternship-unibasel.github.io/basinscope-alps/api/"
@@ -50,9 +50,9 @@
    ]
   },
   "hazard_index_percent": {
-   "debris_flow": 1,
-   "shallow_landslide": 4,
-   "rockfall": 10,
+   "debris_flow": 4,
+   "shallow_landslide": 18,
+   "rockfall": 46,
    "permafrost": 8
   },
   "confidence_note": null,

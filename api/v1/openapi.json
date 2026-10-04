@@ -2,7 +2,7 @@
  "openapi": "3.0.3",
  "info": {
   "title": "BasinScope Alps data API",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Read-only data on glacier-meltwater retention basin sites in the Jungfrau-Aletsch area. Static JSON, no key, open to browser calls from any origin. Screening-level results from terrain, inventory and index-map evidence only. Natural hazards are read from federal index maps, not assessed on site; geology is not assessed. Not a basis for engineering or investment decisions without a feasibility study."
  },
  "servers": [
@@ -730,7 +730,7 @@
      "hazard_index_percent": {
       "type": "object",
       "nullable": true,
-      "description": "Share of the 250 m square around the site that the federal index maps mark, in per cent. An indication for the hazard assessment, not a hazard map.",
+      "description": "Share of the square reaching 250 m from the site (500 m across) that the federal index maps mark, in per cent. An indication for the hazard assessment, not a hazard map.",
       "properties": {
        "debris_flow": {
         "type": "number"

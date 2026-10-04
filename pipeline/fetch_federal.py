@@ -7,11 +7,14 @@ Writes
                             ranked site (FOEN indicative maps), Swiss reservoir storage (SFOE, weekly)
   build/ov_<layer>.webp     the same hazard maps as transparent pictures laid over the dashboard map
 
-Why at build time: the hazard maps are served as pictures only (no feature query), and the SFOE storage file
-does not allow calls from other web origins.
+Why at build time: the hazard maps answer no feature query, and the SFOE storage file does not allow calls from
+other web origins. The hazard shares are measured by hazard_share.py: on the polygons of the federal data catalogue
+for debris flow, shallow landslide and rockfall, which the map service draws as hatching, and on a map picture for
+permafrost.
 """
 import csv, datetime, io, json, sys, time, urllib.parse, urllib.request
 from PIL import Image
+import hazard_share
 
 SP = sys.argv[1]
 B = SP + "/build/"
@@ -49,16 +52,11 @@ def wms(layer, box, w, h):
 # The SilvaProtect avalanche layer is left out: it only models avalanches that start in forest, which says nothing above the tree line.
 HAZ = {"permafrost": "ch.bafu.permafrost", "debris": "ch.bafu.silvaprotect-murgang", "rockfall": "ch.bafu.silvaprotect-sturz",
        "landslide": "ch.bafu.silvaprotect-hangmuren"}
-R = 250  # metres around each site, the same square as the protected-area check
+# share of the square that reaches 250 m from each site in every direction, the same reach as the protected-area check
 haz = {}
 for s in base["sites"]:
-    row = {}
-    for k, layer in HAZ.items():
-        im = wms(layer, (s["E"] - R, s["N"] - R, s["E"] + R, s["N"] + R), 100, 100)
-        alpha = im.getchannel("A")
-        row[k] = round(sum(1 for v in alpha.getdata() if v > 40) / (100 * 100) * 100)
-    haz[str(s["id"])] = row
-    print("hazard", s["id"], s["name"], row)
+    haz[str(s["id"])] = hazard_share.shares(B, s["E"], s["N"])
+    print("hazard", s["id"], s["name"], haz[str(s["id"])])
 
 for k in ("permafrost", "debris", "rockfall"):
     im = wms(HAZ[k], BOX, W * 2, H * 2).resize((int(W * 1.5), int(H * 1.5)), Image.LANCZOS)
@@ -106,6 +104,6 @@ storage = {"date": last["Datum"], "gwh": float(last["TotalCH_speicherinhalt_gwh"
            "year": [[r["Datum"], float(r["TotalCH_speicherinhalt_gwh"])] for r in rows[-53:]]}
 print("storage", storage["date"], storage["gwh"], "of", storage["max"])
 
-out = {"at": datetime.date.today().isoformat(), "box": BOX, "haz": haz, "plants": plants, "dams": dams, "plantsAsOf": stat_date, "storage": storage}
+out = {"at": datetime.date.today().isoformat(), "hazAt": datetime.date.today().isoformat(), "box": BOX, "haz": haz, "plants": plants, "dams": dams, "plantsAsOf": stat_date, "storage": storage}
 json.dump(out, open(B + "federal.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 print("wrote federal.json")
